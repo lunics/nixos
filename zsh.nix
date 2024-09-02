@@ -41,4 +41,5 @@
   #     { name = "olets/zsh-abbr"; # tags = ["at:82fc2b53d7b1c2df60fdea6f13701cff9c536197"]; }
   #   ];
   # };
+  };
 }
