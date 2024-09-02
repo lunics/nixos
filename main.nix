@@ -2,6 +2,7 @@
 
   imports = [
     ./zsh.nix
+    ./programs/ssh.nix
     inputs.ags.homeManagerModules.default
   ];
 
