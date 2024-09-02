@@ -20,6 +20,7 @@
         ./services.nix
         ./location.nix
         ./users.nix
+        ./ntp.nix
         ./audio.nix
       ];
     };
