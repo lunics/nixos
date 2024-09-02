@@ -72,8 +72,8 @@
   sstart =     "ss start";
   srestart =   "ss restart";
   sstop =      "ss stop";
-  700 =        "chmod 700";
-  600 =        "chmod 600";
+  "700" =        "chmod 700";
+  "600" =        "chmod 600";
   jtodo =      "$JOPLIN edit 0e29a; $JOPLIN sync";
   jls =        "$JOPLIN use ToDo && $JOPLIN ls -l && echo; $JOPLIN use Notes && $JOPLIN ls -l";
   diff= "diff --color=auto";
