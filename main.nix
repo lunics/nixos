@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, ...}: {
 
   imports = [
-    ./aliases.nix
+    # ./aliases.nix
     inputs.ags.homeManagerModules.default
   ];
 
