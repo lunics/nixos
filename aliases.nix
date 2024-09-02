@@ -65,7 +65,6 @@
   log_kernel  =  "journalctl -xb";
   log_kernel2 = "sudo dmesg -TxH --follow";
   log_hypr    = "{{ 'cat {{ path_logs }}/hyprland.log' if compositor == 'wayland' }}";
-  calc        = "/usr/bin/bc -q";
   su-systemd  = "machinectl shell [username]@.host";             ## a tester: new su for systemd
 
   mpv =  "mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)";
