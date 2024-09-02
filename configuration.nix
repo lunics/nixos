@@ -16,6 +16,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # used in bash and zsh modules to add shell completion for packages that provide it.
+  environment.pathsToLink = [ "/share/zsh" ];
+  programs.zsh.enable = true;
+
   # nix search wget
   environment.systemPackages = with pkgs; [
     neovim
@@ -34,5 +38,5 @@
 
   fonts.fontconfig.enable = true;
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }
