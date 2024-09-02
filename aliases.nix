@@ -1,4 +1,4 @@
-{ home.shellAliases = {
+{ shellAliases = {
   l     = "exa -l --group-directories-first";
   g     = "lazygit";
   q     = "exit";
