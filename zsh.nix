@@ -4,9 +4,10 @@
     enable = true;
     enableCompletion = false;
     autosuggestion.enable = true;
+
     # dotDir = "${config.home.sessionVariables.XDG_CONFIG_HOME}/zsh";
     # history.path = "${config.home.sessionVariables.XDG_DATA_HOME}/zsh/history";
-    initExtra = builtins.readFile ./zshrc;
+    # initExtra = builtins.readFile ./zshrc;
     # initExtraBeforeCompInit = builtins.readFile ./.initExtraBeforeCompInit;
 
     # ./aliases.nix
