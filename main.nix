@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ...}: {
 
   imports = [
+    ./zsh.nix
     inputs.ags.homeManagerModules.default
   ];
 
