@@ -13,7 +13,7 @@ lunics = {
     #  thunderbird
   ];
   openssh = {
-    authorizedKeys.keys= = [
+    authorizedKeys.keys = [
       "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
     ];
   }
