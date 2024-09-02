@@ -16,7 +16,7 @@ lunics = {
     authorizedKeys.keys = [
       "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
     ];
-  }
+  };
 };
 
 };}
