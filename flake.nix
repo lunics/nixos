@@ -15,10 +15,11 @@
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
         # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
         ./hardware-configuration.nix
+        ./hardware-configuration.nix
         ./configuration.nix
         ./services.nix
         ./location.nix
-        ./network/main.nix
+        ./network.nix
         ./ntp.nix
         ./users.nix
         ./audio.nix

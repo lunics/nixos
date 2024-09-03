@@ -2,6 +2,11 @@
   networking = {
     hostName = "nixos";
 
+    useDHCP = lib.mkDefault true;
+    # interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
+    # interfaces.wlp3s0.useDHCP    = lib.mkDefault true;
+    # interfaces.wwan0.useDHCP     = lib.mkDefault true;
+
     nameservers = [
       # quad9
       "9.9.9.9"
@@ -18,6 +23,7 @@
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+
     networkmanager = {
       enable = true;
     };
@@ -27,7 +33,7 @@
   #   enable      = true;
   #   dnssec      = "true";
   #   dnsovertls  = "true";
-  #   domains     = [ "~." ];
+  #   domains     = [ "local" ];
   #   fallbackDns = [
   #     # quad9
   #     "9.9.9.9"
