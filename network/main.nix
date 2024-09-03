@@ -2,16 +2,16 @@
   networking = {
     hostName = "nixos";
 
-    # nameservers = [
-    #   # quad9
-    #   "9.9.9.9"
-    #   "149.112.112.112"
-    #   "2620:fe::fe"
-    #   "2620:fe::9"
-    #
-    #   # local
-    #   "192.168.1.1"
-    # ];
+    nameservers = [
+      # quad9
+      "9.9.9.9"
+      "149.112.112.112"
+      "2620:fe::fe"
+      "2620:fe::9"
+
+      # local
+      "192.168.1.1"
+    ];
 
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Configure network proxy if necessary
@@ -23,20 +23,20 @@
     };
   };
 
-  services.resolved = {
-    enable      = true;
-    dnssec      = "true";
-    dnsovertls  = "true";
-    domains     = [ "~." ];
-    fallbackDns = [
-      # quad9
-      "9.9.9.9"
-      "149.112.112.112"
-      "2620:fe::fe"
-      "2620:fe::9"
-
-      # local
-      "192.168.1.1"
-    ];
-  };
+  # services.resolved = {
+  #   enable      = true;
+  #   dnssec      = "true";
+  #   dnsovertls  = "true";
+  #   domains     = [ "~." ];
+  #   fallbackDns = [
+  #     # quad9
+  #     "9.9.9.9"
+  #     "149.112.112.112"
+  #     "2620:fe::fe"
+  #     "2620:fe::9"
+  #
+  #     # local
+  #     "192.168.1.1"
+  #   ];
+  # };
 }
