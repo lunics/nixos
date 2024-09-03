@@ -14,13 +14,13 @@
       modules = [
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
         # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-
         ./hardware-configuration.nix
         ./configuration.nix
         ./services.nix
         ./location.nix
-        ./users.nix
+        ./network/main.nix
         ./ntp.nix
+        ./users.nix
         ./audio.nix
       ];
     };
