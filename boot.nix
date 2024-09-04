@@ -21,7 +21,7 @@
     systemd-boot.enable = true;
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint     = "/boot/efi";
+      efiSysMountPoint     = "/boot";     # KO /boot/efi, TODO at live installation
     };
   };
 
