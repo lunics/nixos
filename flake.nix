@@ -9,7 +9,7 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.lunics = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.lunics = nixpkgs.lib.nixosSystem {    ## replace lunics by hostname target
       system = "x86_64-linux";
       modules = [
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
