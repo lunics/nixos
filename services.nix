@@ -8,22 +8,23 @@
     desktopManager.gnome.enable = true;
     xkb = {
       layout  = "fr";
-      variant = "";};};
+      variant = "";   };};
 
   openssh = {
     enable   = true;
     ports    = [ 22 ];
     settings = {
       PermitRootLogin      = "yes";
-      PubkeyAuthentication = true;};};
+      PubkeyAuthentication = true;  };};
 
   avahi = {
     enable  = true;
     nssmdns = true;
+    # package = pkgs.avahi;
     publish = {
       enable    = true;
-      addresses = true;
-  };
+      addresses = true; };};
 
   printing.enable = true;
+
 };}
