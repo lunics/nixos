@@ -33,5 +33,10 @@
     username      = "lunics";
     homeDirectory = "/home/lunics";
     stateVersion  = "24.05";
+    packages      = [
+      neovim
+      git
+      lazygit
+    ];
   };
 }
