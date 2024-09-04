@@ -1,8 +1,9 @@
 { config, pkgs, lib, inputs, ...}: {
 
   imports = [
+    ./packages.nix
     ./zsh.nix
-    ./programs/ssh.nix
+    ./ssh.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -33,30 +34,5 @@
     username      = "lunics";
     homeDirectory = "/home/lunics";
     stateVersion  = "24.05";
-    packages      = with pkgs; [
-      neovim
-      git
-      gh
-      lazygit
-      alacritty
-      tmux
-      yazi
-      ueberzugpp
-
-      firefox
-      tor-browser
-
-      lsd
-      fzf
-      starship
-      zoxide
-      bat
-      wget
-      fd
-
-      # unzip
-      ouch
-      xarchiver
-    ];
   };
 }
