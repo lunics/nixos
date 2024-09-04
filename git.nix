@@ -1,4 +1,10 @@
-{ pkgs, userSettings, ... }: { programs = {
+{ programs = {
+
+  # TODO exports
+  # GIT_CONFIG_GLOBAL: $CONFIG/git/gitconfig
+  # GIT_AUTHOR_NAME:   lunics
+  # GIT_AUTHOR_EMAIL:  contact@***REMOVED***
+  # GH_TOKEN:          "{{ github_token }}"
 
   git = {
     enable      = true;
@@ -14,7 +20,7 @@
 
   gh = {
     enable = true;
-    settings.git_protocol = "ssh";
+    settings.git_protocol = "ssh";    # ssh, https
   };
 };
 }
