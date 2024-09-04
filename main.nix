@@ -4,6 +4,7 @@
     ./packages.nix
     ./zsh.nix
     ./ssh.nix
+    ./git.nix
     inputs.ags.homeManagerModules.default
   ];
 
