@@ -18,11 +18,10 @@
       PubkeyAuthentication = true;  };};
 
   avahi = {
-    enable  = true;
-    nssmdns = true;
-    # package = pkgs.avahi;
-    publish = {
-      enable    = true;
+    enable   = true;
+    nssmdns4 = true;
+    publish  = {
+      enable    = false;
       addresses = true; };};
 
   printing.enable = true;
