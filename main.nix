@@ -33,10 +33,30 @@
     username      = "lunics";
     homeDirectory = "/home/lunics";
     stateVersion  = "24.05";
-    packages      = [
+    packages      = with pkgs; [
       neovim
       git
+      gh
       lazygit
+      alacritty
+      tmux
+      yazi
+      ueberzugpp
+
+      firefox
+      tor-browser
+
+      lsd
+      fzf
+      starship
+      zoxide
+      bat
+      wget
+      fd
+
+      # unzip
+      ouch
+      xarchiver
     ];
   };
 }
