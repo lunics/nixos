@@ -17,5 +17,13 @@
       PermitRootLogin      = "yes";
       PubkeyAuthentication = true;};};
 
+  avahi = {
+    enable  = true;
+    nssmdns = true;
+    publish = {
+      enable    = true;
+      addresses = true;
+  };
+
   printing.enable = true;
 };}
