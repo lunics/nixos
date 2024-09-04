@@ -31,15 +31,46 @@
       # "2606:4700:4700::1001"
     ];
 
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
     networkmanager = {
-      enable = true;
+      enable       = true;
+      dhcp         = "internal";          # dhcpcd, internal
+      dns          = "default";           # default (resolv.conf), dnsmasq, systemd-resolved, none
+      enableStrongSwan = false;           # multiplatform IPsec implementation
+      wifi = {
+        backend    = "iwd";               # iwd, wpa_supplicant
+        macAddress = "preserve";          # permanent", preserve, random, stable, stable-ssid
+        scanRandMacAddress = true;        # Wifi random MAC address generation to avoid public tracking by MAC
+      };
     };
+
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        Network = {
+          EnableIPv6           = false;
+          RoutePriorityOffset  = 200;
+          NameResolvingService = "resolvconf";
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+        General = {
+          EnableNetworkConfiguration = true;
+        };
+        Scan = {
+          DisablePeriodicScan = false;
+        };
+      };
+    };
+
+    # ## iwd.service.j2
+    # [Service]
+    # RuntimeDirectory=resolvconf
+    # ReadWritePaths=/etc/resolv.conf
   };
 
   # services.resolved = {

@@ -6,11 +6,9 @@
   environment.pathsToLink = [ "/share/zsh" ];
   programs.zsh.enable = true;
 
-  # nix search wget
   environment.systemPackages = with pkgs; [
     neovim
     git
-    lazygit
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

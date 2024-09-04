@@ -1,4 +1,4 @@
-# nixos-rebuild switch --flake /etc/nixos#lunics
+# sudo nixos-rebuild switch --flake ./#lunics
 # sudo nixos-rebuild switch --flake /home/lunics/nixos#lunics
 # nixos-rebuild switch --flake github:owner/repo#your-hostname
 {
