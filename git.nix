@@ -1,15 +1,15 @@
 { pkgs, userSettings, ... }: { programs = {
 
   git = {
-    enable     = true;
-    userName   = "Lunics";
-    userEmail  = "git@***REMOVED***";
-
-    # extraConfig = {
-    #   color.ui = true;
-    #   commit.verbose = true;
-    #   pull.rebase = true;
-    # };
+    enable      = true;
+    userName    = "Lunics";
+    userEmail   = "git@***REMOVED***";
+    extraConfig = {
+      init.defaultBranch = "main";
+      # color.ui = true;
+      # commit.verbose = true;
+      # pull.rebase = true;
+    };
   };
 
   gh = {
