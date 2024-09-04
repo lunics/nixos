@@ -18,10 +18,32 @@
   extraModulePackages = [ ];
 
   loader = {
-    systemd-boot.enable = true;
-    efi = {
+    grub = {
+      efiSupport  = true;
+      device      = "nodev";
+      default     = "0";            # default menu item to be booted
+      fontSize    = 18;
+      configurationName = "";
+      fsIdentifier = "uuid";        # uuid, label, provided; How GRUB will identify devices when generating the configuration file
+      storePath = "/nix/store";
+      useOSProber = false;
+
+      timeoutStyle = "menu";        # menu (shows the menu), countdown (text-mode countdown), hidden
+
+      # users = {
+      #   root = {
+      #     hashedPasswordFile = "/path/to/file";
+      #   };
+      # };
+
+      # splashImage = "./my-background.png";  # must be: png, tga, jpg or jpeg; Background image
+      # splashMode = "stretch";       # normal", stretch; Stretch the image or show the image in the top-left corner unstretched
+      # theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
+    };
+
+    efi  = {
       canTouchEfiVariables = true;
-      efiSysMountPoint     = "/boot";     # KO /boot/efi, TODO at live installation
+      efiSysMountPoint     = "/boot";     # KO /boot/efi, TRY at live installation
     };
   };
 
