@@ -18,7 +18,7 @@
       PubkeyAuthentication = true;  };};
 
   avahi = {
-    enable   = true;
+    enable   = false;
     nssmdns4 = true;
     publish  = {
       enable    = false;
