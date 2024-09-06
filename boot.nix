@@ -5,8 +5,7 @@
     kernelModules = [ ];
     luks = {
       devices = {
-        "luks-swap".device = "/dev/disk/by-uuid/b6890844-2d38-4f35-807f-2ad2922ae9a5";
-        # "luks-root".device = "/dev/disk/by-uuid/583527bd-7352-477f-81a0-a41829cdb53a";  # KO build
+        "luks".device = "/dev/disk/by-uuid/3019cc95-1cc4-4f73-aec7-d5a030626aef";
       };
       fido2Support       = false;
       yubikeySupport     = false;
