@@ -13,6 +13,7 @@ firefox
 tor-browser
 
 lsd
+eza
 fzf
 starship
 zoxide
