@@ -14,12 +14,9 @@
       LC_NUMERIC        = "fr_FR.UTF-8";
       LC_PAPER          = "fr_FR.UTF-8";
       LC_TELEPHONE      = "fr_FR.UTF-8";
-      LC_TIME           = "fr_FR.UTF-8";
-    };
-  };
+      LC_TIME           = "fr_FR.UTF-8"; }; };
 
   console  = {
     keyMap = "fr";
-    font   = "lat9w-16";
-  };
+    font   = "lat9w-16"; };
 }

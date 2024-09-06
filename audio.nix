@@ -2,6 +2,7 @@
 
 security.rtkit.enable      = true;
 hardware.pulseaudio.enable = false;
+
 services.pipewire = {
   enable               = true;
   audio.enable         = true;
@@ -9,5 +10,6 @@ services.pipewire = {
   pulse.enable         = true;
   alsa.enable          = true;
   alsa.support32Bit    = true;
-  jack.enable          = true;
-};}
+  jack.enable          = true; };
+
+}
