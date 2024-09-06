@@ -10,7 +10,6 @@ networking = {
     enable       = true;
     dhcp         = "internal";          # dhcpcd, internal
     dns          = "systemd-resolved";  # default (resolv.conf), dnsmasq, systemd-resolved, none
-    # connectionConfig."connection.mdns" = 2; # enable mdns resolution for resolved on all connections
     enableStrongSwan = false;           # multiplatform IPsec implementation
     wifi = {
       backend    = "iwd";               # iwd, wpa_supplicant

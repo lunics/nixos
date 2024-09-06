@@ -1,5 +1,5 @@
 # sudo nixos-rebuild switch --flake ./#lunics
-# sudo nixos-rebuild switch --flake /home/lunics/nixos#lunics
+# sudo nixos-rebuild switch --flake /home/lunics/homelab#lunics
 # nixos-rebuild switch --flake github:owner/repo#your-hostname
 {
   inputs = {

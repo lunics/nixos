@@ -4,9 +4,9 @@
     availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
     kernelModules = [ ];
     luks = {
-      devices = {
-        "luks".device = "/dev/disk/by-uuid/3019cc95-1cc4-4f73-aec7-d5a030626aef";
-      };
+      # devices = {
+      #   "luks".device = "/dev/disk/by-uuid/3019cc95-1cc4-4f73-aec7-d5a030626aef";
+      # };
       fido2Support       = false;
       yubikeySupport     = false;
       mitigateDMAAttacks = true;    # blacklists FireWire drivers to avoid encryption keys stollen from a physical access via FireWire port, manually load the drivers if you need it.
