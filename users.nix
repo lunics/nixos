@@ -10,7 +10,9 @@ lunics = {
   # password     = TODO SOPS;
   shell        = pkgs.zsh;
   packages     = with pkgs; [
-    #  thunderbird
+    neovim
+    git
+    lazygit
   ];
   openssh = {
     authorizedKeys.keys = [

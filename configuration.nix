@@ -7,8 +7,6 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
-    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
