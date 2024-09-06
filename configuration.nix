@@ -3,7 +3,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  zramSwap.enable;
+  zramSwap.enable = true;
 
   # used in bash and zsh modules to add shell completion for packages that provide it.
   environment.pathsToLink = [ "/share/zsh" ];
