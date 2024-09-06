@@ -1,8 +1,7 @@
-{ config, pkgs, lib, inputs, ...}: {
+{ config, pkgs, inputs, ...}: {
 
   imports = [
     ./packages.nix
-    ./zsh.nix
     ./ssh.nix
     ./git.nix
     inputs.ags.homeManagerModules.default
@@ -22,9 +21,10 @@
       ];
     };
 
-    direnv.enable = true;
-    direnv.enableBashIntegration = true;
-    direnv.nix-direnv.enable = true;
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;       };
 
     # gpg.enable = true;
     # gpg.homedir = "${config.home.homeDirectory}/.config/gnupg";

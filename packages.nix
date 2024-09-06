@@ -1,27 +1,27 @@
 { pkgs, ... }: { home.packages = with pkgs; [
 
-  neovim
-  git
-  gh
-  lazygit
-  alacritty
-  tmux
-  yazi
-  ueberzugpp
+neovim
+git
+gh
+lazygit
+alacritty
+tmux
+yazi
+ueberzugpp
 
-  firefox
-  tor-browser
+firefox
+tor-browser
 
-  lsd
-  fzf
-  starship
-  zoxide
-  bat
-  wget
-  fd
+lsd
+fzf
+starship
+zoxide
+bat
+wget
+fd
 
-  # unzip
-  ouch
-  xarchiver
+# unzip
+ouch
+xarchiver
 
 ];}
