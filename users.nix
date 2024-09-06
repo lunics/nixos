@@ -8,7 +8,7 @@ lunics = {
   extraGroups  = [ "wheel" "networkmanager" ];
   # hashedPassword =
   # password     = TODO SOPS;
-  shell        = pkgs.zsh;
+  # shell        = pkgs.zsh;
   packages     = with pkgs; [
     neovim
     git
