@@ -23,11 +23,4 @@ fd
 ouch
 xarchiver
 
-waypaper
-# hyprpaper  KO
-hyprlock
-hyprpicker
-wl-clipboard
-waybar
-
-];}
+] ;}

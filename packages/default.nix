@@ -1,5 +1,7 @@
 { imports = [
 
-./packages.nix
+./main.nix
+./hyprland.nix
+./messaging.nix
 
 ]; }
