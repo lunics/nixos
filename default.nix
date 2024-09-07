@@ -2,7 +2,7 @@
 
   imports = [
     inputs.ags.homeManagerModules.default
-    ./packages.nix
+    ./packages
     ./ssh_client.nix
     ./git.nix
     ./bash.nix
