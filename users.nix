@@ -9,7 +9,7 @@ lunics = {
   # mkpasswd -m sha-512
   hashedPassword = "$6$***REMOVED***$WUOZvh/EQjZ9rqhLszgkhwpLmgoSAbTDGEX3sAxoJyiMdsD31OgT2RidXCznIEUzsw/459BoZWpKiHxqC8Nct/";
   # password     = TODO SOPS;
-  shell        = pkgs.bash;
+  shell        = pkgs.zsh;
   packages       = with pkgs; [
     neovim
     git
