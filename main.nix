@@ -5,6 +5,7 @@
     ./packages.nix
     ./ssh_client.nix
     ./git.nix
+    ./shell/bash.nix
     ./aliases.nix
     ./env_var.nix
   ];
@@ -36,6 +37,5 @@
   home = {
     username      = "lunics";
     homeDirectory = "/home/lunics";
-    stateVersion  = "24.05";
-  };
+    stateVersion  = "24.05";      };
 }
