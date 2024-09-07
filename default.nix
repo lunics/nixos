@@ -9,7 +9,8 @@
     ./aliases.nix
     ./env_var.nix
     ./terminal.nix
-    ./launcher.nix
+    # ./launcher.nix
+    ./notifier.nix
   ];
 
   programs = {
