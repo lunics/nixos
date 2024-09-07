@@ -3,7 +3,7 @@
   imports = [
     inputs.ags.homeManagerModules.default
     ./packages.nix
-    ./ssh.nix
+    ./ssh_client.nix
     ./git.nix
     ./aliases.nix
     ./env_var.nix
