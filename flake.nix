@@ -24,6 +24,7 @@
         ./ntp.nix
         ./users.nix
         ./audio.nix
+        ./fonts.nix
         ./hyprland.nix
       ];
     };

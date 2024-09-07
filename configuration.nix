@@ -26,7 +26,5 @@
   #   enableSSHSupport = true;
   # };
 
-  fonts.fontconfig.enable = true;
-
   system.stateVersion = "24.05";
 }
