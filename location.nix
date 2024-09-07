@@ -3,7 +3,7 @@
   time.timeZone = "Europe/Paris";
 
   i18n = {
-    defaultLocale       = "fr_FR.UTF-8";
+    defaultLocale       = "en_US.UTF-8";
 
     extraLocaleSettings = {
       LC_ADDRESS        = "fr_FR.UTF-8";
