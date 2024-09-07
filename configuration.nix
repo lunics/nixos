@@ -7,7 +7,7 @@
     enable        = true;
     memoryPercent = 50;
     priority      = 5;
-    algorithm     = zstd;
+    algorithm     = "zstd";
   };
 
   # used in bash and zsh modules to add shell completion for packages that provide it.
