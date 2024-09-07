@@ -23,6 +23,11 @@ XDG_PICTURES_DIR      = "$HOME/pictures";
 XDG_PUBLICSHARE_DIR   = "$HOME/public";
 XDG_TEMPLATES_DIR     = "$HOME/templates";
 XDG_VIDEOS_DIR        = "$HOME/videos";
+XDG_CURRENT_DESKTOP   = "Hyprland";
+XDG_SESSION_DESKTOP   = "Hyprland";
+XDG_SESSION_TYPE      = "wayland";
+CLUTTER_BACKEND       = "wayland";
+
 
 # PATH
 CONFIG         = "$HOME/.config";
