@@ -25,4 +25,10 @@ fd
 ouch
 xarchiver
 
+waypaper
+hyprpaper
+hyprlock
+hyprpicker
+wl-clipboard
+
 ];}
