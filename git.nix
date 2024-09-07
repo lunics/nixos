@@ -1,26 +1,22 @@
-{ programs = {
-
-  # TODO exports
-  # GIT_CONFIG_GLOBAL: $CONFIG/git/gitconfig
-  # GIT_AUTHOR_NAME:   lunics
-  # GIT_AUTHOR_EMAIL:  contact@***REMOVED***
-  # GH_TOKEN:          "{{ github_token }}"
+{ pkgs, ... }:{ programs = {
 
   git = {
     enable      = true;
+    package     = pkgs.git;
     userName    = "Lunics";
     userEmail   = "git@***REMOVED***";
     extraConfig = {
-      init.defaultBranch = "main";
-      # color.ui = true;
-      # commit.verbose = true;
-      # pull.rebase = true;
-    };
-  };
+      init.defaultBranch = "main"; }; };
 
   gh = {
-    enable = true;
-    settings.git_protocol = "ssh";    # ssh, https
-  };
-};
+    enable  = true;
+    package = pkgs.gh;
+    settings.git_protocol = "ssh"; }; };
+
+  # home.sessionVariables = {
+  #   GIT_CONFIG_GLOBAL = "$CONFIG/git/gitconfig";
+  #   GIT_AUTHOR_NAME   = "Lunics";
+  #   GIT_AUTHOR_EMAIL  = "git@***REMOVED***";
+  #   GH_TOKEN          = "{{ github_token }}"; };
+
 }

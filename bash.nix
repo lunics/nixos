@@ -2,4 +2,4 @@
   programs.bash = {
     enable = true;
   };
-};
+}

@@ -5,9 +5,10 @@
     ./packages.nix
     ./ssh_client.nix
     ./git.nix
-    ./shell/bash.nix
+    ./bash.nix
     ./aliases.nix
     ./env_var.nix
+    ./terminal.nix
   ];
 
   programs = {

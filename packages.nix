@@ -1,10 +1,7 @@
-{ pkgs, ... }: { home.packages = with pkgs; [
+{ pkgs, ... }:{ home.packages = with pkgs; [
 
 neovim
-git
-gh
 lazygit
-alacritty
 tmux
 yazi
 ueberzugpp
