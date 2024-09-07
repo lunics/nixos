@@ -31,6 +31,6 @@ hyprlock
 hyprpicker
 wl-clipboard
 
-python3-3.12.4
+python3
 
 ];}
