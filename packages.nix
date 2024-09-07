@@ -26,7 +26,7 @@ ouch
 xarchiver
 
 waypaper
-hyprpaper
+# hyprpaper
 hyprlock
 hyprpicker
 wl-clipboard
