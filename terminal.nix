@@ -11,4 +11,4 @@ programs.alacritty = {
   };
 };
 
-};
+}
