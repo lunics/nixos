@@ -9,6 +9,7 @@
     ./aliases.nix
     ./env_var.nix
     ./terminal.nix
+    ./launcher.nix
   ];
 
   programs = {

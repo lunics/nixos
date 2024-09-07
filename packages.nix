@@ -5,6 +5,7 @@ lazygit
 tmux
 yazi
 ueberzugpp
+python3
 
 firefox
 tor-browser
@@ -27,7 +28,6 @@ waypaper
 hyprlock
 hyprpicker
 wl-clipboard
-
-python3
+waybar
 
 ];}
