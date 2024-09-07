@@ -15,21 +15,10 @@
   programs = {
     home-manager.enable = true;
 
-    ags = {
-      enable = true;
-
-      # additional packages to add to gjs's runtime
-      extraPackages = with pkgs; [
-        gtksourceview
-        webkitgtk
-        accountsservice
-      ];
-    };
-
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;       };
+    # direnv = {    # to auto read .envrc et .env everywhere
+    #   enable = true;
+    #   enableBashIntegration = true;
+    #   nix-direnv.enable = true;       };
   };
 
   home = {
