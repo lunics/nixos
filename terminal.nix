@@ -6,8 +6,20 @@ programs.alacritty = {
   settings = {
     window.opacity = 0.7;
     env.TERM = "xterm-256color";
-    font.size = 21.0;
+    font.size = 22.0;
+    # selection = {
+    #   semantic_escape_chars = '',│`|:"' ()[]{}<>'';
+    #   save_to_clipboard = true;
+    # };
+    #
+    # live_config_reload = true;
     # terminal_font_family: Hack    # Hack, monospace
+    # shell.program = "zsh";
+    # shell.args = [
+    #   "-l"
+    #   "-c"
+    #   "tmux attach || tmux "
+    # ];
   };
 };
 

@@ -30,10 +30,6 @@
       enable = true;
       enableBashIntegration = true;
       nix-direnv.enable = true;       };
-
-    # gpg.enable = true;
-    # gpg.homedir = "${config.home.homeDirectory}/.config/gnupg";
-
   };
 
   home = {
