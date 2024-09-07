@@ -26,9 +26,11 @@ ouch
 xarchiver
 
 waypaper
-# hyprpaper
+# hyprpaper  KO
 hyprlock
 hyprpicker
 wl-clipboard
+
+python3-3.12.4
 
 ];}
