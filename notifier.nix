@@ -1,10 +1,12 @@
-{
+{ pkgs, ... }:{
+
 services.dunst = {
   enable = true;
+
   iconTheme = {
     name    = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme;
-  };
+    package = pkgs.papirus-icon-theme; };
+
   settings = {
     global = {
       rounded   = "yes";
