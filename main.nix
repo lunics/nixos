@@ -1,10 +1,12 @@
 { config, pkgs, inputs, ...}: {
 
   imports = [
+    inputs.ags.homeManagerModules.default
     ./packages.nix
     ./ssh.nix
     ./git.nix
-    inputs.ags.homeManagerModules.default
+    ./aliases.nix
+    ./env_var.nix
   ];
 
   programs = {
