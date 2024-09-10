@@ -11,6 +11,7 @@ lunics = {
   # password     = TODO SOPS;
   shell        = pkgs.zsh;
   packages       = with pkgs; [
+    home-manager
     neovim
     git
     lazygit
