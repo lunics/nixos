@@ -22,7 +22,7 @@ lunics = {
       # ~/.ssh/yubikey.pub
       "sk-ssh-ed25519@openssh.com ***REMOVED***+d335wMFPigNWxLOBg/2XAAAAC3NzaDpob21lbGFi ssh@***REMOVED***"
       # elitedesk-800g2-nixos.pub
-      "ssh-ed25519 ***REMOVED*** lunics@laptop-t14";
+      "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
     ];
   };
 };

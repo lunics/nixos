@@ -1,5 +1,5 @@
-# sudo nixos-rebuild switch --flake ./#lunics
 # sudo nixos-rebuild switch --flake /home/lunics/homelab#lunics
+# sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
     nixpkgs.url        = "github:nixos/nixpkgs/nixos-unstable";
