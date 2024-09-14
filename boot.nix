@@ -1,4 +1,4 @@
-{ boot = {
+{ pkgs, ... }:{ boot = {
 
   initrd = {
     availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
@@ -18,6 +18,12 @@
   kernelModules = [ "kvm-intel" ];
 
   extraModulePackages = [ ];
+
+  plymouth = {
+    enable        = true;
+    font          = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
+    themePackages = [ pkgs.catppuccin-plymouth ];
+    theme         = "catppuccin-macchiato"; };
 
   loader = {
     efi  = {
