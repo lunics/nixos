@@ -7,20 +7,30 @@ yazi
 ueberzugpp
 python3
 
+# browsers
+# librewolf
 firefox
-tor-browser
+# tor-browser
 
 lsd
 eza
 fzf
-starship
 zoxide
 bat
 wget
 fd
 
-# unzip
+# archive
 ouch
 xarchiver
+
+
+# screensharing
+grim
+jq
+slurp
+
+# media controls
+playerctl
 
 ] ;}

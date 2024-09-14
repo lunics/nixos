@@ -1,5 +1,7 @@
 { pkgs, ... }:{ home.packages = with pkgs; [
 
-discord
+# discord
+# slack
+# telegram
 
 ] ;}

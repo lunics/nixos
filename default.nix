@@ -3,14 +3,13 @@
   imports = [
     inputs.ags.homeManagerModules.default
     ./packages
+    ./shell
     ./ssh_client.nix
     ./git.nix
-    ./bash.nix
-    ./aliases.nix
-    ./env_var.nix
     ./terminal.nix
     # ./launcher.nix
     ./notifier.nix
+    # ./pass_manager.nix
   ];
 
   programs = {
@@ -26,4 +25,13 @@
     username      = "lunics";
     homeDirectory = "/home/lunics";
     stateVersion  = "24.05";      };
+
+  # home.file = {
+  #   ".zshrc".source = ~/dotfiles/zshrc/.zshrc;
+  #   ".config/tmux".source = ~/dotfiles/tmux;
+  #   ".tmux.conf".text = ''
+  #     set -g prefix ^A
+  #   '';
+  # };
+
 }

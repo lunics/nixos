@@ -9,4 +9,14 @@ matchBlocks = {
   };
 };
 
+# startAgent = true;
+# enableAskPassword = true;
+# askPassword = "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
+# extraConfig = ''
+#   AddKeysToAgent yes
+#
+#   Host gitlab.com
+#     UpdateHostKeys no
+# '';
+
 }; }

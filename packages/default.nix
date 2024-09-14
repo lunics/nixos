@@ -2,6 +2,6 @@
 
 ./main.nix
 ./hyprland.nix
-./messaging.nix
+# ./messaging.nix
 
 ]; }
