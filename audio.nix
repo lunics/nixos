@@ -12,4 +12,9 @@ services.pipewire = {
   alsa.support32Bit    = true;
   jack.enable          = true; };
 
+environment.systemPackages = with pkgs; [
+  pamixer
+  pavucontrol
+];
+
 }

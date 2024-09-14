@@ -38,6 +38,13 @@ networking = {
   };
 };
 
+{ ... }:
+
+# Bluetooth
+hardware.bluetooth.enable = true;
+hardware.bluetooth.powerOnBoot = false;
+services.blueman.enable = true;
+
 services.resolved = {
   enable      = true;
   # dnssec      = "true";     # KO

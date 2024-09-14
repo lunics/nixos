@@ -23,15 +23,12 @@
         ./location.nix
         ./network.nix
         ./ntp.nix
-        # ./firewall.nix
         ./users.nix
         ./audio.nix
         ./fonts.nix
         ./hyprland.nix
         ./vpn.nix
-        ./yubikey.nix
         ./virtualisation.nix
-        ./usb.nix
       ];
     };
   };

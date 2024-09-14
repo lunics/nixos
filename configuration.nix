@@ -7,6 +7,8 @@
   environment.pathsToLink = [ "/share/zsh" ];
   programs.zsh.enable = true;
 
+  services.udisks2.enable = true;
+
   environment.systemPackages = with pkgs; [];
 
   # programs.mtr.enable = true;
