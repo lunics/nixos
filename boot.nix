@@ -36,13 +36,6 @@
       consoleMode = "auto";   # 0, 1, 2, auto, max, keep
     };
 
-    plymouth = {
-      enable = true;
-      font = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
-      themePackages = [ pkgs.catppuccin-plymouth ];
-      theme = "catppuccin-macchiato";
-    };
-
     grub = {
       enable      = false;
       efiSupport  = true;
