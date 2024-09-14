@@ -28,4 +28,8 @@ lunics = {
   };
 };
 
-};}
+};
+
+  # Change runtime directory size. automatically systemd managed per-user directory more secure than /tmp
+  services.logind.extraConfig = "RuntimeDirectorySize=8G";
+}

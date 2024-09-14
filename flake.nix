@@ -30,6 +30,7 @@
         ./hyprland.nix
         ./vpn.nix
         ./yubikey.nix
+        ./virtualisation.nix
       ];
     };
   };
