@@ -31,6 +31,7 @@
         ./vpn.nix
         ./yubikey.nix
         ./virtualisation.nix
+        ./usb.nix
       ];
     };
   };
