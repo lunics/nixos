@@ -1,3 +1,4 @@
+# KO ?
 { environment.etc."nsswitch.conf".text = "
 
 passwd:    files systemd
