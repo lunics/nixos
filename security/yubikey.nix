@@ -2,7 +2,15 @@
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
-  programs.ssh.startAgent = true;
+  programs = {
+    ssh.startAgent = false;
+
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true; };
+  };
+
+  services.pcscd.enable = true;
 
   # FIXME Don't forget to create an authorization mapping file for your user (https://nixos.wiki/wiki/Yubikey#pam_u2f)
   security.pam.u2f = {
@@ -17,7 +25,5 @@
     hyprlock.u2fAuth = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    yubikey-manager
-  ];
+  environment.systemPackages = with pkgs; [ yubikey-manager ];
 }
