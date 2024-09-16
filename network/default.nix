@@ -5,6 +5,6 @@
     ./network-manager.nix
     ./network.nix
     ./systemd-resolved.nix
-    ./vpn
+    ./vpn.nix
   ];
 }
