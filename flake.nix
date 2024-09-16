@@ -23,13 +23,12 @@
         ./swap.nix
         ./services.nix
         ./location.nix
-        ./network.nix
+        ./network
         ./ntp.nix
         ./users.nix
         ./audio.nix
         ./fonts.nix
         ./hyprland.nix
-        ./vpn.nix
         ./virtualisation.nix
       ];
     };
