@@ -7,12 +7,6 @@
   environment.pathsToLink = [ "/share/zsh" ];
   programs.zsh.enable = true;
 
-  _custom = {
-    userName      = "lunics";
-    homeDirectory = "/home/lunics";
-  };
-
-
   services.udisks2.enable = true;
 
   environment.systemPackages = with pkgs; [];
