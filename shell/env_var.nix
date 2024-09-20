@@ -8,12 +8,12 @@ READER   = "zathura";
 BROWSER  = "librewolf";
 
 # XDG
-XDG_CONFIG_HOME       = "${config.home.homeDirectory}/.dot/config";
+XDG_CONFIG_HOME       = "${config.home.homeDirectory}/.config";
 XDG_CONFIG_DIRS       = "/etc/xdg";
-XDG_CACHE_HOME        = "${config.home.homeDirectory}/.dot/cache";
-XDG_DATA_HOME         = "${config.home.homeDirectory}/.dot/local/share";
-XDG_STATE_HOME        = "${config.home.homeDirectory}/.dot/local/state";
-XDG_BIN_HOME          = "${config.home.homeDirectory}/.dot/local/bin";
+XDG_CACHE_HOME        = "${config.home.homeDirectory}/.cache";
+XDG_DATA_HOME         = "${config.home.homeDirectory}/.local/share";
+XDG_STATE_HOME        = "${config.home.homeDirectory}/.local/state";
+XDG_BIN_HOME          = "${config.home.homeDirectory}/.local/bin";
 # XDG_DATA_DIRS         = "/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:/home/$USER/.local/share/flatpak/exports/share";
 XDG_DESKTOP_DIR       = "$HOME/desktop";
 XDG_DOCUMENTS_DIR     = "$HOME/documents";
@@ -53,7 +53,7 @@ KUBERNETES     = "$LINUX/kubernetes";
 ZSHRC       = "$SHELLRC/zsh";           # personnal
 ZDOTDIR     = "$ZSHRC";                 # official
 # ZSH_THEME = "robbyrussell";
-WORDCHARS   = "*?_[]~=&;!#$%^(){}<>";   # to define words separation for the cursor
+WORDCHARS   = "*?_-.[]~=/&;!#$%^(){}<>";   # to define words separation for the cursor
 KEYTIMEOUT  = 0.1;                      # time to activate vim mode and others mode, ## tester sans
 ZPLUG_HOME  = "$ZSHRC/zplug";           # zplug home dir
 ZSH_FZF_HISTORY_SEARCH_BIND = "^r";     # set keybinding for zsh-fzf-history-search plugin

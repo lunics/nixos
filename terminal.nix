@@ -7,19 +7,42 @@ programs.alacritty = {
     window.opacity = 0.7;
     env.TERM = "xterm-256color";
     font.size = 22.0;
-    # selection = {
-    #   semantic_escape_chars = '',│`|:"' ()[]{}<>'';
-    #   save_to_clipboard = true;
-    # };
-    #
-    # live_config_reload = true;
+    selection = {
+      semantic_escape_chars = '',│`|:"' ()[]{}<>'';
+      save_to_clipboard = true;
+    };
+
+    live_config_reload = true;
+
+    scrolling = {
+      history = 10000;
+      multiplier = 3;
+    };
+
     # terminal_font_family: Hack    # Hack, monospace
-    # shell.program = "zsh";
-    # shell.args = [
-    #   "-l"
-    #   "-c"
-    #   "tmux attach || tmux "
-    # ];
+    shell = {
+      program = "zsh";
+      args = [
+        "-l"
+        "-c"
+        "tmux attach || tmux "
+      ];
+    };
+
+    window = {
+      decorations = "none";
+      dynamic_title = false;
+      dynamic_padding = true;
+      dimensions = {
+        columns = 170;
+        lines = 45;
+      };
+      padding = {
+        x = 5;
+        y = 1;
+      };
+    };
+
   };
 };
 

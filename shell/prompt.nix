@@ -7,8 +7,8 @@
 # Direnv
 
 programs.starship = {
-  enable = true;
-  package  = pkgs.starship;
+  enable  = true;
+  package = pkgs.starship;
   enableZshIntegration = true;
   settings = {
     add_newline     = true;
@@ -50,7 +50,7 @@ programs.starship = {
 
     git_branch = {
       format            = "[$branch(:$remote_branch)]($style) ";
-      symbol            = "branch ";
+      symbol            = "branch";
       style 	          = "bold purple";
       disabled          = false; };
 
@@ -124,7 +124,7 @@ programs.starship = {
       fish_indicator    = "fish";
       powershell_indicator = "psh";
       zsh_indicator     = "";       # don't show when zsh is the default
-      disabled          = false; };
+      disabled          = true; };
 
     jobs = {
       format            = "[$symbol$number]($style) ";
@@ -152,14 +152,14 @@ programs.starship = {
       style	            = "bold white";
       disabled          = false; };
 
-    go = {
-      format	          = "via [$symbol($version )]($style)";
-      version_format	  = "v\${raw}";
-      symbol	          = "🐹 ";
-      style	            = "bold cyan";
-      detect_extensions	= ["go"];
-      detect_files	    = ["go.mod" "go.sum" "go.work" "glide.yaml" "Gopkg.yml" "Gopkg.lock" ".go-version"];
-      disabled          = false; };
+    # go = {
+    #   format	          = "via [$symbol($version )]($style)";
+    #   version_format	  = "v\${raw}";
+    #   symbol	          = "🐹 ";
+    #   style	            = "bold cyan";
+    #   detect_extensions	= ["go"];
+    #   detect_files	    = ["go.mod" "go.sum" "go.work" "glide.yaml" "Gopkg.yml" "Gopkg.lock" ".go-version"];
+    #   disabled          = true; };
 
     c.symbol = "C ";
     cmake.symbol = "cmake ";

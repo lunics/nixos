@@ -10,6 +10,8 @@
     # ./launcher.nix
     ./notifier.nix
     # ./pass_manager.nix
+    # ./window_manager.nix
+    ./file_explorer.nix
   ];
 
   programs = {
@@ -24,14 +26,15 @@
   home = {
     username      = "lunics";
     homeDirectory = "/home/lunics";
-    stateVersion  = "24.05";      };
+    stateVersion  = "24.05";
 
-  # home.file = {
-  #   ".zshrc".source = ~/dotfiles/zshrc/.zshrc;
-  #   ".config/tmux".source = ~/dotfiles/tmux;
-  #   ".tmux.conf".text = ''
-  #     set -g prefix ^A
-  #   '';
-  # };
-
+    # KO
+    # file = {
+    #   ".zshrc".source = "~/.config/shell/zsh/.zshrc";
+    #   # ".config/tmux".source = ~/dotfiles/tmux;
+    #   # ".tmux.conf".text = ''
+    #   #   set -g prefix ^A
+    #   # '';
+    # };
+  };
 }
