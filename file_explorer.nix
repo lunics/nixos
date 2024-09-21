@@ -56,9 +56,9 @@ settings = {
 # };
 #
 
-plugins = {
-  smart-enter = builtins.readFile ./files/file_explorer/plugins/smart-enter.yazi/init.lua;
-};
+# plugins = {
+#   smart-enter = builtins.readFile ./files/file_explorer/plugins/smart-enter.yazi/init.lua;
+# };
 
 theme = {
   manager = {

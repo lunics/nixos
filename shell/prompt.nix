@@ -17,7 +17,7 @@ programs.starship = {
 
     format = ''
       [╭](bold green)$directory$shell$sudo$git_branch$git_commit$git_metrics$git_state$package$shlvl$jobs$fill$status$cmd_duration
-      [╰](bold green)$username@$hostname   '';
+      [╰](bold green)$username@$hostname  '';
 
     fill.symbol = " ";
 

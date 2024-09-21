@@ -6,20 +6,8 @@ enableCompletion = false;
 autosuggestion.enable = true;
 syntaxHighlighting.enable = true;
 
-# let
-#   createAndReadFile = text: builtins.readFile (builtins.toFile "myFile" text);
-# in
-#   createAndReadFile "Hello, World!"
 # initExtra = builtins.readFile ./source_zshrc;
 initExtra = ''
-  unsetopt PROMPT_SP                  # remove % on the user prompt and # on the root prompt
-  setopt auto_pushd                   # ??
-  setopt pushd_ignore_dups            # ??
-  setopt pushdminus                   # ??
-  setopt interactive_comments         # enable commentary in cli
-  setopt autocd                       # enable cd into typed directory
-  setopt completealiases              # enable alias tab completion
-
   _open_yazi() {
     if [[ $#BUFFER == 0 ]]; then
       yazi < $TTY
@@ -33,9 +21,10 @@ initExtra = ''
   }
   zle -N _open_yazi
   bindkey '^I' _open_yazi     # IF tab pressed when prompt is empty THEN run yazi
+
+  bindkey "^[^?" backward-kill-word       # alt backspace = delete word before
 '';
   # source ${relativeSymlink configDirectory ./dotfiles/functions.zsh}
-
 # initExtra = xdg.configFile."zsh/zshrc"; # KO
 # initExtra = "${config.home.sessionVariables.XDG_CONFIG_HOME}/zsh/zshrc";
 

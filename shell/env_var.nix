@@ -50,13 +50,13 @@ FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
 
 # ZSH
-ZSHRC       = "$SHELLRC/zsh";           # personnal
-ZDOTDIR     = "$ZSHRC";                 # official
-# ZSH_THEME = "robbyrussell";
-WORDCHARS   = "*?_-.[]~=/&;!#$%^(){}<>";   # to define words separation for the cursor
-KEYTIMEOUT  = 0.1;                      # time to activate vim mode and others mode, ## tester sans
-ZPLUG_HOME  = "$ZSHRC/zplug";           # zplug home dir
-ZSH_FZF_HISTORY_SEARCH_BIND = "^r";     # set keybinding for zsh-fzf-history-search plugin
+# ZSHRC       = "$SHELLRC/zsh";           # personnal
+# ZDOTDIR     = "$ZSHRC";                 # official
+# # ZSH_THEME = "robbyrussell";
+# WORDCHARS   = "*?_-.[]~=/&;!#$%^(){}<>";   # to define words separation for the cursor
+# KEYTIMEOUT  = 0.1;                      # time to activate vim mode and others mode, ## tester sans
+# ZPLUG_HOME  = "$ZSHRC/zplug";           # zplug home dir
+# ZSH_FZF_HISTORY_SEARCH_BIND = "^r";     # set keybinding for zsh-fzf-history-search plugin
 # CASE_SENSITIVE:     "true"
 # HYPHEN_INSENSITIVE: "true"          # Case-sensitive completion must be off. _ and - will be interchangeable
 # DISABLE_AUTO_TITLE: "true"          # auto-setting terminal title
