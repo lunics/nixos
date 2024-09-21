@@ -1,6 +1,6 @@
 { home.shellAliases = {
 
-l     = "exa -l --group-directories-first";
+l     = "exa -l --group-directories-first --git-repos --hyperlink";
 g     = "lazygit";
 q     = "exit";
 r     = "trash";
@@ -9,6 +9,7 @@ t     = "go-task";
 v     = "$EDITOR";
 w     = "watch -n 2 -d";
 x     = "sxiv -ft *";
+z     = "zoxide";
 la    = "exa -lag --group-directories-first";
 ip    = "ip --color=auto";
 ss    = "sudo systemctl";

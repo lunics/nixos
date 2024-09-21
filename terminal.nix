@@ -20,13 +20,13 @@ programs.alacritty = {
     };
 
     # terminal_font_family: Hack    # Hack, monospace
+
     shell = {
-      program = "zsh";
-      args = [
-        "-l"
-        "-c"
-        "tmux attach || tmux "
-      ];
+      program = "tmux";
+      # args = [
+      #   "-A"
+      #   "-D"
+      # ];
     };
 
     window = {

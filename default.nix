@@ -12,6 +12,7 @@
     # ./pass_manager.nix
     # ./window_manager.nix
     ./file_explorer.nix
+    ./multiplexer.nix
   ];
 
   programs = {
