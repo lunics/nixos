@@ -99,6 +99,8 @@
       set -g window-status-current-format " #[fg=lime]#W "         # current window font
       set -g monitor-activity off           # disable window activity background color
         ## ajouter #F après #W pour afficher le précédent tab utilisé
+
+      source $CONFIG/tmux/binds
     '';
   };
 
@@ -110,7 +112,7 @@
   #   tkill = "tmux kill-session -t";
   #   tlist = "tmux ls";
   # };
-  #
+
   # # copy over scripts
   # home.file.".config/tmux/scripts" = {
   #   recursive = true;

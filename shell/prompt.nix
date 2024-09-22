@@ -1,9 +1,9 @@
 { pkgs, lib, ... }:{
 
 # todo
-#docker
-#nix-shell
-#vagrant
+# docker
+# nix-shell
+# vagrant
 # Direnv
 
 programs.starship = {
