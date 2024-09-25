@@ -1,4 +1,5 @@
 {
+  ## Set Network Manager Priority to Use Wired Connection Over Wi-Fi
   networking.networkmanager = {
     enable       = true;
     dhcp         = "internal";          # dhcpcd, internal
