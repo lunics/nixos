@@ -1,5 +1,7 @@
 { config, inputs, pkgs, ... }:{
 
+  ## todo https://haseebmajid.dev/posts/2023-11-15-part-3-hyprland-as-part-of-your-development-workflow/
+
   security.polkit.enable = true;
 
   hardware = {
