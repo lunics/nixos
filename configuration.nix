@@ -3,6 +3,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  # nixpkgs.overlays =  [ inputs.neovim-nightly-overlay.overlay ];
+
   # used in bash and zsh modules to add shell completion for packages that provide it.
   environment.pathsToLink = [ "/share/zsh" ];
   programs.zsh.enable = true;
