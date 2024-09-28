@@ -8,7 +8,9 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # hyprland.url       = "github:hyprwm/Hyprland";
     hyprland.url       = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-  };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs"; }; };
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.lunics = nixpkgs.lib.nixosSystem {    ## replace lunics by hostname target
