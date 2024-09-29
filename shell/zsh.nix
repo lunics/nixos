@@ -6,25 +6,20 @@ enableCompletion = false;
 autosuggestion.enable = true;
 syntaxHighlighting.enable = true;
 
-# initExtra = builtins.readFile ./source_zshrc;
-initExtra = ''
-  _open_yazi() {
-    if [[ $#BUFFER == 0 ]]; then
-      yazi < $TTY
-      # KO
-      # LASTDIR=$(cat /tmp/yazi_save_dir)
-      # cd "$LASTDIR"
-      zle reset-prompt
-    else
-      zle expand-or-complete
-    fi
-  }
-  zle -N _open_yazi
-  bindkey '^I' _open_yazi     # IF tab pressed when prompt is empty THEN run yazi
+# OK for single file
+# initExtra = builtins.readFile ../files/zsh/functions/zoxide.zsh;
 
-  bindkey "^[^?" backward-kill-word       # alt backspace = delete word before
+# OK for multiple files
+initExtra = ''
+  ${builtins.readFile ../files/zsh/functions/zoxide.zsh    }
+  ${builtins.readFile ../files/zsh/functions/open_yazi.zsh }
 '';
-  # source ${relativeSymlink configDirectory ./dotfiles/functions.zsh}
+
+# initExtra = ''
+#   # source ~/.config/shell/zsh/functions/open_yazi.zsh
+#   # source ~/.config/shell/zsh/functions/zoxide.zsh
+#   source ${relativeSymlink configDirectory ../files/zsh/functions/zoxide.zsh}
+# '';
 # initExtra = xdg.configFile."zsh/zshrc"; # KO
 # initExtra = "${config.home.sessionVariables.XDG_CONFIG_HOME}/zsh/zshrc";
 

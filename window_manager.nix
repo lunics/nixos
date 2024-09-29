@@ -9,5 +9,12 @@
     enable = true;
     systemd.enable = true;
     # xwayland.enable = true;
+
+    # extraConfig = ''
+    #   ${builtins.readFile ./config.conf}
+    #   ${builtins.readFile ./file2.conf}
+    # '';
+
   };
+
 }

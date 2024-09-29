@@ -22,6 +22,7 @@ c-    = "c -";
 ia    = "chatblade --chat-gpt 3.5 --stream";
 cp    = "/usr/bin/cp --reflink=auto";
 pwd   = "command pwd | tee /dev/tty | wl-copy";
+cat   = "bat";
 copy  = "rsync -rlptgoDvzh --progress";
 calc  = "/usr/bin/bc -q";
 gpg   = "/usr/bin/gpg --homedir {{ path_share }}/gnupg";
