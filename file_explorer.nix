@@ -6,7 +6,7 @@ enableZshIntegration  = true;
 package               = pkgs.yazi;
 settings = {
   manager = {
-    ratio          = [ 1 3 3 ];
+    ratio          = [ 1 3 4 ];
     show_hidden    = false;
     sort_by        = "alphabetical";
     sort_sensitive = false;
@@ -33,32 +33,37 @@ settings = {
     ueberzug_offset = [ 0 0 0 0 ];
   };
 
-  opener = {
-    edit = [
-      {
-        run   = "[ -n '$EDITOR' ] && $EDITOR '$@'";
-        desc  = "$EDITOR";
-        block = true;
-      }
-    ];
-  };
+  # opener = {
+  #   edit = [
+  #     {
+  #       run   = "[ -n '$EDITOR' ] && $EDITOR '$@'";
+  #       desc  = "$EDITOR";
+  #       block = true;
+  #     }
+  #   ];
+  # };
+  #
+  # open = {
+  #   rules = [
+  #     { name = "*/"; use = [ "edit" ]; }
+  #   ];
+  # };
 
+  keymap = {
+    manager = {
+      prepend_keymap = {
+        on   = "l";
+        run  = "plugin --sync smart-enter";
+        desc = "Enter the child directory, or open the file";
+      };
+    };
+  };
 };
 
-# keymap = {
-#   manager = {
-#     prepend_keymap = {
-#       on   = "l";
-#       run  = "plugin --sync smart-enter";
-#       desc = "Enter the child directory, or open the file"
-#     };
-#   };
-# };
-#
 
-# plugins = {
-#   smart-enter = builtins.readFile ./files/file_explorer/plugins/smart-enter.yazi/init.lua;
-# };
+plugins = {
+  smart-enter = ./files/file_explorer/plugins/smart-enter.yazi;
+};
 
 theme = {
   manager = {
