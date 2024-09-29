@@ -2,7 +2,6 @@
 
   imports = [
     inputs.ags.homeManagerModules.default
-    ./overlays.nix
     ./packages
     ./shell
     ./ssh_client.nix
