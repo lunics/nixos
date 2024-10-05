@@ -12,7 +12,7 @@
     ./window_manager.nix
     ./file_explorer.nix
     ./multiplexer.nix
-    ./browser.nix
+    ./browser
     ./gpg.nix
     ./pass_manager.nix
   ];
