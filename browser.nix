@@ -1,5 +1,61 @@
 { pkgs, ... }:{
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.firefox.enable = true;
+
+programs.firefox = {
+  enable = true;
+  package = pkgs.firefox;
+  languagePacks = [ "fr" "en-US" ];
+  profiles = {
+    default = {
+      id        = 0;
+      name      = "Lunics";
+      isDefault = true;
+      settings = {
+        "browser.fullscreen.autohide" = false;
+        "browser.quitShortcut.disabled" = true;
+        "browser.tabs.tabMinWidth" = 5;
+        "browser.startup.page" = 3;
+
+        # use native GTK buttons
+        "widget.gtk.non-native-titlebar-buttons.enabled" = false;
+
+        # custom scrollbar
+        "widget.non-native-theme.scrollbar.size" = 24;
+
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+
+        # Allow customChrome.css
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # Use OS window border
+        "browser.tabs.drawInTitlebar" = false;
+        "browser.tabs.inTitlebar" = 1;
+
+        # Density compact
+        "browser.uidensity" = 1;
+
+        # Disable thumbnail preview ctrl + tab
+        "browser.ctrlTab.recentlyUsedOrder" = false;
+
+        "extensions.pocket.enabled" = false;
+        "general.smoothScroll" = false;
+
+        # Fix right click
+        "ui.context_menus.after_mouseup" = true;
+
+        # Enable video hardware acceleration
+        "media.ffmpeg.vaapi.enabled" = true;
+        "gfx.webrender.all" = true;
+        "media.ffvpx.enabled" = false;
+
+        # https://wiki.archlinux.org/index.php/Firefox/Tweaks#Performance
+        # "browser.preferences.defaultPerformanceSettings.enabled" = false;
+        # "dom.ipc.processCount" = 8;
+
+        # Workaround for when xdg.portal is enabled? set to false
+        # https://bugzilla.mozilla.org/show_bug.cgi?id=1618094
+        # "network.protocol-handler.external-default" = false;
+      };
+    };
+  };
+};
 }

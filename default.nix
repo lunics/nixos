@@ -13,16 +13,10 @@
     # ./window_manager.nix
     ./file_explorer.nix
     ./multiplexer.nix
+    ./browser.nix
   ];
 
-  programs = {
-    home-manager.enable = true;
-
-    # direnv = {    # to auto read .envrc et .env everywhere
-    #   enable = true;
-    #   enableBashIntegration = true;
-    #   nix-direnv.enable = true;       };
-  };
+  programs.home-manager.enable = true;
 
   home = {
     username      = "lunics";

@@ -7,11 +7,6 @@ yazi
 ueberzugpp
 python3
 
-# browsers
-# librewolf
-firefox
-# tor-browser
-
 lsd
 eza
 fzf
