@@ -29,7 +29,8 @@
         ./users.nix
         ./audio.nix
         ./fonts.nix
-        ./hyprland.nix
+        ./login_manager.nix
+        ./window_manager.nix
         ./virtualisation.nix
       ];
     };
