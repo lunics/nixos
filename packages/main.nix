@@ -7,6 +7,7 @@ yazi
 ueberzugpp
 python3
 tomb
+sshfs
 
 lsd
 eza
