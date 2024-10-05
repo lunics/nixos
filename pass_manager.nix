@@ -11,4 +11,11 @@ programs.password-store = {
     # PASSWORD_STORE_CLIP_TIME = "60";
   }; };
 
+  # environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
+    pass
+    pinentry-curses
+      # Pinentry doesn't work on WSL NixOS unless manually configured on gpg-agent.conf
+      # See https://sigkill.dk/writings/guides/nixos_pass.html
+  ];
 }

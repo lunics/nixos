@@ -1,4 +1,4 @@
-{ config, ... }:{ home.sessionVariables = {
+{ config, ... }:{ home.sessionVariables = rec {
 
 # APPS
 TERMINAL = "alacritty";
@@ -48,6 +48,8 @@ ANSIBLE_CONFIG = "$ANSIBLE/ansible.cfg";
 GALAXY         = "$ANSIBLE/galaxy";
 FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
+
+GNUPGHOME      = "${XDG_DATA_HOME}/gnupg";
 
 # ZSH
 # ZSHRC       = "$SHELLRC/zsh";           # personnal
