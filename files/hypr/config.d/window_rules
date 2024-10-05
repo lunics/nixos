@@ -1,5 +1,5 @@
 $terminal   = Alacritty|Kitty
-$browser    = LibreWolf|Tor Browser
+$browser    = libreWolf|Tor Browser
 $message    = discord|org.gajim.Gajim|Element|Session|Telegram|info.mumble.Mumble
 $streaming  = Spotify|FreeTube|streamlink-twitch-gui|mpv
 $gaming     = dofus.exe

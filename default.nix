@@ -7,7 +7,7 @@
     ./ssh_client.nix
     ./git.nix
     ./terminal.nix
-    # ./launcher.nix
+    ./launcher.nix
     ./notifier.nix
     ./window_manager.nix
     ./file_explorer.nix
