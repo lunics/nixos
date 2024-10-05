@@ -62,7 +62,7 @@ settings = {
 
 
 plugins = {
-  smart-enter = ./files/file_explorer/plugins/smart-enter.yazi;
+  smart-enter = ./files/yazi/plugins/smart-enter.yazi;
 };
 
 theme = {
