@@ -1,0 +1,29 @@
+decoration {
+  rounding = 8
+
+  blur {
+    enabled = yes
+    size    = 0                     # blur distance
+    passes  = 1
+    xray    = false                 # true = blur KO, floating windows will ignore tiled windows in their blur
+    ignore_opacity    = false       # make the blur layer ignore the opacity of the window
+    new_optimizations = true        # massively improve performance
+    noise	      = 0.0117            # 0.0 - 1.0
+    contrast	  = 0.8916            # 0.0 - 2.0
+    brightness	= 0.8172            # 0.0 - 2.0
+  }
+
+  active_opacity   = 1.0
+  inactive_opacity = 1.0
+
+  drop_shadow          = yes
+  shadow_offset        = 2 2
+  shadow_range         = 4
+  col.shadow           = rgba(1a1a1aee)
+  shadow_render_power  = 2
+  shadow_ignore_window = true
+
+  # blurls = gtk-layer-shell
+  # blurls = waybar
+  # blurls = lockscreen
+}

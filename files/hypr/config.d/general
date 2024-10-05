@@ -1,0 +1,10 @@
+general {
+  gaps_in             = 4           # gaps between windows
+  gaps_out            = 3           # gaps between monitor edges
+  border_size         = 2
+  layout              = dwindle
+  col.inactive_border =	0xff3c443d
+  col.active_border   =	0xff00af17
+  # no_border_on_floating = false   # already set in window_rules
+  # no_focus_fallback     = true    # KO doesn't fall back to the next available window when moving focus in a direction where no window was found
+}

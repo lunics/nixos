@@ -1,20 +1,39 @@
 {
-  wayland.windowManager.hyprland = {
-    plugins = [
-      plugins.hyprexpo
-      plugins.hyprbars
-      plugins.hyprwinwrap
-      plugins.hyprtrails
-    ];
-    enable = true;
-    systemd.enable = true;
-    # xwayland.enable = true;
+  ## dynamc input & bind
 
-    # extraConfig = ''
-    #   ${builtins.readFile ./config.conf}
-    #   ${builtins.readFile ./file2.conf}
+  xdg.configFile = {
+    "hypr" = {
+      recursive = true;
+      source = ./files/hypr;
+    };
+
+    "hypr/config.d/bind".text = builtins.readFile ./files/hypr/config.d/bind_azerty;
+    # "hypr/config.d/bind".text = builtins.readFile ./files/hypr/config.d/bind_splitkb;
+
+    # "hypr/config.d/bind".text = ''
+    #   splash = false
+    #   preload = ${wallpaper}
+    #   wallpaper = DP-1, ${wallpaper}
+    #   wallpaper = eDP-1, ${wallpaper}
     # '';
-
   };
-
 }
+
+  # wayland.windowManager.hyprland = {
+  #   plugins = [
+  #     plugins.hyprexpo
+  #     plugins.hyprbars
+  #     plugins.hyprwinwrap
+  #     plugins.hyprtrails
+  #   ];
+  #   enable = true;
+  #   systemd.enable = true;
+  #   # xwayland.enable = true;
+  #
+  #   # extraConfig = ''
+  #   #   ${builtins.readFile ./config.conf}
+  #   #   ${builtins.readFile ./file2.conf}
+  #   # '';
+  #
+  # };
+
