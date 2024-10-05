@@ -14,7 +14,7 @@
     ./file_explorer.nix
     ./multiplexer.nix
     ./browser.nix
-    # ./gpg.nix
+    ./gpg.nix
   ];
 
   programs.home-manager.enable = true;

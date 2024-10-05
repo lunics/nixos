@@ -49,7 +49,7 @@ GALAXY         = "$ANSIBLE/galaxy";
 FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
 
-GNUPGHOME      = "${XDG_DATA_HOME}/gnupg";
+# GNUPGHOME      = "${XDG_DATA_HOME}/gnupg";  ## todo: has conflicting definition values
 
 # ZSH
 # ZSHRC       = "$SHELLRC/zsh";           # personnal
