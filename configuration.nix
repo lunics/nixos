@@ -13,6 +13,11 @@
 
   environment.systemPackages = with pkgs; [];
 
+  programs.fuse = {
+    userAllowOther = true;
+    mountMax       = 1000;
+  };
+
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
