@@ -9,12 +9,12 @@
     ./terminal.nix
     # ./launcher.nix
     ./notifier.nix
-    # ./pass_manager.nix
     ./window_manager.nix
     ./file_explorer.nix
     ./multiplexer.nix
     ./browser.nix
     ./gpg.nix
+    ./pass_manager.nix
   ];
 
   programs.home-manager.enable = true;

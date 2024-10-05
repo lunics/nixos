@@ -18,6 +18,7 @@ programs.gpg = { enable  = true;
     require-cross-certification = true;
   };
 
+  # no need to define: GNUPGHOME = "${XDG_DATA_HOME}/gnupg";
   homedir = "${config.xdg.dataHome}/gnupg";
 
   publicKeys = [];

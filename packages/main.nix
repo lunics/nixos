@@ -6,6 +6,7 @@ tmux
 yazi
 ueberzugpp
 python3
+tomb
 
 lsd
 eza

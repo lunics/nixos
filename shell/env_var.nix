@@ -2,7 +2,7 @@
 
 # APPS
 TERMINAL = "alacritty";
-EDITOR   = "nix run ~/neovim";
+EDITOR   = "nix run $HOME/neovim";
 MANPAGER = "nvim +Man!";
 READER   = "zathura";
 BROWSER  = "librewolf";
@@ -48,8 +48,6 @@ ANSIBLE_CONFIG = "$ANSIBLE/ansible.cfg";
 GALAXY         = "$ANSIBLE/galaxy";
 FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
-
-# GNUPGHOME      = "${XDG_DATA_HOME}/gnupg";  ## todo: has conflicting definition values
 
 # ZSH
 # ZSHRC       = "$SHELLRC/zsh";           # personnal
