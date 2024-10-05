@@ -1,5 +1,14 @@
-{
+{ pkgs, ... }:{
   ## dynamc input & bind
+
+  home.packages = with pkgs; [
+    waypaper
+    # hyprpaper  KO
+    hyprlock
+    hyprpicker
+    wl-clipboard
+    waybar
+  ];
 
   xdg.configFile = {
     "hypr" = {
