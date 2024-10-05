@@ -16,8 +16,8 @@
       source = ./files/hypr;
     };
 
-    "hypr/config.d/bind".text = builtins.readFile ./files/hypr/config.d/bind_azerty;
-    # "hypr/config.d/bind".text = builtins.readFile ./files/hypr/config.d/bind_splitkb;
+    "hypr/config.d/bind".text = builtins.readFile ./files/hypr/binds/bind_azerty;
+    # "hypr/config.d/bind".text = builtins.readFile ./files/hypr/binds/bind_splitkb;
 
     # "hypr/config.d/bind".text = ''
     #   splash = false
