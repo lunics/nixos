@@ -19,6 +19,7 @@ programs.wofi = {
     # location      = "bottom-right";
   };
 
+  # https://cloudninja.pw/docs/wofi.html
   style = builtins.readFile ./files/wofi/style.css;
 };
 
