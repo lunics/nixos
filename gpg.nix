@@ -24,26 +24,24 @@ programs.gpg = { enable  = true;
   publicKeys = [];
 };
 
-services.gpg-agent.enable = true;
-
-# agent = {
-#   enable = true;
-#   settings = {
-#     # allow-preset-passphrase ?
-#     default-cache-ttl = 0;               # always ask for yubikey touch
-#     max-cache-ttl = 0;                   # always ask for yubikey touch
-#
-#     max-cache-ttl-ssh = 60480000;        # keep ssh password key persisten very long time
-#     default-cache-ttl-ssh = 60480000;    # cache ttl for unused keys
-#
-#     # pinentry-program /usr/bin/pinentry-tty    # pinentry, pinentry-curses, pinentry-tty
-#   };
-#   enableExtraSocket   = true;
-#   pinentryFlavor      = "curses";
-#   enableSSHSupport    = true;
-#   enableBrowserSocket = true;
-# };
-
+services.gpg-agent = {
+  enable              = true;
+  defaultCacheTtl     = 0;          # 0 = always ask for yubikey touch
+  maxCacheTtl         = 0;          # 0 = always ask for yubikey touch
+  defaultCacheTtlSsh  = 60480000;   # 60480000 = cache ttl for unused keys
+  maxCacheTtlSsh      = 60480000;   # 60480000 = keep ssh password key persisten very long time
+  # enableSshSupport    = true;
+  # sshKeys             = "";         # Which GPG keys (by keygrip) to expose as SSH keys
+  verbose             = false;
+  grabKeyboardAndMouse = true;      # used to avoid X-sniffing attacks
+  enableScDaemon      = true;       # to enable smartcard
+  extraConfig = ''
+  '';
+  enableExtraSocket   = false;      # true = GPG Agent forwarding
+  enableZshIntegration = true;
+  pinentryPackage     = null;       # pinentry, pinentry-curses, pinentry-tty
+  # pinentryFlavor      = "curses";
+};
 
 # services.yubikey-agent.enable
 
