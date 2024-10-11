@@ -1,0 +1,7 @@
+{
+  "custom/countdown_life":{
+    "exec":     "sb_countdown_life",
+    "format":   "{}",
+    "interval": "1d"
+  }
+}

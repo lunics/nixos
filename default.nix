@@ -15,6 +15,7 @@
     ./browser
     ./gpg.nix
     ./pass_manager.nix
+    # ./status_bar.nix
   ];
 
   programs.home-manager.enable = true;

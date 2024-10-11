@@ -1,0 +1,10 @@
+{
+  "custom/pomodoro":{
+    "exec":     "sb_pomodoro",
+    "format":   "{}",
+    "on-click": "sb_pomodoro toggle",
+    // on-click-middle:
+    "on-click-right": "sb_pomodoro reset",
+    "interval": 1
+  }
+}

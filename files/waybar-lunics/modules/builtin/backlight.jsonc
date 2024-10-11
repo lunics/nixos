@@ -1,0 +1,11 @@
+{
+  "backlight": {
+    "device": "intel_backlight",                // "device": "acpi_video1",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", ""],
+    //"format-icons": ["", "", "", "", "", "", "", "", ""]
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
+  }
+}

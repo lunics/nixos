@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+j pkgs, ... }:{
 
 programs.alacritty = {
   enable   = true;

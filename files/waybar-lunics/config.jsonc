@@ -1,0 +1,44 @@
+{
+  "layer":            "top",            // waybar and popups always displayed above all windows
+  "position":         "bottom",
+  "name":             "waybar",
+  "id":               "waybar1",
+  "mode":             "dock",           // preconfigured display modes: dock, hide, invisible, overlay
+  "exclusive":        true,             // to request an exclusive zone from the compositor
+  "fixed-center":     true,             // modules-center block will stay in the middle of the bar whenever possible
+  "gtk-layer-shell":  true,             // to disable the use of gtk-layer-shell for popups
+  "passthrough":      false,            // to pass any pointer events to the window under the bar
+  "ipc":              false,            // to subscribe to the Sway IPC
+
+  "width":            "",
+  "spacing":          4,                // gaps between modules
+  "height":           35,               // to be removed for auto height
+  "margin":           0,
+  "margin-top":       0,
+  "margin-bottom":    0,
+  "margin-left":      0,
+  "margin-right":     0,
+
+  "modules-left":   ["wlr/workspaces"],
+  "modules-center": [],
+    // "custom/countdown_life"
+  "modules-right":  ["custom/countdown_life","pulseaudio", "network", {{ '"bluetooth",' if bluetooth }} "cpu", "memory", "temperature", "backlight", "battery", "custom/mouse_battery", "clock", "tray"],
+
+  "include": [
+    "{{ path_status_bar }}/modules/workspaces.jsonc",
+    // "{{ path_status_bar }}/modules/window_name.jsonc",
+    // "{{ path_status_bar }}/modules/media.jsonc",
+    // "{{ path_status_bar }}/modules/pomodoro.jsonc",   KO
+    "{{ path_status_bar }}/modules/pulseaudio.jsonc",
+    "{{ path_status_bar }}/modules/network.jsonc",
+    "{{ path_status_bar }}/modules/bluetooth.jsonc",
+    "{{ path_status_bar }}/modules/cpu.jsonc",
+    "{{ path_status_bar }}/modules/memory.jsonc",
+    "{{ path_status_bar }}/modules/temperature.jsonc",
+    "{{ path_status_bar }}/modules/clock.jsonc",
+    "{{ path_status_bar }}/modules/backlight.jsonc",
+    "{{ path_status_bar }}/modules/battery.jsonc",
+    "{{ path_status_bar }}/modules/mouse_battery.jsonc",
+    "{{ path_status_bar }}/modules/tray.jsonc"
+  ]
+}

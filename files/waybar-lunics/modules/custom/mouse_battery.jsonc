@@ -1,0 +1,8 @@
+{
+  "custom/mouse_battery":{
+    // v1 "exec":     "upower --dump | grep '{{ controller.bluetooth.mouse }}' -A 11 | grep -o '[1-9].%'",
+    "exev":     "solaar show | grep Battery | head -n 1 | grep -o '[1-9].%'",
+    "format":   "{}",
+    "interval": 1800      // every 1800 sec = 30 min
+  }
+}

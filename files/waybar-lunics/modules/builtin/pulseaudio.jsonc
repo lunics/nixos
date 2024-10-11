@@ -1,0 +1,26 @@
+{
+  "pulseaudio": {
+    "scroll-step":            1,       // %, can be a float
+    "tooltip":                true,
+    "format":                 "{volume}% {icon}",
+    // "format":                 "{volume}% {icon} {format_source}",
+    // "format-muted":           " {format_source}",
+    // "format-source":          "{volume}% ",
+    // "format-source-muted":    "",
+    "format-bluetooth":       "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-icons": {
+      "headphone":  "",
+      "hands-free": "",
+      "headset":    "",
+      "phone":      "",
+      "portable":   "",
+      "car":        "",
+      "default":    ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+    // "on-click": "pamixer -t",
+    // "on-scroll-up": "pamixer -i 5",
+    // "on-scroll-down": "pamixer -d 5",
+  }
+}

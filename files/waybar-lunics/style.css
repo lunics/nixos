@@ -1,0 +1,78 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+}
+
+#mode {
+  background-color: #64727D;
+  border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  padding: 0 10px;
+  color: #ffffff;
+}
+
+#window,
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+/* configs */
+@import "styles/button.css";
+@import "styles/window.css";
+
+/* modules */
+@import "styles/clock.css";
+@import "styles/battery.css";
+@import "styles/cpu.css";
+@import "styles/backlight.css";
+@import "styles/bluetooth.css";
+@import "styles/custom-media.css";
+@import "styles/custom-pomodoro.css";
+@import "styles/disk.css";
+@import "styles/idle_inhibitor.css";
+@import "styles/keyboard-state.css";
+@import "styles/language.css";
+@import "styles/memory.css";
+@import "styles/mpd.css";
+@import "styles/network.css";
+@import "styles/pulseaudio.css";
+@import "styles/scratchpad.css";
+@import "styles/temperature.css";
+@import "styles/tray.css";
+@import "styles/wireplumber.css";
+@import "styles/workspaces.css";
