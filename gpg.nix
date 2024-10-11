@@ -1,6 +1,8 @@
 { pkgs, config, ... }:{
-programs.gpg = { enable  = true;
-  package = pkgs.gnupg;
+
+programs.gpg = {
+  enable   = true;
+  package  = pkgs.gnupg;
   settings = {
     no-default-keyring  = true;
     keyring             = "keyring-path";

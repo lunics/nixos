@@ -49,6 +49,8 @@ GALAXY         = "$ANSIBLE/galaxy";
 FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
 
+PASSWORD_STORE_GPG_OPTS = "--homedir ${config.xdg.dataHome}/gnupg";
+
 # ZSH
 # ZSHRC       = "$SHELLRC/zsh";           # personnal
 # ZDOTDIR     = "$ZSHRC";                 # official
