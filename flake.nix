@@ -3,21 +3,31 @@
 {
   inputs = {
     nixpkgs.url        = "github:nixos/nixpkgs/nixos-unstable";
-    # unstable.url = ""
-    # stable.url = ""
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # hyprland.url     = "github:hyprwm/Hyprland";
     hyprland.url       = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs"; };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs"; };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, agenix, impermanence, ... }@inputs: {
     nixosConfigurations.lunics = nixpkgs.lib.nixosSystem {    ## replace lunics by hostname target
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
         # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
+        agenix.nixosModules.default
+        disko.nixosModules.disko
+        impermanence.nixosModules.impermanence
         ./hardware-configuration.nix
         ./boot.nix
         ./configuration.nix
