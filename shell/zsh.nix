@@ -1,5 +1,9 @@
 { config, pkgs, inputs, ... }:{ programs.zsh = {
 
+# todo
+#  https://github.com/romkatv/zsh4humans
+#  https://github.com/jeffreytse/zsh-vi-mode
+
 enable   = true;
 package  = pkgs.zsh;
 enableCompletion = false;
