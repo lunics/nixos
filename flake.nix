@@ -42,6 +42,7 @@
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
         ./hardware-configuration.nix
+        ./disko.nix
         ./boot.nix
         ./configuration.nix
         ./swap.nix
