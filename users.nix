@@ -18,7 +18,7 @@ users.users.lunics = {
     lazygit
   ];
   openssh = {
-    authorizedKeys.keys = [
+    authorizedKeys.keys = [       # /etc/ssh/authorized_keys.d/lunics
       # homelab
       "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
       # ~/.ssh/yubikey.pub
