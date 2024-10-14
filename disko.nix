@@ -49,9 +49,13 @@
                     "/log" = {
                       mountpoint = "/var/log";
                       mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec" ]; };
+
+                    # Change runtime directory size. automatically systemd managed per-user directory more secure than /tmp
+                    # services.logind.extraConfig = "RuntimeDirectorySize=8G";
                     "/tmp" = {
                       mountpoint = "/tmp";
                       mountOptions = ["subvol=log" "compress=zstd" "rw" "nodev" "nosuid" "noexec" ]; };
+
                     "/snapshots" = {
                       mountpoint = "/snapshots";
                       mountOptions = ["subvol=log" "compress=zstd" ]; };

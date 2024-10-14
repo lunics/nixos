@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:{ users.users = {
+{ config, pkgs, ... }:{
 
-lunics = {
+users.users.lunics = {
   isNormalUser   = true;
   isSystemUser   = false;
   description    = "Lunics";
@@ -27,8 +27,6 @@ lunics = {
       "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
     ];
   };
-};
-
 };
 
   # Change runtime directory size. automatically systemd managed per-user directory more secure than /tmp
