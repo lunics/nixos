@@ -14,9 +14,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs"; };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs.nixpkgs.follows = "nixpkgs"; };
+    impermanence.url = "github:nix-community/impermanence";
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
     #  inputs.nixpkgs.follows = "nixpkgs"; };
