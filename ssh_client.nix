@@ -3,10 +3,9 @@
 enable = true;
 
 matchBlocks = {
-  "***REMOVED***"    = {
+  "***REMOVED***" = {
     user         = "lunics";
-    identityFile = "/home/lunics/.ssh/homelab";
-  };
+    identityFile = "/home/lunics/.ssh/homelab"; };
 };
 
 # startAgent = true;
