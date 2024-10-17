@@ -5,7 +5,7 @@
 ./env_var.nix
 ./history.nix
 ./prompt.nix
-# ./scripts.nix
+./scripts.nix
 ./zsh.nix
 
 ]; }

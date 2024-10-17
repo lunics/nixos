@@ -1,11 +1,11 @@
-{ ... }: let
-  scripts = ./scripts/;   # must contains shell scripts
-in {
-  # Source scripts from the home-manager store
+{
   home.file = {
-    ".local/bin" = {
+    # ".local/bin" = {
+    #   recursive = true;
+    #   source    = ./scripts; };
+
+    ".local/functions" = {
       recursive = true;
-      source = "${scripts}";
-    };
+      source    = ./functions; };
   };
 }
