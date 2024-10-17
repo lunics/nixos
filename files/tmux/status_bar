@@ -1,0 +1,14 @@
+set -g allow-rename off               # don't allow ssh or ranger to rename window name
+set -g status-position top
+set -g status-justify left
+set -g status-interval 4              # ?
+set -g status-left ""                                     # disable the left status
+set -g status-right ""                                    # disable the right status
+set -g status-style bg=default                            # transparent status bar
+set -g window-status-separator ""
+set -g window-status-style          " bg=black fg=white bold"  # colour232
+set -g window-status-format         " #W "
+set -g window-status-current-style  " bg=black bold"         # current window background
+set -g window-status-current-format " #[fg=lime]#W "         # current window font
+set -g monitor-activity off           # disable window activity background color
+  ## ajouter #F après #W pour afficher le précédent tab utilisé

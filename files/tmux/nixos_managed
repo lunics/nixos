@@ -1,0 +1,13 @@
+# Already managed by nixos
+
+unbind C-b                                   # unbind default leader key
+set  -g prefix            C-a
+set  -g default-terminal  "tmux-256color"
+set  -g mouse             on                 # enable mouse
+set  -g history-limit     30000              # scrollback size
+set  -g base-index        1                  # start counting window at 1 rather than 0
+setw -g pane-base-index   1
+setw -g mode-keys         vi
+setw -g status-keys       vi
+setw -g aggressive-resize on
+set  -g clock-mode-time   500

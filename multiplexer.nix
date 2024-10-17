@@ -56,51 +56,9 @@
     ];
 
     extraConfig = ''
-      TMUX_FZF_PREVIEW=0
-      TMUX_FZF_OPTIONS="-p -w 30%"
-      TMUX_FZF_WINDOW_FORMAT=""
-
-      set -ag terminal-overrides ",xterm-256color:RGB"
-      # set -g terminal-overrides "xterm*:smcup@:rmcup@"
-
-      # reload config
-      bind r source-file ~/.config/tmux/tmux.conf
-
-      set -g pane-base-index 1
-
-      # allow passthrough
-      set-option -g allow-passthrough
-
-      # Set border colors
-      set -g pane-border-lines heavy
-
-      # copy mode key binds
-      bind -T copy-mode-vi v send -X begin-selection
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
-      bind P paste-buffer
-      bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
-
-      # set title
-      set -g set-titles on
-      set -g set-titles-string "#H:#S.#I.#P #W #T"
-
-      # status bar
-      set -g allow-rename off               # don't allow ssh or ranger to rename window name
-      set -g status-position top
-      set -g status-justify left
-      set -g status-interval 4              # ?
-      set -g status-left ""                                     # disable the left status
-      set -g status-right ""                                    # disable the right status
-      set -g status-style bg=default                            # transparent status bar
-      set -g window-status-separator ""
-      set -g window-status-style          " bg=black fg=white bold"  # colour232
-      set -g window-status-format         " #W "
-      set -g window-status-current-style  " bg=black bold"         # current window background
-      set -g window-status-current-format " #[fg=lime]#W "         # current window font
-      set -g monitor-activity off           # disable window activity background color
-        ## ajouter #F après #W pour afficher le précédent tab utilisé
-
-      source $CONFIG/tmux/binds
+      ${ builtins.readFile ./files/tmux/options    }
+      ${ builtins.readFile ./files/tmux/status_bar }
+      ${ builtins.readFile ./files/tmux/binds      }
     '';
   };
 

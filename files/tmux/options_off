@@ -1,0 +1,15 @@
+set -ag terminal-overrides ",xterm-256color:RGB"
+set -g terminal-overrides "xterm*:smcup@:rmcup@"
+set -g terminal-overrides "xterm*:smcup@:rmcup@"  # ?
+set -sa terminal-overrides ",xterm*:Tc"         # ?
+
+set  -w synchronize-panes off                     # disable synchronize input of any pane to all other panes
+set  -g xterm-keys on                             # pass through xterm keys
+setw -g xterm-keys on                             # for vim ?? SAME ??
+set -sg escape-time 0                             # no timing after press Escape
+setw -g monitor-activity on
+
+# setw -g mode-style bg=black ?
+## TESTER LE PLUGINS tmux-window-name AVANT de reactiver
+# setw -g automatic-rename                        # automatically name the window based on its active pane
+# setw -g automatic-rename-format                 ## TODO
