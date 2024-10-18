@@ -2,7 +2,6 @@
 
 neovim
 lazygit
-tmux
 yazi
 ueberzugpp
 python3
@@ -20,6 +19,8 @@ wget
 fd
 trash-cli
 
+comma   # to runs nix software without installing it
+
 # archive
 ouch
 xarchiver
@@ -32,5 +33,7 @@ slurp
 
 # media controls
 playerctl
+
+bibata-cursors    # Open source, compact, and material designed cursor set
 
 ] ;}

@@ -1,5 +1,6 @@
 { home.shellAliases = {
 
+a     = "ansible-playbook";
 l     = "exa -l --group-directories-first --git-repos --hyperlink";
 g     = "lazygit";
 q     = "exit";
@@ -28,7 +29,7 @@ calc  = "/usr/bin/bc -q";
 # gpg   = "/usr/bin/gpg --homedir {{ path_share }}/gnupg";
 size  = "du -sh";
 tree  = "eza -T";
-reload = "exec zsh";
+wifi  = "nmcli c";
 mkdir = "mkdir --parents --verbose";
 move  = "mv --verbose";
 grpe  = "grep";
@@ -37,6 +38,7 @@ pgrep = "pgrep -i";
 pgrpe = "pgrep -i";
 clip  = "wl-copy";
 clipboard = "clip";
+reload = "exec zsh";
 paste = "wl-paste";
 vimdiff = "nvim -d";
 # suspend:    sudo systemctl suspend  # save state fast to the RAM but lost sessions if battery down
@@ -44,6 +46,7 @@ vimdiff = "nvim -d";
 # hybrid-sleep Hibernate and suspend  # save state to RAM then to disk so the power on is faster if battery is still on
 # Suspend & hibernate                 # Suspend the system, wake after a period of time and put it into hibernate
 logout =  "systemctl restart getty@tty1.service";
+poweroff = "sudo poweroff";
 
 # kubernetes
 kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";

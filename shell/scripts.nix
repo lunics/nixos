@@ -1,8 +1,8 @@
 {
   home.file = {
-    # ".local/bin" = {
-    #   recursive = true;
-    #   source    = ./scripts; };
+    ".local/bin" = {
+      recursive = true;
+      source    = ./scripts; };
 
     ".local/functions" = {
       recursive = true;

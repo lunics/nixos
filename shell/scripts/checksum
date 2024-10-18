@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# IF no args THEN show example: checksum <file> <sum_from_src>
+# TODO a finir
+
+if [ ${2} -eq 32 ]; then
+  file_sum=$(md5sum $1)
+  # comparer file and sum
+  # afficher OK avec les sums ou KO avec les sums
+elif [ ${2} -eq 64 ]; then
+  sha256sum $1
+elif [ ${2} -eq 128 ]; then
+  sha512sum $1
+fi
