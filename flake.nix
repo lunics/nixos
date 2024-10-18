@@ -2,35 +2,40 @@
 # sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
-    nixpkgs.url        = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    stable.url   = "github:nixos/nixpkgs/nixos-24.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # hyprland.url     = "github:hyprwm/Hyprland";
-    hyprland.url       = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    hyprland.url     = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland"; };
+
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs"; };
+      inputs.nixpkgs.follows = "unstable"; };
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs"; };
+      inputs.nixpkgs.follows = "unstable"; };
     impermanence.url = "github:nix-community/impermanence";
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-    #  inputs.nixpkgs.follows = "nixpkgs"; };
+    #  inputs.nixpkgs.follows = "unstable"; };
     # nixos-generators = {
     #   url = "github:nix-community/nixos-generators";
-    #   inputs.nixpkgs.follows = "nixpkgs"; };
+    #   inputs.nixpkgs.follows = "unstable"; };
     # deploy-rs = {
     #   url = "github:serokell/deploy-rs";
-    #   inputs.nixpkgs.follows = "nixpkgs"; };
+    #   inputs.nixpkgs.follows = "unstable"; };
     # attic = {
     #   url = "github:zhaofengli/attic";
-    #   inputs.nixpkgs.follows = "nixpkgs"; };
+    #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  outputs = { self, nixpkgs, disko, agenix, impermanence, ... }@inputs: {
-    nixosConfigurations.lunics = nixpkgs.lib.nixosSystem {    ## replace lunics by hostname target
+  outputs = { self, unstable, disko, agenix, impermanence, ... }@inputs: {
+    nixosConfigurations.lunics = unstable.lib.nixosSystem {    ## replace lunics by hostname target
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
