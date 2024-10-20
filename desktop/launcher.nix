@@ -20,7 +20,7 @@ programs.wofi = {
   };
 
   # https://cloudninja.pw/docs/wofi.html
-  style = builtins.readFile ./files/wofi/style.css;
+  style = builtins.readFile ../files/wofi/style.css;
 };
 
 }

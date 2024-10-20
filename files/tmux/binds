@@ -18,7 +18,7 @@ bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-cop
 # Windows
 bind -n M-h prev              # go to prev tab/window
 bind -n M-l next              # go to next tab/window
-bind q M-w kill-window       # close window
+bind -n M-w kill-window       # close window
 bind -n M-k run-shell -b "$CONFIG/tmux/plugins/tmux-fzf/scripts/window.sh switch"
 # bind -n F4 run-shell -b "tmux display-popup -E \"tmux lsw -F '#{window_index} #{window_name}' | fzf | cut -c 1-1 | xargs tmux select-window -t\""
 bind -n M-Space last             # go to last tab/window
