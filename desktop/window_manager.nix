@@ -3,11 +3,12 @@
 
   home.packages = with pkgs; [
     waypaper
-    # hyprpaper  KO
+    # hyprpaper  # KO
     hyprlock
     hyprpicker
     wl-clipboard
     waybar
+    brightnessctl
   ];
 
   xdg.configFile = {
