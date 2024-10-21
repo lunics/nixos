@@ -55,7 +55,7 @@ PASSWORD_STORE_GPG_OPTS = "--homedir ${config.xdg.dataHome}/gnupg";
 # ZSHRC       = "$SHELLRC/zsh";           # personnal
 # ZDOTDIR     = "$ZSHRC";                 # official
 # # ZSH_THEME = "robbyrussell";
-# WORDCHARS   = "*?_-.[]~=/&;!#$%^(){}<>";   # to define words separation for the cursor
+WORDCHARS   = "*?_-[]~=&;!#$%^(){}<>";   # special characters considered as normal letters
 # KEYTIMEOUT  = 0.1;                      # time to activate vim mode and others mode, ## tester sans
 # ZPLUG_HOME  = "$ZSHRC/zplug";           # zplug home dir
 # ZSH_FZF_HISTORY_SEARCH_BIND = "^r";     # set keybinding for zsh-fzf-history-search plugin
