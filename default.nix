@@ -2,6 +2,7 @@
 
   imports = [
     inputs.ags.homeManagerModules.default
+    # inputs.nur.hmModules.nur
     ./packages
     ./shell
     ./ssh_client.nix
