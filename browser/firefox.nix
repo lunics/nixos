@@ -86,6 +86,8 @@ programs.firefox = {
         "browser.tabs.drawInTitlebar"   = false;    # Use OS window border
         "browser.tabs.inTitlebar"       = 1;        # Use OS window border
         "browser.ctrlTab.recentlyUsedOrder" = false;    # Disable thumbnail preview ctrl + tab
+        "browser.translations.enable"   = false;
+        "browser.translations.automaticallyPopup" = false;
 
         "widget.gtk.non-native-titlebar-buttons.enabled" = false;          # use native GTK buttons
         "widget.non-native-theme.scrollbar.size" = 24;         # custom scrollbar
