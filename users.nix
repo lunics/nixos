@@ -1,9 +1,9 @@
 { config, pkgs, ... }:{
 
-users.users.lunics = {
+users.users.***REMOVED*** = {
   isNormalUser   = true;
   isSystemUser   = false;
-  description    = "Lunics";
+  description    = "***REMOVED***";
   uid            = 1000;
   extraGroups    = [ "wheel" "networkmanager" ];
   # mkpasswd -m sha-512
@@ -30,5 +30,6 @@ users.users.lunics = {
 };
 
   # Change runtime directory size. automatically systemd managed per-user directory more secure than /tmp
+  ## /tmp is still used, try to understand both of them
   services.logind.extraConfig = "RuntimeDirectorySize=8G";
 }

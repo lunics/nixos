@@ -17,6 +17,9 @@
       PermitRootLogin      = "yes";
       PubkeyAuthentication = true;  }; };
 
+
+  throttled.enable = false;   # IF Intel THEN true ELIF AMD THEN false
+
   avahi = {
     enable   = false;
     nssmdns4 = true;

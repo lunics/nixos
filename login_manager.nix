@@ -4,7 +4,7 @@
     settings = rec {
       initial_session = {
         command = "Hyprland";
-        user    = "lunics"; };
+        user    = "***REMOVED***"; };
       default_session = initial_session;
     };
   };

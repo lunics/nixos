@@ -7,19 +7,27 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    home-manager = {    ## verify if needed to added in "outputs"
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "unstable"; };
+
     hyprland.url     = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland"; };
 
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "unstable"; };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "unstable"; };
+
     impermanence.url = "github:nix-community/impermanence";
+
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
     #  inputs.nixpkgs.follows = "unstable"; };
