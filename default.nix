@@ -19,7 +19,7 @@
   programs.home-manager.enable = true;
 
   home = {
-    username      = "lunics";
-    homeDirectory = "/home/lunics";
+    username      = "***REMOVED***";
+    homeDirectory = "/home/***REMOVED***";
     stateVersion  = "24.05"; };
 }
