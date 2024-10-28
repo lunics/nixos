@@ -43,7 +43,7 @@
   };
 
   outputs = { self, unstable, disko, agenix, impermanence, ... }@inputs: {
-    nixosConfigurations.lunics = unstable.lib.nixosSystem {    ## replace lunics by hostname target
+    nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {    ## replace lunics by hostname target
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
