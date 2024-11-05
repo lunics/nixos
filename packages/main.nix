@@ -19,6 +19,8 @@ wget
 fd
 trash-cli
 
+udiskie
+
 comma   # to runs nix software without installing it
 
 # archive

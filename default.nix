@@ -15,6 +15,7 @@
     ./gpg.nix
     ./pass_manager.nix
     ./fonts.nix
+    ./services.nix
   ];
 
   programs.home-manager.enable = true;
