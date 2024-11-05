@@ -1,4 +1,4 @@
-# sudo nixos-rebuild switch --flake /home/lunics/homelab#lunics
+# sudo nixos-rebuild switch --flake /home/***REMOVED***/.config/nixos#***REMOVED***
 # sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
