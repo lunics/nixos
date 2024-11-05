@@ -12,7 +12,7 @@ users.users.***REMOVED*** = {
   shell          = pkgs.zsh;
   packages       = with pkgs; [
     home-manager
-    neovim
+    # neovim
     # neovim-nightly
     git
     lazygit
