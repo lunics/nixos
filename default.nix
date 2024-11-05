@@ -14,6 +14,7 @@
     ./browser
     ./gpg.nix
     ./pass_manager.nix
+    ./fonts.nix
   ];
 
   programs.home-manager.enable = true;
