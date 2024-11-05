@@ -2,7 +2,7 @@
 
 # APPS
 TERMINAL = "alacritty";
-EDITOR   = "nix run $HOME/neovim";
+EDITOR   = "nix run $HOME/.config/neovim";
 MANPAGER = "nvim +Man!";
 READER   = "zathura";
 BROWSER  = "librewolf";
