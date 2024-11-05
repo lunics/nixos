@@ -7,7 +7,7 @@
 
   xdg.configFile = {
     "waybar" = {
-      source    = ../files/waybar/lunics;
+      source    = ../files/waybar/v2;
       recursive = true;
     };
   };
