@@ -1,26 +1,16 @@
 { pkgs, ... }:{
-  fonts.fontconfig.enable = true;
-  home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif      = [ "Liberation Serif" "Vazirmatn" ];
+      sansSerif  = [ "Ubuntu" "Vazirmatn" ];
+      monospace  = [ "Ubuntu Mono" ];  };
+  };
+
+  home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    ubuntu_font_family
+    liberation_ttf
+    vazir-fonts
   ];
 }
-
-# { pkgs, ... }:{ fonts = {
-#
-# fontconfig = {
-#   enable = true;
-#   defaultFonts = {
-#     serif      = [ "Liberation Serif" "Vazirmatn" ];
-#     sansSerif  = [ "Ubuntu" "Vazirmatn" ];
-#     monospace  = [ "Ubuntu Mono" ];  };
-# };
-#
-# packages = with pkgs; [
-#   ubuntu_font_family
-#   liberation_ttf
-#   vazir-fonts
-# ];
-#
-# enableDefaultPackages = true;
-#
-# }; }
