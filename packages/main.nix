@@ -36,6 +36,8 @@ slurp
 
 # media controls
 playerctl
+freetube
+spotify
 
 bibata-cursors    # Open source, compact, and material designed cursor set
 

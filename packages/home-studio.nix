@@ -2,12 +2,11 @@
 
 musescore
 ardour
+jack2
 
-# - jack2
 # - xjadeo             # simple video player that is synchronized to jack transport
 # - zita-njbridge      # Jack client to transmit audio over a local IP network
 # - cadence            # control panel for audio work
-# - ardour
 # - harvid             # HTTP Ardour Video Daemon
 # - yabridge           # enable Windows VST2 and VST3 plugins on Linux
 # - yabridgectl

@@ -1,6 +1,7 @@
-{ imports = [
-
-./main.nix
-# ./messaging.nix
-
-]; }
+{ 
+  imports = [
+    ./main.nix
+    ./messaging.nix
+    ./home-studio.nix
+  ];
+}
