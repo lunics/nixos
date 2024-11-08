@@ -3,6 +3,9 @@
 musescore
 ardour
 jack2
+# yabridge
+# reaper
+# bitwig
 
 # - xjadeo             # simple video player that is synchronized to jack transport
 # - zita-njbridge      # Jack client to transmit audio over a local IP network

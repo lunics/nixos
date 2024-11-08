@@ -48,6 +48,7 @@ vimdiff = "nvim -d";
 # Suspend & hibernate                 # Suspend the system, wake after a period of time and put it into hibernate
 logout =  "systemctl restart getty@tty1.service";
 poweroff = "sudo poweroff";
+suspend = "systemctl suspend";
 
 # kubernetes
 kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
