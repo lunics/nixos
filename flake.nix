@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "unstable"; };
 
     hyprland.url     = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland.url     = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland"; };
@@ -44,8 +45,8 @@
 
   outputs = { self, unstable, disko, agenix, impermanence, ... }@inputs: {
     nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {    ## replace lunics by hostname target
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      system      = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
         # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
