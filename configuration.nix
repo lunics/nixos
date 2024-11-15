@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{ config, pkgs, lib, ... }:{
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -17,6 +17,8 @@
 
   environment.systemPackages = with pkgs; [
     cachix
+    # aquamarine
+    # libsForQt5.polkit-kde-agent
   ];
 
   programs.fuse = {
