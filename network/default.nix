@@ -7,4 +7,7 @@
     ./systemd-resolved.nix
     ./vpn.nix
   ];
+
+  # network diagnostic tool that combines ping and traceroute into one program
+  programs.mtr.enable = true;
 }
