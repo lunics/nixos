@@ -7,29 +7,18 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # nixpkgs.overlays =  [ inputs.neovim-nightly-overlay.overlay ];
-
   # used in bash and zsh modules to add shell completion for packages that provide it.
   environment.pathsToLink = [ "/share/zsh" ];
   programs.zsh.enable = true;
 
-  services.udisks2.enable = true;
-
   environment.systemPackages = with pkgs; [
     cachix        # fetch cache after cachix install with: nix flake update
-    # aquamarine
   ];
 
   programs.fuse = {
     userAllowOther = true;
-    mountMax       = 1000;
+    mountMax       = 1000;    # default=1000
   };
-
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   system.stateVersion = "24.05";
 }

@@ -64,7 +64,6 @@
         ./ntp.nix
         ./users.nix
         ./audio.nix
-        # ./fonts.nix
         ./login_manager.nix
         ./window_manager.nix
         ./virtualisation.nix
