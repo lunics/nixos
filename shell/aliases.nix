@@ -51,7 +51,7 @@ poweroff = "sudo poweroff";
 suspend = "systemctl suspend";
 
 # kubernetes
-kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
+# kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
 k      =  "kubectl";
 kk     =  "c $LINUX/kubernetes";
 kcc    =  "k config current-context";
