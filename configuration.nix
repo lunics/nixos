@@ -16,9 +16,8 @@
   services.udisks2.enable = true;
 
   environment.systemPackages = with pkgs; [
-    cachix
+    cachix        # fetch cache after cachix install with: nix flake update
     # aquamarine
-    # libsForQt5.polkit-kde-agent
   ];
 
   programs.fuse = {

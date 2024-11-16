@@ -2,21 +2,11 @@
 
   ## todo https://haseebmajid.dev/posts/2023-11-15-part-3-hyprland-as-part-of-your-development-workflow/
 
-  # security.polkit.enable = true;
-  # environment.systemPackages = with pkgs; [
-  #   cachix
-  #   xdg-desktop-portal-hyprland
-  # ];
-
-  # hardware = {
-  #   graphics.enable = true;
-  #   nvidia.modesetting.enable = false; };
-
   programs.hyprland = {
     enable          = true;
     package         = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage   = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    xwayland.enable = false; };
+    xwayland.enable = true; };
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSORS = "1";    # if cursor become invisible
