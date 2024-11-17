@@ -16,6 +16,8 @@
       # neovim-nightly
       git
       lazygit
+      steam-tui
+      steamcmd
     ];
     openssh = {
       authorizedKeys.keys = [       # /etc/ssh/authorized_keys.d/lunics

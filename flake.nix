@@ -68,6 +68,7 @@
         ./window_manager.nix
         ./virtualisation.nix
         ./security
+        ./gaming.nix
       ];
     };
   };
