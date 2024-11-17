@@ -1,6 +1,8 @@
 { pkgs, ... }:{
 
   virtualisation = {
+    waydroid.enable = true;
+
     # containerd.enable = true;
 
     # docker = {
