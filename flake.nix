@@ -69,6 +69,7 @@
         ./virtualisation.nix
         ./security
         ./gaming.nix
+        ./k3s.nix
       ];
     };
   };
