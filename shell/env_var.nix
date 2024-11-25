@@ -29,7 +29,7 @@ XDG_SESSION_TYPE      = "wayland";
 CLUTTER_BACKEND       = "wayland";
 
 # PATH
-CONFIG         = "$HOME/.config";
+CONFIG         = "$XDG_CONFIG_HOME";
 # SHELLRC        = "$HOME/{{ path3.shell   }}";
 LOCAL          = "$HOME/.local";
 CACHE          = "$HOME/.cache";
@@ -48,6 +48,8 @@ ANSIBLE_CONFIG = "$ANSIBLE/ansible.cfg";
 GALAXY         = "$ANSIBLE/galaxy";
 FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
+# KUBECONFIG     = "$CONFIG/k3s/k3s.yaml";  # KO, why ?
+KUBECONFIG     = "$HOME/.config/k3s/k3s.yaml";  # KO, why ?
 
 PASSWORD_STORE_GPG_OPTS = "--homedir ${config.xdg.dataHome}/gnupg";
 
