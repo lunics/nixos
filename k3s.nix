@@ -1,38 +1,39 @@
-{ pkgs, ... }: let
-  my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
-    plugins = with pkgs.kubernetes-helmPlugins; [
-      helm-secrets
-      helm-diff
-      helm-s3
-      helm-git ];
-  };
-
-  my-helmfile = pkgs.helmfile-wrapped.override {
-    inherit (my-kubernetes-helm) pluginsDir;   };
-in {
-  environment.systemPackages =  [
-    my-kubernetes-helm
-    my-helmfile
-  ];
+{ pkgs, ... }:{
+  # let
+#   my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
+#     plugins = with pkgs.kubernetes-helmPlugins; [
+#       helm-secrets
+#       helm-diff
+#       helm-s3
+#       helm-git ];
+#   };
+#
+#   my-helmfile = pkgs.helmfile-wrapped.override {
+#     inherit (my-kubernetes-helm) pluginsDir;   };
+# in {
+#   environment.systemPackages =  [
+#     my-kubernetes-helm
+#     my-helmfile
+#   ];
 
   services.k3s = {
     enable       = true;
     package      = pkgs.k3s;
     role         = "server";   # server, agent
-    disableAgent = true;
-    extraFlags   = toString ([
-      "--write-kubeconfig-mode \"0600\""    # /etc/rancher/k3s/k3s.yaml
-      "--cluster-init"
-      "--disable servicelb"
-      "--disable traefik"
-      "--disable local-storage"
-      "--disable network-policy"
-      "--disable cloud-controller"
-      "--disable metrics-server"
-      # "--server https://homelab-0:6443"
-      # "--cluster-cidr 10.24.0.0/16"
-    ]);
-    clusterInit = true;
+    # disableAgent = true;
+    # extraFlags   = toString ([
+    #   "--write-kubeconfig-mode \"0600\""    # /etc/rancher/k3s/k3s.yaml
+    #   "--cluster-init"
+    #   "--disable servicelb"
+    #   "--disable traefik"
+    #   "--disable network-policy"
+    #   "--disable cloud-controller"
+    #   "--disable metrics-server"
+    #   # "--disable local-storage"
+    #   # "--server https://homelab-0:6443"
+    #   # "--cluster-cidr 10.24.0.0/16"
+    # ]);
+    # clusterInit = true;
     # tokenFile = /var/lib/rancher/k3s/server/token;
     # token =             # k3s token to use when connecting to a server, WARNING: expose your token unencrypted
     # configPath =        # File path containing the k3s YAML config
