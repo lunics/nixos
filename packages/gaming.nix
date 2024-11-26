@@ -3,7 +3,7 @@
     lutris
     # ankama-launcher available from steam or from ankama-launcher.nix ?
 
-    steam-tui
+    # steam-tui       # build failed: Permission denied (os error 13)
     steamcmd
 
     protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
