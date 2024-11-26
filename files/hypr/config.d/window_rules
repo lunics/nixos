@@ -2,7 +2,7 @@
 
 $terminal   = Alacritty|Kitty
 $browser    = firefox|librewolf|Tor Browser
-$message    = discord|org.gajim.Gajim|Element|Session|Telegram|info.mumble.Mumble
+$message    = discord|org.gajim.Gajim|Element|Session|org.telegram.dekstop|info.mumble.Mumble
 $streaming  = Spotify|FreeTube|streamlink-twitch-gui|mpv
 $gaming     = dofus.exe
 $music      = org.musescore.MuseScore
@@ -19,10 +19,10 @@ windowrulev2 = workspace 7,     class:^($libvirt)
 windowrulev2 = float,           class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 windowrulev2 = move 0 0,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 windowrulev2 = size 100% 1044,  class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
-windowrulev2 = noborder,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
-windowrulev2 = rounding 0,      class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
-windowrulev2 = noshadow,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
+windowrulev2 = noborder,        class:^($browser)$
+# windowrulev2 = noborder,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
+# windowrulev2 = rounding 0,      class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
+# windowrulev2 = noshadow,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 
-# custom
 windowrulev2 = float,           class:^(udiskie)$
 windowrulev2 = move 40% 40%,    class:^(udiskie)$
