@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:{ home.packages = with pkgs; [
 
 # neovim
-inputs.nixvim.packages.x86_64-linux.default
+inputs.flake-neovim.packages.x86_64-linux.default
 lazygit
 yazi
 ueberzugpp
