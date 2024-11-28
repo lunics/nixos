@@ -57,6 +57,7 @@
         ./disko.nix
         ./boot.nix
         ./configuration.nix
+        ./kernel.nix
         ./swap.nix
         ./services.nix
         ./location.nix
