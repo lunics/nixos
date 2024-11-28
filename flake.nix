@@ -53,7 +53,7 @@
         agenix.nixosModules.default
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
-        ./hardware-configuration.nix
+        ./hardware.nix
         ./disko.nix
         ./boot.nix
         ./configuration.nix
