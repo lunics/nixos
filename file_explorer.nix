@@ -4,6 +4,7 @@ enable                = true;
 enableBashIntegration = true;
 enableZshIntegration  = true;
 package               = pkgs.yazi;
+
 settings = {
   manager = {
     ratio          = [ 2 3 4 ];
