@@ -11,13 +11,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable"; };
 
-    # hyprland.url     = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland.url     = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland"; };
-
-    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     disko = {
       url = "github:nix-community/disko";
@@ -29,21 +26,22 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "unstable"; };
+
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
     #  inputs.nixpkgs.follows = "unstable"; };
     # nixos-generators = {
     #   url = "github:nix-community/nixos-generators";
     #   inputs.nixpkgs.follows = "unstable"; };
-    # deploy-rs = {
-    #   url = "github:serokell/deploy-rs";
-    #   inputs.nixpkgs.follows = "unstable"; };
     # attic = {
     #   url = "github:zhaofengli/attic";
     #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  outputs = { self, unstable, disko, agenix, impermanence, ... }@inputs: {
+  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, ... }@inputs: {
     nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {    ## replace lunics by hostname target
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
