@@ -48,4 +48,21 @@
   #   enable = true;
   #   name = "iqn.2016-04.com.open-iscsi:${meta.hostname}";
   # };
+
+  # TODO why do we need to fix the folder permission of mapped age secrets?
+  systemd.tmpfiles.rules = [
+    "d /mnt/backup 0775 root data -"    # must be owned by root to solve gitea folder transition issues!
+    "d /opt/k3s 0775 ${user} data -"
+    "d /opt/k3s/data 0775 ${user} data -"
+    "d /home/${user}/.kube 0775 ${user} data -"
+    "d /var/lib/rancher/k3s/server/manifests 0775 root data -"
+    "L /home/${user}/.kube/config  - - - - /etc/rancher/k3s/k3s.yaml"
+    "L /var/lib/rancher/k3s/server/manifests/flux.yaml - - - - /etc/k3s/flux.yaml"
+    "L /var/lib/rancher/k3s/server/manifests/flux-git-auth.yaml - - - - ${config.age.secrets.flux-git-auth.path}"
+    "L /var/lib/rancher/k3s/server/manifests/flux-sops-age.yaml - - - - ${config.age.secrets.flux-sops-age.path}"
+    "L /var/lib/rancher/k3s/server/manifests/00-coredns-custom.yaml - - - - /etc/k3s/coredns-custom.yaml" # use 00- prefix to deploy this first
+  ];
+
+  # required for deploy-rs
+  nix.settings.trusted-users = [ "root" "${user}" ];
 }
