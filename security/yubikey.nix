@@ -1,29 +1,36 @@
 { pkgs, ...}:{
-
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-
-  programs = {
-    ssh.startAgent = false;
-
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true; };
-  };
+  environment.systemPackages = with pkgs; [
+    yubikey-manager
+    yubico-pam
+    yubikey-full-disk-encryption
+    age-plugin-yubikey
+    age
+    passage
+    pcsclite
+  ];
 
   services.pcscd.enable = true;
 
-  # FIXME Don't forget to create an authorization mapping file for your user (https://nixos.wiki/wiki/Yubikey#pam_u2f)
-  security.pam.u2f = {
-    enable       = true;
-    settings.cue = true;
-    control      = "sufficient";
-  };
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 
-  security.pam.services = {
-    greetd.u2fAuth   = true;
-    sudo.u2fAuth     = true;
-    hyprlock.u2fAuth = true;
-  };
+  # programs = {
+  #   ssh.startAgent = false;
+  #
+  #   gnupg.agent = {
+  #     enable = true;
+  #     enableSSHSupport = true; };
+  # };
 
-  environment.systemPackages = with pkgs; [ yubikey-manager ];
+  # # FIXME Don't forget to create an authorization mapping file for your user (https://nixos.wiki/wiki/Yubikey#pam_u2f)
+  # security.pam.u2f = {
+  #   enable       = true;
+  #   settings.cue = true;
+  #   control      = "sufficient";
+  # };
+  #
+  # security.pam.services = {
+  #   greetd.u2fAuth   = true;
+  #   sudo.u2fAuth     = true;
+  #   hyprlock.u2fAuth = true;
+  # };
 }
