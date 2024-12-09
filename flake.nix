@@ -64,11 +64,11 @@
         ./users.nix
         ./audio.nix
         ./login_manager.nix
-        ./window_manager.nix
-        ./virtualisation.nix
         ./security
         ./gaming.nix
-        ./k3s.nix
+        # ./window_manager.nix
+        # ./virtualization.nix
+        # ./k3s.nix
       ];
     };
   };

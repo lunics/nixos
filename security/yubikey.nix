@@ -1,8 +1,10 @@
 { pkgs, ...}:{
   environment.systemPackages = with pkgs; [
     yubikey-manager
+    yubikey-touch-detector
+    yubikey-agent                     # ssh-agent for yubikey
+    # yubikey-full-disk-encryption    # doesn't exist
     yubico-pam
-    yubikey-full-disk-encryption
     age-plugin-yubikey
     age
     passage
