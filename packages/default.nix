@@ -4,5 +4,6 @@
     ./messaging.nix
     ./home-studio.nix
     ./gaming.nix
+    # ./yubikey.nix
   ];
 }

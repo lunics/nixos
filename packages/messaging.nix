@@ -9,6 +9,7 @@ discord
 #   withVencord  = true;
 # })
 # betterdiscordctl
+# todo vencord openasar github star
 # # discord-tweaks discord-nord-theme
 # vesktop         # Screensharing with audio on wayland for Discord and others ?
 

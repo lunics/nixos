@@ -1,13 +1,16 @@
 { pkgs, ... }:{
 
-# https://github.com/maximbaz/yubikey-touch-detector
-
 home.packages = with pkgs; [
   yubikey-touch-detector
-  age-plugin-yubikey
+
+  # age-plugin-yubikey
+  # age
+  # passage
+  # pcsclite
 ];
 
-$ systemctl --user daemon-reload
-$ systemctl --user enable --now yubikey-touch-detector.service
-
+# https://github.com/maximbaz/yubikey-touch-detector
+# services.yubikey-touch-detector.enable = true;
+# $ systemctl --user daemon-reload
+# $ systemctl --user enable --now yubikey-touch-detector.service
 }

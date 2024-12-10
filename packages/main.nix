@@ -8,6 +8,7 @@ ueberzugpp
 python3
 tomb
 sshfs
+go-task   # taskfile
 
 lsd
 eza
@@ -22,9 +23,10 @@ trash-cli
 udiskie
 
 htop
-pciutils    # for lspci
+pciutils          # for lspci
 
-comma       # to runs nix software without installing it
+comma             # to runs nix software without installing it
+nix-search-cli    # CLI for searching packages on search.nixos.org
 
 # archive
 ouch
