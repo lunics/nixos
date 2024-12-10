@@ -1,8 +1,9 @@
 {
   imports = [
+    ./libvirt.nix
     # ./k3s.nix
     # ./podman.nix
     # ./docker.nix
-    ./virtualization.nix
+    # ./virtualisation.nix
   ];
 }
