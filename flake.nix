@@ -1,4 +1,4 @@
-# sudo nixos-rebuild switch --flake /home/***REMOVED***/.config/nixos#***REMOVED***
+# sudo nixos-rebuild switch --flake /home/***REMOVED***/homelab/nixos/system#***REMOVED***
 # sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
@@ -7,9 +7,10 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    home-manager = {    ## verify if needed to added in "outputs"
+    home-manager = {    # don't need in "outputs" to be installed for home-manager
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable"; };
+    flake-home-manager.url = "git+file:/home/***REMOVED***/homelab/nixos/user";
 
     hyprland.url     = "github:hyprwm/Hyprland";
     hyprland-plugins = {
@@ -42,12 +43,14 @@
   };
 
   outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, ... }@inputs: {
-    nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {    ## replace lunics by hostname target
+    nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
-        # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen3
+          # src: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
+          # lenovo-thinkpad-t480
+          # lenovo-thinkpad-t14
         agenix.nixosModules.default
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
@@ -65,10 +68,9 @@
         ./audio.nix
         ./login_manager.nix
         ./security
-        ./gaming.nix
-        # ./window_manager.nix
-        # ./virtualization.nix
-        # ./k3s.nix
+        ./window_manager.nix
+        ./virtualization
+        # ./gaming.nix
       ];
     };
   };
