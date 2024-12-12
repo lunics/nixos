@@ -49,7 +49,7 @@ GALAXY         = "$ANSIBLE/galaxy";
 FUNCTIONS      = "$SHELLRC/functions";
 KUBERNETES     = "$LINUX/kubernetes";
 # KUBECONFIG     = "$CONFIG/k3s/k3s.yaml";  # KO, why ?
-KUBECONFIG     = "$HOME/.config/k3s/k3s.yaml";  # KO, why ?
+KUBECONFIG     = "$HOME/.config/k3s/k3s.yaml";
 
 PASSWORD_STORE_GPG_OPTS = "--homedir ${config.xdg.dataHome}/gnupg";
 
