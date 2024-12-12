@@ -5,6 +5,10 @@
   # programs.mtr.enable = true;
 
   security.pam.services.hyprlock = {};
+  security.pam.services.swaylock.text = ''
+    auth    sufficient   pam_u2f.so      nouserok origin=pam://laptop-t14 appid=pam://laptop-t14 authfile=/etc/yubico/u2f_keys cue
+    auth    include login
+  '';
 
   security.polkit.enable = true;
 

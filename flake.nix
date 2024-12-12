@@ -69,7 +69,7 @@
         ./login_manager.nix
         ./security
         ./window_manager.nix
-        # ./virtualisation
+        ./virtualisation
         # ./gaming.nix
       ];
     };
