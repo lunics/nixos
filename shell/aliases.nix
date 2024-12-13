@@ -14,6 +14,7 @@ la    = "eza -lag --group-directories-first";
 ip    = "ip --color=auto";
 ss    = "sudo systemctl";
 fk    = "fuck";
+md    = "mkdir --parents --verbose";
 ra    = "ranger_no_subshell";
 tf    = "terraform";
 py    = "python";
