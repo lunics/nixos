@@ -2,7 +2,7 @@
 
 ./aliases.nix
 ./bash.nix
-./env_var.nix
+./exports.nix
 ./history.nix
 ./prompt.nix
 ./scripts.nix
