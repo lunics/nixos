@@ -68,6 +68,7 @@
         ./audio.nix
         ./login_manager.nix
         ./security
+        ./fonts.nix
         ./window_manager.nix
         ./virtualisation
         # ./gaming.nix
