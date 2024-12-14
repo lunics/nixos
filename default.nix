@@ -14,7 +14,6 @@
     ./browser
     ./gpg.nix
     ./pass_manager.nix
-    ./fonts.nix
     ./services.nix
   ];
 
