@@ -1,11 +1,16 @@
-{
+{ pkgs, ... }:{
+  home.packages = with pkgs; [
+    (import ./scripts/gen_pass.nix { inherit pkgs; })
+  ];
+
   home.file = {
-    ".local/bin" = {
-      recursive = true;
-      source    = ./scripts; };
+    # ".local/bin" = {     # KO permission denied
+    #   source     = ./scripts;
+    #   executable = true;
+    #   recursive  = true; };
 
     ".local/functions" = {
-      recursive = true;
-      source    = ./functions; };
+      source     = ./functions;
+      recursive  = true; };
   };
 }
