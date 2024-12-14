@@ -1,6 +1,5 @@
 { pkgs, inputs, ... }:{ home.packages = with pkgs; [
 
-# neovim
 inputs.flake-neovim.packages.x86_64-linux.default
 lazygit
 yazi
@@ -8,7 +7,8 @@ ueberzugpp
 python3
 tomb
 sshfs
-go-task   # taskfile
+go-task         # taskfile
+clipboard-jh    # best wayland clipboard
 
 lsd
 eza
@@ -74,4 +74,9 @@ k9s
 # unstable.k3d
 # unstable.k9s
 # unstable.teleport.client
+
+# Used by scripts
+pwgen
+# coreutils   # to get: shuf
+
 ] ;}
