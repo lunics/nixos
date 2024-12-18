@@ -1,5 +1,5 @@
 { pkgs }: pkgs.writeShellApplication {
-  name = "gen_pass";
+  name = "sartup_apps";
   runtimeInputs = with pkgs; [ 
     alacritty 
     firefox   

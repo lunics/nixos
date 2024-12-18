@@ -1,7 +1,6 @@
 { pkgs, ... }:{
   home.packages = with pkgs; [
     (import ./scripts/gen_pass.nix     { inherit pkgs; })
-    (import ./scripts/startup_apps.nix { inherit pkgs; })
   ];
 
   home.file = {
@@ -9,6 +8,11 @@
     #   source     = ./scripts;
     #   executable = true;
     #   recursive  = true; };
+
+    ".config/hypr/startup_apps".source = ./scripts/startup_apps;
+    # "startup_apps" = {
+    #   source = ./scripts/startup_apps;
+    #   target = ".config/hypr/startup_apps.sh"; };
 
     ".local/functions" = {
       source     = ./functions;
