@@ -19,11 +19,12 @@
     winetricks
   ];
 
-
   # Dofus
     # dl ankama-launcher for official website
     # nix-shell -p appimage-run
+    # sudo mount -o exec /tmp
     # appimage-run ./Ankama\ Launcher-Setup-x86_64.AppImage
+    # sudo mount -o noexec /tmp
 
     # imports = [
     #   ./ankama-launcher.nix
