@@ -23,7 +23,7 @@
     # dl ankama-launcher for official website
     # nix-shell -p appimage-run
     # sudo mount -o exec /tmp
-    # appimage-run ./Ankama\ Launcher-Setup-x86_64.AppImage
+    # appimage-run Downloads/Ankama\ Launcher-Setup-x86_64.AppImage
     # sudo mount -o noexec /tmp
 
     # imports = [

@@ -7,5 +7,5 @@ c (){
   # cd `dirs -v | cut -f 2 | fzf`
   # cd parent dir of the file
   ## cd $1 && l         DELETE IF Z OK
-  z $(realpath $1) && l
+  z $(realpath $1) && exa -l --group-directories-first --git-repos --hyperlink
 }

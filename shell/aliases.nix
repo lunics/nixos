@@ -22,7 +22,7 @@ c-    = "cd -";
 ".."  = "cd ..";
 "..." = "cd ../..";
 ia    = "chatblade --chat-gpt 3.5 --stream";
-cp    = "/usr/bin/cp --reflink=auto";
+cp    = "cp --reflink=auto";
 vim   = "nvim";
 pwd   = "command pwd | tee /dev/tty | wl-copy";
 cat   = "bat";
