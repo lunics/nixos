@@ -9,10 +9,7 @@
     #   executable = true;
     #   recursive  = true; };
 
-    ".config/hypr/startup_apps".source = ./scripts/startup_apps;
-    # "startup_apps" = {
-    #   source = ./scripts/startup_apps;
-    #   target = ".config/hypr/startup_apps.sh"; };
+    # ".config/hypr/startup_apps".source = ./scripts/startup_apps;
 
     ".local/functions" = {
       source     = ./functions;
