@@ -1,21 +1,4 @@
 { pkgs, ... }:{
-  # let
-#   my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
-#     plugins = with pkgs.kubernetes-helmPlugins; [
-#       helm-secrets
-#       helm-diff
-#       helm-s3
-#       helm-git ];
-#   };
-#
-#   my-helmfile = pkgs.helmfile-wrapped.override {
-#     inherit (my-kubernetes-helm) pluginsDir;   };
-# in {
-#   environment.systemPackages =  [
-#     my-kubernetes-helm
-#     my-helmfile
-#   ];
-
   services.k3s = {
     enable       = true;
     package      = pkgs.k3s;
@@ -42,13 +25,16 @@
     # charts =
   };
 
-  # systemd.services.k3s.serviceConfig.ExecStartPre = "${pkgs.coreutils}/bin/sleep 60";
-
-  # services.openiscsi = {
-  #   enable = true;
-  #   name = "iqn.2016-04.com.open-iscsi:${meta.hostname}";
-  # };
-
+  environment.systemPackages = with pkgs; [
+    (wrapHelm kubernetes-helm {
+      plugins = with pkgs.kubernetes-helmPlugins; [
+        helm-secrets
+        helm-diff
+        helm-s3
+        helm-git
+      ];
+    }) 
+  ];
   systemd.tmpfiles.rules = [
     # "d /opt/k3s 0775 ***REMOVED*** data -"
     # "d /opt/k3s/data 0775 ***REMOVED*** data -"

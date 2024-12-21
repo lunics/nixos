@@ -1,5 +1,11 @@
 {
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
-  services.blueman.enable = true;
+  hardware.bluetooth = {
+    enable      = true;
+    powerOnBoot = true;
+    settings = {
+      General.Experimental = true; 
+    };
+  };
+
+  services.blueman.enable = true;   # GTK+ bluetooth manager
 }

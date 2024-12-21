@@ -7,7 +7,8 @@
     yubico-pam
     # pam-u2f           ## not available
     age-plugin-yubikey
-    age
+    # age
+    rage      # age in rust
     passage
     pcsclite
   ];
