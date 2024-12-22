@@ -8,7 +8,8 @@ python3
 tomb
 sshfs
 go-task         # taskfile
-clipboard-jh    # best wayland clipboard
+wl-clipboard
+# clipboard-jh    # best wayland clipboard
 
 lsd
 eza

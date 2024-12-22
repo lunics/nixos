@@ -23,8 +23,8 @@
     # hyprpaper  # KO
     # hyprlock    # choose with swaylock
     hyprpicker
-    # wl-clipboard
-    clipboard-jh      # built-in wl-clipboard ?
+    wl-clipboard
+    # clipboard-jh      # needs wl-clipboard, KO screen flickering even with: exec-once = cb
     waybar
     brightnessctl
   ];
