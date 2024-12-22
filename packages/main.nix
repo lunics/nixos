@@ -16,7 +16,7 @@ fzf
 zoxide
 bat
 ripgrep
-entr        # permet de run des script automatiquement dans shell lorsque fichier source est modifier: ls *.rb | entr ruby main.rb wget
+entr            # permet de run des script automatiquement dans shell lorsque fichier source est modifier: ls *.rb | entr ruby main.rb wget
 fd
 trash-cli
 

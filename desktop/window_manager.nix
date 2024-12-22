@@ -23,7 +23,8 @@
     # hyprpaper  # KO
     # hyprlock    # choose with swaylock
     hyprpicker
-    wl-clipboard
+    # wl-clipboard
+    clipboard-jh      # built-in wl-clipboard ?
     waybar
     brightnessctl
   ];
