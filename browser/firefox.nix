@@ -6,9 +6,9 @@ programs.firefox = {
   languagePacks = [ "fr" "en-US" ];
 
   profiles = {
-    lunics = {
+    Nixos = {
       id        = 0;
-      name      = "Lunics";
+      name      = "Nixos";
       isDefault = true;
 
       # todo line 518 /h/l/d/r/nixos/official/nur-expressions/pkgs/firefox-addons/addons.json
@@ -116,4 +116,10 @@ programs.firefox = {
     };
   };
 };
+
+# Screen Sharing under Wayland
+environment.systemPackages = [
+  (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+];
+
 }
