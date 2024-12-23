@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:{ home.packages = with pkgs; [
 
 inputs.flake-neovim.packages.x86_64-linux.default
+lazygit
 yazi
 ueberzugpp
 python3

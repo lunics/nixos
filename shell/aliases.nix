@@ -24,7 +24,7 @@ c-    = "cd -";
 ia    = "chatblade --chat-gpt 3.5 --stream";
 cp    = "cp --reflink=auto";
 vim   = "nvim";
-pwd   = "command pwd | tee /dev/tty | wl-copy";
+pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
 cat   = "bat";
 copy  = "rsync -rlptgoDvzh --progress";
 calc  = "/usr/bin/bc -q";
