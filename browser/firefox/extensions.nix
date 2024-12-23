@@ -39,7 +39,7 @@ programs.firefox.profiles.Lunics.extensions = with inputs.firefox-addons.package
 
 # browserpass
 # passff
-keeper
+# keeper KO not defined
 
 # i lovely-forks
 # refined-github

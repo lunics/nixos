@@ -1,6 +1,7 @@
 { programs.firefox.policies.ExtensionSettings = {
 
 # https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action
+# https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager
 # valid synthax
 # "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/{17c7f098-dbb8-4f15-ad39-8b578da80f7e}/latest.xpi";
 
@@ -34,7 +35,11 @@
   "default_area"      = "menupanel";
 };
 
-# keeper-password-manager
+"KeeperFFStoreExtension@KeeperSecurityInc" = {  # Keeper
+  "installation_mode" = "force_installed";
+  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager/latest.xpi";
+  "default_area"      = "navbar";
+};
 
 "Tab-Session-Manager@sienori" = {               # Tab-Session-Manager
   "installation_mode" = "force_installed";

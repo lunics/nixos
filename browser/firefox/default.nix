@@ -1,7 +1,7 @@
 {
   imports = [
     # ./bookmarks.nix
-    # ./containers.nix
+    ./containers.nix
     ./extensions.nix
     ./extensions_settings.nix
     ./main.nix
