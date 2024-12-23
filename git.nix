@@ -19,4 +19,10 @@
   #   GIT_AUTHOR_EMAIL  = "git@***REMOVED***";
   #   GH_TOKEN          = "{{ github_token }}"; };
 
+  # xdg.configFile."lazygit/config.yml".text = builtins.readFile ./files/lazygit.yml;
+  lazygit = {
+    enable  = true;
+    package = pkgs.lazygit;
+    settings = {};
+  };
 }

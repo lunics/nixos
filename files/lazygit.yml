@@ -1,0 +1,7 @@
+customCommands:
+  # - name: "toggle_command_log"
+  - key:     "c"
+    context: "global"             # global, files
+    command: "git commit"
+    stream:  true
+    # showOutput: true
