@@ -12,11 +12,14 @@ programs.firefox.profiles.Lunics.extensions = with inputs.firefox-addons.package
 # i istilldontcareaboutcookies
 # ipvfoo
 
-# multi-account-containers
-# temporary-containers
+# i multi-account-containers
+# i temporary-containers
 # i tab-session-manager
-# auto-tab-discard
-# # open-url-in-container
+# i auto-tab-discard
+# i open tabs next to current
+# i open-url-in-container
+  # firefox 'ext+container:name=MyContainer&url=https://mozilla.org'
+  # firefox 'ext+container:name=MyContainer&color=orange&icon=fruit&url=https://mozilla.org&pinned=true'
 
 # i vimium
 # gesturefy
@@ -58,7 +61,6 @@ programs.firefox.profiles.Lunics.extensions = with inputs.firefox-addons.package
 # # pushbullet
 # # joplin-web-clipper
 # # authenticator
-# # open tabs next to current
 # # wallabagger
 # # Bukubrow
 # # single-file

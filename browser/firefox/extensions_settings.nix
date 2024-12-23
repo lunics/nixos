@@ -83,6 +83,36 @@
   "default_area"      = "menupanel";
 };
 
+"@testpilot-containers" = {                     # multi-account-containers
+  "installation_mode" = "force_installed";
+  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
+  "default_area"      = "menupanel";
+};
+
+"{c607c8df-14a7-4f28-894f-29e8722976af}" = {    # temporary-containers
+  "installation_mode" = "force_installed";
+  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi";
+  "default_area"      = "menupanel";
+};
+
+"{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {    # auto-tab-discard
+  "installation_mode" = "force_installed";
+  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
+  "default_area"      = "menupanel";
+};
+
+"{f069aec0-43c5-4bbf-b6b4-df95c4326b98}" = {    # open-url-in-container
+  "installation_mode" = "force_installed";
+  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/open-url-in-container/latest.xpi";
+  "default_area"      = "menupanel";
+};
+
+"opentabsnexttocurrent@sblask" = {              # open-tabs-next-to-current
+  "installation_mode" = "force_installed";
+  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/open-tabs-next-to-current/latest.xpi";
+  "default_area"      = "menupanel";
+};
+
 # Keepa (amazon price tracker)
 "amptra@keepa.com" = {
   "installation_mode" = "force_installed";
