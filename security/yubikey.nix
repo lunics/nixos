@@ -17,6 +17,9 @@
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
+  services.yubikey-agent.enable = true;   # install service in user space
+    # Every session requires the PIN, every login requires a touch. Setup takes care of PUK and management key
+
   # programs = {
   #   ssh.startAgent = false;
   #

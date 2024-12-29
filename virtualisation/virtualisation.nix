@@ -1,12 +1,4 @@
 { pkgs, ... }:{
-
-  virtualisation = {
-    waydroid.enable = true;
-
-    # containerd.enable = true;
-
-  };
-
   # environment.systemPackages = with pkgs; [
   #   nerdctl
   #
