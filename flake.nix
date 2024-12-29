@@ -31,6 +31,10 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "unstable"; };
 
+    crowdsec = {
+      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
+      inputs.nixpkgs.follows = "unstable"; };
+
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
     #  inputs.nixpkgs.follows = "unstable"; };
@@ -42,7 +46,7 @@
     #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, ... }@inputs: {
+  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, crowdsec, ... }@inputs: {
     nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -54,6 +58,7 @@
         agenix.nixosModules.default
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
+        crowdsec.nixosModules.crowdsec
         ./hardware.nix
         ./disko.nix
         ./boot.nix
