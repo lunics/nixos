@@ -15,6 +15,7 @@
     ./gpg.nix
     ./pass_manager.nix
     ./services.nix
+    ./k3s.nix
   ];
 
   programs.home-manager.enable = true;
