@@ -25,6 +25,11 @@ programs.firefox = {
       #'';
     };
   };
+
+  ## Sync folder to copy data's extensions
+  # get UUID: about:debugging#/runtime/this-firefox
+  # ~/.mozilla/firefox/Lunics/storage/default/moz-extension+++UUID
+
 };
 
 }

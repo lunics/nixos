@@ -54,4 +54,6 @@ bibata-cursors    # Open source, compact, and material designed cursor set
 pwgen
 # coreutils   # to get: shuf
 
+sqlite
+
 ] ;}
