@@ -35,6 +35,10 @@
       url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
       inputs.nixpkgs.follows = "unstable"; };
 
+    nixvirt = {
+      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+      inputs.nixpkgs.follows = "unstable"; };
+
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
     #  inputs.nixpkgs.follows = "unstable"; };
@@ -46,7 +50,7 @@
     #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, crowdsec, ... }@inputs: {
+  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, crowdsec, nixvirt, ... }@inputs: {
     nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -59,6 +63,7 @@
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
         crowdsec.nixosModules.crowdsec
+        nixvirt.nixosModules.default
         ./hardware.nix
         ./disko.nix
         ./boot.nix
