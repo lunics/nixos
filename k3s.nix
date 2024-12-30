@@ -6,7 +6,6 @@
     kubectx         # To switch between kubectl contexts and Kubernetes namespaces
     kubecolor       # Colorize your kubectl output
     stern           # Log tailing for Kubernetes
-    k9s
     # kubelogin
     # kubelogin-oidc
     # kubeseal
@@ -51,4 +50,5 @@
       };
     };
   };
+
 }

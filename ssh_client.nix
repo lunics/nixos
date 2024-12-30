@@ -1,12 +1,13 @@
-{ programs.ssh = {
-
-enable = true;
-
-matchBlocks = {
-  "***REMOVED***" = {
-    user         = "lunics";
-    identityFile = "/home/***REMOVED***/.ssh/homelab"; };
-};
+{ 
+  programs.ssh = {
+    enable = true;
+    
+    matchBlocks = {
+      "***REMOVED***" = {
+        user         = "lunics";
+        identityFile = "/home/***REMOVED***/.ssh/homelab"; };
+    };
+  };
 
 # startAgent = true;
 # enableAskPassword = true;
@@ -18,4 +19,4 @@ matchBlocks = {
 #     UpdateHostKeys no
 # '';
 
-}; }
+}

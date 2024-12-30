@@ -55,5 +55,6 @@ pwgen
 # coreutils   # to get: shuf
 
 sqlite
+psmisc        # to get: fuser (to unlock sqlite db)
 
 ] ;}
