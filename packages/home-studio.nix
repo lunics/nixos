@@ -1,7 +1,7 @@
 { pkgs, ... }:{ home.packages = with pkgs; [
 
 musescore
-ardour
+# ardour                  # ko build: raptor
 jack2
 helm                    # free polyphonic synth with lots of modulation
 # yabridge
