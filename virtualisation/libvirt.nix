@@ -1,5 +1,4 @@
 { pkgs, ... }:{
-
   environment.systemPackages = with pkgs; [
     qemu
     virt-manager
@@ -12,8 +11,8 @@
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
+      package =      pkgs.qemu_kvm;
+      runAsRoot =    true;
       swtpm.enable = true;
       ovmf = {
         enable = true;
@@ -25,8 +24,7 @@
     };
   };
 
-  # Nested virtualisation
-  # boot.extraModprobeConfig = "options kvm_intel nested=1";
+  # boot.extraModprobeConfig = "options kvm_intel nested=1";         # Nested virtualisation
 
   # ~/.config/libvirt/qemu.conf
   # # Adapted from /var/lib/libvirt/qemu.conf
