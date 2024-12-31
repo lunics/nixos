@@ -4,7 +4,8 @@ binds {
 
 $SUPER = SUPER   # SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 
-bindr = $SUPER,      SUPER_L, exec, pkill wofi || wofi
+# bindr = $SUPER,    SUPER_L, exec, pkill wofi || wofi
+bindr = $SUPER,      SUPER_L, exec, ulauncher
 bind  = $SUPER,      R, exec, pkill wofi || wofi
 bind  = $SUPER,      T, exec, alacritty
 bind  = SUPER_SHIFT, T, exec, alacritty --title terminal_floats
