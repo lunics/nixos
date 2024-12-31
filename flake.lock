@@ -108,11 +108,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1735586260,
-        "narHash": "sha256-eZD1Cb423YeCQUzRX1mvmWhN++z+/MuSrl0LDTXyPQE=",
+        "lastModified": 1735668224,
+        "narHash": "sha256-oZ2AvqG5Q/rMmRIIruife7x05I1gTxyQhk7GXwBxiQw=",
         "ref": "refs/heads/main",
-        "rev": "e45edc297f4d94a3cb0b55d6629e4992c5456ec9",
-        "revCount": 70,
+        "rev": "44c1cca1a4e07828cdc0a54f30553abf9722c2f3",
+        "revCount": 71,
         "type": "git",
         "url": "file:/home/***REMOVED***/homelab/nixos/user/neovim"
       },
