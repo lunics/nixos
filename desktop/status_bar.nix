@@ -2,8 +2,7 @@
 
   programs.waybar = {
     enable  = true;
-    package = pkgs.waybar;
-  };
+    package = pkgs.waybar; };
 
   xdg.configFile = {
     "waybar" = {

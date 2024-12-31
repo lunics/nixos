@@ -96,7 +96,7 @@ YT      = "youtube-viewer";
 ref     = "shortcuts >/dev/null; source ~/.config/shortcutrc";
 upc     = "sudo pacman -Syu; pkill -RTMIN+8 i3blocks";
 lsp     = "pacman -Qett --color=always | less";
-tmux    = "unset TMUX; exec /usr/bin/env tmux -f $HOME/.config/tmux/tmux.conf";
+# tmux    = "unset TMUX; exec /usr/bin/env tmux -f $HOME/.config/tmux/tmux.conf";
 ffmpeg  = "ffmpeg -hide_banner";
 wget    = "/usr/bin/wget --hsts-file=$CACHE/wget-hsts";   ## after implementing wget in roles/packages --config=$CONFIG/wget/wget.conf
 
