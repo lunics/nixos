@@ -39,6 +39,10 @@
       url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
       inputs.nixpkgs.follows = "unstable"; };
 
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "unstable"; };
+
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
     #  inputs.nixpkgs.follows = "unstable"; };
@@ -50,7 +54,7 @@
     #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, crowdsec, nixvirt, ... }@inputs: {
+  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, crowdsec, nixvirt, microvm, ... }@inputs: {
     nixosConfigurations.***REMOVED*** = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -64,6 +68,7 @@
         impermanence.nixosModules.impermanence
         crowdsec.nixosModules.crowdsec
         nixvirt.nixosModules.default
+        microvm.nixosModules.microvm
         ./hardware.nix
         ./disko.nix
         ./boot.nix
