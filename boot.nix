@@ -11,7 +11,8 @@
       fido2Support       = false;
       yubikeySupport     = false;
       mitigateDMAAttacks = true;    # blacklists FireWire drivers to avoid encryption keys stollen from a physical access via FireWire port, manually load the drivers if you need it.
-      reusePassphrases   = true;    # Useful for mounting a number of devices that use the same passphrase without retyping it several times
+      # reusePassphrases   = true;  ## NOT USED ANYMORE ?
+                                    # Useful for mounting a number of devices that use the same passphrase without retyping it several times
     };
   };
 
