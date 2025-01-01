@@ -2,7 +2,7 @@
   imports = [
     # ./libvirt.nix
     # ./nixvirt.nix
-    ./k3s/k3s.nix
+    ./k3s
     ./podman.nix
     # ./docker.nix
     # ./containerd.nix
