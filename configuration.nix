@@ -22,5 +22,5 @@
     mountMax       = 1000;    # default=1000
   };
 
-  system.stateVersion = "25.05";    # Do NOT change it
+  system.stateVersion = "24.05";    # Not respected by the unstable branch 
 }
