@@ -13,7 +13,7 @@ programs.firefox = {
       id        = 0;
       name      = "Lunics";
       isDefault = true;
-      path      = "Lunics";     # = /home/***REMOVED***/.mozilla/firefox/Lunics
+      path      = "Lunics";     # = /home/lunics/.mozilla/firefox/Lunics
       extraConfig = ''
         browser.bookmarks.file = ./bookmarks.html;
         browser.places.importBookmarksHTML = true;

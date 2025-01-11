@@ -68,7 +68,7 @@ kv      = "k get pv,pvc";
 kapply  = "k apply -f";
 ki      = "k get ingresses.networking.k8s.io --all-namespaces";
 helm    = "/run/current-system/sw/bin/helm";
-synth-helm = "/home/***REMOVED***/.nix-profile/bin/helm";
+synth-helm = "/home/lunics/.nix-profile/bin/helm";
 h       = "helm";
 l_mount = "df -aTh --total";
 l_date  = "eza -la --sort=mod";

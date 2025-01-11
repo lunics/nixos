@@ -1,11 +1,11 @@
-{ 
+{
   programs.ssh = {
     enable = true;
-    
+
     matchBlocks = {
       "***REMOVED***" = {
         user         = "lunics";
-        identityFile = "/home/***REMOVED***/.ssh/homelab"; };
+        identityFile = "/home/lunics/.ssh/homelab"; };
     };
   };
 
