@@ -4,7 +4,7 @@
     virt-manager
   ];
 
-  users.users.***REMOVED*** = {    # enable local user access to libvirt, for example by using virt-manager or gnome-boxes, add yourself to the libvirtd group
+  users.users.lunics = {    # enable local user access to libvirt, for example by using virt-manager or gnome-boxes, add yourself to the libvirtd group
     extraGroups = [ "libvirtd" ];
   };
 

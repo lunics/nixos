@@ -1,10 +1,10 @@
 { config, pkgs, ... }:{
 
   users = {
-    users.***REMOVED*** = {
+    users.lunics = {
       isNormalUser   = true;
       isSystemUser   = false;
-      description    = "***REMOVED***";
+      description    = "Lunics";
       uid            = 1000;
       extraGroups    = [ "wheel" "networkmanager" ];
       # mkpasswd -m sha-512
@@ -33,7 +33,7 @@
 
     # groups = {
     #   fuse = {    # A DELETE si anakama-launcher ne l'utilise pas
-    #     members = [ "***REMOVED***" ];
+    #     members = [ "lunics" ];
     #   };
     # };
   };

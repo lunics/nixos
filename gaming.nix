@@ -1,6 +1,6 @@
 {
   users = {
-    users.***REMOVED*** = {
+    users.lunics = {
       packages = with pkgs; [
         steam-tui
         steamcmd

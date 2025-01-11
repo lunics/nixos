@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:{
 
   nix.settings = {
-    trusted-users         = [ "root" "***REMOVED***" ];   # required for deploy-rs
+    trusted-users         = [ "root" "lunics" ];   # required for deploy-rs
     experimental-features = [ "nix-command" "flakes" ];
     substituters          = [ "https://hyprland.cachix.org" ];
     trusted-public-keys   = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ]; };
@@ -22,5 +22,5 @@
     mountMax       = 1000;    # default=1000
   };
 
-  system.stateVersion = "24.05";    # Not respected by the unstable branch 
+  system.stateVersion = "24.05";    # Not respected by the unstable branch
 }
