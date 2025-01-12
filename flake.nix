@@ -2,7 +2,7 @@
 # sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
-    stable.url   = "github:nixos/nixpkgs/nixos-24.05";
+    stable.url   = "github:nixos/nixpkgs/nixos-24.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
