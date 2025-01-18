@@ -8,8 +8,8 @@
     ];
 
     sessionVariables = rec {
-      PASSAGE_DIR             = "$XDG_DATA_HOME/passage/store";
-      PASSAGE_IDENTITIES_FILE = "$XDG_CONFIG_HOME/age/identities";
+      PASSAGE_DIR             = "$HOME/.local/share/passage/store";
+      PASSAGE_IDENTITIES_FILE = "$HOME/.config/age/identities";
       # PASSAGE_AGE             = "";   # IF rage
     };
 
