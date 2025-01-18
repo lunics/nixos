@@ -114,11 +114,11 @@
         "rev": "44c1cca1a4e07828cdc0a54f30553abf9722c2f3",
         "revCount": 71,
         "type": "git",
-        "url": "file:/home/***REMOVED***/homelab/nixos/user/neovim"
+        "url": "file:/home/lunics/homelab/nixos/user/neovim"
       },
       "original": {
         "type": "git",
-        "url": "file:/home/***REMOVED***/homelab/nixos/user/neovim"
+        "url": "file:/home/lunics/homelab/nixos/user/neovim"
       }
     },
     "flake-parts": {

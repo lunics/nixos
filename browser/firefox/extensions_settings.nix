@@ -1,5 +1,6 @@
 { programs.firefox.policies.ExtensionSettings = {
 
+# todo extensions datas location: /home/lunics/.mozilla/firefox/Lunics/storage/default
 # https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action
 # https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager
 # valid synthax
@@ -126,12 +127,11 @@
   "default_area"      = "menupanel";
 };
 
-# 	# Dark Reader
-# 	"addon@darkreader.org" = {
-# 		"installation_mode" = "force_installed";
-# 		"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-# 		"default_area" = "menupanel";
-# 	};
+"addon@darkreader.org" = {                      # Dark Reader
+	"installation_mode" = "force_installed";
+	"install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+	"default_area"      = "menupanel";
+};
 
 # 	# New Tab Override
 # 	"newtaboverride@agenedia.com" = {
