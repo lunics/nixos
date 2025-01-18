@@ -7,7 +7,7 @@ systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 alacritty &
 firefox   &
-freetube  &
-spotify   &
-discord   &
+# freetube  &
+# spotify   &
+# discord   &
 udiskie   &

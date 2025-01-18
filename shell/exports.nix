@@ -52,6 +52,8 @@ KUBERNETES     = "$LINUX/kubernetes";
 KUBECONFIG     = "$HOME/.config/k3s/k3s.yaml";
 # PATH           = "$PATH:$BIN";    # not compliant for nixos bin scripts
 
+USB_ID        = "0543f662-b81a-484e-9c52-71b6142685b2";
+
 PASSWORD_STORE_GPG_OPTS = "--homedir ${config.xdg.dataHome}/gnupg";
 
 # ZSH
