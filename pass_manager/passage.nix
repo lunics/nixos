@@ -3,8 +3,8 @@
   home = {
     packages = with pkgs; [
       passage
-      age
-      # rage
+      # age     # installed from system
+      # rage    # //
     ];
 
     sessionVariables = rec {
