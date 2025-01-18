@@ -5,7 +5,7 @@
       isNormalUser   = true;
       isSystemUser   = false;
       description    = "Lunics";
-      uid            = 1000;
+      uid            = 1001;
       extraGroups    = [ "wheel" "networkmanager" ];
       # mkpasswd -m sha-512
       hashedPassword = "$6$***REMOVED***.$hRDFVzLIat/XPZK8DeG1DXpRkfiVfZbrk/VYkWQjAmmDC8Q6R8Gb5LOy.x.S.RQGrXIgNF.w2tmCqW4crcnrP1";

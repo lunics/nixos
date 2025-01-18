@@ -31,17 +31,17 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "unstable"; };
 
-    crowdsec = {
-      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
-      inputs.nixpkgs.follows = "unstable"; };
+    # crowdsec = {
+    #   url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
+    #   inputs.nixpkgs.follows = "unstable"; };
 
-    nixvirt = {
-      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
-      inputs.nixpkgs.follows = "unstable"; };
-
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "unstable"; };
+    # nixvirt = {
+    #   url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+    #   inputs.nixpkgs.follows = "unstable"; };
+    #
+    # microvm = {
+    #   url = "github:astro/microvm.nix";
+    #   inputs.nixpkgs.follows = "unstable"; };
 
     # lix = {
     #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
@@ -54,7 +54,8 @@
     #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, crowdsec, nixvirt, microvm, ... }@inputs: {
+  # outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, nixvirt, microvm, ... }@inputs: {
+  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, ... }@inputs: {
     nixosConfigurations.lunics = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -66,9 +67,9 @@
         agenix.nixosModules.default
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
-        crowdsec.nixosModules.crowdsec
-        nixvirt.nixosModules.default
-        microvm.nixosModules.microvm
+        # crowdsec.nixosModules.crowdsec
+        # nixvirt.nixosModules.default
+        # microvm.nixosModules.microvm
         ./hardware.nix
         ./disko.nix
         ./boot.nix
@@ -82,10 +83,10 @@
         ./users.nix
         ./audio.nix
         ./login_manager.nix
-        ./security
+        # ./security
         ./fonts.nix
         ./window_manager.nix
-        ./virtualisation
+        # ./virtualisation
         # ./gaming.nix
       ];
     };
