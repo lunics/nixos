@@ -1,6 +1,8 @@
 { pkgs }: pkgs.writeShellApplication {
+
   name = "gen_pass";
   runtimeInputs = with pkgs; [ coreutils pwgen clipboard-jh ];
+
   text = ''
     length=$(shuf -i 20-25 -n 1)
     pass_generated=
