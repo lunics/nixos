@@ -11,15 +11,6 @@
     ];
 
     extraConfig = ''
-      // v2 enable udiskie/udisks to mount usb drive in user space
-      polkit.addRule(function(action, subject) {
-          if (subject.isInGroup("wheel")) {
-              if (action.id.startsWith("org.freedesktop.udisks2.")) {
-                  return polkit.Result.YES;
-              }
-          }
-      });
-
       polkit.addRule(function(action, subject) {
         if (
           subject.isInGroup("users")
@@ -60,4 +51,14 @@
       #   if (subject.isInGroup("storage")) {
       #     return permission[action.id];
       #   }
+      # });
+
+      # // v2 enable udiskie/udisks to mount usb drive in user space
+      # // NOT NEEDED: works with nothing
+      # polkit.addRule(function(action, subject) {
+      #     if (subject.isInGroup("wheel")) {
+      #         if (action.id.startsWith("org.freedesktop.udisks2.")) {
+      #             return polkit.Result.YES;
+      #         }
+      #     }
       # });

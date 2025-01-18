@@ -83,7 +83,7 @@
         ./users.nix
         ./audio.nix
         ./login_manager.nix
-        # ./security
+        ./security
         ./fonts.nix
         ./window_manager.nix
         # ./virtualisation
