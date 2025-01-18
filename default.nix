@@ -13,7 +13,7 @@
     ./multiplexer.nix
     ./browser
     ./gpg.nix
-    ./pass_manager.nix
+    ./pass_manager
     ./services.nix
     ./k3s.nix
   ];
