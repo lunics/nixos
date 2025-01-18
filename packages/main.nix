@@ -47,6 +47,7 @@ slurp
 playerctl
 freetube
 spotify
+streamlink-twitch-gui-bin
 
 bibata-cursors    # Open source, compact, and material designed cursor set
 
