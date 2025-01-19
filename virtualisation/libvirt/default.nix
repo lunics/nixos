@@ -1,6 +1,6 @@
 {
   imports = [
     ./libvirt.nix
-    # ./nixvirt.nix
+    ./nixvirt.nix
   ];
 }

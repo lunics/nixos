@@ -7,7 +7,7 @@
 
   virtualisation.libvirt = {
     enable       = true;
-    package      = pkgs.libvirt;
+    # package      = pkgs.libvirt;  # KO
     verbose      = false;           # useful for figuring out why NixVirt thinks a domain definition has changed
     swtpm.enable = false;           # software TPM emulator
 
