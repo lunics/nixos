@@ -1,6 +1,8 @@
 { pkgs, ... }:{
   environment.systemPackages = with pkgs; [
     qemu
+    quickemu
+    # quickgui
     virt-manager
   ];
 
@@ -9,6 +11,9 @@
   };
 
   programs.virt-manager.enable = true;
+
+  # enable UEFI firmware support in Virt-Manager, Libvirt, etc...
+  # systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
   virtualisation.libvirtd = {
     enable = true;
@@ -26,7 +31,17 @@
     };
   };
 
-  # boot.extraModprobeConfig = "options kvm_intel nested=1";         # Nested virtualisation
+
+  # boot = {
+  #   extraModprobeConfig = "options kvm_intel nested=1";   # Nested virtualisation
+
+  #   kernelModules = [ "kvm-amd" "kvm-intel" ];            # enable the relevant KVM kernel, pick only amd if cpu amd host 
+
+  #   binfmt.emulatedSystems = [      # enable the emulation of different architectures
+  #     "aarch64-linux"
+  #     "riscv64-linux"
+  #   ];
+  # };
 
   # ~/.config/libvirt/qemu.conf
   # # Adapted from /var/lib/libvirt/qemu.conf
