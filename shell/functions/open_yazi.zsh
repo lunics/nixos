@@ -9,7 +9,3 @@ _open_yazi() {
     zle expand-or-complete
   fi
 }
-zle -N _open_yazi
-bindkey '^I' _open_yazi     # IF tab pressed when prompt is empty THEN run yazi
-
-bindkey "^[^?" backward-kill-word       # alt backspace = delete word before
