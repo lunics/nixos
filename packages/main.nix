@@ -25,6 +25,7 @@ udiskie
 
 htop
 pciutils          # for lspci
+usbutils          # for lsusb
 
 comma             # to runs nix software without installing it
 nix-search-cli    # CLI for searching packages on search.nixos.org
