@@ -6,7 +6,7 @@ _open_all (){
     $EDITOR ${target}
   elif [ -d ${target} ]; then
     $FILE_EXPLORER ${target} < $TTY
-    z add $(realpath ${target})
+    zoxide add $(realpath ${target})
     zle reset-prompt                ## mettre en dehors du IF ?
   fi
 }
