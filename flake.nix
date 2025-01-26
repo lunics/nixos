@@ -35,10 +35,10 @@
     #   url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
     #   inputs.nixpkgs.follows = "unstable"; };
 
-    # nixvirt = {
-    #   url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
-    #   inputs.nixpkgs.follows = "unstable"; };
-    #
+    nixvirt = {
+      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+      inputs.nixpkgs.follows = "unstable"; };
+   
     # microvm = {
     #   url = "github:astro/microvm.nix";
     #   inputs.nixpkgs.follows = "unstable"; };
@@ -55,7 +55,7 @@
   };
 
   # outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, nixvirt, microvm, ... }@inputs: {
-  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, ... }@inputs: {
+  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, nixvirt, ... }@inputs: {
     nixosConfigurations.lunics = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -68,7 +68,7 @@
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
         # crowdsec.nixosModules.crowdsec
-        # nixvirt.nixosModules.default
+        nixvirt.nixosModules.default
         # microvm.nixosModules.microvm
         ./hardware.nix
         ./disko.nix
@@ -86,7 +86,7 @@
         ./security
         ./fonts.nix
         ./window_manager.nix
-        # ./virtualisation
+        ./virtualisation
         # ./gaming.nix
       ];
     };
