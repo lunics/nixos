@@ -1,11 +1,12 @@
 { config, ... }:{ home.sessionVariables = rec {
 
 # APPS
-TERMINAL = "alacritty";
-EDITOR   = "nvim";
-MANPAGER = "nvim +Man!";
-READER   = "zathura";
-BROWSER  = "librewolf";
+TERMINAL      = "alacritty";
+EDITOR        = "nvim";
+MANPAGER      = "nvim +Man!";
+READER        = "zathura";
+BROWSER       = "firefox";
+FILE_EXPLORER = "yazi";
 
 # XDG
 XDG_CONFIG_HOME       = "${config.home.homeDirectory}/.config";
