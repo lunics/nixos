@@ -48,6 +48,7 @@ playerctl
 freetube
 spotify
 streamlink-twitch-gui-bin
+vlc
 
 bibata-cursors    # Open source, compact, and material designed cursor set
 
