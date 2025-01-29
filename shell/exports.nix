@@ -30,30 +30,31 @@ XDG_SESSION_TYPE      = "wayland";
 CLUTTER_BACKEND       = "wayland";
 
 # PATH
-CONFIG         = "$XDG_CONFIG_HOME";
-# SHELLRC        = "$HOME/{{ path3.shell   }}";
-LOCAL          = "$HOME/.local";
-CACHE          = "$HOME/.cache";
-# SCRIPTS        = "$HOME/{{ path3.scripts }}";
-BIN            = "$HOME/.local/bin";
-SSH            = "$HOME/.config/ssh";
-# SSH_CONFIG   = "$SSH/config";
-SHARE          = "$LOCAL/share";
-CLOUD          = "/mnt/cloud";
-USB            = "/run/media/$USER";
-DOWNLOADS      = "~/downloads";
-LINUX          = "$CLOUD/linux";
-HOMELAB        = "$LINUX/homelab";
-ANSIBLE        = "$HOMELAB/ansible";
-ANSIBLE_CONFIG = "$ANSIBLE/ansible.cfg";
-GALAXY         = "$ANSIBLE/galaxy";
-FUNCTIONS      = "$SHELLRC/functions";
-KUBERNETES     = "$LINUX/kubernetes";
-# KUBECONFIG     = "$CONFIG/k3s/k3s.yaml";  # KO, why ?
-KUBECONFIG     = "$HOME/.config/k3s/k3s.yaml";
+CONFIG          = "$XDG_CONFIG_HOME";
+# SHELLRC         = "$HOME/{{ path3.shell   }}";
+LOCAL           = "$HOME/.local";
+CACHE           = "$HOME/.cache";
+# SCRIPTS         = "$HOME/{{ path3.scripts }}";
+BIN             = "$HOME/.local/bin";
+SSH             = "$HOME/.config/ssh";
+# SSH_CONFIG    = "$SSH/config";
+SHARE           = "$LOCAL/share";
+CLOUD           = "/mnt/cloud";
+USB             = "/run/media/$USER";
+DOWNLOADS       = "~/downloads";
+LINUX           = "$CLOUD/linux";
+HOMELAB         = "$LINUX/homelab";
+ANSIBLE         = "$HOMELAB/ansible";
+ANSIBLE_CONFIG  = "$ANSIBLE/ansible.cfg";
+GALAXY          = "$ANSIBLE/galaxy";
+FUNCTIONS       = "$SHELLRC/functions";
+KUBERNETES      = "$LINUX/kubernetes";
+# KUBECONFIG      = "$CONFIG/k3s/k3s.yaml";  # KO, why ?
+KUBECONFIG      = "$HOME/.config/k3s/k3s.yaml";
 # PATH           = "$PATH:$BIN";    # not compliant for nixos bin scripts
 
-USB_ID        = "0543f662-b81a-484e-9c52-71b6142685b2";
+USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
+OPENAI_API_KEY  = "***REMOVED***";
 
 # ZSH
 # ZSHRC       = "$SHELLRC/zsh";           # personnal
@@ -157,6 +158,5 @@ WORDCHARS   = "*?_-[]~=&;!#$%^(){}<>";   # special characters considered as norm
 #   MOZ_USE_XINPUT2: "1"              # Mozilla smooth scrolling/touchpads.
 #   AWT_TOOLKIT: "MToolkit wmname LG3D"       #May have to install wmname
 #   _JAVA_AWT_WM_NONREPARENTING: 1    # Fix for Java applications in dwm
-#   OPENAI_API_KEY: ***REMOVED***
 
 };}
