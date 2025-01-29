@@ -61,5 +61,6 @@ sqlite
 psmisc        # to get: fuser (to unlock sqlite db)
 
 localsend
+chatblade
 
 ] ;}
