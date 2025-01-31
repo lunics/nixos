@@ -21,6 +21,7 @@ py    = "python";
 c-    = "cd -";
 ".."  = "cd ..";
 "..." = "cd ../..";
+ez    = "exec zsh";
 ia    = "chatblade --chat-gpt 3.5 --stream";
 cp    = "cp --reflink=auto";
 vim   = "nvim";
