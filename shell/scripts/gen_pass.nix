@@ -1,7 +1,7 @@
 { pkgs }: pkgs.writeShellApplication {
 
   name = "gen_pass";
-  runtimeInputs = with pkgs; [ coreutils pwgen clipboard-jh ];
+  runtimeInputs = with pkgs; [ coreutils pwgen wl-clipboard ];
 
   text = ''
     length=$(shuf -i 20-25 -n 1)
@@ -14,7 +14,7 @@
         pass_generated=$(pwgen "$1" --num-passwords=1 "$2" | awk "/[0-9].*[0-9]/");
       done
     
-      printf "%s" "$pass_generated" | cb
+      printf "%s" "$pass_generated" | wl-copy
     
       printf "\nPassword: $green%s$no_color ($2 characters) copied in the clipboard !\n" "$pass_generated"
     }
