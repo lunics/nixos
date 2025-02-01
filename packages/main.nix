@@ -10,6 +10,7 @@ sshfs
 go-task         # taskfile
 wl-clipboard
 # clipboard-jh    # best wayland clipboard
+ansible
 
 lsd
 eza
