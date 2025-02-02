@@ -23,7 +23,7 @@ c-    = "cd -";
 "..." = "cd ../..";
 ez    = "exec zsh";
 ia    = "chatblade --chat-gpt 3.5 --stream";
-cp    = "cp --reflink=auto";
+cp    = "cp --recursive --reflink=auto";
 vim   = "nvim";
 pass  = "passfzf";
 pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
