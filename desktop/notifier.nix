@@ -67,7 +67,7 @@
         corner_radius       = 10;
         follow              = "mouse";
         font                = "Source Sans Pro 10";
-        frame_color         = "#232323";
+        frame_color         = "#FF00AFAA";
         frame_width         = 1;
         offset              = "15x15";
         horizontal_padding  = 10;
@@ -87,8 +87,8 @@
 
       # format: RRGGBBAA
       urgency_critical = {
-        background = "#D64E4E";
-        foreground = "#F0E0E0";
+        background = "#D64E4EAA";
+        foreground = "#F0E0E0AA";
       };
 
       urgency_normal = {
@@ -97,8 +97,8 @@
       };
 
       urgency_low = {
-        background = "#232323";
-        foreground = "#2596BE";
+        background = "#232323AA";
+        foreground = "#2596BEAA";
       };
     };
   };
