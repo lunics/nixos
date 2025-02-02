@@ -19,8 +19,8 @@
     settings = {
       global = {
         origin              = "top-center";  # top-center, top-right
-        transparency        = 60;         # 0 to 100 in percentage
-        # rounded             = "yes";
+        # transparency      = 60;         # KO; 0 to 100 in percentage, not available on wayland only X11
+        # rounded           = "yes";      # KO
 
         format    = "%I %s %p\\n%b";
         # format  = "<b>%s</b>\\n%b"; #format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
@@ -67,8 +67,11 @@
         corner_radius       = 10;
         follow              = "mouse";
         font                = "Source Sans Pro 10";
-        frame_color         = "#FF00AFAA";
+
+        frame_color         = "#00FF00";
         frame_width         = 1;
+        timeout             = 4;
+
         offset              = "15x15";
         horizontal_padding  = 10;
         icon_position       = "left";
@@ -94,6 +97,11 @@
       urgency_normal = {
         background = "#1E1E2AAA";
         foreground = "#2596BEAA";
+        # foreground = "#DCD7BA";
+        # highlight  = "#6A9589"
+        # frame_color = "#7FB4CA";
+        # timeout    = 4;
+        # default_icon = /home/dex/.local/share/icons/Fluent-dark/symbolic/status/notifications-new-symbolic.svg
       };
 
       urgency_low = {
