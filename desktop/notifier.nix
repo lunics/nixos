@@ -35,17 +35,17 @@
         # window allows bounces back and forth.
         # This option conflicts with "word_wrap".
         # Set to 0 to disable.
-        bounce_freq         = 5;
-        word_wrap           = "no";  # Split notifications into multiple lines if they don't fit into geometry
+        # bounce_freq         = 5;        ## KO
+        word_wrap           = "yes";      # Split notifications into multiple lines if they don't fit into geometry
 
-        allow_markup        = "yes";    # Allow a subset of html
+        # allow_markup        = "yes";    # Allow a subset of html      ## KO
         show_age_threshold  = 60;     # Show age of message if message is older than show_age_threshold
 
         ignore_newline      = "no";   # Ignore newlines '\n' in notifications.
         monitor             = "0";
         vertical_alignment  = "center";
         width               = "400";
-        height              = "400";
+        height              = "(0, 400)";
         scale               = 0;
         gap_size            = 0;
         progress_bar        = true;
@@ -76,11 +76,11 @@
         mouse_middle_click  = "close_current";
         mouse_right_click   = "close_all";
         padding             = 10;
-        plain_text          = "no";
+        # plain_text          = "no";       ## KO
         separator_height    = 2;
         show_indicators     = "yes";
         shrink              = "no";     # Shrink window if it's smaller than the width. Ignored if width is 0
-        browser             = "/usr/bin/env $BROWSER -new-tab";
+        browser             = "/usr/bin/env firefox -new-tab";
       };
   
       urgency_critical = {
