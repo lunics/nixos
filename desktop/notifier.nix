@@ -68,7 +68,7 @@
         follow              = "mouse";
         font                = "Source Sans Pro 10";
 
-        frame_color         = "#00FF00";
+        frame_color         = "#00CC00";
         frame_width         = 1;
         timeout             = 4;
 
