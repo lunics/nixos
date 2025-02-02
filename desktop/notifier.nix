@@ -60,8 +60,6 @@
         line_height         = 0;
         markup              = "full";
         ellipsize           = "middle";
-
-
         stack_duplicates    = true;
         sticky_history      = "yes";
         history_length      = 20;
@@ -86,20 +84,21 @@
         shrink              = "no";     # Shrink window if it's smaller than the width. Ignored if width is 0
         browser             = "/usr/bin/env firefox -new-tab";
       };
-  
+
       urgency_critical = {
-        background = "#d64e4e";
-        foreground = "#f0e0e0";
+        background = "#D64E4E";
+        foreground = "#F0E0E0";
       };
-  
+
+      urgency_normal = {
+        background = "#1E1E2A";
+        foreground = "#2596BE";
+        #RRGGBBAA
+      };
+
       urgency_low = {
         background = "#232323";
-        foreground = "#2596be";
-      };
-  
-      urgency_normal = {
-        background = "#1e1e2a";
-        foreground = "#2596be";
+        foreground = "#2596BE";
       };
     };
   };
