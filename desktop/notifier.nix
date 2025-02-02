@@ -85,15 +85,15 @@
         browser             = "/usr/bin/env firefox -new-tab";
       };
 
+      # format: RRGGBBAA
       urgency_critical = {
         background = "#D64E4E";
         foreground = "#F0E0E0";
       };
 
       urgency_normal = {
-        background = "#1E1E2A";
-        foreground = "#2596BE";
-        #RRGGBBAA
+        background = "#1E1E2AAA";
+        foreground = "#2596BEAA";
       };
 
       urgency_low = {
