@@ -10,10 +10,14 @@ sshfs
 go-task         # taskfile
 wl-clipboard
 # clipboard-jh    # best wayland clipboard
-ansible
 
-# thefucke
+ansible
+sshpass           # required by ansible for remote connections
+
+# thefuck
 # pay-respects      # thefuck replacement written in Rust
+
+# devbox        ## Need Root permissions to be installed
 
 lsd
 eza
