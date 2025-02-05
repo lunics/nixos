@@ -12,6 +12,9 @@ wl-clipboard
 # clipboard-jh    # best wayland clipboard
 ansible
 
+# thefucke
+# pay-respects      # thefuck replacement written in Rust
+
 lsd
 eza
 fzf

@@ -14,6 +14,7 @@ programs.firefox = {
       name      = "Lunics";
       isDefault = true;
       path      = "Lunics";     # = /home/lunics/.mozilla/firefox/Lunics
+      # preConfig = TODO;         # extra preferences to be added to 'user.js' before .settings
       extraConfig = ''
         browser.bookmarks.file = ./bookmarks.html;
         browser.places.importBookmarksHTML = true;

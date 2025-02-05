@@ -4,7 +4,7 @@
     kustomize
     kubie           # powerful alternative than kubectx and kubens
     kubectx         # To switch between kubectl contexts and Kubernetes namespaces
-    kubecolor       # Colorize your kubectl output
+    kubecolor       # kubectl wrapper used to add colors 
     stern           # Log tailing for Kubernetes
     # kubelogin
     # kubelogin-oidc
