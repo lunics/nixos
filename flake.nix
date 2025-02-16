@@ -10,7 +10,7 @@
     home-manager = {    # don't need in "outputs" to be installed for home-manager
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable"; };
-    flake-home-manager.url = "git+file:/home/lunics/homelab/nixos/user";
+    flake-home-manager.url = "git+file:/mnt/usb_drive/homelab/nixos/user";
 
     hyprland.url     = "github:hyprwm/Hyprland";
     hyprland-plugins = {
