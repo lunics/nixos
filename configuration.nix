@@ -15,8 +15,6 @@
   environment.systemPackages = with pkgs; [
     cachix        # fetch cache after cachix install with: nix flake update
     distrobox
-    devbox
-    devenv
   ];
 
   programs.fuse = {
