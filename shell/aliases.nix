@@ -6,7 +6,7 @@ g     = "lazygit";
 q     = "exit";
 r     = "trash";
 s     = "sudo";
-t     = "go-task -d /mnt/usb_drive/homelab/nixos $(go-task -d /mnt/usb_drive/homelab/nixos -a | tr -d ' *:' | sed 1d | fzf)";
+t     = "go-task -d $HOME/usb_copy/homelab/taskfile $(go-task -d $HOME/usb_copy/homelab/taskfile -a | tr -d ' *:' | sed 1d | fzf)";
 v     = "nvim";
 w     = "watch -n 2 -d";
 x     = "sxiv -ft *";
@@ -55,7 +55,7 @@ suspend  = "systemctl suspend";
 
 # kubernetes
 # kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
-k       = "kubectl";
+k       = "kubecolor";
 kk      = "c $LINUX/kubernetes";
 kcc     = "k config current-context";
 kg      = "k get";
