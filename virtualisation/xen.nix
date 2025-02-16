@@ -1,9 +1,5 @@
 { pkgs, ... }:{
-
-  # nixos-rebuild boot --use-remote-sudo --flake ./#lunics
-  # sudo nixos-rebuild switch --flake ./#lunics
-  # systemctl reboot
-
+  # BUILD KO qemu-xen-9.2.0: WARNING: '--replace' is deprecated, use --replace-{fail,warn,quiet}.
 
   virtualisation.xen = {
     enable  = true;
