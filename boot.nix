@@ -1,6 +1,8 @@
 { pkgs, ... }:{ boot = {
 
   initrd = {
+    systemd.enable = true;
+
     availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
     kernelModules = [ ];
     luks = {
