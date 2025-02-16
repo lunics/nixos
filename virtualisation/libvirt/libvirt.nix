@@ -3,14 +3,14 @@
     qemu
     quickemu
     # quickgui
-    virt-manager
+    # virt-manager
   ];
 
   users.users.lunics = {    # enable local user access to libvirt, for example by using virt-manager or gnome-boxes, add yourself to the libvirtd group
     extraGroups = [ "libvirtd" ];
   };
 
-  programs.virt-manager.enable = true;
+  # programs.virt-manager.enable = true;
 
   # enable UEFI firmware support in Virt-Manager, Libvirt, etc...
   # systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
@@ -30,7 +30,6 @@
       };
     };
   };
-
 
   # boot = {
   #   extraModprobeConfig = "options kvm_intel nested=1";   # Nested virtualisation
