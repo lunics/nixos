@@ -6,6 +6,7 @@
     kubectx         # To switch between kubectl contexts and Kubernetes namespaces
     kubecolor       # kubectl wrapper used to add colors 
     stern           # Log tailing for Kubernetes
+    argocd
     # kubelogin
     # kubelogin-oidc
     # kubeseal
