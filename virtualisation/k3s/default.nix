@@ -3,19 +3,22 @@
     enable       = true;
     package      = pkgs.k3s;
     role         = "server";    # server, agent
-    disableAgent = true;        # when role server
-    clusterInit  = true;        # for HA cluster with an embedded etcd
+    # disableAgent = true;        # when role server
+    # clusterInit  = true;        # for HA cluster with an embedded etcd
     extraFlags   = toString ([
       "--write-kubeconfig-mode \"0600\""    # /etc/rancher/k3s/k3s.yaml
-      # "--data-dir=/persist/k3s"
       "--disable traefik"
+      "--data-dir=/var/lib/rancher/k3s"   
+      # "--cluster-cidr 10.42.0.0/16"        KO # IPv4/IPv6 network CIDRs to use for pod IPs
+      # "--server-cidr 10.43.0.0/16"         KO # IPv4/IPv6 network CIDRs to use for service
+      # "--debug"
+      # "--flannel-iface eno1"               # old: flannel.1
       # "--disable servicelb"
       # "--server https://192.168.1.66:6443"
       # "--disable network-policy"
       # "--disable cloud-controller"
       # "--disable metrics-server"
       # "--disable local-storage"
-      # "--cluster-cidr 10.24.0.0/16"
     ]);
     # tokenFile = /var/lib/rancher/k3s/server/token;
     # token =             # k3s token to use when connecting to a server, WARNING: expose your token unencrypted
