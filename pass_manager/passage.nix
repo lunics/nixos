@@ -8,9 +8,11 @@
     ];
 
     sessionVariables = rec {
+      PASSWORD_STORE_DIR      = "$HOME/.local/share/passage/store";   # for rofi-pass
       PASSAGE_DIR             = "$HOME/.local/share/passage/store";
       PASSAGE_IDENTITIES_FILE = "$HOME/.config/age/identities";
       # PASSAGE_AGE             = "";   # IF rage
+      PASSWORD_STORE_CLIP_TIME = "20";
     };
 
     file.".config/age/identities".source = ../files/age_identities;
