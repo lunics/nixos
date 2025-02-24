@@ -5,7 +5,6 @@
 
     # steam-tui       ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
     steamcmd
-    steam
 
     protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
     playonlinux       # GUI for managing Windows programs under linux
@@ -19,15 +18,4 @@
     wine64
     winetricks
   ];
-
-  # Dofus
-  # dl ankama-launcher for official website
-  # nix-shell -p appimage-run
-  # sudo mount -o exec /tmp
-  # appimage-run Downloads/Ankama\ Launcher-Setup-x86_64.AppImage
-  # sudo mount -o noexec /tmp
-
-  # imports = [
-  #   ./ankama-launcher.nix
-  # ];
 }

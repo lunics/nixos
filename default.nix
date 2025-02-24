@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ...}: {
 
+  programs.home-manager.enable = true;
+
   imports = [
     inputs.ags.homeManagerModules.default
     # inputs.nur.hmModules.nur
@@ -8,6 +10,7 @@
     ./ssh_client.nix
     ./git.nix
     ./desktop
+    ./gaming
     ./terminal.nix
     ./file_explorer.nix
     ./multiplexer.nix
@@ -17,8 +20,6 @@
     ./services.nix
     ./k3s.nix
   ];
-
-  programs.home-manager.enable = true;
 
   home = {
     username      = "lunics";
