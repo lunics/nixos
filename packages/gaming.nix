@@ -5,6 +5,7 @@
 
     # steam-tui       ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
     steamcmd
+    steam
 
     protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
     playonlinux       # GUI for managing Windows programs under linux
