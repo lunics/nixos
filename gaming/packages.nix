@@ -3,7 +3,7 @@
     lutris
     # ankama-launcher available from steam or from ankama-launcher.nix ?
 
-    steam-tui         ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
+    # steam-tui         ##  Permission denied ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
     steamcmd
 
     protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
