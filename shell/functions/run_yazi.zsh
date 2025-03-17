@@ -1,4 +1,4 @@
-_open_yazi() {
+_run_yazi() {
   if [[ $#BUFFER == 0 ]]; then
     yazi < $TTY
     # KO

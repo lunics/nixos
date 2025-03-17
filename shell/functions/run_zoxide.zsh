@@ -1,6 +1,6 @@
-_open_zoxide() {
+_run_zoxide() {
   zi < $TTY
-  zle reset-prompt
   l
   echo $(basename "$(dirname $PWD)")/$(basename $PWD)
+  zle reset-prompt
 }
