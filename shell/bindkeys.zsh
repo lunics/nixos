@@ -8,7 +8,10 @@ zle -N _run_yazi
 bindkey '^I' _run_yazi                # tab when prompt is empty to run yazi
 
 zle -N _run_taskfile
-bindkey '^T' _run_taskfile            # ctrl t = bash alias t
+bindkey '^T' _run_taskfile            # ctrl t = taskfile + fzf
+
+zle -N _run_pass
+bindkey '^P' _run_pass                # ctrl p = passage + fzf
 
 bindkey -s "^o" "lfcd\n"              # ctrl o = file explorer with lf
 bindkey -s "^w" "exit\n"
