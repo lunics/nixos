@@ -1,4 +1,4 @@
 _run_pass() {
-  pass
+  /home/lunics/.nix-profile/bin/passfzf
   zle reset-prompt
 }
