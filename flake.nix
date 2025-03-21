@@ -87,7 +87,7 @@
         ./fonts.nix
         ./window_manager.nix
         ./virtualisation
-        # ./gaming.nix
+        ./gaming
       ];
     };
   };
