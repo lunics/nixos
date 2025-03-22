@@ -36,11 +36,11 @@
   "default_area"      = "menupanel";
 };
 
-"KeeperFFStoreExtension@KeeperSecurityInc" = {  # Keeper
-  "installation_mode" = "force_installed";
-  "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager/latest.xpi";
-  "default_area"      = "navbar";
-};
+# "KeeperFFStoreExtension@KeeperSecurityInc" = {  # Keeper
+#   "installation_mode" = "force_installed";
+#   "install_url"       = "https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager/latest.xpi";
+#   "default_area"      = "navbar";
+# };
 
 "Tab-Session-Manager@sienori" = {               # Tab-Session-Manager
   "installation_mode" = "force_installed";

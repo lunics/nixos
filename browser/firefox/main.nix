@@ -3,8 +3,8 @@
 programs.firefox = {
   enable     = true;
   package    = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {}); # Screen Sharing under Wayland
-  vendorPath = ".mozilla";
-  configPath = ".mozilla/firefox";
+  vendorPath = "usb_copy/homelab/share/.mozilla";
+  configPath = "usb_copy/homelab/share/.mozilla/firefox";
   languagePacks = [ "fr" "en-US" ];
 
   # ! Warn ! modifying profiles remove all datas: current tabs, history, plugins...
