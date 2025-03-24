@@ -1,4 +1,4 @@
-# sudo nixos-rebuild switch --flake /home/lunics/homelab/nixos/system#lunics
+# sudo nixos-rebuild switch --flake /home/lunics/usb_copy/homelab/nixos/user#lunics
 # sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
@@ -10,7 +10,7 @@
     home-manager = {    # don't need in "outputs" to be installed for home-manager
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable"; };
-    flake-home-manager.url = "git+file:/mnt/usb_drive/homelab/nixos/user";
+    flake-home-manager.url = "git+file:/home/lunics/usb_copy/homelab/nixos/user";
 
     hyprland.url     = "github:hyprwm/Hyprland";
     hyprland-plugins = {
@@ -44,8 +44,8 @@
     #   inputs.nixpkgs.follows = "unstable"; };
 
     # lix = {
-    #  url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-    #  inputs.nixpkgs.follows = "unstable"; };
+    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+    #   inputs.nixpkgs.follows = "unstable"; };
     # nixos-generators = {
     #   url = "github:nix-community/nixos-generators";
     #   inputs.nixpkgs.follows = "unstable"; };
