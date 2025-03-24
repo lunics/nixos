@@ -1,7 +1,7 @@
 {
   imports = [
     ./libvirt
-    ./k3s
+    # ./k3s
     # ./xen.nix
     # ./podman.nix
     # ./docker.nix
