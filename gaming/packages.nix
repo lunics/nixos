@@ -1,4 +1,9 @@
 { pkgs, ... }:{
+  ## run prontonup to download latest Proton GE
+  ##    Steam > Compatibility > Select latest GE-Proton9-4
+
+  home.sessionVariables."STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
+
   home.packages = with pkgs; [
     lutris
     # ankama-launcher available from steam or from ankama-launcher.nix ?
@@ -6,6 +11,7 @@
     # steam-tui         ##  Permission denied ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
     steamcmd
 
+    protonup          # Proton GE
     protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
     playonlinux       # GUI for managing Windows programs under linux
     piper             # 10 MB - app to configure gaming mice
