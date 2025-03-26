@@ -7,7 +7,7 @@ ueberzugpp
 python3
 tomb
 sshfs
-go-task         # taskfile
+go-task           # taskfile
 wl-clipboard
 # clipboard-jh    # best wayland clipboard
 
@@ -16,6 +16,8 @@ sshpass           # required by ansible for remote connections
 
 # thefuck
 # pay-respects      # thefuck replacement written in Rust
+
+comma             # to run nix pkgs without installing them
 
 # devbox        ## Need Root permissions to be installed
 
