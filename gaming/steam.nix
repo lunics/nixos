@@ -20,7 +20,7 @@
     # ];
     fontPackages = with pkgs; [ source-han-sans ];
 
-    gamescopeSession = {
+    gamescopeSession = {    # enable starting games in optimized compositor
       enable = false;
       # args = ;
       # env = ;
