@@ -1,9 +1,8 @@
-{ pkgs, ... }:{ 
+{
   programs.atuin = {
     enable   = true;
-    package  = pkgs.atuin;
     settings = {
-      db_path        = "$HOME/usb_copy/homelab/share/history.db";
+      db_path        = "$HOME/usb_copy/homelab/share/atuin/history.db";
       inline_height  = 25;
       invert         = false;
       search_mode    = "fuzzy";     # fuzzy, skim, prefix, fulltext
