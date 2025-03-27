@@ -1,5 +1,6 @@
   # Dofus
-  # dl ankama-launcher for official website
+  # dl ankama-launcher from official website
+  # todo: install fuse/libfuse2 pour lancer les AppImages, usermod -aG games $(whoami) pour que le launcher puisse se mettre à jour
   # nix-shell -p appimage-run
   # sudo mount -o exec /tmp
   # appimage-run Downloads/Ankama\ Launcher-Setup-x86_64.AppImage
