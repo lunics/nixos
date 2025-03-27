@@ -54,22 +54,21 @@
     #   inputs.nixpkgs.follows = "unstable"; };
   };
 
-  # outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, nixvirt, microvm, ... }@inputs: {
-  outputs = { self, unstable, disko, agenix, impermanence, deploy-rs, nixvirt, ... }@inputs: {
+  outputs = { self, unstable, nixos-hardware, disko, agenix, impermanence, deploy-rs, nixvirt, ... }@inputs: {
     nixosConfigurations.lunics = unstable.lib.nixosSystem {
       system      = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen3
+        nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen3
           # src: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
           # lenovo-thinkpad-t480
           # lenovo-thinkpad-t14
         agenix.nixosModules.default
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
-        # crowdsec.nixosModules.crowdsec
+        # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
         nixvirt.nixosModules.default
-        # microvm.nixosModules.microvm
+        # microvm.nixosModules.microvm    ## don't forget to add in outputs
         ./hardware.nix
         ./disko.nix
         ./boot.nix
