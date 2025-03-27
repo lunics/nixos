@@ -11,6 +11,7 @@
       hashedPassword = "$6$***REMOVED***.$hRDFVzLIat/XPZK8DeG1DXpRkfiVfZbrk/VYkWQjAmmDC8Q6R8Gb5LOy.x.S.RQGrXIgNF.w2tmCqW4crcnrP1";
       # password     = TODO SOPS;
       shell          = pkgs.zsh;
+      ignoreShellProgramCheck = true;
       packages       = with pkgs; [
         home-manager
         # neovim

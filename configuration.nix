@@ -10,10 +10,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # used in bash and zsh modules to add shell completion for packages that provide it.
-  environment.pathsToLink = [ "/share/zsh" ];
-  programs.zsh.enable = true;
-
   environment.systemPackages = with pkgs; [
     cachix        # fetch cache after cachix install with: nix flake update
     distrobox
