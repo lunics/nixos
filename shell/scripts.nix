@@ -1,7 +1,8 @@
 { pkgs, ... }:{
   home.packages = with pkgs; [
-    (import ./scripts/gen_pass.nix     { inherit pkgs; })
-    (import ./scripts/passfzf.nix     { inherit pkgs; })
+    (import ./scripts/gen_pass.nix  { inherit pkgs; })
+    (import ./scripts/passfzf.nix   { inherit pkgs; })
+    (import ./scripts/pkg.nix       { inherit pkgs; })
   ];
 
   home.file = {

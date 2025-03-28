@@ -1,5 +1,3 @@
 {
-  programs.bash = {
-    enable = false;
-  };
+  programs.bash.enable = false;
 }

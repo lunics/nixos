@@ -1,9 +1,11 @@
 { pkgs }: pkgs.writeShellApplication {
-
   name = "passfzf";
-  runtimeInputs = with pkgs; [ passage fzf ];
+  runtimeInputs = with pkgs; [ 
+    passage 
+    fzf 
+  ];
 
-    # PREFIX="${PASSAGE_DIR:-$HOME/.passage/store}"
+  # PREFIX="${PASSAGE_DIR:-$HOME/.passage/store}"
   text = ''
     set -eou pipefail
     

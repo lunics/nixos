@@ -1,7 +1,10 @@
 { pkgs }: pkgs.writeShellApplication {
-
   name = "gen_pass";
-  runtimeInputs = with pkgs; [ coreutils pwgen wl-clipboard ];
+  runtimeInputs = with pkgs; [ 
+    coreutils 
+    pwgen 
+    wl-clipboard 
+  ];
 
   text = ''
     length=$(shuf -i 20-25 -n 1)
