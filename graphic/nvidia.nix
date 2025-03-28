@@ -1,12 +1,6 @@
 { config, lib, ... }:{
-
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
   hardware.nvidia = {
-
-    # Modesetting is required.
-    modesetting.enable = true;
+    modesetting.enable = true;        #  required
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
@@ -39,19 +33,30 @@
     # It seamlessly switches between the integrated graphics,
     # usually from Intel, for lightweight tasks to save power,
     # and the discrete Nvidia GPU for performance-intensive tasks.
-    prime = {
-  		offload = {
-  			enable = true;
-  			enableOffloadCmd = true;
-  		};
+    prime = {     # 2 different modes
+      # sync mode
+        # best mode for desktop/powerfull pc
+        sync.enable = true    # keep dedicated GPU running at all times improving game performance
 
-  		# FIXME: Change the following values to the correct Bus ID values for your system!
-      # More on "https://wiki.nixos.org/wiki/Nvidia#Configuring_Optimus_PRIME:_Bus_ID_Values_(Mandatory)"
-  		nvidiaBusId = "PCI:0:0:0";
-  		intelBusId = "PCI:0:0:0";
+      # offload mode
+        # best mode for laptop
+        offload = {           # dedicated GPU is only enabled when needed, optimizing power consumtion
+          enable = true;
+          enableOffloadCmd = true;
+            # enable cmd: nvidia-offload GAME_NAME, nvidia-offload %command%
+        };
+
+      # getting IDs: nix shell nixpkgs#pciutils -c lspci | grep ' VGA '
+      amdgpuBusID = "PCI:0:0:0";        # integrated
+      intelBusID  = "PCI:0:0:0";        # integrated
+      nvidiaBusID = "PCI:0:0:0";        # dedicated
   	};
   };
 
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
+
+  # will generates 2 boot entries at every generations allowing to choose desire mode at boot
   # NixOS specialization named 'nvidia-sync'. Provides the ability
   # to switch the Nvidia Optimus Prime profile
   # to sync mode during the boot process, enhancing performance.

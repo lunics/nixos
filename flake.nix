@@ -87,6 +87,7 @@
         ./window_manager.nix
         ./virtualisation
         ./gaming
+        ./graphic
       ];
     };
   };
