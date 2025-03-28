@@ -1,8 +1,8 @@
-{ pkgs, ... }:{
+{
+  xdg.configFile."alacritty/alacritty.toml".source = ./files/alacritty.toml;
 
   programs.alacritty = {
     enable  = true;
-    package = pkgs.alacritty;
 
     # KO until they fix the nix source
     # settings = {
@@ -47,6 +47,4 @@
     #
     # };
   };
-
-  xdg.configFile."alacritty/alacritty.toml".source = ./files/alacritty.toml;
 }
