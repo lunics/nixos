@@ -24,10 +24,11 @@
     ez    = "exec zsh";
     ia    = "chatblade --chat-gpt 3.5 --stream";
     cp    = "cp --recursive --reflink=auto";
-    vim   = "nvim";
-    pass  = "passfzf";
-    pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
     cat   = "bat";
+    top   = "btm";
+    vim   = "nvim";
+    pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
+    pass  = "passfzf";
     copy  = "rsync -rlptgoDvzh --progress";
     calc  = "/usr/bin/bc -q";
     # gpg = "/usr/bin/gpg --homedir {{ path_share }}/gnupg";

@@ -33,7 +33,7 @@ trash-cli
 
 udiskie
 
-htop
+bottom
 pciutils          # for lspci
 usbutils          # for lsusb
 
