@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ pkgs, inputs, ... }:{
 
   imports = [
     ./firefox
@@ -6,6 +6,7 @@
   ];
 
   home.packages = with pkgs; [
-    google-chrome
+    # google-chrome
+    inputs.zen-browser.packages."${system}".twilight-official
   ];
 }
