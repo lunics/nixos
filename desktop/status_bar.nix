@@ -1,8 +1,5 @@
-{ pkgs, ... }:{
-
-  programs.waybar = {
-    enable  = true;
-    package = pkgs.waybar; };
+{
+  programs.waybar.enable = true;
 
   xdg.configFile = {
     "waybar" = {

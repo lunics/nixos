@@ -1,6 +1,5 @@
 { pkgs, ... }:{
   ## dynamc input & bind
-
   programs.swaylock = {
     enable  = true;
     package = pkgs.swaylock-effects;

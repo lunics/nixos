@@ -1,6 +1,4 @@
 {
-  xdg.configFile."alacritty/alacritty.toml".source = ./files/alacritty.toml;
-
   programs.alacritty = {
     enable  = true;
 
@@ -47,4 +45,6 @@
     #
     # };
   };
+
+  xdg.configFile."alacritty/alacritty.toml".source = ./files/alacritty.toml;
 }

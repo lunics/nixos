@@ -1,6 +1,4 @@
 { pkgs, ... }:{
-  # { config, ... }
-  
   home.packages = with pkgs; [
     yubikey-touch-detector
   
@@ -22,5 +20,4 @@
   #   PASSAGE_RECIPIENTS_FILE = "$HOME/.local/share/passage/store/.age-recipients";
   #   PASSAGE_RECIPIENTS      = "";
   # };
-
 }

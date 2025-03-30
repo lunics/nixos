@@ -2,7 +2,7 @@
 
   imports = [
     ./firefox
-    ./librewolf.nix
+    # ./librewolf.nix
   ];
 
   home.packages = with pkgs; [
