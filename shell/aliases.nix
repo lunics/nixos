@@ -53,6 +53,8 @@
     logout   = "systemctl restart getty@tty1.service";
     poweroff = "sudo poweroff";
     suspend  = "systemctl suspend";
+    battery  = "sudo tlp chargeonce";       ## delete if charge_once used
+    charge_once  = "sudo tlp chargeonce";
     
     # kubernetes
     # kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
