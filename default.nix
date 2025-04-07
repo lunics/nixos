@@ -1,0 +1,23 @@
+{
+  imports = [
+    ./hardware.nix
+    ./disko.nix
+    ./boot.nix
+    ./configuration.nix
+    ./kernel.nix
+    ./swap.nix
+    ./services
+    ./location.nix
+    ./network
+    ./ntp.nix
+    ./users.nix
+    ./audio.nix
+    ./login_manager.nix
+    ./security
+    ./fonts.nix
+    ./window_manager.nix
+    ./virtualisation
+    ./gaming
+    ./graphic
+  ];
+}

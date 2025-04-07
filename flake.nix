@@ -67,25 +67,7 @@
         # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
         nixvirt.nixosModules.default
         # microvm.nixosModules.microvm    ## don't forget to add in outputs
-        ./hardware.nix
-        ./disko.nix
-        ./boot.nix
-        ./configuration.nix
-        ./kernel.nix
-        ./swap.nix
-        ./services
-        ./location.nix
-        ./network
-        ./ntp.nix
-        ./users.nix
-        ./audio.nix
-        ./login_manager.nix
-        ./security
-        ./fonts.nix
-        ./window_manager.nix
-        ./virtualisation
-        ./gaming
-        ./graphic
+        ./default.nix
       ];
     };
   };
