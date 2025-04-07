@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:{ 
+# { config, pkgs, ... }:{ 
+{
   services = {
     libinput.enable = true;     # Enable touchpad support (enabled default in most desktopManager).
 
@@ -46,19 +47,5 @@
         STOP_CHARGE_THRESH_BAT1  = 91;
       };
     };
-  };
-
-  # generate /etc/systemd/system/suspend@.service
-  systemd.services."suspend@" = {
-    enable      = true;
-    after       = [ "suspend.target" ];
-    description = "Call user's suspend target after system suspend";
-
-    serviceConfig = {
-      Type      = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/systemctl --user --machine=%i@ start --wait suspend.target";
-    };
-
-    wantedBy = [ "suspend.target" ];
   };
 }

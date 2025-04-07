@@ -73,7 +73,7 @@
         ./configuration.nix
         ./kernel.nix
         ./swap.nix
-        ./services.nix
+        ./services
         ./location.nix
         ./network
         ./ntp.nix
