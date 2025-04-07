@@ -1,5 +1,3 @@
-# sudo nixos-rebuild switch --flake /home/lunics/usb_copy/homelab/nixos/user#lunics
-# sudo nixos-rebuild switch --flake ./#lunics
 {
   inputs = {
     stable.url   = "github:nixos/nixpkgs/nixos-24.11";
