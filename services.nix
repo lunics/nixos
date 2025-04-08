@@ -1,5 +1,4 @@
-{ lib, ... }:{
-
+{
   services = {
     udiskie = {
       enable    = true;
@@ -9,7 +8,16 @@
     };
   };
 
+  # pomodoro
+  systemd.user.targets."suspend" = {
+    name        = "suspend.target";
+    description = "User level suspend target";
+    unitConfig.StopWhenUnneeded = true;
+    wants       = [ "pomodoro.service" ];
+  };
+
   # KO because of \x
+  # { lib, ... }:{
   # systemd.user.services."my-luks-mount" = {
   #   name        = "my-luks-mount";
   #   description = "Run script after LUKS partition is mounted";
