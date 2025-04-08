@@ -17,7 +17,7 @@
     ./browser
     ./gpg.nix
     ./pass_manager
-    ./services.nix
+    ./services
     ./k3s.nix
   ];
 

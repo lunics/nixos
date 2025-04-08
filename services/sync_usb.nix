@@ -1,21 +1,4 @@
 {
-  services = {
-    udiskie = {
-      enable    = true;
-      automount = true;
-      notify    = true;
-      tray      = "auto";  # auto, always, never
-    };
-  };
-
-  # pomodoro
-  systemd.user.targets."suspend" = {
-    name        = "suspend.target";
-    description = "User level suspend target";
-    unitConfig.StopWhenUnneeded = true;
-    wants       = [ "pomodoro.service" ];
-  };
-
   # KO because of \x
   # { lib, ... }:{
   # systemd.user.services."my-luks-mount" = {
