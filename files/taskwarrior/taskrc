@@ -1,0 +1,22 @@
+# example
+#   variable=foo   # By specifying a value, this overrides the default
+#   variable=      # By specifying no value, this means no default
+#   #variable=foo  # By commenting out the line, or deleting it, this uses the default
+
+data.location={{ path_share_cloud }}/taskwarrior
+hooks.location={{ path_config }}/taskwarrior/hooks
+
+verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
+
+include ./urgency
+include ./colors
+include ./tui_keyconfig
+
+# score
+uda.score.type=numeric
+uda.score.label=Score 🏆
+urgency.uda.score.coefficient=2
+
+## disable message TASKRC override: /home/lunics/.config/taskwarrior/taskrc
+
+# include ~/themes/solarized-dark-256.theme

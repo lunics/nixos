@@ -1,0 +1,27 @@
+# urgency
+urgency.user.tag.next.coefficient=15.0          # +next tag
+urgency.due.coefficient=12.0                    # overdue or near due date
+urgency.scheduled.coefficient=5.0               # scheduled tasks
+urgency.active.coefficient=4.0                  # already started tasks
+urgency.age.coefficient=2.0                     # coefficient for age
+urgency.annotations.coefficient=1.0             # has annotations
+urgency.tags.coefficient=1.0                    # has tags
+urgency.project.coefficient=1.0                 # assigned to any project
+urgency.user.project.My=Project.coefficient=5.0 # assigned to project:"My Project"
+urgency.waiting.coefficient=-3.0                # waiting task
+urgency.blocking.coefficient=0.2                # a blocking task is a bit more urgent
+urgency.blocked.coefficient=0                   # a blocked task is not less urgent
+
+uda.priority.label=Priority
+uda.priority.type=string
+uda.priority.values=HH,H,HL,MH,M,ML,LH,L,LL
+
+urgency.uda.priority.HH.coefficient=8.0
+urgency.uda.priority.H.coefficient=7.0
+urgency.uda.priority.HL.coefficient=6.0
+urgency.uda.priority.MH.coefficient=5.0
+urgency.uda.priority.M.coefficient=3.9
+urgency.uda.priority.ML.coefficient=3.0
+urgency.uda.priority.LH.coefficient=-0.5
+urgency.uda.priority.L.coefficient=-1.0
+urgency.uda.priority.LL.coefficient=-2.0
