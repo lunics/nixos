@@ -15,6 +15,9 @@ if [ -d "$usb_uncrypted" ]; then      # if usb correctly mounted then
   elif [ "$1" = "sync" ]; then
     sudo rsync -azh --progress --delete $usb_copy/ $usb_uncrypted && \
       echo -e "\nUSB synchronization succeed"
+  elif [ "$1" = "sync_no_browser" ]; then
+    sudo rsync -azh --progress --delete --exclude=firefox $usb_copy/ $usb_uncrypted && \
+      echo -e "\nUSB synchronization succeed"
   elif [ "$1" = "closing" ]; then
     sudo rsync -azh --progress --delete $usb_copy/ $usb_uncrypted && \
       echo -e "\nUSB synchronization succeed"
