@@ -1,6 +1,8 @@
-report.next.labels=ID,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.truncated_count,urgency
-report.next.filter=status:pending        # default = status:pending -WAITING limit:page
+report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.truncated_count,urgency
+# old: report.next.filter=status:pending        # default = status:pending -WAITING limit:page
+report.next.filter=(status:pending or status:waiting) page:limit
 
 uda.taskwarrior-tui.selection.indicator=•
 uda.taskwarrior-tui.selection.bold=yes

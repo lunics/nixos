@@ -17,7 +17,7 @@
 
     sessionVariables = rec {
       TASKRC   = "${config.home.homeDirectory}/.config/taskwarrior/taskw/taskrc";
-      TASKDATA = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior/data";
+      TASKDATA = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior";
     };
   };
 
