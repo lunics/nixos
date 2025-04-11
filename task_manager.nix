@@ -10,13 +10,13 @@
     ];
 
     file.".config/taskwarrior" = {
-      source     = ./files/taskwarrior/taskwarrior;
+      source     = ./files/taskwarrior;
       recursive  = true;
     };
-    # "timewarrior/timew.cfg".source = ./files/taskwarrior/timew.cfg;
+    ## "timewarrior/timew.cfg".source = ./files/taskwarrior/timew.cfg;   USEFUL ?
 
     sessionVariables = rec {
-      TASKRC   = "${config.home.homeDirectory}/.config/taskwarrior/taskrc";
+      TASKRC   = "${config.home.homeDirectory}/.config/taskwarrior/taskw/taskrc";
       TASKDATA = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior/data";
     };
   };

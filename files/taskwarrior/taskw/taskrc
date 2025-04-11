@@ -10,7 +10,8 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 
 include ./urgency
 include ./colors
-# include ./tui_keyconfig
+include ../tui/keyconfig
+include ../tui/advanced
 # include ~/themes/solarized-dark-256.theme
 
 # score
