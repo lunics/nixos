@@ -1,7 +1,6 @@
-# example
-#   variable=foo   # By specifying a value, this overrides the default
-#   variable=      # By specifying no value, this means no default
-#   #variable=foo  # By commenting out the line, or deleting it, this uses the default
+# variable=foo      by specifying a value, this overrides the default
+# variable=         by specifying no value, this means no default
+# #variable=foo     by commenting out the line, or deleting it, this uses the default
 
 data.location=$SHARE/taskwarrior
 hooks.location=$CONFIG/taskwarrior/hooks
