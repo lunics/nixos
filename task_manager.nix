@@ -1,20 +1,31 @@
-{ pkgs, ... }:{ 
-  home.packages = with pkgs; [
-    taskwarrior3
-    taskwarrior-tui
-    timewarrior
-    taskopen          # script for taking notes and open urls with taskwarrior
-    syncall 
-    # taskquant py tool
-  ];
+{ pkgs, lib, config, ... }:{ 
+  home = {
+    packages = with pkgs; [
+      (lib.hiPrio taskwarrior3)
+      taskwarrior-tui
+      timewarrior
+      taskopen          # script for taking notes and open urls with taskwarrior
+      # syncall         ## KO    # bi-directional synchronization between services such as Taskwarrior, Google Calendar, Notion, etc...
+      # taskquant py tool
+    ];
 
-  mkdir
-    ~/.config/taskwarrior/hooks"
-    ~/.config/timewarrior
-    /home/lunics/usb_copy/homelab/share/taskwarrior
-    /home/lunics/usb_copy/homelab/share/timewarrior
+    file.".config/taskwarrior" = {
+      source     = ./files/taskwarrior/taskwarrior;
+      recursive  = true;
+    };
+    # "timewarrior/timew.cfg".source = ./files/taskwarrior/timew.cfg;
 
-  # {{ path_config }}/taskwarrior/taskrc 0644
+    sessionVariables = rec {
+      TASKRC   = "${config.home.homeDirectory}/.config/taskwarrior/taskrc";
+      TASKDATA = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior/data";
+    };
+  };
+
+  # mkdir
+  #   ~/.config/taskwarrior/hooks"
+  #   ~/.config/timewarrior
+  #   /home/lunics/usb_copy/homelab/share/taskwarrior
+  #   /home/lunics/usb_copy/homelab/share/timewarrior
+
   # {{ path_config }}/taskwarrior/hooks/on-modify.timewarrior.py 0744
-  # {{ path_config }}/timewarrior/timew.cfg
 }

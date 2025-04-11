@@ -88,7 +88,6 @@
     #   LYNX_CFG:   $CONFIG/lynx/lynx.cfg
     #   LYNX_LSS:   $CONFIG/lynx/lynx.lss
     #   JOPLIN: /usr/bin/joplin
-    #   TASKRC: $CONFIG/taskwarrior/taskrc
     #   TIMEWARRIORDB: "$HOME/{{ path2.share_cloud }}/timewarrior"
     #   NPM_CONFIG_GLOBALCONFIG: "$HOME/{{ path2.config }}/npm/npm_global.conf"
     #   NPM_CONFIG_USERCONFIG:   "$HOME/{{ path2.config }}/npm/npm_user.conf"

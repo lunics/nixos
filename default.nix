@@ -19,6 +19,7 @@
     ./pass_manager
     ./services
     ./k3s.nix
+    ./task_manager.nix
   ];
 
   home = {
