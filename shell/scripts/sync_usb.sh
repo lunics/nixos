@@ -19,7 +19,7 @@ if [ -d "$usb_uncrypted" ]; then      # if usb correctly mounted then
     sudo rsync -azh --progress --delete --exclude=firefox $usb_copy/ $usb_uncrypted && \
       echo -e "\nUSB synchronization succeed"
   elif [ "$1" = "closing" ]; then
-    sudo rsync -azh --progress --delete $usb_copy/ $usb_uncrypted && \
+    sudo rsync -azh --progress --delete --exclude=firefox $usb_copy/ $usb_uncrypted && \
       echo -e "\nUSB synchronization succeed"
 
     sudo udisksctl unmount -b /dev/mapper/luks-e0db3d7d-e237-4883-82a7-7fdfea49e097 && \
