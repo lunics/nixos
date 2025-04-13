@@ -8,7 +8,7 @@
     s     = "sudo";
     t     = "go-task --dir $HOME/usb_copy/homelab/taskfile $(go-task --dir $HOME/usb_copy/homelab/taskfile --list-all | tr -d ' *:' | sed 1d | fzf)";
     v     = "nvim";
-    w     = "watch -n 2 -d";
+    w     = "which";
     x     = "sxiv -ft *";
     la    = "eza -lag --group-directories-first";
     ip    = "ip --color=auto";
@@ -16,6 +16,7 @@
     fk    = "fuck";
     md    = "mkdir --parents --verbose";
     ra    = "ranger_no_subshell";
+    tt    = "taskwarrior-tui";
     tf    = "terraform";
     py    = "python";
     c-    = "cd -";
