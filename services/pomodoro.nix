@@ -12,4 +12,6 @@
     Service.ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/pomodoro.sh";
     Install.WantedBy  = [ "suspend.target" ];
   };
+
+  home.file.".config/systemd/user/pomodoro.sh".source = ../files/pomodoro.sh;
 }
