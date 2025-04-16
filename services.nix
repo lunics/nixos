@@ -2,6 +2,8 @@
 
   libinput.enable = true;     # Enable touchpad support (enabled default in most desktopManager).
 
+  udev.enable = true;
+
   udisks2.enable = true;
 
   # xserver = {
