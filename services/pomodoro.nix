@@ -1,10 +1,10 @@
 { pkgs, ... }:{
-  systemd.user =
+  systemd.user = {
     targets."suspend" = {
       Unit = {
-        Description = "User level suspend target";
+        Description      = "User level suspend target";
         StopWhenUnneeded = true;
-        Wants = [ "pomodoro.service" ];
+        Wants            = [ "pomodoro.service" ];
       };
     };
 
