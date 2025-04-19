@@ -4,7 +4,11 @@
     telegram-desktop
     element-desktop
     ferdium               # franz app like but free
-    
+    whatsie
+    nchat                 # Terminal-based chat client with support for Telegram and WhatsApp
+    # altus               # client for WhatsApp Web with themes, notifications and multiple account support 
+    # wasistlos
+    discordo              # tui
     discord
     # (discord.override {
     #   # remove any overrides that you don't want
