@@ -13,19 +13,16 @@
       source     = ./files/taskwarrior;
       recursive  = true;
     };
-    ## "timewarrior/timew.cfg".source = ./files/taskwarrior/timew.cfg;   USEFUL ?
 
     sessionVariables = rec {
-      TASKRC   = "${config.home.homeDirectory}/.config/taskwarrior/taskw/taskrc";
-      TASKDATA = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior";
+      TASKRC        = "${config.home.homeDirectory}/.config/taskwarrior/taskw/taskrc";
+      TASKDATA      = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior";
+      TIMEWARRIORDB = "${config.home.homeDirectory}/usb_copy/homelab/share/taskwarrior/timewarrior";    # path for data + config
     };
   };
 
   # mkdir
-  #   ~/.config/taskwarrior/hooks"
-  #   ~/.config/timewarrior
-  #   /home/lunics/usb_copy/homelab/share/taskwarrior
+  #   ~/.config/taskwarrior/hooks
+  #   ~/.config/taskwarrior/hooks/on-modify.timewarrior.py 0744
   #   /home/lunics/usb_copy/homelab/share/timewarrior
-
-  # {{ path_config }}/taskwarrior/hooks/on-modify.timewarrior.py 0744
 }
