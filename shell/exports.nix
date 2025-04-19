@@ -68,6 +68,8 @@
     # HYPHEN_INSENSITIVE: "true"          # Case-sensitive completion must be off. _ and - will be interchangeable
     # DISABLE_AUTO_TITLE: "true"          # auto-setting terminal title
     # ENABLE_CORRECTION:  "true"          # command auto-correction
+
+    _ZO_DATA_DIR = "$HOME/usb_copy/homelab/share/zoxide";
     
     # # GUI
     #   name:       gui
