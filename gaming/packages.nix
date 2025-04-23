@@ -6,7 +6,10 @@
 
   home.packages = with pkgs; [
     lutris
-    # ankama-launcher available from steam or from ankama-launcher.nix ?
+
+    appimage-run      # to run dofus app image
+
+    ryubing           # nintendo switch emulator
 
     # steam-tui         ##  Permission denied ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
     steamcmd
