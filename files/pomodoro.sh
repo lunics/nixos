@@ -8,7 +8,10 @@ reminder=5              # notification's timer before suspend system
 notify-send -t 5000 "Pomodoro is starting"
 
 if bluetoothctl devices | grep AirPods; then
-  bluetoothctl connect 90:5F:7A:BC:93:87
+  sleep 4
+  if ! bluetoothctl devices Connected | grep AirPods; then
+    bluetoothctl connect 90:5F:7A:BC:93:87
+  fi
 fi
 
 sleep $(expr $minutes_working \* 60 / 2)
