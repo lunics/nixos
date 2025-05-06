@@ -2,6 +2,7 @@
   home = {
     packages = with pkgs; [
       passage
+      oath-toolkit      # as a pass-otp replacement
       # age     # installed from system
       # rage    # //
     ];
