@@ -1,9 +1,8 @@
-{ pkgs, ... }:{ 
+{
   programs = {
     git = {
       enable      = true;
-      package     = pkgs.git;
-      userName    = "Lunics";
+      userName    = "lunics";
       userEmail   = "git@***REMOVED***";
       extraConfig = {
         init.defaultBranch = "main"; }; 
@@ -11,7 +10,6 @@
 
     gh = {
       enable   = true;
-      package  = pkgs.gh;
       # extensions = [];
       settings = {
         git_protocol = "ssh"; 
@@ -30,7 +28,7 @@
 
   home.sessionVariables = {
     GIT_CONFIG_GLOBAL = "$HOME/.config/git/config";
-    GIT_AUTHOR_NAME   = "Lunics";
+    GIT_AUTHOR_NAME   = "lunics";
     GIT_AUTHOR_EMAIL  = "git@***REMOVED***";
     # GH_TOKEN        = "{{ github_token }}"; 
   };
