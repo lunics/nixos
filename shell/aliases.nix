@@ -1,7 +1,8 @@
 { 
   home.shellAliases = {
     a     = "ansible-playbook";
-    l     = "exa -l --group-directories-first --git-repos --hyperlink";
+    l     = "exa -l --group-directories-first --git-repos --hyperlink -X";
+    p     = "pkg";
     g     = "lazygit";
     q     = "exit";
     r     = "trash";
@@ -11,6 +12,7 @@
     w     = "which";
     x     = "sxiv -ft *";
     la    = "eza -lag --group-directories-first";
+    ln    = "ln -s";
     ip    = "ip --color=auto";
     ss    = "sudo systemctl";
     fk    = "fuck";
@@ -38,8 +40,8 @@
     wifi  = "nmcli c";
     mkdir = "mkdir --parents --verbose";
     move  = "mv --verbose";
-    grpe  = "grep -i";
-    gpre  = "grep -i";
+    grpe  = "rg -i";
+    gpre  = "rg -i";
     pgrep = "pgrep -i";
     pgrpe = "pgrep -i";
     clip  = "wl-copy";
