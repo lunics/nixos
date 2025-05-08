@@ -72,5 +72,8 @@
     
     localsend
     chatblade
+
+    android-file-transfer
+    zmkBATx       # Battery monitoring for ZMK split keyboards
   ];
 }
