@@ -1,9 +1,13 @@
-{
+{ pkgs, ... }:{
+  home.packages = with pkgs; [
+    git-filter-repo     # rewrite git repository history
+  ];
+
   programs = {
     git = {
       enable      = true;
       userName    = "lunics";
-      userEmail   = "git@***REMOVED***";
+      userEmail   = "dev.git@***REMOVED***";
       extraConfig = {
         init.defaultBranch = "main"; }; 
     };
@@ -29,7 +33,7 @@
   home.sessionVariables = {
     GIT_CONFIG_GLOBAL = "$HOME/.config/git/config";
     GIT_AUTHOR_NAME   = "lunics";
-    GIT_AUTHOR_EMAIL  = "git@***REMOVED***";
+    GIT_AUTHOR_EMAIL  = "dev.git@***REMOVED***";
     # GH_TOKEN        = "{{ github_token }}"; 
   };
 }
