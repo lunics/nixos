@@ -1,8 +1,8 @@
 { pkgs }: pkgs.writeShellApplication {
   name = "gen_pass";
   runtimeInputs = with pkgs; [ 
-    coreutils 
     pwgen 
+    coreutils   # to get: shuf
     wl-clipboard 
   ];
 
