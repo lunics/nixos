@@ -9,7 +9,7 @@
     s     = "sudo";
     t     = "go-task --dir $HOME/usb_copy/homelab/taskfile $(go-task --dir $HOME/usb_copy/homelab/taskfile --list-all | tr -d ' *:' | sed 1d | fzf)";
     v     = "nvim";
-    w     = "which";
+    w     = "which+";
     x     = "sxiv -ft *";
     la    = "eza -lag --group-directories-first";
     ln    = "ln -s";

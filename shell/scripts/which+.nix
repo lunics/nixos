@@ -1,5 +1,5 @@
 { pkgs }: pkgs.writeShellApplication {
-  name = "w";
+  name = "which+";
 
   text = ''
     if grep bash "$1" &> /dev/null; then
