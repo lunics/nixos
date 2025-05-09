@@ -34,7 +34,8 @@
     bottom
     pciutils      # for lspci
     usbutils      # for lsusb
-    zmkBATx       # Battery monitoring for ZMK split keyboards
+    zmkBATx       # battery monitoring for ZMK split keyboards
+    dysk          # information on the mounted disks
     
     comma             # to runs nix software without installing it
     
