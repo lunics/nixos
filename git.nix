@@ -7,7 +7,7 @@
     git = {
       enable      = true;
       userName    = "lunics";
-      userEmail   = "dev.git@***REMOVED***";
+      userEmail   = "***REMOVED***";
       extraConfig = {
         init.defaultBranch = "main"; }; 
     };
@@ -33,7 +33,7 @@
   home.sessionVariables = {
     GIT_CONFIG_GLOBAL = "$HOME/.config/git/config";
     GIT_AUTHOR_NAME   = "lunics";
-    GIT_AUTHOR_EMAIL  = "dev.git@***REMOVED***";
+    GIT_AUTHOR_EMAIL  = "***REMOVED***";
     # GH_TOKEN        = "{{ github_token }}"; 
   };
 }
