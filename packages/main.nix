@@ -17,8 +17,6 @@
     # thefuck
     # pay-respects      # thefuck replacement written in Rust
     
-    comma             # to run nix pkgs without installing them
-    
     # devbox        ## Need Root permissions to be installed
     
     lsd
@@ -34,11 +32,11 @@
     udiskie
     
     bottom
-    pciutils          # for lspci
-    usbutils          # for lsusb
+    pciutils      # for lspci
+    usbutils      # for lsusb
+    zmkBATx       # Battery monitoring for ZMK split keyboards
     
     comma             # to runs nix software without installing it
-    nix-search-cli    # CLI for searching packages on search.nixos.org
     
     # archive
     ouch
@@ -62,18 +60,13 @@
     mpv
     
     bibata-cursors    # Open source, compact, and material designed cursor set
-    
-    # Used by scripts
-    pwgen
-    # coreutils   # to get: shuf
-    
+
     sqlite
     psmisc        # to get: fuser (to unlock sqlite db)
-    
+
     localsend
     chatblade
 
     android-file-transfer
-    zmkBATx       # Battery monitoring for ZMK split keyboards
   ];
 }

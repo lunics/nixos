@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     slack
     telegram-desktop
+    # materialgram
     element-desktop
     ferdium               # franz app like but free
     whatsie
