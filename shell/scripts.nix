@@ -4,7 +4,7 @@
     (import ./scripts/passfzf.nix   { inherit pkgs; })
     (import ./scripts/pkg.nix       { inherit pkgs; })
     (import ./scripts/which+.nix    { inherit pkgs; })
-    (import ./scripts/disk.nix       { inherit pkgs; })
+    (import ./scripts/disk.nix      { inherit pkgs; })
   ];
 
   home.file = {
