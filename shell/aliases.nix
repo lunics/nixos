@@ -27,7 +27,7 @@
     ez    = "exec zsh";
     ia    = "chatblade --chat-gpt 3.5 --stream";
     cp    = "cp --recursive --reflink=auto";
-    cat   = "bat";
+    cat   = "catt";
     top   = "btm";
     vim   = "nvim";
     pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
