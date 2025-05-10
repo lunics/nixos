@@ -3,7 +3,7 @@
     (import ./scripts/gen_pass.nix  { inherit pkgs; })
     (import ./scripts/passfzf.nix   { inherit pkgs; })
     (import ./scripts/pkg.nix       { inherit pkgs; })
-    (import ./scripts/which+.nix    { inherit pkgs; })
+    (import ./scripts/catt.nix      { inherit pkgs; })
     (import ./scripts/disk.nix      { inherit pkgs; })
   ];
 
