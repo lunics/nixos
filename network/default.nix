@@ -5,7 +5,7 @@
     ./network-manager.nix
     ./network.nix
     ./systemd-resolved.nix
-    ./vpn.nix
+    ./vpn
   ];
 
   # network diagnostic tool that combines ping and traceroute into one program

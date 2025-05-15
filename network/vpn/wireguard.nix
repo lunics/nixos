@@ -9,3 +9,4 @@
     mullvad-closest
   ];
 }
+
