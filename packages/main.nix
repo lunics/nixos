@@ -28,6 +28,7 @@
     entr            # permet de run des script automatiquement dans shell lorsque fichier source est modifier: ls *.rb | entr ruby main.rb wget
     fd
     trash-cli
+    termdown
     
     udiskie
     
@@ -59,6 +60,8 @@
     spotify
     streamlink-twitch-gui-bin
     mpv
+
+    joplin
     
     bibata-cursors    # Open source, compact, and material designed cursor set
 
