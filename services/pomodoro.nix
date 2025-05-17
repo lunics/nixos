@@ -15,5 +15,5 @@
     };
   };
 
-  home.file.".config/systemd/user/pomodoro.sh".source = ../files/pomodoro.sh;
+  home.file.".config/systemd/user/pomodoro.sh".source = ./pomodoro.sh;
 }
