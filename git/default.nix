@@ -22,7 +22,7 @@
       }; 
     };
 
-    # xdg.configFile."lazygit/config.yml".text = builtins.readFile ./files/lazygit.yml;
+    # xdg.configFile."lazygit/config.yml".text = builtins.readFile ./lazygit.yml;
     # lazygit = {
     #   enable  = true;
     #   package = pkgs.lazygit;
