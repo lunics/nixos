@@ -5,7 +5,7 @@
     # ./lock_screen.nix
     ./notifier.nix
     # ./qt.nix
-    ./status_bar.nix
+    ./status_bar
     ./window_manager.nix
   ]; 
 }

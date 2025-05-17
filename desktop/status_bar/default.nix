@@ -3,7 +3,7 @@
 
   xdg.configFile = {
     "waybar" = {
-      source    = ../files/waybar/v2;
+      source    = ./waybar/v2;
       recursive = true;
     };
   };
