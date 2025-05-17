@@ -21,6 +21,6 @@
   ];
 
   home.file = {
-    ".config/MuseScore/MuseScore4.ini".source = ../files/MuseScore4.ini;
+    ".config/MuseScore/MuseScore4.ini".source = ./MuseScore4.ini;
   };
 }

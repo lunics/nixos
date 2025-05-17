@@ -20,6 +20,7 @@
     ./services
     ./k3s.nix
     ./task_manager
+    ./music
   ];
 
   home = {
