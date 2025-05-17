@@ -10,7 +10,7 @@
     ];
 
     file.".config/taskwarrior" = {
-      source     = ./files/taskwarrior;
+      source     = ./taskwarrior;
       recursive  = true;
     };
 
