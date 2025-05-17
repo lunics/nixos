@@ -13,7 +13,7 @@
     ./gaming
     ./terminal.nix
     ./file_explorer
-    ./multiplexer.nix
+    ./multiplexer
     ./browser
     ./gpg.nix
     ./pass_manager
