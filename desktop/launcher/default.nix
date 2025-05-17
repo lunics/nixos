@@ -19,7 +19,7 @@
     };
   
     # https://cloudninja.pw/docs/wofi.html
-    style = builtins.readFile ../files/wofi/style.css;
+    style = builtins.readFile ./wofi/style.css;
   };
 
   home.packages = with pkgs; [ ulauncher ];
