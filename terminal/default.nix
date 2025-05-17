@@ -46,5 +46,5 @@
     # };
   };
 
-  xdg.configFile."alacritty/alacritty.toml".source = ./files/alacritty.toml;
+  xdg.configFile."alacritty/alacritty.toml".source = ./alacritty.toml;
 }

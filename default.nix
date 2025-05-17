@@ -11,7 +11,7 @@
     ./git.nix
     ./desktop
     ./gaming
-    ./terminal.nix
+    ./terminal
     ./file_explorer
     ./multiplexer
     ./browser
