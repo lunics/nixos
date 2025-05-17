@@ -12,7 +12,7 @@
     ./desktop
     ./gaming
     ./terminal.nix
-    ./file_explorer.nix
+    ./file_explorer
     ./multiplexer.nix
     ./browser
     ./gpg.nix

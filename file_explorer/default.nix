@@ -5,7 +5,7 @@
   };
 
   home.file.".config/yazi" = {
-    source    = ./files/yazi;
+    source    = ./yazi;
     recursive = true;
   };
 }
