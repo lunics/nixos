@@ -20,7 +20,7 @@
   home.packages = with pkgs; [
     waypaper
     # hyprpaper  # KO
-    # hyprlock    # choose with swaylock
+    # hyprlock   # choose with swaylock
     hyprpicker
     wl-clipboard
     # clipboard-jh      # needs wl-clipboard, KO screen flickering even with: exec-once = cb
@@ -31,11 +31,11 @@
   xdg.configFile = {
     "hypr" = {
       recursive = true;
-      source = ../files/hypr;
+      source    = ./hypr;
     };
 
-    "hypr/config.d/bind".text = builtins.readFile ../files/hypr/binds/bind_azerty;
-    # "hypr/config.d/bind".text = builtins.readFile ../files/hypr/binds/bind_splitkb;
+    "hypr/config.d/bind".text = builtins.readFile ./hypr/binds/bind_azerty;
+    # "hypr/config.d/bind".text = builtins.readFile ./hypr/binds/bind_splitkb;
 
     # "hypr/config.d/bind".text = ''
     #   splash = false
