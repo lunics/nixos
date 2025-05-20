@@ -27,6 +27,7 @@
     XDG_CURRENT_DESKTOP   = "Hyprland";
     XDG_SESSION_DESKTOP   = "Hyprland";
     XDG_SESSION_TYPE      = "wayland";
+    XDG_SCREENSHOTS_DIR   = "${config.home.sessionVariables.XDG_DOWNLOAD_DIR}/screenshots";
     CLUTTER_BACKEND       = "wayland";
     
     # PATH

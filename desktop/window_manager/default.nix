@@ -26,6 +26,7 @@
     # clipboard-jh      # needs wl-clipboard, KO screen flickering even with: exec-once = cb
     waybar
     brightnessctl
+    grimblast           # grim + slurp to take screenshot
   ];
 
   xdg.configFile = {

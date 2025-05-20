@@ -11,7 +11,7 @@ bind  = $SUPER,       L, exec, swaylock
 bind  = $SUPER,       Q, killactive,
 bind  = $SUPER,       R, exec, pkill wofi || wofi
 bind  = $SUPER,       S, exec, systemctl suspend
-bind  = $SUPER SHIFT, S, exec, systemctl suspend && swaylock
+# bind  = $SUPER SHIFT, S, exec, systemctl suspend && swaylock
 bind  = $SUPER,       T, exec, alacritty
 bind  = $SUPER SHIFT, T, exec, alacritty --title terminal_floats
 # bind  = $SUPER,     H, FOCUS LEFT WINDOW
@@ -33,9 +33,7 @@ bind = $SUPER, up,    movefocus, u
 bind = $SUPER, down,  movefocus, d
 
 # screenshot
-# bind = $SUPER SHIFT, S, exec, grimblast --notify copysave area $HOME/downloads/$(date +"%Y-%m-%d%H-%M-%S").png
-# bind = $mainMod, S, exec, grimblast --notify copysave active $HOME/Downloads/$(date +"%Y-%m-%d%H-%M-%S").png
-# bind = $mainMod ALT, S, exec, grimblast --notify --cursor copysave output $HOME/Downloads/$(date +"%Y-%m-%d_%H-%M-%S").png
+bind = $SUPER SHIFT, S, exec, grimblast --notify copysave area $XDG_SCREENSHOTS_DIR/$(date +"%d-%m-%Y%H-%M-%S").png
 
 #________ WINDOWS ________#
 # to switch between windows in a floating workspace
