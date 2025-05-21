@@ -67,5 +67,7 @@
     chatblade
 
     android-file-transfer
+    varia
+    webtorrent_desktop
   ];
 }
