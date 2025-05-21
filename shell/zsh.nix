@@ -10,7 +10,7 @@ enableCompletion = false;
 autosuggestion.enable = true;
 syntaxHighlighting.enable = true;
 
-initExtra = ''
+initContent = ''
   for file in $HOME/.local/functions/*; do
     source $file
   done
