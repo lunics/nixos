@@ -5,7 +5,7 @@ binds {
 $SUPER = SUPER       # SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 
 bind  = $SUPER,       B, exec, bluetoothctl connect 90:5F:7A:BC:93:87
-bindr = $SUPER,       SUPER_L, exec, ulauncher
+bindr = $SUPER,       SUPER_L, exec, ulauncher-toggle
 bind  = $SUPER,       F, togglefloating,
 bind  = $SUPER,       L, exec, swaylock
 bind  = $SUPER,       Q, killactive,
