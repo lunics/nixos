@@ -25,22 +25,22 @@
   };
   
   services.gpg-agent = {
-    enable              = true;
-    defaultCacheTtl     = 0;          # 0 = always ask for yubikey touch
-    maxCacheTtl         = 0;          # 0 = always ask for yubikey touch
-    defaultCacheTtlSsh  = 60480000;   # 60480000 = cache ttl for unused keys
-    maxCacheTtlSsh      = 60480000;   # 60480000 = keep ssh password key persisten very long time
-    # enableSshSupport    = true;
-    # sshKeys             = "";         # Which GPG keys (by keygrip) to expose as SSH keys
-    verbose             = false;
+    enable               = true;
+    defaultCacheTtl      = 0;          # 0 = always ask for yubikey touch
+    maxCacheTtl          = 0;          # 0 = always ask for yubikey touch
+    defaultCacheTtlSsh   = 60480000;   # 60480000 = cache ttl for unused keys
+    maxCacheTtlSsh       = 60480000;   # 60480000 = keep ssh password key persisten very long time
+    # enableSshSupport   = true;
+    # sshKeys            = "";         # Which GPG keys (by keygrip) to expose as SSH keys
+    verbose              = false;
     grabKeyboardAndMouse = true;      # used to avoid X-sniffing attacks
-    enableScDaemon      = true;       # to enable smartcard
+    enableScDaemon       = true;       # to enable smartcard
     extraConfig = ''
     '';
-    enableExtraSocket   = false;      # true = GPG Agent forwarding
+    enableExtraSocket    = false;      # true = GPG Agent forwarding
     enableZshIntegration = true;
-    pinentryPackage     = null;       # pinentry, pinentry-curses, pinentry-tty
-    # pinentryFlavor      = "curses";
+    pinentry.package     = null;       # pinentry, pinentry-curses, pinentry-tty
+    # pinentryFlavor     = "curses";
   };
 
   # services.yubikey-agent.enable
