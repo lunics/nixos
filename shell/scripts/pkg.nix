@@ -5,11 +5,12 @@
   ];
 
   text = ''
-    if [ $# == 0 ]; then
-      nh search "$1"
-    elif [[ "$1" = "search" ]]; then
+    if [[ "$1" = "search" ]]; then
       nh search "$2"
-    # elif [[ "$1" = "install" ]]; then     -i/i/install
+    elif [[ "$1" = "install" ]]; then     ## or -i/i/install
+      nix-shell -p "$2"
+    else
+      nh search "$1"
     fi
   '';
 }
