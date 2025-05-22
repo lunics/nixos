@@ -57,6 +57,7 @@
     sqlite
     psmisc        # to get: fuser (to unlock sqlite db)
     httpie        # curl/wget replacement
+    http-prompt   # httpie interactive
 
     chatblade
 
