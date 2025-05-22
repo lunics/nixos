@@ -4,6 +4,7 @@
     l     = "exa -l --group-directories-first --git-repos --hyperlink -X";
     p     = "pkg";
     g     = "lazygit";
+    h     = "helm";
     q     = "exit";
     r     = "trash";
     s     = "sudo";
@@ -11,26 +12,30 @@
     v     = "nvim";
     w     = "which+";
     x     = "sxiv -ft *";
+    c-    = "cd -";
+    cp    = "cp --recursive --reflink=auto";
+    df    = "duf --hide spedial";
+    du    = "dust";
+    ez    = "exec zsh";
+    ia    = "chatblade --chat-gpt 3.5 --stream";
+    ip    = "ip --color=auto";
     la    = "eza -lag --group-directories-first";
     ln    = "ln -s";
-    ip    = "ip --color=auto";
+    py    = "python";
     ss    = "sudo systemctl";
     fk    = "fuck";
     md    = "mkdir --parents --verbose";
     ra    = "ranger_no_subshell";
     tt    = "taskwarrior-tui";
     tf    = "terraform";
-    py    = "python";
-    c-    = "cd -";
     ".."  = "cd ..";
     "..." = "cd ../..";
-    ez    = "exec zsh";
-    ia    = "chatblade --chat-gpt 3.5 --stream";
-    cp    = "cp --recursive --reflink=auto";
     cat   = "catt";
     top   = "btm";
     vim   = "nvim";
     pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
+    wget  = "echo Use http/https instead        #";
+    curl  = "echo Use http/https instead        #";
     pass  = "passfzf";
     copy  = "rsync -rlptgoDvzh --progress";
     calc  = "/usr/bin/bc -q";
@@ -76,7 +81,6 @@
     ki      = "k get ingresses.networking.k8s.io --all-namespaces";
     helm    = "/run/current-system/sw/bin/helm";
     synth-helm = "/home/lunics/.nix-profile/bin/helm";
-    h       = "helm";
     l_mount = "df -aTh --total";
     l_date  = "eza -la --sort=mod";
     l_filesystems = "lsblk --fs; df -Th --total";
@@ -101,10 +105,8 @@
     yta     = "yt -x -f bestaudio/best";
     YT      = "youtube-viewer";
     ref     = "shortcuts >/dev/null; source ~/.config/shortcutrc";
-    upc     = "sudo pacman -Syu; pkill -RTMIN+8 i3blocks";
-    lsp     = "pacman -Qett --color=always | less";
     # tmux    = "unset TMUX; exec /usr/bin/env tmux -f $HOME/.config/tmux/tmux.conf";
     ffmpeg  = "ffmpeg -hide_banner";
-    wget    = "/usr/bin/wget --hsts-file=$CACHE/wget-hsts";   ## after implementing wget in roles/packages --config=$CONFIG/wget/wget.conf
+    # wget    = "/usr/bin/wget --hsts-file=$CACHE/wget-hsts";   ## after implementing wget in roles/packages --config=$CONFIG/wget/wget.conf
   };
 }
