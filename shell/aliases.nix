@@ -14,7 +14,7 @@
     x     = "sxiv -ft *";
     c-    = "cd -";
     cp    = "cp --recursive --reflink=auto";
-    df    = "duf --hide spedial";
+    df    = "duf --hide special";
     du    = "dust";
     ez    = "exec zsh";
     ia    = "chatblade --chat-gpt 3.5 --stream";
