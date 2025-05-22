@@ -31,19 +31,13 @@
     termdown
     
     udiskie
-    
-    bottom
-    pciutils      # for lspci
-    usbutils      # for lsusb
-    zmkBATx       # battery monitoring for ZMK split keyboards
-    dysk          # information on the mounted disks
-    
+
     comma             # to runs nix software without installing it
-    
+
     # archive
     ouch
     xarchiver
-    
+
     # qt5   KO
     # qt6   KO
     
@@ -62,12 +56,12 @@
 
     sqlite
     psmisc        # to get: fuser (to unlock sqlite db)
+    httpie        # curl/wget replacement
 
-    localsend
     chatblade
 
-    android-file-transfer
     varia
     webtorrent_desktop
+    qrencode      # generate QR code from client conf
   ];
 }
