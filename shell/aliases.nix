@@ -45,6 +45,7 @@
     wifi  = "nmcli c";
     mkdir = "mkdir --parents --verbose";
     move  = "mv --verbose";
+    grep  = "rg -i";
     grpe  = "rg -i";
     gpre  = "rg -i";
     pgrep = "pgrep -i";
