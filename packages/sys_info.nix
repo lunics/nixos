@@ -3,7 +3,7 @@
     bottom
     pciutils      # for lspci
     usbutils      # for lsusb
-    zmkBATx       # battery monitoring for ZMK split keyboards
+    zmkBATx       # battery level on sys tray for zmk splitkb
     dysk          # information on the mounted disks
     duf           # df replacement
     dust          # du -sh replacement

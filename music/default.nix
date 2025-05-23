@@ -1,5 +1,6 @@
 { pkgs, ... }:{ 
   home.packages = with pkgs; [
+    rmpc                    # TUI music player client for MPD
     musescore
     # ardour                # ko build: raptor
     jack2
