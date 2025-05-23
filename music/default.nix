@@ -38,13 +38,17 @@
       port = 6600;
     };
     musicDirectory = "$HOME/music";
-    dataDir = "$XDG_DATA_HOME/mpd";
-    dbFile  = "\${dataDir}/tag_cache";   # MPD's database
-    playlistDirectory = "\${dataDir}/playlists";
+    ## KO is not of type 'absolute path'
+      # dataDir = "$XDG_DATA_HOME/mpd";
+      # dbFile  = "$XDG_DATA_HOME/mpd/tag_cache";   # MPD's database
+      # playlistDirectory = "$XDG_DATA_HOME/mpd/playlists";
     # extraConfig "";
     # extraArgs = [];
   };
 
   programs.rmpc.enable = true;
-  # file.".config/rmpc/config.ron".source = ./config.ron;
+  home.file.".config/rmpc" = {
+    source = ./rmpc;
+    recursive  = true;
+  };
 }
