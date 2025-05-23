@@ -37,15 +37,12 @@
       listenAddress = "127.0.0.1";
       port = 6600;
     };
-    group   = "mpd";
-    user    = "mpd";
     musicDirectory = "$HOME/music";
     dataDir = "$XDG_DATA_HOME/mpd";
     dbFile  = "\${dataDir}/tag_cache";   # MPD's database
     playlistDirectory = "\${dataDir}/playlists";
     # extraConfig "";
     # extraArgs = [];
-    # fluidsynth = false;     # add fluidsynth soundfont and configure the plugin
   };
 
   programs.rmpc.enable = true;
