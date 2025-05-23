@@ -5,6 +5,8 @@
     (import ./scripts/pkg.nix       { inherit pkgs; })
     (import ./scripts/catt.nix      { inherit pkgs; })
     (import ./scripts/disk.nix      { inherit pkgs; })
+    (import ./scripts/ssh.nix       { inherit pkgs; })
+    (import ./scripts/rr.nix        { inherit pkgs; })
   ];
 
   home.file = {
