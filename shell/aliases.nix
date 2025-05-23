@@ -52,6 +52,7 @@
     pgrpe = "pgrep -i";
     clip  = "wl-copy";
     clipboard = "clip";
+    extract = "ouch decompress";
     reload  = "exec zsh";
     paste   = "wl-paste";
     vimdiff = "nvim -d";
