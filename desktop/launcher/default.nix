@@ -1,6 +1,7 @@
 { 
   imports = [
     ./wofi
-    ./ulauncher.nix
+    ./onagre
+    # ./ulauncher.nix
   ]; 
 }
