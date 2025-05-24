@@ -61,8 +61,6 @@
 
     chatblade
 
-    varia
-    webtorrent_desktop
     qrencode      # generate QR code from client conf
   ];
 }

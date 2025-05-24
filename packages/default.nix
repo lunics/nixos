@@ -5,6 +5,7 @@
     ./file_sharing.nix
     ./sys_info.nix
     ./rclone.nix
+    ./torrent.nix
     # ./yubikey.nix
   ];
 }
