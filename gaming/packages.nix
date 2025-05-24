@@ -5,8 +5,6 @@
   home.sessionVariables."STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
 
   home.packages = with pkgs; [
-    lutris
-
     appimage-run      # to run dofus app image
 
     ryubing           # nintendo switch emulator
@@ -27,4 +25,24 @@
     wine64
     winetricks
   ];
+
+  programs.lutris = {
+    enable = true;
+    package = pkgs.lutris;
+    # extraPackages = with pkgs; [mangohud winetricks gamescope gamemode umu-launcher];
+    # runners."name" = {
+    #   package = ;
+    #   settings = ;
+    # };
+    # OR
+    # runners = {
+    #   cemu.package = pkgs.cemu;
+    #   pcsx2.config = {
+    #     system.disable_screen_saver = true;
+    #     runner.runner_executable = "$\{pkgs.pcsx2}/bin/pcsx2-qt";
+    # };
+    # protonPackages = [ pkgs.proton-ge-bin ]; 
+    # steamPackage = pkgs.steam or osConfig.programs.steam.package;
+    # winePackages = [ pkgs.wineWow64Packages.full ];
+  };
 }
