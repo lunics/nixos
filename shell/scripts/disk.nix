@@ -1,14 +1,12 @@
 { pkgs }: pkgs.writeShellApplication {
   name = "disk";
   runtimeInputs = with pkgs; [ 
-    coreutils   # df
+    duf
     dysk
   ];
 
   text = ''
-    lsblk
-    echo
-    df -h
+    duf --hide special
     echo
     dysk
   '';

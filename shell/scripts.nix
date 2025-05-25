@@ -5,18 +5,12 @@
     (import ./scripts/pkg.nix       { inherit pkgs; })
     (import ./scripts/catt.nix      { inherit pkgs; })
     (import ./scripts/disk.nix      { inherit pkgs; })
-    (import ./scripts/ssh.nix       { inherit pkgs; })
+    # (import ./scripts/ssh.nix     { inherit pkgs; })
     (import ./scripts/rr.nix        { inherit pkgs; })
+    (import ./scripts/timer.nix     { inherit pkgs; })
   ];
 
   home.file = {
-    # ".local/bin" = {     # KO permission denied
-    #   source     = ./scripts;
-    #   executable = true;
-    #   recursive  = true; };
-
-    # ".config/hypr/startup_apps".source = ./scripts/startup_apps;
-
     ".local/functions" = {
       source     = ./functions;
       recursive  = true; };
