@@ -13,6 +13,7 @@
     w     = "which+";
     x     = "sxiv -ft *";
     c-    = "cd -";
+    bc    = "numbat";
     cp    = "cp --recursive --reflink=auto";
     df    = "duf --hide special";
     du    = "dust";
@@ -34,11 +35,11 @@
     top   = "btm";
     vim   = "nvim";
     pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
+    calc  = "numbat";
     wget  = "echo Use http/https instead        #";
     curl  = "echo Use http/https instead        #";
     pass  = "passfzf";
     copy  = "rsync -rlptgoDvzh --progress";
-    calc  = "/usr/bin/bc -q";
     # gpg = "/usr/bin/gpg --homedir {{ path_share }}/gnupg";
     size  = "du -sh";
     tree  = "eza -T";

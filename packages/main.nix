@@ -62,5 +62,6 @@
     chatblade
 
     qrencode      # generate QR code from client conf
+    numbat        # bc replacement
   ];
 }
