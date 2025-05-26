@@ -8,7 +8,7 @@
     ./packages
     ./shell
     ./ssh_client.nix
-    ./git
+    ./git.nix
     ./desktop
     ./gaming
     ./terminal

@@ -25,7 +25,7 @@
     lazygit = {
       enable  = true;
       settings = {
-        git.autoFetch = false
+        git.autoFetch = false;
       };
     };
   };
