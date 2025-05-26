@@ -20,5 +20,6 @@
     ./gaming
     ./graphic
     # ./udev
+    ./dirs.nix
   ];
 }
