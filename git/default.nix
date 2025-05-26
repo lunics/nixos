@@ -14,20 +14,20 @@
 
     gh = {
       enable   = true;
-      # extensions = [];
       settings = {
         git_protocol = "ssh"; 
         editor       = "nvim";
         # alias      = {}
       }; 
+      # extensions = [];
     };
 
-    # xdg.configFile."lazygit/config.yml".text = builtins.readFile ./lazygit.yml;
-    # lazygit = {
-    #   enable  = true;
-    #   package = pkgs.lazygit;
-    #   settings = {};
-    # };
+    lazygit = {
+      enable  = true;
+      settings = {
+        git.autoFetch = false
+      };
+    };
   };
 
   home.sessionVariables = {
