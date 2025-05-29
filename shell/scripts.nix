@@ -8,6 +8,7 @@
     # (import ./scripts/ssh.nix     { inherit pkgs; })    # KO breaks git actions via SSH
     (import ./scripts/rr.nix        { inherit pkgs; })
     (import ./scripts/timer.nix     { inherit pkgs; })
+    (import ./scripts/otp.nix       { inherit pkgs; })
   ];
 
   home.file = {
