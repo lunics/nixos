@@ -41,7 +41,7 @@
     pass  = "passfzf";
     copy  = "rsync -rlptgoDvzh --progress";
     # gpg = "/usr/bin/gpg --homedir {{ path_share }}/gnupg";
-    size  = "du -sh";
+    size  = "dust";
     tree  = "eza -T";
     wifi  = "nmcli c";
     mkdir = "mkdir --parents --verbose";
