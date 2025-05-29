@@ -2,8 +2,8 @@
 
 ## notif bureau courte + progress bar flotante persistante
 
-minutes_working=45
-reminder=5              # notification's timer before suspend system
+minutes_working=60
+reminder=3              # notification's timer before suspend system
 
 notify-send -t 5000 "Pomodoro is starting"
 
