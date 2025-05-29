@@ -1,6 +1,7 @@
 { pkgs, ... }:{ 
   home.packages = with pkgs; [
     slack
+    # slackdump           # KO on nixos, only on OS FHS compliant
     telegram-desktop
     # materialgram
     element-desktop

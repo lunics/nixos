@@ -1,6 +1,6 @@
 { pkgs, ... }:{ 
   home.packages = with pkgs; [ rclone ];
-  home.file.".config/rclone/rclone.conf".source = ../files/rclone.conf;
+  # home.file.".config/rclone/rclone.conf".source = ../files/rclone.conf;
 
   ## https://rclone.org/commands/rclone_mount/
   ## systemctl --user enable --now rclone@iCloud
