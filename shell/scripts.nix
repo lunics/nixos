@@ -9,6 +9,7 @@
     (import ./scripts/rr.nix        { inherit pkgs; })
     (import ./scripts/timer.nix     { inherit pkgs; })
     (import ./scripts/otp.nix       { inherit pkgs; })
+    (import ./scripts/toggle_bt_device.nix  { inherit pkgs; })
   ];
 
   home.file = {
