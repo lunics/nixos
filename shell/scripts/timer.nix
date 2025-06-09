@@ -1,6 +1,7 @@
 { pkgs }: pkgs.writeShellApplication {
   name = "timer";
   runtimeInputs = with pkgs; [
+    coreutils   # to avoid sleep issue
     termdown
     dunst
   ];
@@ -11,7 +12,7 @@
       while true; do
         echo -ne "\rtimer: $(date -u -d @$seconds +%H:%M:%S)"
         sleep 1
-        ((seconds++))
+        ((seconds+=1))
       done
     else
       termdown "$1"
