@@ -63,5 +63,6 @@
     numbat        # bc replacement
     jqp
     bluetui       # tui bluetooth manager
+    wipe
   ];
 }
