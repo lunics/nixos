@@ -8,5 +8,5 @@ c (){
   
   formated=$(echo ${*} | sed "s/[\]//g")
 
-  z "$(realpath '${formated}')" && exa -l --group-directories-first --git-repos --hyperlink
+  z "$(realpath $formated)" && exa -l --group-directories-first --git-repos --hyperlink
 }
