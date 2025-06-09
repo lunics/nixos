@@ -1,7 +1,7 @@
 # run: hyprctl clients
 
 $terminal   = Alacritty|Kitty
-$browser    = firefox|librewolf|Tor Browser
+$browser    = zen-twilight|firefox|librewolf
 $message    = discord|org.gajim.Gajim|Element|Session|org.telegram.dekstop|info.mumble.Mumble
 $streaming  = spotify|FreeTube|streamlink-twitch-gui|mpv
 $gaming     = dofus.exe
@@ -10,19 +10,23 @@ $libvirt    = virt-viewer
 
 windowrulev2 = workspace 1,     class:^($terminal)
 windowrulev2 = workspace 2,     class:^($browser)
-windowrulev2 = workspace 3,     class:^($message)
-windowrulev2 = workspace 4,     class:^($streaming), title:^($streaming)
-windowrulev2 = workspace 5,     class:^($gaming)
-windowrulev2 = workspace 6,     class:^($music)
-windowrulev2 = workspace 7,     class:^($libvirt)
+# windowrulev2 = workspace 3,     class:^($message)
+# windowrulev2 = workspace 4,     class:^($streaming), title:^($streaming)
+# windowrulev2 = workspace 5,     class:^($gaming)
+# windowrulev2 = workspace 6,     class:^($music)
+# windowrulev2 = workspace 7,     class:^($libvirt)
 
-windowrulev2 = float,           class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt), title:^($streaming)
-windowrulev2 = move 0 0,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt), title:^($streaming)
-windowrulev2 = size 100% 1044,  class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt), title:^($streaming)
+windowrulev2 = float,           class:^($terminal|$browser)
+windowrulev2 = move 2 36,       class:^($terminal|$browser)
+windowrulev2 = size 100% 1044,  class:^($terminal|$browser)
 windowrulev2 = noborder,        class:^($browser)$
+# windowrulev2 = float,           class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt), title:^($streaming)
+# windowrulev2 = move 0 0,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt), title:^($streaming)
+# windowrulev2 = size 100% 1044,  class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt), title:^($streaming)
+# windowrulev2 = noborder,        class:^($browser)$
 # windowrulev2 = noborder,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 # windowrulev2 = rounding 0,      class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 # windowrulev2 = noshadow,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 
-windowrulev2 = float,           class:^(udiskie)$
-windowrulev2 = move 40% 40%,    class:^(udiskie)$
+# windowrulev2 = float,           class:^(udiskie)$
+# windowrulev2 = move 40% 40%,    class:^(udiskie)$
