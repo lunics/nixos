@@ -59,10 +59,10 @@
       ${ builtins.readFile ./options    }
       ${ builtins.readFile ./status_bar }
     '';
-      # ${ builtins.readFile ./binds      }
   };
 
   imports = [
     ./binds.nix
+    ./override_tmux-fzf.nix
   ];
 }

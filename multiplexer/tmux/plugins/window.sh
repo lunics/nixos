@@ -2,7 +2,6 @@
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$CURRENT_DIR/.envs"
-# run-shell ${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/cpu/cpu.tmux
 
 current_window_origin=$(tmux display-message -p '#S:#I: #{window_name}')
 current_window=$(tmux display-message -p '#S:#I:')
