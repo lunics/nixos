@@ -1,4 +1,14 @@
-{ pkgs, ... }:{
+{ pkgs, ... }:
+
+let
+  custom-tmux-fzf = pkgs.tmuxPlugins.tmux-fzf.overrideAttrs (old: {
+    postInstall = (old.postInstall or "") + ''
+      # Replace the original window.sh with the custom version
+      mkdir -p $out/share/tmux-plugins/tmux-fzf/scripts
+      cp ${./plugins/window.sh} $out/share/tmux-plugins/tmux-fzf/scripts/window.sh
+    '';
+  });
+in {
 
 # home.packages = with pkgs; [
 #   # tmux            # depends on screen for working
@@ -21,7 +31,7 @@
     mouse        = true;
 
     plugins = with pkgs.tmuxPlugins; [
-      tmux-fzf
+      custom-tmux-fzf
       sensible
       # tmux-update-display KO
       # tmux-autoreload
@@ -63,6 +73,6 @@
 
   imports = [
     ./binds.nix
-    ./override_tmux-fzf.nix
+    # ./override_tmux-fzf.nix
   ];
 }
