@@ -56,9 +56,9 @@
     ];
 
     extraConfig = ''
-      ${ builtins.readFile ./tmux/options    }
-      ${ builtins.readFile ./tmux/status_bar }
-      ${ builtins.readFile ./tmux/binds      }
+      ${ builtins.readFile ./options    }
+      ${ builtins.readFile ./status_bar }
+      ${ builtins.readFile ./binds      }
     '';
   };
 
