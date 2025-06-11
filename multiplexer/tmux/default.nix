@@ -58,7 +58,11 @@
     extraConfig = ''
       ${ builtins.readFile ./options    }
       ${ builtins.readFile ./status_bar }
-      ${ builtins.readFile ./binds      }
     '';
+      # ${ builtins.readFile ./binds      }
   };
+
+  imports = [
+    ./binds.nix
+  ];
 }
