@@ -1,7 +1,7 @@
 [mgr]
 linemode        = "none"
 mouse_events    = ["click", "scroll"]
-ratio           = [2, 2, 6]
+ratio           = [2, 3, 6]
 scrolloff       = 5
 show_hidden     = false
 show_symlink    = true
