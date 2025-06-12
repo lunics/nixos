@@ -1,6 +1,6 @@
 { pkgs, ... }:
-
 let
+  # override the file window.sh from the tmux-fzf plugin
   custom-tmux-fzf = pkgs.tmuxPlugins.tmux-fzf.overrideAttrs (old: {
     postInstall = (old.postInstall or "") + ''
       # Replace the original window.sh with the custom version
@@ -33,15 +33,34 @@ in {
     plugins = with pkgs.tmuxPlugins; [
       custom-tmux-fzf
       sensible
+      copycat
+      better-mouse-mode
+      extrakto            # manage clipboard into tmux
+      fuzzback            # fzf search in scrollback mode
+      tmux-floax
+      urlview
+
+      # sessionx
+      # session-wizard
+      # sessionist
+
+      # tilish            i3 motion like
+      # jump
+      # pass
+
+      # powerline
+      # power             pourquoi pas l'intégrer en version allégée
+      # loggin            Easy logging and screen capturing for Tmux
+      # mode-indicator    displays prompt current active Tmux mode
+      # tmux-prefix-highlight
+
       # tmux-update-display KO
       # tmux-autoreload
       # tmux-sensible
 
       # yank
       # vim-tmux-navigator
-      # copycat
       # pain-control
-      # sessionist
       # open
       # tmux-thumbs
 
@@ -55,14 +74,6 @@ in {
           set -g @resurrect-dir           "$HOME/usb_copy/homelab/share/tmux"   # only $HOME and ~ are enabled
         '';
       }
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore       'on'
-          set -g @continuum-boot          'on'
-          set -g @continuum-save-interval '30'  # save session every N minutes
-        '';
-      }
     ];
 
     extraConfig = ''
@@ -72,7 +83,16 @@ in {
   };
 
   imports = [
-    ./binds.nix
-    # ./override_tmux-fzf.nix
+    (import ./binds.nix { inherit pkgs custom-tmux-fzf; })
   ];
+
+  # programs.cron = {
+  #   enable = true;
+  #   # Define your cron jobs here
+  #   crontab = ''
+  #     # Example: Run a script every day at 3:30 AM
+  #     30 3 * * * /home/your-username/.config/scripts/your-script.sh
+  #   '';
+  # };
+
 }
