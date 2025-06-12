@@ -6,7 +6,10 @@
     enable          = true;
     package         = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage   = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    xwayland.enable = true; };
+    xwayland.enable = true; 
+    withUWSM        = true;
+    # systemd.setPath.enable = true;    # only for older version where opening links in applications do not work
+  };
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSORS = "1";    # if cursor become invisible
