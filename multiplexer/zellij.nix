@@ -1,14 +1,13 @@
 {
   programs.zellij = {
-    enable = true;
+    enable = false;
     # attachExistingSession = true;       # require enableZshIntegration = true
     # enableZshIntegration  = true;
-    settings = {
-      on_force_close "quit"
-
-      theme = "custom";
-      themes.custom.fg = "#ffffff";
-    };
+    # settings = {
+    #   on_force_close "quit"
+    #   theme = "custom";
+    #   themes.custom.fg = "#ffffff";
+    # };
     # themes = { 
     #   dracula { 
     #     ribbon_unselected {
