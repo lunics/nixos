@@ -9,17 +9,6 @@ let
     '';
   });
 in {
-
-# home.packages = with pkgs; [
-#   # tmux            # depends on screen for working
-#   # tmuxp           # tmuxinator like en plus pratique ?
-#   # # tmuxinator    # no more needed with tmux-resurrect plugin
-#   # entr            # tmux-autoreload plugin dependence
-#   # python-libtmux  # for tmux-window-name plugin
-#   # git             # to clone the repos of tmux plugins
-#   # tmux-sessionizer    # cli tool to fuzzy find all git repositories in a list of specified folders and open them as a new tmux session
-# ];
-
   programs.tmux = {
     enable       = true;
     prefix       = "C-a";             # Ctrl + a as prefix key
