@@ -29,6 +29,7 @@
     XDG_SESSION_TYPE      = "wayland";
     XDG_SCREENSHOTS_DIR   = "$HOME/screenshots";
     CLUTTER_BACKEND       = "wayland";
+    HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
     
     # PATH
     CONFIG          = "$XDG_CONFIG_HOME";
