@@ -66,6 +66,8 @@
     suspend  = "systemctl suspend";
     battery  = "sudo tlp chargeonce";       ## delete if charge_once used
     charge_once  = "sudo tlp chargeonce";
+    stop_pomodoro  = "systemctl --user stop  pomodoro.timer && systemctl --user stop  pomodoro.service && echo '0' > /tmp/pomodoro_cycle";
+    start_pomodoro = "echo '0' > /tmp/pomodoro_cycle && systemctl --user start pomodoro.timer";
     
     # kubernetes
     # kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
