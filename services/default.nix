@@ -1,6 +1,7 @@
 {
   imports = [
-    ./builtin.nix
+    # ./startup_apps.nix
+    ./udiskie.nix
     ./pomodoro.nix
     # ./usb_sync.nix
   ];
