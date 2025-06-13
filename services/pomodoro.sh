@@ -1,32 +1,47 @@
 #!/usr/bin/env bash
 
-## notif bureau courte + progress bar flotante persistante
+## if pomodoro.timer stopped manually then echo "" > /tmp/pomodoro_cycle
 
-minutes_working=60
-reminder=3              # notification's timer before suspend system
+touch /tmp/pomodoro_cycle
 
-notify-send -t 5000 "Pomodoro is starting"
+time_working=30     # 30 min
+time_screen_off=3   # 3 min
+time_screen_off_sec=$(expr $time_screen_off \* 60)
+cycle_count=$(cat /tmp/pomodoro_cycle)
 
-if bluetoothctl devices | grep AirPods; then
-  sleep 4
-  if ! bluetoothctl devices Connected | grep AirPods; then
-    bluetoothctl connect 90:5F:7A:BC:93:87
+if [ $cycle_count -eq 3 ]; then
+  cycle_count=1
+
+  # try to reconnect airpods after the system suspend
+  if bluetoothctl devices | grep AirPods; then
+    sleep 3
+    if ! bluetoothctl devices Connected | grep AirPods; then
+      bluetoothctl connect 90:5F:7A:BC:93:87
+    fi
   fi
+else
+  ((cycle_count++))
 fi
 
-sleep $(expr $minutes_working \* 60 / 2)
-notify-send -t 5000 "Breath and rest your eyes"
-sleep 5
+echo $cycle_count > /tmp/pomodoro_cycle
 
-hyprctl dispatch dpms off
-sleep 120
-hyprctl dispatch dpms on
+dunstify -t 5000 "Pomodoro is starting for the cycle $cycle_count"
 
-sleep $(expr $minutes_working \* 60 / 2 - 3 \* 60)
-notify-send "Only 3 minutes left before suspend"
+sleep $(expr $time_working \* 60)
 
-sleep $(expr 3 \* 60) 
-notify-send -t 10000 "Lève-toi et Bouge"
-sleep 10
+if [ $cycle_count -lt 3 ]; then                     # if cycle 1 or 2 then turn off screen for 2 minutes
+  dunstify -t 5000 "Breath and rest your eyes"
+  sleep 5
 
-systemctl suspend
+  hyprctl dispatch dpms off
+  sleep $time_screen_off_sec
+  hyprctl dispatch dpms on
+
+elif [ $cycle_count -eq 3 ]; then                   # if cycle 3 then keep the system suspended until a user action
+  dunstify "Only $time_screen_off_sec minutes left before suspend"
+  sleep $time_screen_off_sec
+
+  dunstify -t 10000 "Lève-toi et Bouge"
+  sleep 10
+  systemctl suspend
+fi

@@ -1,17 +1,24 @@
 { pkgs, ... }:{
   systemd.user = {
-    targets."suspend" = {
-      Unit = {
-        Description      = "User level suspend target";
-        StopWhenUnneeded = true;
-        Wants            = [ "pomodoro.service" ];
+    timers."pomodoro" = {
+      Unit.Description = "Pomodoro cycle timer";
+      Timer = {
+        OnBootSec       = "1min";
+        OnUnitActiveSec = "40min";
+        AccuracySec     = "1s";
       };
+      Install.WantedBy  = [ "default.target" ];
     };
 
     services."pomodoro" = {
-      Unit.Description  = "Pomodoro";
-      Service.ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/pomodoro.sh";
-      Install.WantedBy  = [ "suspend.target" ];
+      Unit = {
+        Description = "Pomodoro cycle service";
+        After       = [ "default.target" ];
+      };
+      Service = {
+        Type      = "simple";
+        ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/pomodoro.sh";
+      };
     };
   };
 
