@@ -25,6 +25,8 @@
     XDG_TEMPLATES_DIR     = "$HOME/templates";
     XDG_VIDEOS_DIR        = "$HOME/videos";
     XDG_SCREENSHOTS_DIR   = "$HOME/screenshots";
+
+    HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
     
     # PATH
     CONFIG          = "$XDG_CONFIG_HOME";
