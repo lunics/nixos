@@ -21,6 +21,7 @@
     GDK_BACKEND           = "wayland,x11";      # GTK: Use wayland if available, fall back to x11 if not.
     SDL_VIDEODRIVER       = "wayland";          # Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause compatibility issues
     CLUTTER_BACKEND       = "wayland";          # Clutter package already has wayland enabled, this variable will force Clutter applications to try and use the Wayland backend
+    NIXOS_OZONE_WL        = "1";                # Hint electron apps on wayland
 
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";          # (From the QT documentation) enables automatic scaling, based on the monitor’s pixel density
     # QT_QPA_PLATFORM:    "wayland;xcb"         # QT: Use wayland if available, fall back to x11 if not.
@@ -30,6 +31,6 @@
     XDG_CURRENT_DESKTOP   = "Hyprland";
     XDG_SESSION_TYPE      = "wayland";
     XDG_SESSION_DESKTOP   = "Hyprland";
-    NIXOS_OZONE_WL        = "1";                # Hint electron apps on wayland
+    WAYLAND_DISPLAY       = "$(ls -l /run/user/${toString config.users.users.lunics.uid}/ | /run/current-system/sw/bin/grep -IoE 'wayland-[0-9]$')";
   };
 }
