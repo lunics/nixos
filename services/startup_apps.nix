@@ -1,15 +1,26 @@
-{ pkgs, ... }:{
-  systemd.user.services."startup_apps" = {
+{ pkgs, inputs, ... }:{
+  systemd.user = {
+    targets."hyprland".Unit.Description = "Hyprland Session Target";
+
+    services."startup_apps" = {
       Unit = {
-        Description = "Launche desktop applications at Hyprland startup";
-        After       = [ "hyprland-session.target"  ];
-        PartOf      = [ "graphical-session.target" ];
+        Description = "Launch desktop applications at Hyprland startup";
+        After       = [ "hyprland.target"  ];
+        PartOf      = [ "hyprland.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.alacritty}/bin/alacritty &";
-        Restart   = "no";
+        Type = "oneshot";
+        ExecStart = [ 
+          # "/bin/sh -c '${pkgs.alacritty}/bin/alacritty &'"    # KO maybe run inside a subshell never displayed
+          # "${pkgs.alacritty}/bin/alacritty"                   # KO lock the others execstart
+          "${pkgs.hyprland}/bin/hyprctl dispatch exec mullvad-vpn"
+          "${pkgs.hyprland}/bin/hyprctl dispatch exec alacritty"
+          "${pkgs.hyprland}/bin/hyprctl dispatch exec zen-twilight"
+          "${pkgs.hyprland}/bin/hyprctl dispatch exec udiskie"
+        ];
+        Restart   = "on-failure";
       };
-      Install.WantedBy = [ "hyprland-session.target" ];
+      Install.WantedBy = [ "hyprland.target" ];
     };
   };
 }

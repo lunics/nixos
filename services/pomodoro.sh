@@ -7,7 +7,13 @@ touch /tmp/pomodoro_cycle
 time_working=30     # 30 min
 time_screen_off=3   # 3 min
 time_screen_off_sec=$(expr $time_screen_off \* 60)
-cycle_count=$(cat /tmp/pomodoro_cycle)
+
+# if the system has booted reset the cycle_count else continue for the next cycle
+if journalctl --user -u pomodoro.service -n 2 | grep -i boot > /dev/null; then
+  cycle_count=0
+else
+  cycle_count=$(cat /tmp/pomodoro_cycle)
+fi
 
 if [ $cycle_count -eq 3 ]; then
   cycle_count=1
@@ -25,7 +31,7 @@ fi
 
 echo $cycle_count > /tmp/pomodoro_cycle
 
-dunstify -t 5000 "Pomodoro is starting for the cycle $cycle_count"
+dunstify -t 5000 "Pomodoro is starting the cycle $cycle_count"
 
 sleep $(expr $time_working \* 60)
 
