@@ -18,7 +18,6 @@
       fuzzback            # fzf search in scrollback mode
       urlview
 
-      # sessionx
       # session-wizard
       # sessionist
 
@@ -52,13 +51,15 @@
 
   imports = [
     # (import ./binds.nix { inherit pkgs custom-tmux-fzf; })
+    ./binds.nix
     ./plugins/tmux-fzf.nix
     ./plugins/floax.nix
+    ./plugins/resurrect.nix
+    ./plugins/sessionx.nix
   ];
 
   # programs.cron = {
   #   enable = true;
-  #   # Define your cron jobs here
   #   crontab = ''
   #     # Example: Run a script every day at 3:30 AM
   #     30 3 * * * /home/your-username/.config/scripts/your-script.sh
