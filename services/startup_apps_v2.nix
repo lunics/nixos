@@ -1,19 +1,19 @@
 {
   home.file.".config/systemd/user/startup_apps.service".text = ''
-    [Install]
-    WantedBy=hyprland.target
-    
-    [Service]
-    ExecStart=hyprctl dispatch exec mullvad-vpn
-    ExecStart=hyprctl dispatch exec alacritty
-    ExecStart=hyprctl dispatch exec zen-twilight
-    ExecStart=hyprctl dispatch exec udiskie
-    Restart=on-failure
-    Type=oneshot
-    
     [Unit]
     After=hyprland.target
     Description=Launch desktop applications at Hyprland startup
     PartOf=hyprland.target
+
+    [Service]
+    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec mullvad-vpn
+    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec alacritty
+    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec zen-twilight
+    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec udiskie
+    Restart=on-failure
+    Type=oneshot
+    
+    [Install]
+    WantedBy=hyprland.target
   '';
 }
