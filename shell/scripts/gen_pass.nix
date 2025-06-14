@@ -36,8 +36,8 @@
     
     if [ "$#" -gt 0 ]; then
       if [ "$1" = "simple" ]; then
-        if [[ $2 -ge 1 ]]; then
-          gen_pass -cns "$1"
+        if [ -n "${"\$"}{2:-}" ]; then
+          gen_pass -cns "$2"
         else
           gen_pass -cns "$length"
         fi
