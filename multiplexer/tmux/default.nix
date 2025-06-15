@@ -55,7 +55,7 @@
     ./plugins/tmux-fzf.nix
     ./plugins/floax.nix
     ./plugins/resurrect.nix
-    ./plugins/sessionx.nix
+    # ./plugins/sessionx.nix
   ];
 
   # programs.cron = {
