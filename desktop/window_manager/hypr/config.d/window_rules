@@ -28,5 +28,5 @@ windowrulev2 = noborder,          class:^($browser)$
 # windowrulev2 = rounding 0,      class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 # windowrulev2 = noshadow,        class:^($terminal|$browser|$streaming|$message|$gaming|$libvirt)$, title:^($streaming)
 
-# windowrulev2 = float,           class:^(udiskie)$
-# windowrulev2 = move 40% 40%,    class:^(udiskie)$
+windowrulev2 = float,           class:^(udiskie)$
+windowrulev2 = move 40% 40%,    class:^(udiskie)$
