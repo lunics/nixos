@@ -9,13 +9,13 @@ elif [ "$(hostname)" = "ILTP-014" ]; then
 fi
 
 if [ -d "$usb_uncrypted" ]; then      # if usb correctly mounted then
-  if [ "$1" = "sync_usb-->laptop" ]; then
+  if [ "$1" = "usb-->laptop" ]; then
     sudo rsync -azh --progress --delete $usb_uncrypted/ $usb_copy && \
       echo -e "\nUSB synchronization succeed"
-  elif [ "$1" = "sync_laptop-->usb" ]; then
+  elif [ "$1" = "laptop-->usb" ]; then
     sudo rsync -azh --progress --delete $usb_copy/ $usb_uncrypted && \
       echo -e "\nUSB synchronization succeed"
-  elif [ "$1" = "sync_laptop-->usb_nobrowser" ]; then
+  elif [ "$1" = "laptop-->usb_nobrowser" ]; then
     sudo rsync -azh --progress --delete --exclude=firefox --exclude=zen $usb_copy/ $usb_uncrypted && \
       echo -e "\nUSB synchronization succeed"
   elif [ "$1" = "laptop-->usb_unmount" ]; then
