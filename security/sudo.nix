@@ -8,14 +8,13 @@
       "SETENV"
     ];
     extraConfig = "";
-    # extraRules = {
-    #   # rule_name = {
-    #   #     commands = 
-    #   #     groups   = 
-    #   #     users    = 
-    #   #     host     = "ALL";
-    #   #     runAs    = "ALL:ALL";
-    #   # };
-    # };
+    extraRules = [
+      {
+        users    = [ "lunics" ];
+        host     = "ALL";
+        runAs    = "ALL:ALL";
+        commands = [ "/run/current-system/sw/bin/poweroff" ];
+      }
+    ];
   };
 }
