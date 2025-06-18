@@ -1,3 +1,7 @@
-# https://wiki.hyprland.org/Configuring/Monitors
+# monitor = name, resolution, position, scale
+# monitor = , preferred,auto,1
+# hyprctl monitors all
 
-monitor=,preferred,auto,1
+monitor = eDP-1, 1920x1200@60, 0x0, 1         # default P14s monitor
+
+monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1   # LG TV Gentilly
