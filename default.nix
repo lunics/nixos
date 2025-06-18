@@ -1,10 +1,9 @@
 { inputs, ... }:{
-
-  programs.home-manager.enable = true;
-
   imports = [
     inputs.ags.homeManagerModules.default
     # inputs.nur.hmModules.nur
+    ./nix_programs.nix
+    ./home.nix
     ./packages
     ./shell
     ./ssh_client.nix
@@ -22,9 +21,4 @@
     ./task_manager
     ./music
   ];
-
-  home = {
-    username      = "lunics";
-    homeDirectory = "/home/lunics";
-    stateVersion  = "24.05"; };
 }

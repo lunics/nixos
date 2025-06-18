@@ -30,8 +30,6 @@
     
     udiskie
 
-    comma             # to runs nix software without installing it
-
     # archive
     ouch
     xarchiver
