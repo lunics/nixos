@@ -21,5 +21,6 @@
     ./graphic
     # ./udev
     ./dirs.nix
+    ./server
   ];
 }
