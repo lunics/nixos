@@ -95,7 +95,7 @@
       };
 
       urgency_normal = {
-        background = "#1E1E2AAA";
+        background = "#1E1E2AAA";   ## canal alpha à 00 ou FF ne change pas la transparence, pkill Hyprland ?
         foreground = "#2596BEAA";
         # foreground = "#DCD7BA";
         # highlight  = "#6A9589"
