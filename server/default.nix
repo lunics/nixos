@@ -3,9 +3,12 @@
     # ./audiobookshelf.nix
     # ./glances.nix
     # ./jellyfin.nix
-    ./lidarr.nix
     # ./immich.nix
     # ./miniflux.nix
+
+    # bazarr
+    ./lidarr.nix
+    # prowlarr
     # ./radarr.nix
     # ./restic.nix
     # ./sonarr.nix

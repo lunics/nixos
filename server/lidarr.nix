@@ -5,9 +5,8 @@
     group        = "lidarr";
     # environmentFiles = [];    # file to pass secret configuration values, https://wiki.servarr.com/useful-tools#using-environment-variables-for-config
     openFirewall = false;
-    dataDir      = "/var/lib/lidarr/.config/Lidarr"
+    dataDir      = "/var/lib/lidarr/.config/Lidarr";
     settings = {
-      update.mechanism = "internal";
       server = {
         urlbase     = "localhost";
         port        = 8686;
