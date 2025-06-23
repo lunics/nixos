@@ -6,7 +6,11 @@ c (){
   # cd `dirs -v | cut -f 2 | fzf`
   # cd parent dir of the file
   
-  formated=$(echo ${*} | sed "s/[\]//g")
+  if [[ $# -eq 0 ]]; then
+    cd $HOME
+  else
+    formated=$(echo ${*} | sed "s/[\]//g")
 
-  z "$(realpath $formated)" && exa -l --group-directories-first --git-repos --hyperlink
+    z "$(realpath $formated)" && exa -l --group-directories-first --git-repos --hyperlink
+  fi
 }
