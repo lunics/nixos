@@ -39,9 +39,11 @@ if [ $cycle_count -lt 3 ]; then                     # if cycle 1 or 2 then turn 
   dunstify -t 5000 "Breath and rest your eyes"
   sleep 5
 
+  playerctl pause
   hyprctl dispatch dpms off
   sleep $time_screen_off_sec
   hyprctl dispatch dpms on
+  playerctl play
 
 elif [ $cycle_count -eq 3 ]; then                   # if cycle 3 then keep the system suspended until a user action
   dunstify "Only $time_screen_off_sec minutes left before suspend"
