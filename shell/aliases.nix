@@ -71,7 +71,7 @@
     
     # kubernetes
     # kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
-    k       = "kubecolor";
+    k       = "kubecolor --no-headers";
     kk      = "c $LINUX/kubernetes";
     kcc     = "k config current-context";
     kg      = "k get";
@@ -100,6 +100,8 @@
     sstart  = "ss start";
     srestart = "ss restart";
     sstop   = "ss stop";
+    chmod   = "chmod -v";
+    chown   = "chown -v";
     "700"   = "chmod 700";
     "600"   = "chmod 600";
     jtodo   = "$JOPLIN edit 0e29a; $JOPLIN sync";
