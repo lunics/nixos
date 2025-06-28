@@ -18,6 +18,8 @@
           "/run/current-system/sw/bin/sleep 300"
           "/home/lunics/.nix-profile/bin/dunstify -t 10000 'Poweroff in 5 minutes'"
           "/run/current-system/sw/bin/sleep 300"
+          "/home/lunics/.nix-profile/bin/dunstify -t 10000 -u critical 'Poweroff in 10 seconds'"
+          "/run/current-system/sw/bin/sleep 10"
           "/home/lunics/.nix-profile/bin/poweroff"
         ];
       };
