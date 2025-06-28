@@ -3,6 +3,7 @@
     ./hardware.nix
     ./disko.nix
     ./boot.nix
+    ./nix.nix
     ./configuration.nix
     ./kernel.nix
     ./swap.nix
