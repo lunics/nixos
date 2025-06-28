@@ -4,5 +4,6 @@
     ./lutris.nix
     ./obs.nix
     ./mangohud.nix
+    ./nixgl.nix
   ];
 }

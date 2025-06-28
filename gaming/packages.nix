@@ -20,9 +20,10 @@
     mangohud          # give statistic performance, fps, power usage
     vkbasalt          # post processor layer to improve the game's graphic
     dualsensectl      # to manage PS5 controller
+    # umu-launcher
 
-    # wine
-    wine64
+    wine              # required by lutris
+    # wine64          # conflict with wine
     winetricks
   ];
 }
