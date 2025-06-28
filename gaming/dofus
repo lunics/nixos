@@ -1,14 +1,18 @@
-dl ankama-launcher from official website
-todo: install fuse/libfuse2 pour lancer les AppImages, usermod -aG games $(whoami) pour que le launcher puisse se mettre à jour
+install
+  dl ankama-launcher from official website
+  todo: install fuse/libfuse2 pour lancer les AppImages, usermod -aG games $(whoami) pour que le launcher puisse se mettre à jour
+  
+  nix-shell -p appimage-run
+    or
+  install pkg appimage-run
+  sudo mount -o remount,exec /tmp
+  appimage-run gaming/ankama/Ankama\ Launcher-Setup-x86_64.AppImage
+  sudo mount -o noexec /tmp
+  
+  # ko for all lutris versions: dofus, ankama 64bit, ankama wine
+    ankama-launcher   # ko
+    appimage-run      # useless
+    fuse3             # useless
 
-nix-shell -p appimage-run
-  or
-install pkg appimage-run
-sudo mount -o remount,exec /tmp
-appimage-run Downloads/Ankama\ Launcher-Setup-x86_64.AppImage
-sudo mount -o noexec /tmp
-
-# ko for all lutris versions: dofus, ankama 64bit, ankama wine
-  ankama-launcher   # ko
-  appimage-run      # useless
-  fuse3             # useless
+run
+  appimage-run gaming/ankama/Ankama\ Launcher-Setup-x86_64.AppImage
