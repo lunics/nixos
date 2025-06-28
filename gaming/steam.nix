@@ -1,3 +1,7 @@
+## Add steam general options cmd:
+##   gamemoderun %command%
+##   mangohud %command%
+##   gamescope %command%
 { pkgs, ... }:{
   programs.steam = {
     enable  = true;
@@ -18,10 +22,11 @@
     # extraPackages = with pkgs; [
     #   gamescope
     # ];
+
     fontPackages = with pkgs; [ source-han-sans ];
 
     gamescopeSession = {    # enable starting games in optimized compositor
-      enable = false;
+      enable = true;
       # args = ;
       # env = ;
     };
