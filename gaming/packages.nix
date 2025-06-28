@@ -25,24 +25,4 @@
     wine64
     winetricks
   ];
-
-  programs.lutris = {
-    enable = true;
-    package = pkgs.lutris;
-    # extraPackages = with pkgs; [mangohud winetricks gamescope gamemode umu-launcher];
-    # runners."name" = {
-    #   package = ;
-    #   settings = ;
-    # };
-    # OR
-    # runners = {
-    #   cemu.package = pkgs.cemu;
-    #   pcsx2.config = {
-    #     system.disable_screen_saver = true;
-    #     runner.runner_executable = "$\{pkgs.pcsx2}/bin/pcsx2-qt";
-    # };
-    # protonPackages = [ pkgs.proton-ge-bin ]; 
-    # steamPackage = pkgs.steam or osConfig.programs.steam.package;
-    # winePackages = [ pkgs.wineWow64Packages.full ];
-  };
 }
