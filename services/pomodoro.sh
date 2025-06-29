@@ -35,9 +35,9 @@ dunstify -t 5000 "Pomodoro is starting the cycle $cycle_count"
 
 sleep $(expr $time_working \* 60)
 
-if [ $cycle_count -lt 3 ]; then                     # if cycle 1 or 2 then turn off screen for 2 minutes
-  dunstify -t 5000 -u critical "Breath and rest your eyes"
-  sleep 5
+if [ $cycle_count -lt 3 ]; then         # if cycle 1 or 2 then turn off screen for 2 minutes
+  dunstify -t 10000 -u critical "Breath and rest your eyes"
+  sleep 10
 
   playerctl pause
   hyprctl dispatch dpms off
@@ -45,7 +45,7 @@ if [ $cycle_count -lt 3 ]; then                     # if cycle 1 or 2 then turn 
   playerctl play
   hyprctl dispatch dpms on
 
-elif [ $cycle_count -eq 3 ]; then                   # if cycle 3 then keep the system suspended until a user action
+elif [ $cycle_count -eq 3 ]; then       # if cycle 3 then keep the system suspended until a user action
   dunstify -t 5000 "Only $time_screen_off_sec minutes left before suspend"
   sleep $time_screen_off_sec
 
