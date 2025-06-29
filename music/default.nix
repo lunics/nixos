@@ -5,7 +5,7 @@
   ];
 
   home.packages = with pkgs; [
-    # ardour                # ko build: raptor
+    ardour                  # ko build: raptor
     jack2
     helm                    # free polyphonic synth with lots of modulation
     # yabridge              # to use Windows VST2, VST3 and CLAP plugins on Linux
