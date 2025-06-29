@@ -1,12 +1,10 @@
 { pkgs, ... }:{ 
+  imports = [
+    ./mpd.nix
+    ./musescore.nix
+  ];
+
   home.packages = with pkgs; [
-    mpd
-    mpd-notification
-    # mpd-mpris
-    # mpd-discord-rpc
-
-    musescore
-
     # ardour                # ko build: raptor
     jack2
     helm                    # free polyphonic synth with lots of modulation
@@ -25,26 +23,6 @@
     # - surge               # Open Source Digital Synthesizer
     # - carla               # audio plugin host
   ];
-
-  home.file = {
-    ".config/MuseScore/MuseScore4.ini".source = ./MuseScore4.ini;
-  };
-
-  services.mpd = {
-    enable  = true;
-    network = {
-      startWhenNeeded = true;
-      listenAddress = "127.0.0.1";
-      port = 6600;
-    };
-    musicDirectory = "$HOME/music";
-    ## KO is not of type 'absolute path'
-      # dataDir = "$XDG_DATA_HOME/mpd";
-      # dbFile  = "$XDG_DATA_HOME/mpd/tag_cache";   # MPD's database
-      # playlistDirectory = "$XDG_DATA_HOME/mpd/playlists";
-    # extraConfig "";
-    # extraArgs = [];
-  };
 
   programs.rmpc.enable = true;
   home.file.".config/rmpc" = {
