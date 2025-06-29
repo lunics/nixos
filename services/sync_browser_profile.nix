@@ -1,6 +1,6 @@
-{ pkgs, ... }:{
+{ pkgs, config, ... }:{
   systemd.user = {
-    timers."sync_browser_profile" = {
+    timers."sync_browser_profile@${config.home.username}" = {
       Unit.Description = "Sync browser profile at boot, and every 30 min";
       Timer = {
         OnBootSec       = "30s";
@@ -10,13 +10,13 @@
       Install.WantedBy  = [ "default.target" ];
     };
 
-    services."sync_browser_profile" = {
+    services."sync_browser_profile@${config.home.username}" = {
       Unit.Description = "Sync Zen-twilight profile in memory cache";
 
       Service = {
         Type      = "oneshot";
-        ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/sync_browser_profile.sh";
-        ExecStop  = "${pkgs.bash}/bin/bash %h/.config/systemd/user/sync_browser_profile.sh";
+        ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/sync_browser_profile.sh %i";
+        ExecStop  = "${pkgs.bash}/bin/bash %h/.config/systemd/user/sync_browser_profile.sh %i";
         RemainAfterExit = "yes";
       };
 

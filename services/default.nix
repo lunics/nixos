@@ -5,6 +5,7 @@
     ./udiskie.nix
     ./pomodoro.nix
     ./nightly_poweroff.nix
+    ./sync_browser_profile.nix
     # ./usb_sync.nix
   ];
 }
