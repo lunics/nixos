@@ -5,9 +5,11 @@
     ./nix_programs.nix
     ./home.nix
     ./packages
+    # ./xdg.nix
     ./shell
     ./ssh_client.nix
     ./git.nix
+    # ./editor.nix
     ./desktop
     ./gaming
     ./terminal
