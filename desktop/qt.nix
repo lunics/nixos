@@ -1,7 +1,8 @@
 {
   qt = {
-    enable = true;
+    enable        = true;
+    style         = "adwaita-dark";
     platformTheme = "gnome";
-    style = "adwaita-dark";
+    kde.settings  = {};
   };
 }
