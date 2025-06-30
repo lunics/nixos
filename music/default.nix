@@ -1,7 +1,8 @@
 { pkgs, ... }:{ 
   imports = [
     ./mpd.nix
-    ./musescore.nix
+    ./rmpc
+    ./musescore
   ];
 
   home.packages = with pkgs; [
@@ -23,10 +24,4 @@
     # - surge               # Open Source Digital Synthesizer
     # - carla               # audio plugin host
   ];
-
-  programs.rmpc.enable = true;
-  home.file.".config/rmpc" = {
-    source = ./rmpc;
-    recursive  = true;
-  };
 }
