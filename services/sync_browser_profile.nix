@@ -11,7 +11,10 @@
     };
 
     services."sync_browser_profile@${config.home.username}" = {
-      Unit.Description = "Sync Zen-twilight profile in memory cache";
+      Unit = {
+        Description = "Sync browser profile between RAM and disk";
+        Before      = [ "poweroff.target" "shutdown.target" "suspend.target" ];
+      };
 
       Service = {
         Type      = "oneshot";
