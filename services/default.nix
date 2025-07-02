@@ -6,6 +6,7 @@
     ./pomodoro.nix
     ./nightly_poweroff.nix
     ./sync_browser_profile.nix
+    ./wallpaper.nix
     # ./usb_sync.nix
   ];
 }
