@@ -39,10 +39,11 @@ if [ $cycle_count -lt 3 ]; then         # if cycle 1 or 2 then turn off screen f
   dunstify -t 10000 -u critical "Breath and rest your eyes"
   sleep 10
 
-  playerctl pause
+  if playerctl status | rg -s Playing; then 
+    playerctl pause
+  fi
   hyprctl dispatch dpms off
   sleep $time_screen_off_sec
-  playerctl play
   hyprctl dispatch dpms on
 
 elif [ $cycle_count -eq 3 ]; then       # if cycle 3 then keep the system suspended until a user action
@@ -51,5 +52,8 @@ elif [ $cycle_count -eq 3 ]; then       # if cycle 3 then keep the system suspen
 
   dunstify -t 10000 -u critical "Lève-toi et Bouge"
   sleep 10
+  if playerctl status | rg -s Playing; then 
+    playerctl pause
+  fi
   systemctl suspend
 fi
