@@ -5,7 +5,7 @@
     EDITOR        = "nvim";
     MANPAGER      = "nvim +Man!";
     READER        = "zathura";
-    BROWSER       = "zen-twilight";
+    BROWSER       = "zen";
     FILE_EXPLORER = "yazi";
     
     # XDG
