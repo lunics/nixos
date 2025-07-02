@@ -8,5 +8,6 @@
     # ./qt.nix
     ./status_bar
     ./window_manager
+    # ./wallpaper.nix   KO CMake Error
   ]; 
 }
