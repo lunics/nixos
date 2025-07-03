@@ -1,6 +1,8 @@
-{ inputs, ... }:{
-
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+{
+# already in nixpkgs
+# { inputs, ... }:{
+#   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+#       # inputs.flake-neovim.packages."${system}".default
 
   programs.hyprpanel = {
     enable = true;
