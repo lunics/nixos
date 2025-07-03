@@ -3,14 +3,15 @@
     ./avahi.nix
     ./ssh.nix
     ./tlp.nix
+    ./btrfs_autoscrub.nix
     # ./xserver.nix
   ];
 
   services = {
-    libinput.enable = true;     # Enable touchpad support (enabled default in most desktopManager).
-    udisks2.enable = true;
-    udev.enable = true;
-    throttled.enable = false;   # IF Intel THEN true ELIF AMD THEN false
-    printing.enable = true;
+    libinput.enable  = true;      # enable touchpad support (enabled default in most desktopManager).
+    udisks2.enable   = true;
+    udev.enable      = true;
+    throttled.enable = false;     # IF intel THEN true ELIF amd THEN false
+    printing.enable  = true;
   };
 }
