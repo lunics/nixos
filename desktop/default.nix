@@ -1,8 +1,7 @@
 { 
   imports = [
-    # ./gtk.nix
     ./launcher
-    # ./lock_screen.nix
+    ./screen_locker
     ./notifier.nix
     # ./gtk.nix
     # ./qt.nix

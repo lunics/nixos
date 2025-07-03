@@ -1,22 +1,6 @@
 { pkgs, ... }:{
   ## dynamc input & bind
   programs = {
-    swaylock = {
-      enable   = true;
-      package  = pkgs.swaylock-effects;
-      settings = {
-        daemonize = true;
-        screenshots = true;
-        indicator = true;
-        indicator-radius = 100;
-        indicator-thickness = 8;
-        effect-blur = "7x5";
-        effect-vignette = "0.5:0.5";
-        inside-color = "00000000";
-        grace = 0;
-        fade-in = 0.0;
-      };
-    };
 
     wayprompt = {
       enable   = true;
@@ -43,7 +27,6 @@
     # wl-clipboard-rs   # KO to install
                         # collision between `/nix/store/y89kpm6rk0kib5rg8mkwcvhq5h6v2jyi-wl-clipboard-2.2.1/bin/wl-copy' and `/nix/store/jwafgnncls2lyx0jpxy5pfij7bm3ixh2-wl-clipboard-rs-0.9.1/bin/wl-copy'
     # clipboard-jh      # needs wl-clipboard, KO screen flickering even with: exec-once = cb
-    waybar
     brightnessctl
     grimblast           # grim + slurp to take screenshot
   ];
