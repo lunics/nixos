@@ -5,6 +5,7 @@
     ./tlp.nix
     ./btrfs_autoscrub.nix
     ./snapraid.nix
+    ./snapper.nix
     # ./xserver.nix
   ];
 
