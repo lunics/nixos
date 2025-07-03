@@ -7,6 +7,7 @@
     ./configuration.nix
     ./kernel.nix
     ./swap.nix
+    ./etc
     ./services
     ./location.nix
     ./network
