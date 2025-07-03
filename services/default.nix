@@ -4,6 +4,7 @@
     ./ssh.nix
     ./tlp.nix
     ./btrfs_autoscrub.nix
+    ./snapraid.nix
     # ./xserver.nix
   ];
 
