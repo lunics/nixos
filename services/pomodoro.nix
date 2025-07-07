@@ -16,7 +16,7 @@
         After       = [ "default.target" "suspend.target" ];
       };
       Service = {
-        Type      = "simple";
+        Type      = "oneshot";
         ExecStart = [
           "/home/lunics/.nix-profile/bin/systemctl restart pomodoro.timer"     # reset the timer after every resume of suspend
           "${pkgs.bash}/bin/bash %h/.config/systemd/user/pomodoro.sh"
