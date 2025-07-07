@@ -3,13 +3,8 @@
   imports = [
     ./firefox
     ./librewolf.nix
+    ./psd.nix
   ];
-
-  # replaced by manual sync profile
-  # services.psd = {
-  #   enable = true;
-  #   resyncTimer = "1h";
-  # };
 
   home.packages = with pkgs; [
     # google-chrome
