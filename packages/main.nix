@@ -56,6 +56,7 @@
     # http-prompt   # httpie interactive KO ERROR: file 'src/prompt_toolkit/__init__.py' does not exist
 
     chatblade
+    # varia
 
     qrencode      # generate QR code from client conf
     numbat        # bc replacement
