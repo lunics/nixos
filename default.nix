@@ -1,7 +1,7 @@
 {
   imports = [
     ./hardware.nix
-    ./disko.nix
+    ./disk
     ./boot.nix
     ./nix
     ./configuration.nix
