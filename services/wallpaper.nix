@@ -11,8 +11,9 @@
     timers."wallpaper" = {
       Unit.Description = "Update wallpaper every hour";
       Timer = {
-        OnUnitActiveSec = "1h";
-        AccuracySec     = "1s";
+        # OnUnitActiveSec = "1h";
+        OnCalendar  = "*-*-* 00..23:00";
+        AccuracySec = "1s";
       };
       Install.WantedBy  = [ "default.target" ];
     };
@@ -20,8 +21,8 @@
     services."wallpaper" = {
       Unit = {
         Description = "Change wallpaper";
-        PartOf = [ "hyprland.target" ];
-        After  = [ "hyprland.target" ];
+        PartOf      = [ "hyprland.target" ];
+        After       = [ "hyprland.target" ];
       };
 
       Service = {
