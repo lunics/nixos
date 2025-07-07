@@ -11,6 +11,7 @@
     ./git.nix
     # ./editor.nix
     ./desktop
+    ./font.nix
     ./gaming
     ./terminal
     ./file_explorer

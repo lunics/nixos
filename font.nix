@@ -1,11 +1,11 @@
 {
   fonts.fontconfig = {
-    enable = true;
+    enable       = true;
     defaultFonts = {
-      emoji     = [];
-      monospace = [];
-      sansSerif = [];
-      serif     = [];
+      emoji      = [];
+      serif      = [ "Liberation Serif" "Vazirmatn" ];
+      sansSerif  = [ "Ubuntu" "Vazirmatn" ];
+      monospace  = [ "Ubuntu Mono" ];  
     };
   };
 }
