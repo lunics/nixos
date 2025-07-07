@@ -1,11 +1,10 @@
 {
-  # replaced by manual sync profile
   services.psd = {
-    enable      = true;
+    enable      = false;    # replaced by manual sync profile
     browsers    = [ 
-      # "zen-twilight"
+      "zen-twilight"
       "firefox"
-      # "google-chrome"
+      "google-chrome"
     ];
     resyncTimer = "1h";     # time to wait before syncing browser profiles back to the disk
     useBackup   = true;     # enable the crash recovery feature
