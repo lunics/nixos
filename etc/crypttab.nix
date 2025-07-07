@@ -1,6 +1,6 @@
 {
   environment.etc.crypttab = {
-    enable = true;
+    enable = false;
     mode   = "0400";
     text   = ''
       # LUKSNAME DEVICE_UUID KEYFILE luks
