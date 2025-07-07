@@ -22,8 +22,8 @@
     dualsensectl      # to manage PS5 controller
     # umu-launcher
 
-    wine              # required by lutris
-    # wine64          # conflict with wine
+    # wine            # required by lutris
+    wine64            # conflict with wine
     winetricks
   ];
 }
