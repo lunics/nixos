@@ -28,6 +28,7 @@ in {
   home.packages = with pkgs; [ neofetch ];
   home.file.".config/neofetch/config.conf".text = ''
     # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
+    # https://github.com/chick2d/neofetch-themes/blob/main/normal/acenoster.conf
     print_info() {
         info "${cl5}⠀⠀⠀" title
         info underline
@@ -81,12 +82,12 @@ in {
         prin
         info "${cl6} ╭─" de
         info "${cl6} ├─" term
-        info "${cl6} ├─ﯔ" term_font
+        # info "${cl6} ├─ﯔ" term_font   KO
         info "${cl6} ├─" theme
         info "${cl6} ├─" icons
         info "${cl6} ╰─" font
-        prin
-        prin " \n \n ${cl3} \n \n ${cl5} \n \n ${cl2}  \n \n ${cl6}  \n \n ${cl4}  \n \n ${cl1}  \n \n ${cl7}  \n \n ${cl0}"
+        prin " "
+        # prin " \n \n ${cl3} \n \n ${cl5} \n \n ${cl2}  \n \n ${cl6}  \n \n ${cl4}  \n \n ${cl1}  \n \n ${cl7}  \n \n ${cl0}"
     }
     # Title
     

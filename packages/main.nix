@@ -53,7 +53,7 @@
     sqlite
     psmisc        # to get: fuser (to unlock sqlite db)
     httpie        # curl/wget replacement
-    http-prompt   # httpie interactive
+    # http-prompt   # httpie interactive KO ERROR: file 'src/prompt_toolkit/__init__.py' does not exist
 
     chatblade
 
@@ -63,5 +63,6 @@
     bluetui       # tui bluetooth manager
     wipe
     entr          # run arbitrary commands when files change
+    shell-gpt
   ];
 }
