@@ -1,4 +1,4 @@
-{ pkgs, ... }:{ 
+{ pkgs, lib, ... }:{ 
   imports = [
     ./mpd.nix
     ./rmpc
@@ -24,4 +24,9 @@
     # - surge               # Open Source Digital Synthesizer
     # - carla               # audio plugin host
   ];
+
+  # create music directory
+  home.activation.musicDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/music"
+  '';
 }
