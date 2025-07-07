@@ -28,7 +28,6 @@ wrap            = "no"
 [opener]
 edit = [
   { run = '[ -n "$EDITOR" ] && $EDITOR "$@"', desc = "$EDITOR", block = true },
-  { run = 'code "$@"', orphan = true, desc = "VSCode" },
 ]
 open = [
   { run = 'setsid xdg-open "$@"', desc = "Open" },
