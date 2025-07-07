@@ -20,7 +20,7 @@
     ./gpg.nix
     ./pass_manager
     ./services
-    ./k3s.nix
+    ./k3s
     ./task_manager
     ./music
   ];

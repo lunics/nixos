@@ -25,31 +25,4 @@
     # unstable.k9s
     # unstable.teleport.client
   ];
-
-  programs.k9s = {
-    enable  = true;
-    package = pkgs.k9s;
-    # alias   = {};   KO does not exist  
-      # # https://k9scli.io/topics/aliases/
-      #   pp = "v1/pods"; # Use pp as an alias for Pod
-      # };
-    hotkey  = {};
-      # Make sure this is camel case
-      # hotKey = {
-      #   shift-0 = {
-      #     shortCut = "Shift-0";
-      #     description = "Viewing pods";
-      #     command = "pods";
-      #   };
-      # };
-    plugin  = {};
-    views   = {};
-    skins   = {};
-    settings = {
-      k9s = {
-        refreshRate = 2;
-      };
-    };
-  };
-
 }
