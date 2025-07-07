@@ -20,19 +20,17 @@ execute.throw = sh, -c, (cat,\
 network.port_range.set = 50000-50000
 network.port_random.set = no
 
-
 ## Tracker-less torrent and UDP tracker support
 ## (conservative settings for 'private' trackers, change for 'public')
-dht.mode.set = disable
-protocol.pex.set = no
+dht.mode.set = auto
+dht.port.set = 6881
+protocol.pex.set = yes
 
 trackers.use_udp.set = no
-
 
 ## Peer settings
 throttle.max_uploads.set = 100
 throttle.max_uploads.global.set = 250
-
 throttle.min_peers.normal.set = 20
 throttle.max_peers.normal.set = 60
 throttle.min_peers.seed.set = 30
@@ -71,7 +69,10 @@ system.umask.set = 0027
 system.cwd.set = (directory.default)
 network.http.dns_cache_timeout.set = 25
 schedule2 = monitor_diskspace, 15, 60, ((close_low_diskspace, 1000M))
-#pieces.hash.on_completion.set = no
+
+# checks for errors in your completed files  when rTorrent is started
+pieces.hash.on_completion.set = yes               
+
 #view.sort_current = seeding, greater=d.ratio=
 #keys.layout.set = qwerty
 #network.http.capath.set = "/etc/ssl/certs"
