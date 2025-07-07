@@ -1,7 +1,7 @@
 { pkgs, ... }:{
   systemd.user = {
     timers."pomodoro" = {
-      Unit.Description = "Pomodoro cycle timer";
+      Unit.Description = "pomodor.timer triggered at boot then every 40 min";
       Timer = {
         OnBootSec       = "1min";
         OnUnitActiveSec = "40min";
@@ -12,7 +12,7 @@
 
     services."pomodoro" = {
       Unit = {
-        Description = "Pomodoro cycle service";
+        Description = "a pomodoro.service's phase out of 3";
         After       = [ "default.target" "suspend.target" ];
       };
       Service = {

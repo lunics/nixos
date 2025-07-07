@@ -9,7 +9,7 @@
 
   systemd.user = {
     timers."wallpaper" = {
-      Unit.Description = "Update wallpaper every hour";
+      Unit.Description = "wallpaper.timer triggered every hour";
       Timer = {
         # OnUnitActiveSec = "1h";
         OnCalendar  = "*-*-* 00..23:00";
@@ -20,7 +20,7 @@
 
     services."wallpaper" = {
       Unit = {
-        Description = "Change wallpaper";
+        Description = "update wallpaper";
         PartOf      = [ "hyprland.target" ];
         After       = [ "hyprland.target" ];
       };

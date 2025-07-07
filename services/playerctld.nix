@@ -1,7 +1,7 @@
 { pkgs, ... }:{
   systemd.user = {
     services."playerctld" = {
-      Unit.Description = "Keep track of media player activity";
+      Unit.Description = "keep track of media player activity";
 
       Service = {
         Type      = "oneshot";

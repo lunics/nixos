@@ -1,7 +1,7 @@
 {
   systemd.user = {
     timers."nightly_poweroff" = {
-      Unit.Description = "Poweroff laptop every night at 23:00 pm";
+      Unit.Description = "poweroff laptop every night at 23:00 pm";
       Timer = {
         OnCalendar = "22:50";
         Persistent = true;
@@ -10,7 +10,7 @@
     };
 
     services."nightly_poweroff" = {
-      Unit.Description = "Poweroff laptop once nightly_poweroff.timer is triggered";
+      Unit.Description = "poweroff laptop once nightly_poweroff.timer is triggered";
       Service = {
         Type      = "oneshot";
         ExecStart = [ 
