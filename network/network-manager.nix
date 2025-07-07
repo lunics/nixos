@@ -4,7 +4,6 @@
     enable       = true;
     dhcp         = "internal";          # dhcpcd, internal
     dns          = "systemd-resolved";  # default (resolv.conf), dnsmasq, systemd-resolved, none
-    enableStrongSwan = false;           # multiplatform IPsec implementation
 
     wifi = {
       backend    = "iwd";               # iwd, wpa_supplicant
@@ -14,6 +13,7 @@
 
     plugins = with pkgs; [
       networkmanager-openvpn
+      # networkmanager-strongswan           # multiplatform IPsec implementation
       # networkmanager-openconnect
       # networkmanager-fortisslvpn
       # networkmanager-iodine
