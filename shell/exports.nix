@@ -7,24 +7,6 @@
     READER        = "zathura";
     BROWSER       = "zen";
     FILE_EXPLORER = "yazi";
-    
-    # XDG
-    XDG_CONFIG_HOME       = "${config.home.homeDirectory}/.config";
-    XDG_CONFIG_DIRS       = "/etc/xdg";
-    XDG_CACHE_HOME        = "${config.home.homeDirectory}/.cache";
-    XDG_DATA_HOME         = "${config.home.homeDirectory}/.local/share";
-    XDG_STATE_HOME        = "${config.home.homeDirectory}/.local/state";
-    XDG_BIN_HOME          = "${config.home.homeDirectory}/.local/bin";
-    # XDG_DATA_DIRS         = "/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:/home/$USER/.local/share/flatpak/exports/share";
-    XDG_DESKTOP_DIR       = "$HOME/desktop";
-    XDG_DOCUMENTS_DIR     = "$HOME/documents";
-    XDG_DOWNLOAD_DIR      = "$HOME/downloads";
-    XDG_MUSIC_DIR         = "$HOME/music";
-    XDG_PICTURES_DIR      = "$HOME/pictures";
-    XDG_PUBLICSHARE_DIR   = "$HOME/public";
-    XDG_TEMPLATES_DIR     = "$HOME/templates";
-    XDG_VIDEOS_DIR        = "$HOME/videos";
-    XDG_SCREENSHOTS_DIR   = "$HOME/screenshots";
 
     HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
     

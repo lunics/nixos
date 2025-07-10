@@ -5,7 +5,7 @@
     ./nix_programs.nix
     ./home.nix
     ./packages
-    # ./xdg.nix
+    ./xdg
     ./shell
     ./ssh_client.nix
     ./git.nix

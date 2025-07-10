@@ -1,0 +1,56 @@
+{ config, ... }:{
+  home.sessionVariables = rec {
+    XDG_BIN_HOME          = "${config.home.homeDirectory}/.local/bin";
+    XDG_SCREENSHOTS_DIR   = "${config.home.homeDirectory}/usb_copy/homelab/share/screenshots";
+  };
+
+  xdg = {
+    configHome = "${config.home.homeDirectory}/.config";         # XDG_CONFIG_HOME
+    cacheHome  = "${config.home.homeDirectory}/.cache";          # XDG_CACHE_HOME
+    dataHome   = "${config.home.homeDirectory}/.local/share";    # XDG_DATA_HOME
+    stateHome  = "${config.home.homeDirectory}/.local/state";    # XDG_STATE_HOME
+    # configFile = {}                     # XDG_CONFIG_HOME's list of files
+    # cacheFile = {}                      # XDG_CACHE_HOME's list of files
+    # dataFile = {}                       # XDG_DATA_HOME's list of files
+    # stateFile  = {                      # XDG_STATE_HOME's list of files
+    #   NAME = {
+    #     enable      = true;             # whether this file should be generated
+    #     executable  = null;             # null = defaults to the mode of the source, true = set the execute bit
+    #     force       = false;            # the target path should be unconditionally replaced by the managed file source, will silently delete the target
+    #     ignorelinks = false;            # adds -ignorelinks flag to lndir
+    #     onChange    = "";
+    #     recursive   = false;
+    #     source      = absolute path;    # Path of the source file or directory
+    #     target      = "NAME";           # Path to target file relative to .
+    #     text        = null;
+    #   };
+    # };
+
+    userDirs = {
+      enable            = true;
+      createDirectories = true;
+      download          = "${config.home.homeDirectory}/downloads";   # XDG_DOWNLOAD_DIR
+      music             = "${config.home.homeDirectory}/music";       # XDG_MUSIC_DIR
+      desktop           = "";   # XDG_DESKTOP_DIR
+      documents         = "";   # XDG_DOCUMENTS_DIR
+      pictures          = "";   # XDG_PICTURES_DIR
+      publicShare       = "";   # XDG_PUBLICSHARE_DIR
+      templates         = "";   # XDG_TEMPLATES_DIR
+      videos            = "";   # XDG_VIDEOS_DIR
+      # extraConfig = {
+      #   XDG_MISC_DIR = "${config.home.homeDirectory}/Misc";
+      # };
+    };
+
+    systemDirs = {
+      config = [      # XDG_CONFIG_DIRS
+        # "/etc/xdg"
+      ];                    
+      data   = [      # XDG_DATA_DIRS
+        # XDG_DATA_DIRS         = "/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:/home/$USER/.local/share/flatpak/exports/share";
+        # "/usr/share"
+        # "/usr/local/share"
+      ];
+    };
+  };
+}
