@@ -32,12 +32,10 @@ lines   = 45
 x = 5
 y = 1
 
-[[keyboard.bindings]]
-action = "Copy"
-key    = "C"
-mods   = "Alt"
-
-[[keyboard.bindings]]
-action = "Paste"
-key    = "V"
-mods   = "Alt"
+[keyboard]
+bindings = [
+  { mods = "Alt", key = "C", action = "Copy"  },
+  { mods = "Alt", key = "V", action = "Paste" },
+  { key = "J", mods = "Control", chars = "\u001b[B" },    # bind ctrl j as arrow down
+  { key = "K", mods = "Control", chars = "\u001b[A" },    # bind ctrl k as arrow up
+]
