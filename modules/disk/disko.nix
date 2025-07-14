@@ -31,16 +31,16 @@
                 # settings = {    # KO BREAKS LUKS on nixos-anywhere
                 #   crypttabExtraOpts = [ "fido2-device=auto" "token-timeout=10" ]; };
                 content = {
-                  type = "btrfs";
-                  extraArgs = ["-L" "nixos" "-f"];
+                  type       = "btrfs";
+                  extraArgs  = ["-L" "nixos" "-f"];
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
-                      mountOptions = ["subvol=root" "compress=zstd" "relatime" ]; };
+                      mountOptions = ["subvol=root" "compress=zstd" "relatime"]; };
 
                     "/home" = {
                       mountpoint = "/home";
-                      mountOptions = ["subvol=home" "compress=zstd" "rw" "relatime" "nodev" "nosuid" ]; };
+                      mountOptions = ["subvol=home" "compress=zstd" "rw" "relatime" "nodev" "nosuid"]; };
 
                     "/nix" = {
                       mountpoint = "/nix";
@@ -52,15 +52,15 @@
 
                     "/log" = {
                       mountpoint = "/var/log";
-                      mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec" ]; };
+                      mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec"]; };
 
                     "/tmp" = {
                       mountpoint = "/tmp";
-                      mountOptions = ["subvol=log" "compress=zstd" "rw" "nodev" "nosuid" "noexec" ]; };
+                      mountOptions = ["subvol=log" "compress=zstd" "rw" "nodev" "nosuid" "noexec"]; };
 
                     "/snapshots" = {
                       mountpoint = "/snapshots";
-                      mountOptions = ["subvol=log" "compress=zstd" ]; };
+                      mountOptions = ["subvol=log" "compress=zstd"]; };
                   };
                 };
               };

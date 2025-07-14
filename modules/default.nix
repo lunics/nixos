@@ -21,8 +21,8 @@
     ./virtualisation
     ./gaming
     ./graphic
-    # ./udev
     ./dirs.nix
-    # ./server
+    ## ./udev
+    ## ./server
   ];
 }

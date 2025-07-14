@@ -58,10 +58,8 @@
         system      = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          agenix.nixosModules.default
           disko.nixosModules.disko
-          impermanence.nixosModules.impermanence
-          ./hosts/hp-elitedesk-800g2.nix
+          ./hosts/hp-elitedesk-800g2
         ];
       };
 
@@ -73,13 +71,13 @@
             # src: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
             # lenovo-thinkpad-t480
             # lenovo-thinkpad-t14
-          agenix.nixosModules.default
+          # agenix.nixosModules.default
           disko.nixosModules.disko
-          impermanence.nixosModules.impermanence
+          # impermanence.nixosModules.impermanence
           # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
           nixvirt.nixosModules.default
           # microvm.nixosModules.microvm    ## don't forget to add in outputs
-          ./hosts/thinkpad-p14s.nix
+          ./hosts/thinkpad-p14s
         ];
       };
     };
