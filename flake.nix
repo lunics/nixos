@@ -53,22 +53,42 @@
   };
 
   outputs = { self, unstable, nixos-hardware, disko, agenix, impermanence, deploy-rs, nixvirt, ... }@inputs: {
-    nixosConfigurations.lunics = unstable.lib.nixosSystem {
-      system      = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen3
-          # src: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
-          # lenovo-thinkpad-t480
-          # lenovo-thinkpad-t14
-        agenix.nixosModules.default
-        disko.nixosModules.disko
-        impermanence.nixosModules.impermanence
-        # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
-        nixvirt.nixosModules.default
-        # microvm.nixosModules.microvm    ## don't forget to add in outputs
-        ./default.nix
-      ];
+    nixosConfigurations = {
+      hp-elitedesk-800g2 = unstable.lib.nixosSystem {
+        system      = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen3
+            # src: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
+            # lenovo-thinkpad-t480
+            # lenovo-thinkpad-t14
+          agenix.nixosModules.default
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
+          # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
+          nixvirt.nixosModules.default
+          # microvm.nixosModules.microvm    ## don't forget to add in outputs
+          ./hosts/hp-elitedesk-800g2.nix
+        ];
+      };
+
+      # thinkpad-p14s = unstable.lib.nixosSystem {
+      #   system      = "x86_64-linux";
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen3
+      #       # src: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
+      #       # lenovo-thinkpad-t480
+      #       # lenovo-thinkpad-t14
+      #     agenix.nixosModules.default
+      #     disko.nixosModules.disko
+      #     impermanence.nixosModules.impermanence
+      #     # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
+      #     nixvirt.nixosModules.default
+      #     # microvm.nixosModules.microvm    ## don't forget to add in outputs
+      #     ./default.nix
+      #   ];
+      # };
     };
   };
 }
