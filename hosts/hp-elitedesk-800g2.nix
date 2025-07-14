@@ -1,22 +1,22 @@
 { config, options, ... }:{
   imports = [
-    ../hardware.nix
-    ../disk
-    ../boot.nix
-    ../nix
-    ../configuration.nix
-    ../kernel.nix
+    ../modules/hardware.nix
+    ../modules/disk
+    ../modules/boot.nix
+    ../modules/nix
+    ../modules/configuration.nix
+    ../modules/kernel.nix
     # ./swap.nix
     # ./etc
     # ./services
-    ../location.nix
-    ../network
-    ../ntp.nix
-    ../users.nix
-    ../login_manager.nix
-    ../security
-    ../fonts.nix
-    # ../server
+    ../modules/location.nix
+    ../modules/network
+    ../modules/ntp.nix
+    ../modules/users.nix
+    ../modules/login_manager.nix
+    ../modules/security
+    ../modules/fonts.nix
+    # ./server
   ];
 
   # options.my = {
