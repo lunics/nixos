@@ -20,5 +20,7 @@
 
   home.packages = with pkgs; [
     comma             # to runs nix software without installing it
+    distrobox
+    deploy-rs
   ];
 }
