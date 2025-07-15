@@ -10,7 +10,7 @@
     ./shell
     ./ssh_client.nix
     ./git.nix
-    # ./editor.nix
+    ./editor.nix
     ./desktop
     ./font.nix
     ./gaming
