@@ -81,5 +81,21 @@
         ];
       };
     };
+
+    deploy.nodes.hp-elitedesk-800g2 = {
+      hostname = "hp-elitedesk-800g2";
+      profiles.system = {
+        sshUser         = "lunics";
+        user            = "root";
+        interactiveSudo = true;
+        autoRollback    = true;         # previous profile re-activated if activation fails
+        magicRollback   = true;
+        remoteBuild     = false;        # build and fetch all external dependencies the derivation on the target system
+        tempPath        = "/home/lunics/.local/share/deploy-rs";       # currently only used by magicRollback, the path must be writable by deploy.nodes.NAME.profiles.system.user
+        path            = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hp-elitedesk-800g2;
+      };
+    };
+
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
 }
