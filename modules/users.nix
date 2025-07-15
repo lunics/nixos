@@ -20,13 +20,8 @@
       ];
       openssh = {
         authorizedKeys.keys = [       # /etc/ssh/authorized_keys.d/lunics
-          # homelab
-          "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
           # ~/.ssh/yubikey.pub
-          "sk-ssh-ed25519@openssh.com ***REMOVED***+d335wMFPigNWxLOBg/2XAAAAC3NzaDpob21lbGFi ssh@***REMOVED***"
-          # elitedesk-800g2-nixos.pub
-          # old: "ssh-ed25519 ***REMOVED*** lunics@laptop-t14"
-          "ssh-ed25519 ***REMOVED*** lunics@elitedesk-800g2"
+          "sk-ssh-ed25519@openssh.com ***REMOVED***xvpLdAR8YlXZEK/rAkFMAAAAC3NzaDp5dWJpa2V5 ssh@***REMOVED***"
         ];
       };
     };
