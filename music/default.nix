@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:{ 
+{ pkgs, lib, config, ... }:{ 
   imports = [
     ./mpd.nix
     ./rmpc
@@ -27,6 +27,6 @@
 
   # create music directory
   home.activation.musicDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    mkdir -p "$HOME/music"
+    mkdir -p "${config.home.homeDirectory}/music"
   '';
 }
