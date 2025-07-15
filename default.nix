@@ -1,6 +1,7 @@
 { inputs, ... }:{
   imports = [
     inputs.ags.homeManagerModules.default
+    inputs.stylix.homeModules.stylix
     # inputs.nur.hmModules.nur
     ./nix_programs.nix
     ./home.nix
@@ -23,5 +24,6 @@
     ./k3s
     ./task_manager
     ./music
+    ./stylix.nix
   ];
 }
