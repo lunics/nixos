@@ -1,4 +1,11 @@
-{ config, ... }:{
+{ config, lib, ... }:{
+  home.activation.home-dirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/downloads"
+    mkdir -p "$HOME/repos"
+    mkdir -p "$HOME/torrents"
+    mkdir -p "$HOME/usb_copy"
+  '';
+
   home.sessionVariables = rec {
     XDG_BIN_HOME          = "${config.home.homeDirectory}/.local/bin";
     XDG_SCREENSHOTS_DIR   = "${config.home.homeDirectory}/usb_copy/homelab/share/screenshots";
@@ -31,12 +38,12 @@
       createDirectories = true;
       download          = "${config.home.homeDirectory}/downloads";   # XDG_DOWNLOAD_DIR
       music             = "${config.home.homeDirectory}/music";       # XDG_MUSIC_DIR
-      desktop           = "";   # XDG_DESKTOP_DIR
-      documents         = "";   # XDG_DOCUMENTS_DIR
-      pictures          = "";   # XDG_PICTURES_DIR
-      publicShare       = "";   # XDG_PUBLICSHARE_DIR
-      templates         = "";   # XDG_TEMPLATES_DIR
-      videos            = "";   # XDG_VIDEOS_DIR
+      desktop           = null;   # XDG_DESKTOP_DIR
+      documents         = null;   # XDG_DOCUMENTS_DIR
+      pictures          = null;   # XDG_PICTURES_DIR
+      publicShare       = null;   # XDG_PUBLICSHARE_DIR
+      templates         = null;   # XDG_TEMPLATES_DIR
+      videos            = null;   # XDG_VIDEOS_DIR
       # extraConfig = {
       #   XDG_MISC_DIR = "${config.home.homeDirectory}/Misc";
       # };
