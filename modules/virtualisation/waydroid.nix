@@ -1,5 +1,3 @@
-{
-  virtualisation = {
-    waydroid.enable = true;
-  };
+{ config, ... }:{
+  virtualisation.waydroid.enable = config._waydroid;
 }
