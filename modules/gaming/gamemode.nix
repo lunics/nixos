@@ -1,6 +1,6 @@
-{
+{ config, ... }:{
   programs.gamemode = {
-    enable       = true;    # daemon that greatly improve game's performance, applying temporary optimizations to the OS and game process
+    enable       = config._gamemode;    # daemon that greatly improve game's performance, applying temporary optimizations to the OS and game process
     enableRenice = true;    # enable CAP_SYS_NICE on gamemoded to support lowering process niceness
     # settings = {
     #   general = {

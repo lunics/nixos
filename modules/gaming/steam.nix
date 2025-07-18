@@ -2,9 +2,9 @@
 ##   gamemoderun %command%
 ##   mangohud %command%
 ##   gamescope %command%
-{ pkgs, ... }:{
+{ config, pkgs, ... }:{
   programs.steam = {
-    enable  = true;
+    enable  = config._steam;
     package = pkgs.steam;
               # pkgs.steam.override {
       # extraEnv = {

@@ -1,6 +1,6 @@
-{
+{ config, ... }:{
   programs.gamescope = {
-    enable     = true;
+    enable     = config._gamescope;
     capSysNice = false;       # Add cap_sys_nice capability to the GameScope binary so that it may renice itself
     # env = {
     #   __NV_PRIME_RENDER_OFFLOAD = "1";
