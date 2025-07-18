@@ -1,6 +1,6 @@
-{ 
+{ lib, ... }:{
   environment.etc."nsswitch.conf" = {
-    enable = false;
+    enable = lib.mkDefault false;
     text   = ''
       passwd:    files systemd
       group:     files [success=merge] systemd
