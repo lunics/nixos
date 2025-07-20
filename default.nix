@@ -9,7 +9,7 @@
     ./xdg
     ./shell
     ./ssh_client.nix
-    ./git.nix
+    ./git
     ./editor.nix
     ./desktop
     ./font.nix
