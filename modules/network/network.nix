@@ -1,6 +1,6 @@
-{ lib, ... }:{
+{ config, lib, ... }:{
   networking = {
-    hostName = "nixos";
+    hostName = config._.hostName;
 
     useDHCP = lib.mkDefault true;
 

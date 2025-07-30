@@ -50,6 +50,8 @@
     # attic = {
     #   url = "github:zhaofengli/attic";
     #   inputs.nixpkgs.follows = "unstable"; };
+
+    # my-options.url = "git+file:/home/lunics/usb_copy/homelab/nixos/options";
   };
 
   outputs = { self, unstable, nixos-hardware, disko, agenix, impermanence, deploy-rs, nixvirt, ... }@inputs: {
@@ -59,7 +61,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           disko.nixosModules.disko
-          ./hosts/hp-elitedesk-800g2
+          ./hosts/hp-elitedesk-800g2      # replace by elitedesk-800g2 
         ];
       };
 
@@ -76,8 +78,9 @@
           # impermanence.nixosModules.impermanence
           # crowdsec.nixosModules.crowdsec  ## don't forget to add in outputs
           nixvirt.nixosModules.default
-          # microvm.nixosModules.microvm    ## don't forget to add in outputs
+          # microvm.nixosModules.microvm    ## add in outputs
           ./hosts/thinkpad-p14s
+          # my-options.nixosModules.my_variables
         ];
       };
     };
@@ -88,7 +91,6 @@
         profiles.system = {
           sshUser           = "lunics";
           user              = "root";
-          interactiveSudo   = true;
           path              = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hp-elitedesk-800g2;
         };
       };

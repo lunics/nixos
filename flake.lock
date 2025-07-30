@@ -941,6 +941,21 @@
         "type": "github"
       }
     },
+    "my-options": {
+      "locked": {
+        "lastModified": 1753559225,
+        "narHash": "sha256-kXXOQtJWGXbC7QPKVnEO3ruXNNTScKKp3aa/Usuvir4=",
+        "ref": "refs/heads/main",
+        "rev": "5a75ef013fe3dbf63ebdaf7474e3519320024884",
+        "revCount": 5,
+        "type": "git",
+        "url": "file:/home/lunics/usb_copy/homelab/nixos/options"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:/home/lunics/usb_copy/homelab/nixos/options"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -1143,6 +1158,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
+        "my-options": "my-options",
         "nixos-hardware": "nixos-hardware",
         "nixvirt": "nixvirt",
         "stable": "stable",

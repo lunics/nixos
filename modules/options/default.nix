@@ -1,7 +1,9 @@
 { config, lib, ... }:{
   imports = [
-    ./virtualisation.nix
+    ./users.nix
+    # ./sudo.nix
     ./zramSwap.nix
+    ./virtualisation.nix
     ./gaming.nix
   ];
 
@@ -13,8 +15,13 @@
     _audio = lib.mkEnableOption "";
 
     _crypttab.text = lib.mkOption {
-      default = "";
       type    = lib.types.str;
+      default = "";
+    };
+
+    _.hostName = lib.mkOption {
+      type    = lib.types.str;
+      default = "nixos";
     };
   };
 }

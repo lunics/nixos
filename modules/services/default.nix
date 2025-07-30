@@ -1,8 +1,9 @@
 {
   imports = [
-    ./avahi.nix
     ./ssh.nix
     ./tlp.nix
+    ./logind.nix
+    ./avahi.nix
     ./btrfs_autoscrub.nix
     ./snapraid.nix
     ./snapper.nix
