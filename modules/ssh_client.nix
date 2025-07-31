@@ -18,7 +18,7 @@
       "thinkpad-t14" = {
         user         = "root";
         identityFile = "/home/lunics/.ssh/servers";
-        hostname     = "192.168.1.35";
+        hostname     = "192.168.1.18";
       };
     };
 
