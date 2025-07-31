@@ -1,6 +1,6 @@
 {
   imports = [
-    ./options
+    ../options
     ./hardware.nix
     ./disk
     ./boot.nix

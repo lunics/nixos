@@ -1,5 +1,5 @@
 { config, lib, ... }:{
-  config = lib.mkIf config._k3s {
+  config = lib.mkIf config._.k3s {
     systemd.tmpfiles.rules = [
       # "d /opt/k3s 0775 lunics data -"
       # "d /opt/k3s/data 0775 lunics data -"

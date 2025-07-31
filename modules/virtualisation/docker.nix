@@ -1,5 +1,5 @@
 { config, lib, ... }:{
-  config = lib.mkIf config._docker {
+  config = lib.mkIf config._.docker {
     virtualisation.docker = {
       enable = true;
       rootless = {

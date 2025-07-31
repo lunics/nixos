@@ -1,7 +1,7 @@
 { config, ... }:{
   zramSwap = {
-    enable        = config._zramSwap.enable;
-    memoryPercent = config._zramSwap.memoryPercent;
+    enable        = config._.zramSwap.enable;
+    memoryPercent = config._.zramSwap.memoryPercent;
     priority      = 5;
     algorithm     = "zstd";
   };

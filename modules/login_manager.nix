@@ -1,5 +1,5 @@
 { config, lib, ... }:{
-  config = lib.mkIf config._login_manager {
+  config = lib.mkIf config._.login_manager {
     services.greetd = {
       enable = true;
       settings = rec {

@@ -943,11 +943,11 @@
     },
     "my-options": {
       "locked": {
-        "lastModified": 1753559225,
-        "narHash": "sha256-kXXOQtJWGXbC7QPKVnEO3ruXNNTScKKp3aa/Usuvir4=",
+        "lastModified": 1753892486,
+        "narHash": "sha256-9B2D/1sF4zh+d33ZmGmFxJokV3/1i/4xfz4MpnEqbig=",
         "ref": "refs/heads/main",
-        "rev": "5a75ef013fe3dbf63ebdaf7474e3519320024884",
-        "revCount": 5,
+        "rev": "b17cccf7f084632d056f89eda165618ca1178d61",
+        "revCount": 12,
         "type": "git",
         "url": "file:/home/lunics/usb_copy/homelab/nixos/options"
       },

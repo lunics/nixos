@@ -1,5 +1,5 @@
 { config, lib, ... }:{
-  config = lib.mkIf config._podman {
+  config = lib.mkIf config._.podman {
     virtualisation.podman = {
       enable        = true;
       dockerCompat  = true;                          # alias mapping docker to podman 

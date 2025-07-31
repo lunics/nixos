@@ -1,5 +1,5 @@
 { config, lib, ... }:{
-  options._zramSwap = {
+  options._.zramSwap = {
     enable = lib.mkEnableOption "";
 
     memoryPercent = lib.mkOption {

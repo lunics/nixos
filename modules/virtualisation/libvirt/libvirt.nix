@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:{
-  config = lib.mkIf config._libvirt {
+  config = lib.mkIf config._.libvirt {
     environment.systemPackages = with pkgs; [
       qemu
       quickemu

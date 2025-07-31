@@ -1,5 +1,5 @@
 { lib, ... }:{
-  options._sudo = {
+  options._.sudo = {
     wheelNeedsPassword = lib.mkOption {
       type    = lib.types.bool;
       default = true;

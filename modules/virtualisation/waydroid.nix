@@ -1,3 +1,3 @@
 { config, ... }:{
-  virtualisation.waydroid.enable = config._waydroid;
+  virtualisation.waydroid.enable = config._.waydroid;
 }

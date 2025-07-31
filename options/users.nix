@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:{
-  options._user = {
+  options._.user = {
     name = lib.mkOption {
       type    = lib.types.str;
       default = "";

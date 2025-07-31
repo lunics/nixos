@@ -7,19 +7,19 @@
     ./gaming.nix
   ];
 
-  options = {
-    _window_manager = lib.mkEnableOption "";
+  options._ = {
+    window_manager = lib.mkEnableOption "";
 
-    _login_manager = lib.mkEnableOption "";
+    login_manager = lib.mkEnableOption "";
 
-    _audio = lib.mkEnableOption "";
+    audio = lib.mkEnableOption "";
 
-    _crypttab.text = lib.mkOption {
+    crypttab.text = lib.mkOption {
       type    = lib.types.str;
       default = "";
     };
 
-    _.hostName = lib.mkOption {
+    hostName = lib.mkOption {
       type    = lib.types.str;
       default = "nixos";
     };

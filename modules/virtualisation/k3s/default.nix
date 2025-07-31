@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:{
-  config = lib.mkIf config._k3s {
+  config = lib.mkIf config._.k3s {
     services.k3s = {
       enable       = true;
       package      = pkgs.k3s;
@@ -10,7 +10,7 @@
         "--write-kubeconfig-mode \"0600\""    # /etc/rancher/k3s/k3s.yaml
         "--disable traefik"
         "--data-dir=/var/lib/rancher/k3s"   
-        "--tls-san ${config._hostName}"       # required to use the API server by his hostname
+        "--tls-san ${config._.hostName}"       # required to use the API server by his hostname
         # "--cluster-cidr 10.42.0.0/16"        KO # IPv4/IPv6 network CIDRs to use for pod IPs
         # "--server-cidr 10.43.0.0/16"         KO # IPv4/IPv6 network CIDRs to use for service
         # "--debug"

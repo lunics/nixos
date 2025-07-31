@@ -1,5 +1,5 @@
 { config, inputs, lib, pkgs, ... }:{
-  config = lib.mkIf config._window_manager {
+  config = lib.mkIf config._.window_manager {
     ## todo https://haseebmajid.dev/posts/2023-11-15-part-3-hyprland-as-part-of-your-development-workflow/
 
     programs.hyprland = {

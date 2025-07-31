@@ -4,7 +4,7 @@
 ##   gamescope %command%
 { config, pkgs, ... }:{
   programs.steam = {
-    enable  = config._steam;
+    enable  = config._.steam;
     package = pkgs.steam;
               # pkgs.steam.override {
       # extraEnv = {

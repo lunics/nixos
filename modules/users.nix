@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:let _ = config._user; in {
+{ config, pkgs, ... }:let _ = config._.user; in {
   users = {
     users.lunics = {
       isNormalUser   = _.isNormalUser;
