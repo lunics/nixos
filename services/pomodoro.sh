@@ -55,7 +55,7 @@ elif [ $cycle_count -eq 3 ]; then       # if cycle 3 then keep the system suspen
   dunstify -t 5000 "Only $time_screen_off minutes left before suspend"
   sleep $time_screen_off_sec
 
-  dunstify -t 10000 -u critical "Pomodoro" "Suspend in 10s\n Lève-toi et Bouge"
+  dunstify -t 10000 -u critical "Pomodoro" "Suspend in 10s. Lève-toi et Bouge"
   sleep 10
   if playerctl status | rg -s Playing; then 
     playerctl pause
