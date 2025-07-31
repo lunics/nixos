@@ -4,7 +4,7 @@
       Unit.Description = "poweroff laptop every night at 23:00 pm";
       Timer = {
         OnCalendar = "22:50";
-        Persistent = false;
+        Persistent = true;
       };
       Install.WantedBy = [ "default.target" ];
     };
@@ -20,7 +20,7 @@
           "/run/current-system/sw/bin/sleep 300"
           "/home/lunics/.nix-profile/bin/dunstify -t 10000 -u critical 'Poweroff in 10 seconds'"
           "/run/current-system/sw/bin/sleep 10"
-          "/home/lunics/.nix-profile/bin/poweroff"
+          "/run/current-system/sw/bin/poweroff"
         ];
       };
     };

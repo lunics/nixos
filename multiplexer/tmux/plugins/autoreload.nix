@@ -10,8 +10,6 @@ let
       sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
     };
   };
-in
-{
+in {
   inherit tmux-super-fingers;
 }
-

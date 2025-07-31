@@ -11,9 +11,9 @@
     timers."wallpaper" = {
       Unit.Description = "wallpaper.timer triggered every hour";
       Timer = {
-        # OnUnitActiveSec = "1h";
         OnCalendar  = "*-*-* 00..23:00";
         AccuracySec = "1s";
+        Persistent  = true;
       };
       Install.WantedBy  = [ "default.target" ];
     };
@@ -30,7 +30,7 @@
         ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/wallpaper.sh";
       };
 
-      Install.WantedBy = [ "hyprland.target" ];
+      # Install.WantedBy = [ "hyprland.target" ];   # restart wallpaper at every home-manager build
     };
   };
 }

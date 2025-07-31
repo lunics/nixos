@@ -7,5 +7,6 @@
     ./sync_browser_profile.nix
     ./wallpaper.nix
     # ./usb_sync.nix
+    # ./ssh_tpm_agent.nix
   ];
 }

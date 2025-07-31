@@ -1,0 +1,30 @@
+[mounts]
+	path = /home/lunics/usb_copy/homelab/share/passage/store
+
+[generate]
+  autoclip  = true        # copy the password created
+  generator = ""          # password generator: xkcd, memorable, external or ""
+  length    = 24          # length for generated password
+  strict    = false       # use strict mode for generated password
+  symbols   = true        #	include symbols
+
+age.usekeychain = false
+pwgen.xkcd-lang = en
+
+[otp]
+  autoclip = true         # clip  otp by default, while still displaying the codes and timers
+  onlyclip = false        # copy otp to clipboard, without displaying the OTP codes. This takes precedence over otp.autoclip
+
+[core]
+  autopush      = true
+  autosync      = true
+  cliptimeout   = 45
+  exportkeys    = true
+  notifications = true
+
+[pwgen]
+  xkcd-sep        = " " 	  # xkcd password generator separator
+  xkcd-lang       = en      # xkcd password generator language
+  xkcd-capitalize = true    # capitalize the first character of each word
+  xkcd-numbers    = true    # add random numbers after each word
+  xkcd-len        = 5       # number of words to generated

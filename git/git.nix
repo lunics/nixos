@@ -3,16 +3,24 @@
     git-filter-repo     # rewrite git repository history
   ];
 
-  programs = {
-    git = {
-      enable      = true;
-      userName    = "lunics";
-      userEmail   = "***REMOVED***";
-      extraConfig = {
-        init.defaultBranch = "main"; 
-      }; 
-    };
-
+  programs.git = {
+    enable      = true;
+    userName    = "lunics";
+    userEmail   = "***REMOVED***";
+    # delta.enable = true;
+    ignores = [
+      ".direnv"
+    ];
+    extraConfig = {
+      init.defaultBranch = "main"; 
+      # user.signingkey = lib.mkIf (builtins.hasAttr osConfig.networking.hostName signingKeys) (signingKeys.${osConfig.networking.hostName});
+      # fetch.writeCommitGraph = true;
+      # core.fsmonitor = true;
+      # ghq = {
+      #   root = "~/dev";
+      # };
+      # push.autoSetupRemote = true;
+    }; 
     # conflictstyle = zdiff3 ??
   };
 

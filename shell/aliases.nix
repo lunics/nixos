@@ -12,6 +12,7 @@
     v     = "nvim";
     w     = "which+";
     x     = "sxiv -ft *";
+    y     = "yazi";
     c-    = "cd -";
     bc    = "numbat";
     cp    = "cp --recursive --reflink=auto";
@@ -71,7 +72,7 @@
     
     # kubernetes
     # kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
-    k       = "kubecolor --no-headers";
+    k       = "kubecolor";    # --no-headers
     kk      = "c $LINUX/kubernetes";
     kcc     = "k config current-context";
     kg      = "k get";
@@ -84,7 +85,7 @@
     kv      = "k get pv,pvc";
     kapply  = "k apply -f";
     ki      = "k get ingresses.networking.k8s.io --all-namespaces";
-    helm    = "/run/current-system/sw/bin/helm";
+    # helm    = "/run/current-system/sw/bin/helm";    ## replace by home-manager path ?
     synth-helm = "/home/lunics/.nix-profile/bin/helm";
     l_mount = "df -aTh --total";
     l_date  = "eza -la --sort=mod";

@@ -14,7 +14,7 @@
   #   serviceConfig = {
   #     Type      = "oneshot";
   #     # ExecStart = "${pkgs.bash}/bin/bash /path/to/your/script.sh";
-  #     ExecStart = "/home/lunics/usb_copy/homelab/nixos/user/shell/scripts/test.sh";
+  #     ExecStart = "/home/lunics/usb_copy/homelab/nixos/home/shell/scripts/test.sh";
   #     RemainAfterExit = true;
   #   };
 

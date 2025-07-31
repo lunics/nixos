@@ -2,12 +2,12 @@
   programs = {
     home-manager = {
       enable = true;
-      # path   = "$HOME/usb_copy/homelab/nixos/user";
+      # path   = "$HOME/usb_copy/homelab/nixos/home";
     };
 
     ## run "nix-index" to generate the database in /home/lunics/.cache/nix-index/files
-    nix-index = {
-      enable = true;
+    nix-index = {       # send message if command fail: The program '#' is currently not installed: nix-shell -p  --run '# ...'
+      enable = false;
       enableZshIntegration = true;    # mutually exclusive with command-not-found
     };
 

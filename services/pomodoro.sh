@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 ## if pomodoro.timer stopped manually then echo "" > /tmp/pomodoro_cycle
+systemctl --user restart pomodoro.timer"     # force reset the timer after every resume
 
 touch /tmp/pomodoro_cycle
 
 time_working=30     # 30 min
 time_screen_off=3   # 3 min
 time_screen_off_sec=$(expr $time_screen_off \* 60)
+
 
 # if the system has booted reset the cycle_count else continue for the next cycle
 if journalctl --user -u pomodoro.service -n 2 | grep -i boot > /dev/null; then
@@ -18,18 +20,21 @@ fi
 if [ $cycle_count -eq 3 ]; then
   cycle_count=1
 
+  ## add tmp file to remember if airpods was connected ?
   # try to reconnect airpods after the system suspend
-  if bluetoothctl devices | grep AirPods; then
-    sleep 3
-    if ! bluetoothctl devices Connected | grep AirPods; then
-      bluetoothctl connect 90:5F:7A:BC:93:87
-    fi
-  fi
+  # if bluetoothctl devices | grep AirPods > /dev/null; then
+  #   sleep 3
+  #   if ! bluetoothctl devices Connected | grep AirPods; then
+  #     bluetoothctl connect 90:5F:7A:BC:93:87
+  #   fi
+  # fi
 else
   ((cycle_count++))
 fi
 
 echo $cycle_count > /tmp/pomodoro_cycle
+
+echo "Running part $(cat /tmp/pomodoro_cycle)/3"
 
 dunstify -t 5000 "Pomodoro is starting the cycle $cycle_count"
 
@@ -47,10 +52,10 @@ if [ $cycle_count -lt 3 ]; then         # if cycle 1 or 2 then turn off screen f
   hyprctl dispatch dpms on
 
 elif [ $cycle_count -eq 3 ]; then       # if cycle 3 then keep the system suspended until a user action
-  dunstify -t 5000 "Only $time_screen_off_sec minutes left before suspend"
+  dunstify -t 5000 "Only $time_screen_off minutes left before suspend"
   sleep $time_screen_off_sec
 
-  dunstify -t 10000 -u critical "Lève-toi et Bouge"
+  dunstify -t 10000 -u critical "Pomodoro" "Suspend in 10s\n Lève-toi et Bouge"
   sleep 10
   if playerctl status | rg -s Playing; then 
     playerctl pause

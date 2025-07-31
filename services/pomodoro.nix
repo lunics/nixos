@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ config, pkgs, ... }:{
   systemd.user = {
     timers."pomodoro" = {
       Unit.Description = "pomodor.timer triggered at boot then every 40 min";
@@ -12,13 +12,12 @@
 
     services."pomodoro" = {
       Unit = {
-        Description = "a pomodoro.service's phase out of 3";
+        Description = "one part of a pomodoro.service cycle";
         After       = [ "default.target" "suspend.target" ];
       };
       Service = {
-        Type      = "oneshot";
+        Type      = "simple";     # oneshot is waiting until sleep finish
         ExecStart = [
-          "/home/lunics/.nix-profile/bin/systemctl restart pomodoro.timer"     # reset the timer after every resume of suspend
           "${pkgs.bash}/bin/bash %h/.config/systemd/user/pomodoro.sh"
         ];
       };

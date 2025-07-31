@@ -8,6 +8,16 @@
 
     mimeApps = {
       enable = false;
+      # associations = {
+      #   added = {                   ## from RaitoBezarius
+      #     "application/pdf"         = [ "zathura.desktop" ];
+      #     "image/jpeg"              = [ "feh.desktop" ];
+      #     "x-scheme-handler/mailto" = [ "mutt.desktop" ];
+      #   };
+      #   removed = {
+      #     mimetype1 = "foo5.desktop";
+      #   };
+      # };
       # defaultApplications = {
       #   "text/html" = "firefox.desktop";  # [ "firefox.desktop" ]; ?
       #   "text/xml"  = "firefox.desktop"; 
@@ -15,15 +25,6 @@
       #   "x-scheme-handler/https"   = "firefox.desktop";
       #   "x-scheme-handler/about"   = "firefox.desktop";
       #   "x-scheme-handler/unknown" = "firefox.desktop";
-      # };
-      # associations = {
-      #   added = {
-      #     "mimetype1" = [ "foo1.desktop" "foo2.desktop" "foo3.desktop" ];
-      #     "mimetype2" = "foo4.desktop";
-      #   };
-      #   removed = {
-      #     mimetype1 = "foo5.desktop";
-      #   };
       # };
     };
   };

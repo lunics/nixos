@@ -17,7 +17,6 @@
     };
   };
 
-
   home.packages = with pkgs; [
     waypaper
     # hyprpaper  # KO
@@ -47,6 +46,8 @@
     #   wallpaper = eDP-1, ${wallpaper}
     # '';
   };
+  
+  home.sessionVariables.HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
 }
 
   # wayland.windowManager.hyprland = {

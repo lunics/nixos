@@ -1,54 +1,37 @@
 { config, ... }:{ 
   home.sessionVariables = rec {
-    # APPS
     TERMINAL      = "alacritty";
     EDITOR        = "nvim";
     MANPAGER      = "nvim +Man!";
     READER        = "zathura";
     BROWSER       = "zen";
     FILE_EXPLORER = "yazi";
-
-    HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
     
     # PATH
-    CONFIG          = "$XDG_CONFIG_HOME";
+    CONFIG          = "${config.xdg.configHome}";
     # SHELLRC         = "$HOME/{{ path3.shell   }}";
+    # FUNCTIONS       = "$SHELLRC/functions";
     LOCAL           = "$HOME/.local";
-    CACHE           = "$HOME/.cache";
+    CACHE           = "${config.xdg.cacheHome}";
     # SCRIPTS         = "$HOME/{{ path3.scripts }}";
     BIN             = "$HOME/.local/bin";
     SSH             = "$HOME/.config/ssh";
     # SSH_CONFIG    = "$SSH/config";
-    SHARE           = "$LOCAL/share";
+    SHARE           = "${config.xdg.dataHome}";
     CLOUD           = "$HOME/usb_copy";
     USB             = "/run/media/$USER";
     DOWNLOADS       = "~/downloads";
     LINUX           = "$CLOUD/linux";
     HOMELAB         = "$CLOUD/homelab";
+    KUBERNETES      = "$LINUX/kubernetes";
+
     ANSIBLE         = "$HOMELAB/ansible";
     ANSIBLE_CONFIG  = "$ANSIBLE/ansible.cfg";
     GALAXY          = "$ANSIBLE/galaxy";
-    FUNCTIONS       = "$SHELLRC/functions";
-    KUBERNETES      = "$LINUX/kubernetes";
-    # KUBECONFIG      = "$CONFIG/k3s/k3s.yaml";  # KO, why ?
-    KUBECONFIG      = "$HOME/.config/k3s/k3s.yaml";
-    # PATH           = "$PATH:$BIN";    # not compliant for nixos bin scripts
+
     
     USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
     OPENAI_API_KEY  = "***REMOVED***";
-    
-    # ZSH
-    # ZSHRC       = "$SHELLRC/zsh";           # personnal
-    # ZDOTDIR     = "$ZSHRC";                 # official
-    # # ZSH_THEME = "robbyrussell";
-    WORDCHARS   = "*?_-[]~=&;!#$%^(){}<>";   # special characters considered as normal letters
-    # KEYTIMEOUT  = 0.1;                      # time to activate vim mode and others mode, ## tester sans
-    # ZPLUG_HOME  = "$ZSHRC/zplug";           # zplug home dir
-    # ZSH_FZF_HISTORY_SEARCH_BIND = "^r";     # set keybinding for zsh-fzf-history-search plugin
-    # CASE_SENSITIVE:     "true"
-    # HYPHEN_INSENSITIVE: "true"          # Case-sensitive completion must be off. _ and - will be interchangeable
-    # DISABLE_AUTO_TITLE: "true"          # auto-setting terminal title
-    # ENABLE_CORRECTION:  "true"          # command auto-correction
 
     _ZO_DATA_DIR = "$HOME/usb_copy/homelab/share/zoxide";
     
