@@ -1,4 +1,6 @@
 { pkgs, ... }:{ 
+  imports = [ stylix.homeModules.stylix ];
+
   stylix = {
     enable       = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";

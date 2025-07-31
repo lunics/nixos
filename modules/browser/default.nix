@@ -4,7 +4,7 @@
     ./firefox
     ./librewolf.nix
     ./chromium.nix
-    ./psd.nix
+    # ./psd.nix
   ];
 
   home.packages = with pkgs; [

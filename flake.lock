@@ -197,11 +197,11 @@
         "rev": "27d107e6208a6db510421c5be1d73b1207ce0566",
         "revCount": 84,
         "type": "git",
-        "url": "file:/home/lunics/usb_copy/homelab/nixos/home/neovim"
+        "url": "file:/home/lunics/usb_copy/homelab/nixos/home/modules/neovim"
       },
       "original": {
         "type": "git",
-        "url": "file:/home/lunics/usb_copy/homelab/nixos/home/neovim"
+        "url": "file:/home/lunics/usb_copy/homelab/nixos/home/modules/neovim"
       }
     },
     "flake-parts": {
