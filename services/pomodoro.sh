@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## if pomodoro.timer stopped manually then echo "" > /tmp/pomodoro_cycle
-systemctl --user restart pomodoro.timer"     # force reset the timer after every resume
+systemctl --user restart pomodoro.timer     # force reset the timer after every resume
 
 touch /tmp/pomodoro_cycle
 
@@ -17,7 +17,7 @@ else
   cycle_count=$(cat /tmp/pomodoro_cycle)
 fi
 
-if [ $cycle_count -eq 3 ]; then
+if [ "${cycle_count:-0}" -eq 3 ]; then
   cycle_count=1
 
   ## add tmp file to remember if airpods was connected ?
@@ -40,7 +40,7 @@ dunstify -t 5000 "Pomodoro is starting the cycle $cycle_count"
 
 sleep $(expr $time_working \* 60)
 
-if [ $cycle_count -lt 3 ]; then         # if cycle 1 or 2 then turn off screen for 2 minutes
+if [ "$cycle_count" -lt 3 ]; then         # if cycle 1 or 2 then turn off screen for 2 minutes
   dunstify -t 10000 -u critical "Breath and rest your eyes"
   sleep 10
 
@@ -52,10 +52,10 @@ if [ $cycle_count -lt 3 ]; then         # if cycle 1 or 2 then turn off screen f
   hyprctl dispatch dpms on
 
 elif [ $cycle_count -eq 3 ]; then       # if cycle 3 then keep the system suspended until a user action
-  dunstify -t 5000 "Only $time_screen_off minutes left before suspend"
+  dunstify -t 5000 "Only $time_screen_off_sec minutes left before suspend"
   sleep $time_screen_off_sec
 
-  dunstify -t 10000 -u critical "Pomodoro" "Suspend in 10s. Lève-toi et Bouge"
+  dunstify -t 10000 -u critical "Pomodoro" "Suspend in 10s\n Lève-toi et Bouge"
   sleep 10
   if playerctl status | rg -s Playing; then 
     playerctl pause
