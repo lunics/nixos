@@ -1,7 +1,7 @@
 { inputs, ... }:{
   imports = [
     inputs.ags.homeManagerModules.default
-    inputs.stylix.homeModules.stylix
+    # inputs.stylix.homeModules.stylix
     # inputs.nur.hmModules.nur
     ./nix_programs.nix
     ./home.nix
