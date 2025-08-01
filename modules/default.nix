@@ -7,21 +7,21 @@
     ./nix
     ./configuration.nix
     ./kernel.nix
-    ./swap.nix              # done
-    ./etc                   # done
+    ./swap.nix
+    ./etc
     ./services
     ./location.nix
     ./network
     ./ntp.nix
     ./users.nix
-    ./audio.nix             # done
-    ./login_manager.nix     # done
+    ./audio.nix
+    ./login_manager.nix
     ./security
     ./fonts.nix
-    ./window_manager.nix    # done
-    ./virtualisation        # done
-    ./gaming                # done
-    ./graphic               ##
+    ./window_manager.nix
+    ./virtualisation
+    ./gaming
+    ./graphic
     ## ./udev
     ## ./server
   ];

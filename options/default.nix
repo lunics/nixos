@@ -22,5 +22,7 @@
       type    = lib.types.str;
       default = "nixos";
     };
+
+    graphic = lib.mkEnableOption "";
   };
 }
