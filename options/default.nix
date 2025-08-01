@@ -5,11 +5,10 @@
     ./zramSwap.nix
     ./virtualisation.nix
     ./gaming.nix
+    ./window_manager.nix
   ];
 
   options._ = {
-    window_manager = lib.mkEnableOption "";
-
     login_manager = lib.mkEnableOption "";
 
     audio = lib.mkEnableOption "";
