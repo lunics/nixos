@@ -10,7 +10,6 @@
         8080        # global web access
         # 2379      # k3s, etcd clients: required if using a "High Availability Embedded etcd" configuration
         # 2380      # k3s, etcd peers: required if using a "High Availability Embedded etcd" configuration
-        # 53317     # localsend still KO
       ];
     };
   };
