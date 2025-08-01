@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }:let
+{ config, lib, pkgs, ... }:
+let
   inherit (lib) mkOption types mkIf mapAttrs';
 in {
   users.users = mapAttrs' (name: _user: {
@@ -18,11 +19,4 @@ in {
       openssh.authorizedKeys.keys = _user.authorizedKeys;
     };
   }) config._.users;
-
-  #   # groups = {
-  #   #   fuse = {    # A DELETE si anakama-launcher ne l'utilise pas
-  #   #     members = [ "lunics" ];
-  #   #   };
-  #   # };
-  # };
 }
