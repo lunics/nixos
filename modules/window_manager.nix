@@ -1,4 +1,7 @@
-{ config, inputs, lib, pkgs, ... }:let _ = config._; in {
+{ config, inputs, lib, pkgs, ... }:
+let 
+  _ = config._;
+in {
   config = lib.mkIf (_.window_manager && _.wayland_user != "") {
     ## todo https://haseebmajid.dev/posts/2023-11-15-part-3-hyprland-as-part-of-your-development-workflow/
 
