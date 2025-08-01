@@ -24,5 +24,7 @@
     };
 
     graphic = lib.mkEnableOption "";
+
+    dns_server = lib.mkEnableOption "";
   };
 }
