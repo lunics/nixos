@@ -7,15 +7,14 @@ in {
     value = { 
       inherit (_user)
         uid
+        shell
         description
         packages
         extraGroups
         isNormalUser
         isSystemUser
-        hashedPassword;
-      shell = if _user.shell == "bash" then pkgs.bash
-         else if _user.shell == "zsh"  then pkgs.zsh
-         else pkgs.shadow;
+        hashedPassword
+        ignoreShellProgramCheck;
       openssh.authorizedKeys.keys = _user.authorizedKeys;
     };
   }) config._.users;

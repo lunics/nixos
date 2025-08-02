@@ -18,6 +18,10 @@
           type    = lib.types.str;
           default = "";
         };
+        ignoreShellProgramCheck = lib.mkOption {
+          type    = lib.types.bool;
+          default = true;
+        };
         packages = lib.mkOption {
           type    = lib.types.listOf lib.types.package;
           default = [];
