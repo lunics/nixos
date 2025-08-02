@@ -1,8 +1,9 @@
-{
+{ config, ... }:{
   nix.settings = {
-    allowed-users = [ "*" ];              # users allowed to connect to the Nix daemon, trusted users are always allowed to connect, @group to add new group
-    trusted-users = [ "root" "lunics" ];  # users that have additional rights when connecting to the Nix daemon
-                                          # required for deploy-rs, @group to add new group
+    allowed-users = [ "*" ];          # users allowed to connect to the Nix daemon, trusted users are always allowed to connect, @group to add new group
+    trusted-users = [ "root" ]        # users that have additional rights when connecting to the Nix daemon, required for deploy-rs, @group to add new group
+      ++config._.nix.trusted-users;
+
     experimental-features = [ 
       "nix-command" 
       "flakes" 
