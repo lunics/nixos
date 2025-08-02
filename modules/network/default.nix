@@ -1,7 +1,7 @@
 {
   imports = [
     ./network_manager.nix
-    ./wifi_profiles.nix
+    # ./wifi_profiles.nix
     ./iwd.nix
     ./bluetooth.nix
     ./network.nix

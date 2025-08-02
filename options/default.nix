@@ -7,6 +7,7 @@
     ./gaming.nix
     ./window_manager.nix
     ./wifi.nix
+    ./udev.nix
   ];
 
   options._ = {
