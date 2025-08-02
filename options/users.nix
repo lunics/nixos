@@ -1,45 +1,45 @@
-{ config, lib, pkgs, ... }:{
-  options._.users = lib.mkOption {
-    type = lib.types.attrsOf (lib.types.submodule ({ config, name, ... }: {
+{ config, lib, pkgs, ... }: with lib; {
+  options._.users = mkOption {
+    type = types.attrsOf (types.submodule ({ config, name, ... }: {
       options = {
-        uid = lib.mkOption {
-          type    = lib.types.nullOr lib.types.int;
+        uid = mkOption {
+          type    = types.nullOr types.int;
           default = null;             # if null a free UID is picked on activation
         };
-        hashedPassword = lib.mkOption {
-          type    = lib.types.str;
+        hashedPassword = mkOption {
+          type    = types.str;
           default = "";
         };
-        extraGroups = lib.mkOption {
-          type    = lib.types.listOf lib.types.str;
+        extraGroups = mkOption {
+          type    = types.listOf types.str;
           default = [];
         };
-        shell = lib.mkOption {
-          type    = lib.types.str;
-          default = "";
+        shell = mkOption {
+          type    = types.nullOr (types.either types.shellPackage (types.passwdEntry types.path));
+          default = pkgs.shadow;
         };
-        ignoreShellProgramCheck = lib.mkOption {
-          type    = lib.types.bool;
+        ignoreShellProgramCheck = mkOption {
+          type    = types.bool;
           default = true;
         };
-        packages = lib.mkOption {
-          type    = lib.types.listOf lib.types.package;
+        packages = mkOption {
+          type    = types.listOf types.package;
           default = [];
         };
-        isNormalUser = lib.mkOption {
-          type    = lib.types.bool;
+        isNormalUser = mkOption {
+          type    = types.bool;
           default = true;
         };
-        isSystemUser = lib.mkOption {
-          type    = lib.types.bool;
+        isSystemUser = mkOption {
+          type    = types.bool;
           default = false;
         };
-        description = lib.mkOption {
-          type    = lib.types.str;
+        description = mkOption {
+          type    = types.str;
           default = "";
         };
-        authorizedKeys = lib.mkOption {
-          type    = lib.types.listOf lib.types.str;
+        authorizedKeys = mkOption {
+          type    = types.listOf types.str;
           default = [];
         };
       };
