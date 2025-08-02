@@ -26,5 +26,10 @@
     graphic = lib.mkEnableOption "";
 
     dns_server = lib.mkEnableOption "";
+
+    laptop_lid = lib.mkOption {
+      type    = lib.types.str;
+      default = "suspend";
+    };
   };
 }
