@@ -1,4 +1,4 @@
-{ config, lib, ... }:{
+{ config, lib, ... }: with lib; {
   imports = [
     ./users.nix
     # ./sudo.nix
@@ -6,29 +6,30 @@
     ./virtualisation.nix
     ./gaming.nix
     ./window_manager.nix
+    ./wifi.nix
   ];
 
   options._ = {
-    login_manager = lib.mkEnableOption "";
+    login_manager = mkEnableOption "";
 
-    audio = lib.mkEnableOption "";
+    audio = mkEnableOption "";
 
-    crypttab.text = lib.mkOption {
-      type    = lib.types.str;
+    crypttab.text = mkOption {
+      type    = types.str;
       default = "";
     };
 
-    hostName = lib.mkOption {
-      type    = lib.types.str;
+    hostName = mkOption {
+      type    = types.str;
       default = "nixos";
     };
 
-    graphic = lib.mkEnableOption "";
+    graphic = mkEnableOption "";
 
-    dns_server = lib.mkEnableOption "";
+    dns_server = mkEnableOption "";
 
-    laptop_lid = lib.mkOption {
-      type    = lib.types.str;
+    laptop_lid = mkOption {
+      type    = types.str;
       default = "suspend";
     };
   };

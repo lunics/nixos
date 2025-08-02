@@ -1,29 +1,29 @@
-{ config, lib, ... }:{
+{ config, lib, ... }: with lib; {
   options._ = {
-    virtualisation = lib.mkEnableOption "";
+    virtualisation = mkEnableOption "";
 
-    k3s = lib.mkOption {
-      type    = lib.types.bool;
+    k3s = mkOption {
+      type    = types.bool;
       default = config._.virtualisation;
     };
 
-    waydroid = lib.mkOption {
-      type    = lib.types.bool;
+    waydroid = mkOption {
+      type    = types.bool;
       default = config._.virtualisation;
     };
 
-    libvirt = lib.mkOption {
-      type    = lib.types.bool;
+    libvirt = mkOption {
+      type    = types.bool;
       default = config._.virtualisation;
     };
 
-    docker = lib.mkOption {
-      type    = lib.types.bool;
+    docker = mkOption {
+      type    = types.bool;
       default = false;
     };
 
-    podman = lib.mkOption {
-      type    = lib.types.bool;
+    podman = mkOption {
+      type    = types.bool;
       default = false;
     };
   };

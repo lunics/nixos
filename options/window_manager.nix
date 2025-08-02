@@ -1,8 +1,8 @@
-{ lib, ... }:{
+{ lib, ... }: with lib; {
   options._ = {
-    window_manager = lib.mkEnableOption "";
-    wayland_user  = lib.mkOption {
-      type    = lib.types.str;
+    window_manager = mkEnableOption "";
+    wayland_user  = mkOption {
+      type    = types.str;
       default = "";
     };
   };

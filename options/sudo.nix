@@ -1,38 +1,38 @@
-{ lib, ... }:{
+{ lib, ... }: with lib; {
   options._.sudo = {
-    wheelNeedsPassword = lib.mkOption {
-      type    = lib.types.bool;
+    wheelNeedsPassword = mkOption {
+      type    = types.bool;
       default = true;
     };
 
-    # extraRules = lib.mkOption {
+    # extraRules = mkOption {
     #   default = [];
-    #   type = lib.types.listOf (submodule {
+    #   type = types.listOf (submodule {
     #     options {
-    #       users = lib.mkOption {
-    #         type    = with lib.types; listOf (either str int);
+    #       users = mkOption {
+    #         type    = with types; listOf (either str int);
     #         default = [];
     #       };
 
-    #       host = lib.mkOption {
-    #         type    = lib.types.str;
+    #       host = mkOption {
+    #         type    = types.str;
     #         default = "ALL";
     #       };
 
-    #       runAs = lib.mkOption {
-    #         type    = with lib.types; str;
+    #       runAs = mkOption {
+    #         type    = with types; str;
     #         default = "ALL:ALL";
     #       };
 
-    #       # commands = lib.mkOption {
+    #       # commands = mkOption {
     #       #   type =
-    #       #     with lib.types;
+    #       #     with types;
     #       #     listOf (
     #       #       either str (submodule {
 
     #       #         options = {
-    #       #           command = lib.mkOption {
-    #       #             type = with lib.types; str;
+    #       #           command = mkOption {
+    #       #             type = with types; str;
     #       #             description = ''
     #       #               A command being either just a path to a binary to allow any arguments,
     #       #               the full command with arguments pre-set or with `""` used as the argument,
@@ -40,9 +40,9 @@
     #       #             '';
     #       #           };
 
-    #       #           options = lib.mkOption {
+    #       #           options = mkOption {
     #       #             type =
-    #       #               with lib.types;
+    #       #               with types;
     #       #               listOf (enum [
     #       #                 "NOPASSWD"
     #       #                 "PASSWD"

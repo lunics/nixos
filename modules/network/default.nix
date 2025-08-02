@@ -1,8 +1,9 @@
 {
   imports = [
-    ./bluetooth.nix
+    ./network_manager.nix
+    ./wifi_profiles.nix
     ./iwd.nix
-    ./network-manager.nix
+    ./bluetooth.nix
     ./network.nix
     ./vpn
     ./dns

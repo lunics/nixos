@@ -1,19 +1,19 @@
-{ config, lib, ... }:{
+{ config, lib, ... }: with lib; {
   options._ = {
-    gaming = lib.mkEnableOption "";
+    gaming = mkEnableOption "";
 
-    steam = lib.mkOption {
-      type    = lib.types.bool;
+    steam = mkOption {
+      type    = types.bool;
       default = config._.gaming;
     };
 
-    gamemode = lib.mkOption {
-      type    = lib.types.bool;
+    gamemode = mkOption {
+      type    = types.bool;
       default = config._.gaming;
     };
 
-    gamescope = lib.mkOption {
-      type    = lib.types.bool;
+    gamescope = mkOption {
+      type    = types.bool;
       default = config._.gaming;
     };
   };

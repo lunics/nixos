@@ -1,10 +1,10 @@
-{ config, lib, ... }:{
+{ config, lib, ... }: with lib; {
   options._.zramSwap = {
-    enable = lib.mkEnableOption "";
+    enable = mkEnableOption "";
 
-    memoryPercent = lib.mkOption {
+    memoryPercent = mkOption {
       default = 50;  # 50% of ZRAM
-      type    = lib.types.int;
+      type    = types.int;
     };
   };
 }
