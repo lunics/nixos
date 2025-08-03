@@ -1,6 +1,6 @@
 { inputs, ... }:{
   imports = [
-    # inputs.ags.homeManagerModules.default
+    inputs.ags.homeManagerModules.default
     # inputs.nur.hmModules.nur
     ./nix_programs.nix
     ./home.nix
