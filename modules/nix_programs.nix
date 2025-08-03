@@ -5,10 +5,12 @@
       # path   = "$HOME/usb_copy/homelab/nixos/home";
     };
 
-    ## run "nix-index" to generate the database in /home/lunics/.cache/nix-index/files
-    nix-index = {       # send message if command fail: The program '#' is currently not installed: nix-shell -p  --run '# ...'
-      enable = false;
-      enableZshIntegration = true;    # mutually exclusive with command-not-found
+    ## run "nix-index" to generate the database in /home/lunics/.cache/nix-index/files, takes btw 5-20 min
+    nix-index = {       
+      enable = true;
+      enableZshIntegration = false;    
+        # mutually exclusive with command-not-found
+        # send message if command fail: The program '#' is currently not installed: nix-shell -p  --run '# ...'
     };
 
     command-not-found = {
