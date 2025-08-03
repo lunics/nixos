@@ -1,5 +1,5 @@
 [mounts]
-	path = /home/lunics/usb_copy/homelab/share/passage/store
+	path = /home/lunics/usb_copy/homelab/share/gopass
 
 [generate]
   autoclip  = true        # copy the password created
