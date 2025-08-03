@@ -3,6 +3,10 @@
   # ];
 
   options._ = {
+    username = mkOption {
+      type    = types.str;
+      default = "nixos";
+    };
   };
 }
 

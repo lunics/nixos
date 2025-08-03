@@ -1,7 +1,7 @@
-{
+{ config, ... }:{
   home = {
-    username        = "lunics";
-    homeDirectory   = "/home/lunics";
+    username        = "${config._.username}";
+    homeDirectory   = "/home/${config._.username}";
     stateVersion    = "24.05";
     enableDebugInfo = false;
     preferXdgDirectories      = true;     # make programs use XDG directories whenever supported
