@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:{ 
   home.packages = with pkgs; [
-    inputs.flake-neovim.packages."${system}".default
+    inputs.neovim.packages."${system}".default
     systemd
     ueberzugpp
     python3
