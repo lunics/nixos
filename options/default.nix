@@ -1,6 +1,7 @@
 { config, lib, ... }: with lib; {
-  # imports = [
-  # ];
+  imports = [
+    ./ssh.nix
+  ];
 
   options._ = {
     username = mkOption {

@@ -2,10 +2,10 @@
   programs = {
     home-manager = {
       enable = true;
-      # path   = "$HOME/usb_copy/homelab/nixos/home";
+      # path   = "$HOME/nixos/home";
     };
 
-    ## run "nix-index" to generate the database in /home/lunics/.cache/nix-index/files, takes btw 5-20 min
+    ## run "nix-index" to generate the database in /home/$USER/.cache/nix-index/files, takes btw 5-20 min
     nix-index = {       
       enable = true;
       enableZshIntegration = false;    
