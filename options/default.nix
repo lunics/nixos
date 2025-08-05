@@ -11,6 +11,11 @@
   ];
 
   options._ = {
+    hostName = mkOption {
+      type    = types.str;
+      default = "nixos";
+    };
+
     login_manager = mkEnableOption "";
 
     audio = mkEnableOption "";
@@ -18,11 +23,6 @@
     crypttab.text = mkOption {
       type    = types.str;
       default = "";
-    };
-
-    hostName = mkOption {
-      type    = types.str;
-      default = "nixos";
     };
 
     graphic = mkEnableOption "";
