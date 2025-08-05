@@ -1,5 +1,5 @@
 { 
-  programs.firefox.profiles.Lunics.bookmarks = [
+  programs.firefox.profiles.PROFILE_NAME.bookmarks = [
     {
       name = "wikipedia";
       tags = [ "wiki" ];

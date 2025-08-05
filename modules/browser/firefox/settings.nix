@@ -1,19 +1,19 @@
 { 
-  programs.firefox.profiles.Lunics.settings = {
-    "browser.fullscreen.autohide"   = false;
-    "browser.quitShortcut.disabled" = true;
-    "browser.tabs.tabMinWidth"      = 5;
-    "browser.startup.page"          = 3;            # Resume previous session on startup
-    "browser.uidensity"             = 1;            # 1 = Density compact
-    "browser.tabs.drawInTitlebar"   = false;        # Use OS window border
-    "browser.tabs.inTitlebar"       = 1;            # Use OS window border
+  programs.firefox.profiles.PROFILE_NAME.settings = {
+    "browser.fullscreen.autohide"       = false;
+    "browser.quitShortcut.disabled"     = true;
+    "browser.tabs.tabMinWidth"          = 5;
+    "browser.startup.page"              = 3;        # Resume previous session on startup
+    "browser.uidensity"                 = 1;        # 1 = Density compact
+    "browser.tabs.drawInTitlebar"       = false;    # Use OS window border
+    "browser.tabs.inTitlebar"           = 1;        # Use OS window border
     "browser.ctrlTab.recentlyUsedOrder" = false;    # Disable thumbnail preview ctrl + tab
-    "browser.translations.enable"   = false;
+    "browser.translations.enable"       = false;
     "browser.translations.automaticallyPopup" = false;
     
-    "widget.gtk.non-native-titlebar-buttons.enabled" = false;          # use native GTK buttons
-    "widget.non-native-theme.scrollbar.size" = 24;         # custom scrollbar
-    "widget.use-xdg-desktop-portal.file-picker" = 1;
+    "widget.gtk.non-native-titlebar-buttons.enabled" = false;   # use native GTK buttons
+    "widget.non-native-theme.scrollbar.size"         = 24;      # custom scrollbar
+    "widget.use-xdg-desktop-portal.file-picker"      = 1;
     
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;   # Allow customChrome.css
     

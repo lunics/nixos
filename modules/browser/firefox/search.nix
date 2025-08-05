@@ -1,8 +1,8 @@
 { 
-  programs.firefox.profiles.Lunics.search = {
-    default = "DuckDuckGo";
+  programs.firefox.profiles.PROFILE_NAME.search = {
+    default        = "DuckDuckGo";
     privateDefault = "DuckDuckGo";
-    order = [ "DuckDuckGo" "Google" ];
+    order          = [ "DuckDuckGo" "Google" ];
     engines = {
       "Nix Packages" = {
         urls = [{
@@ -24,7 +24,7 @@
         definedAliases = [ "@nw" ];
       };
     
-      "Bing".metaData.hidden = true;
+      "Bing".metaData.hidden  = true;
       "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
     }
   };
