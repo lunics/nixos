@@ -1,11 +1,15 @@
 { config, lib, ... }:{
+  imports = [ ./thinkpad-t14.db.nix ];
+
   config = lib.mkIf config._.dns_server {
     services.bind = {
       enable           = true;
       directory        = "/run/named";       # working directory of BIND
+
       extraConfig      = "";
       extraOptions     = "";
-      # configFile     = ./custom_file;   # overridable config
+      configFile     = ./custom_file;   # overridable config
+
       forward          = "first";    # first, only
       # forwarders     = config.networking.nameservers;
       # package        = pkgs.bind;

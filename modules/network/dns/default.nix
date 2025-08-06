@@ -2,8 +2,8 @@
   imports = [
     ./etc_hosts.nix
     ./systemd-resolved.nix
-    ./bind.nix
-    ./thinkpad-t14.db.nix
+    ./bind9
+    ./nsd
     # ./technitium-dns-server.nix   KO failed build, 1,6 GB derivation
   ];
 }
