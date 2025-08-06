@@ -27,7 +27,10 @@
 
     graphic = mkEnableOption "";
 
-    dns_server = mkEnableOption "";
+    dns = {
+      bind9 = mkEnableOption "";
+      nsd   = mkEnableOption "";
+    };
 
     laptop_lid = mkOption {
       type    = types.str;

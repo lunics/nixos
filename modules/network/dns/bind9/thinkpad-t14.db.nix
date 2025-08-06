@@ -1,5 +1,5 @@
 { config, lib, ... }:{
-  config = lib.mkIf config._.dns_server {
+  config = lib.mkIf config._.dns.bind9 {
     environment.etc."bind/zones/thinkpad-t14.db".text = ''
       $TTL    3600
       $ORIGIN thinkpad-t14.

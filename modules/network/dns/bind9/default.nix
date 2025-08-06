@@ -1,7 +1,7 @@
 { config, lib, ... }:{
   imports = [ ./thinkpad-t14.db.nix ];
 
-  config = lib.mkIf config._.dns_server {
+  config = lib.mkIf config._.dns.bind9 {
     services.bind = {
       enable           = true;
       directory        = "/run/named";       # working directory of BIND
