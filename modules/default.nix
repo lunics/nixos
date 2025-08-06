@@ -3,6 +3,7 @@
     ../options
     ./hardware.nix
     ./disk
+    # ./impermanence.nix
     ./boot.nix
     ./nix
     ./configuration.nix
