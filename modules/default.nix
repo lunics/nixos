@@ -23,6 +23,7 @@
     ./virtualisation
     ./gaming
     ./graphic
+    # ./auto-upgrade.nix
     ## ./udev
     ## ./server
   ];
