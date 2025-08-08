@@ -6,23 +6,30 @@
   ];
 
   home.packages = with pkgs; [
-    ardour                  # ko build: raptor
-    jack2
-    helm                    # free polyphonic synth with lots of modulation
-    # yabridge              # to use Windows VST2, VST3 and CLAP plugins on Linux
-    # reaper
-    # bitwig
-    
-    # - xjadeo              # simple video player that is synchronized to jack transport
-    # - zita-njbridge       # Jack client to transmit audio over a local IP network
-    # - cadence             # control panel for audio work
-    # - harvid              # HTTP Ardour Video Daemon
-    # - yabridge            # enable Windows VST2 and VST3 plugins on Linux
-    # - yabridgectl
-    # - helm-synth
-    # - vital-synth
-    # - surge               # Open Source Digital Synthesizer
-    # - carla               # audio plugin host
+    # streaming
+    pamixer
+    pavucontrol
+    ## ncpamixer ?
+
+    # home studio
+    # reaper              # best linux DAW not too expensive KO
+    jack2               # JACK audio connection kit, version 2 with jackdbus
+    carla               # interconnect MIDI apps, and host plugins
+    yabridge            # to use Windows VST2, VST3 and CLAP plugins on Linux
+    yabridgectl         # small, optional utility to help set up and update yabridge for several directories at once
+
+    # synthesizer
+    dexed               # DX7 FM multi platform/multi format plugin
+    helm                # free polyphonic synth with lots of modulation
+    surge               # open source digital synthesizer
+
+    # bitwig            # ableton linux, native linux but very expensive 400€
+    # ardour            # ko build: raptor
+    # harvid            # HTTP Ardour Video Daemon
+    # xjadeo            # simple video player that is synchronized to jack transport
+    # zita-njbridge     # Jack client to transmit audio over a local IP network
+    # cadence           # control panel for audio work
+    # vital-synth
   ];
 
   # create music directory
