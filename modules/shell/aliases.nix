@@ -8,7 +8,7 @@
     q     = "exit";
     r     = "trash";
     s     = "sudo";
-    t     = "go-task --dir $HOME/usb_copy/homelab/taskfile $(go-task --dir $HOME/usb_copy/homelab/taskfile --list-all | tr -d ' *:' | sed 1d | fzf)";
+    t     = "go-task --dir $HOME/usb_copy/homelab/scripts/taskfile $(go-task --dir $HOME/usb_copy/homelab/scripts/taskfile --list-all | tr -d ' *:' | sed 1d | fzf)";
     v     = "nvim";
     w     = "which+";
     x     = "sxiv -ft *";
@@ -58,6 +58,8 @@
     reload  = "exec zsh";
     paste   = "wl-paste";
     vimdiff = "nvim -d";
+    taskfile = "go-task";
+    calendar = "cal";
     # suspend:    sudo systemctl suspend  # save state fast to the RAM but lost sessions if battery down
     # hibernate                           # save state slowly to the disk and don't lost session if battery down but slower to power on
     # hybrid-sleep Hibernate and suspend  # save state to RAM then to disk so the power on is faster if battery is still on
