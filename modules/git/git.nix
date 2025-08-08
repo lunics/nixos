@@ -4,13 +4,13 @@
   ];
 
   programs.git = {
-    enable      = true;
-    userName    = "lunics";
-    userEmail   = "***REMOVED***";
-    # delta.enable = true;
-    ignores = [
-      ".direnv"
-    ];
+    enable       = true;
+    userName     = "lunics";
+    userEmail    = "***REMOVED***";
+    delta.enable = true;       # delta syntax highlighter
+    # hooks = {     # default hooks used when git clone
+    #   pre-commit = ./pre-commit-script;
+    # };
     extraConfig = {
       init.defaultBranch = "main"; 
       # user.signingkey = lib.mkIf (builtins.hasAttr osConfig.networking.hostName signingKeys) (signingKeys.${osConfig.networking.hostName});
@@ -21,6 +21,9 @@
       # };
       # push.autoSetupRemote = true;
     }; 
+    ignores = [
+      ".direnv"
+    ];
     # conflictstyle = zdiff3 ??
   };
 
