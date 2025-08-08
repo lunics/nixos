@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 ## if pomodoro.timer stopped manually then echo "" > /tmp/pomodoro_cycle
-systemctl --user restart pomodoro.timer     # force reset the timer after every resume
+# systemctl --user restart pomodoro.timer     # force reset the timer after every resume
+# echo "pomodoro.timer restarted"
 
 touch /tmp/pomodoro_cycle
 
@@ -11,6 +12,7 @@ time_screen_off_sec=$(expr $time_screen_off \* 60)
 
 now=$(date +%H%M)     # convert time H:M in number HM
 if (( 10#$now >= 1200 && 10#$now <= 1330 )); then   # exit service between 12:00 and 13:30 pm
+  echo "service exiting because current time between 12:00 and 13:30 pm"
   exit 0
 fi
 

@@ -4,7 +4,7 @@
       Unit.Description = "poweroff laptop every night at 23:00 pm";
       Timer = {
         OnCalendar = "22:50";
-        Persistent = true;
+        Persistent = false;
       };
       Install.WantedBy = [ "default.target" ];
     };

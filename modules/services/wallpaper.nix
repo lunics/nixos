@@ -21,8 +21,8 @@
     services."wallpaper" = {
       Unit = {
         Description = "update wallpaper";
-        PartOf      = [ "hyprland.target" ];
-        After       = [ "hyprland.target" ];
+        # PartOf      = [ "hyprland.target" ];    ## trigger server at every hm build
+        # After       = [ "hyprland.target" ];    ## trigger server at every hm build
       };
 
       Service = {
