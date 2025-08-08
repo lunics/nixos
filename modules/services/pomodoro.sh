@@ -9,6 +9,10 @@ time_working=30     # 30 min
 time_screen_off=3   # 3 min
 time_screen_off_sec=$(expr $time_screen_off \* 60)
 
+now=$(date +%H%M)     # convert time H:M in number HM
+if (( 10#$now >= 1200 && 10#$now <= 1330 )); then   # exit service between 12:00 and 13:30 pm
+  exit 0
+fi
 
 # if the system has booted reset the cycle_count else continue for the next cycle
 if journalctl --user -u pomodoro.service -n 2 | grep -i boot > /dev/null; then

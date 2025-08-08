@@ -13,7 +13,7 @@
       Timer = {
         OnCalendar  = "*-*-* 00..23:00";
         AccuracySec = "1s";
-        Persistent  = true;
+        Persistent  = false;        # don't change wallpaper if scheduling missed
       };
       Install.WantedBy  = [ "default.target" ];
     };
