@@ -31,7 +31,6 @@
 
     
     USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
-    OPENAI_API_KEY  = "***REMOVED***";
 
     _ZO_DATA_DIR = "$HOME/usb_copy/homelab/share/zoxide";
     

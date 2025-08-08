@@ -8,6 +8,11 @@
       type    = types.str;
       default = "nixos";
     };
+
+    openai_api_key = mkOption {
+      type    = types.str;
+      default = "";
+    };
   };
 }
 
