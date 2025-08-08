@@ -4,4 +4,4 @@
 
 monitor = eDP-1, 1920x1200@60, 0x0, 1         # default P14s monitor
 
-monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1   # LG TV Gentilly
+# monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1   # LG TV Gentilly

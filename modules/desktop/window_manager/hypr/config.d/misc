@@ -1,5 +1,5 @@
 misc {
-  disable_autoreload        = false     # config reload automatically on save, if false needs "hyprctl reload" to be reloaded
+  disable_autoreload        = true      # reload automatically when config changes, if false needs manual "hyprctl reload"
   disable_hyprland_logo     = false
   disable_splash_rendering  = false
   mouse_move_enables_dpms   = false     # If DPMS is set to off, wake up the monitors if the mouse moves
