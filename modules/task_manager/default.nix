@@ -1,8 +1,8 @@
-{ pkgs, lib, ... }:{ 
+{ config, lib, pkgs, ... }:{ 
   home = {
     packages = with pkgs; [
-      (lib.hiPrio taskwarrior3)
-      taskwarrior-tui
+      (lib.hiPrio taskwarrior3)     # hiPrio needed to avoid conflict with go-task/taskfile
+      taskwarrior-tui               # disgusting project, use it only for monitoring
       timewarrior
       taskopen          # script for taking notes and open urls with taskwarrior
       # syncall         ## KO    # bi-directional synchronization between services such as Taskwarrior, Google Calendar, Notion, etc...
@@ -14,15 +14,16 @@
       recursive  = true;
     };
 
+    file.".config/taskwarrior/hooks" = {
+      source     = ./hooks;
+      executable = true;
+      recursive  = true;
+    };
+
     sessionVariables = rec {
-      TASKRC        = "$HOME/.config/taskwarrior/taskw/taskrc";
+      TASKRC        = "${config.xdg.configHome}/taskwarrior/taskw/taskrc";
       TASKDATA      = "$HOME/usb_copy/homelab/share/taskwarrior";
       TIMEWARRIORDB = "$HOME/usb_copy/homelab/share/taskwarrior/timewarrior";    # path for data + config
     };
   };
-
-  # mkdir
-  #   ~/.config/taskwarrior/hooks
-  #   ~/.config/taskwarrior/hooks/on-modify.timewarrior.py 0744
-  #   /home/lunics/usb_copy/homelab/share/timewarrior
 }

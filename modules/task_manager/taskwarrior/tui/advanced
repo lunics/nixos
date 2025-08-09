@@ -1,15 +1,12 @@
-report.next.labels  = ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
-report.next.columns = id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.truncated_count,urgency
-# old v1 report.next.filter=status:pending -WAITING limit:page
-# old v2 report.next.filter=status:pending
-# old v2 report.next.filter=(status:pending or status:waiting) page:limit
+report.next.labels  = id,age,deps,p,project,tag,recur,s,due,until,description,urg,active
+report.next.columns = id,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.truncated_count,urgency,start.age
 
 uda.taskwarrior-tui.selection.indicator = •
-uda.taskwarrior-tui.selection.bold      = yes
-uda.taskwarrior-tui.selection.italic    = no
-uda.taskwarrior-tui.selection.dim       = no
-uda.taskwarrior-tui.selection.blink     = no
-uda.taskwarrior-tui.selection.reverse   = no
+uda.taskwarrior-tui.selection.bold      = true
+uda.taskwarrior-tui.selection.italic    = false
+uda.taskwarrior-tui.selection.dim       = false
+uda.taskwarrior-tui.selection.blink     = false
+uda.taskwarrior-tui.selection.reverse   = false
 
 uda.taskwarrior-tui.mark.indicator             = ✔
 uda.taskwarrior-tui.unmark.indicator           = 
@@ -18,30 +15,31 @@ uda.taskwarrior-tui.unmark-selection.indicator = ⦾
 
 uda.taskwarrior-tui.calendar.months-per-row = 4
 
-uda.taskwarrior-tui.task-report.show-info=true
-uda.taskwarrior-tui.task-report.looping=false             # infinite loop task's list
-uda.taskwarrior-tui.task-report.jump-on-task-add=true
-uda.taskwarrior-tui.task-report.prompt-on-delete=false
-uda.taskwarrior-tui.task-report.prompt-on-done=false
+uda.taskwarrior-tui.task-report.show-info        = false           # toggle info with z
+uda.taskwarrior-tui.task-report.looping          = false           # infinite loop task's list
+uda.taskwarrior-tui.task-report.jump-on-task-add = true
+uda.taskwarrior-tui.task-report.prompt-on-delete = false
+uda.taskwarrior-tui.task-report.prompt-on-done   = false
 
 uda.taskwarrior-tui.style.report.selection      =
 uda.taskwarrior-tui.style.context.active        = black on rgb444
 uda.taskwarrior-tui.style.calendar.title        = black on rgb444
 uda.taskwarrior-tui.style.report.scrollbar      = black
-uda.taskwarrior-tui.scrollbar.indicator         = █
 uda.taskwarrior-tui.style.report.scrollbar.area = white
-uda.taskwarrior-tui.scrollbar.area              = ║
+uda.taskwarrior-tui.scrollbar.indicator         =         # default = █
+uda.taskwarrior-tui.scrollbar.area              =         # default = ║
 
-# uda.taskwarrior-tui.task-report.next.filter=$(task show report.next.filter)     # default view at program startup
-uda.taskwarrior-tui.task-report.next.filter =
-uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-add      = true
-uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-annotate = true
-uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-log      = true
-uda.taskwarrior-tui.task-report.reset-filter-on-esc=true
+# uda.taskwarrior-tui.task-report.next.filter=$(task show report.next.filter)     
+  # default but KO
+  # if empty will keep show deleted task, what we don't want
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-add      = false
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-annotate = false
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-log      = false
+uda.taskwarrior-tui.task-report.reset-filter-on-esc                   = true
 
 uda.taskwarrior-tui.context-menu.select-on-move = false
 uda.taskwarrior-tui.tabs.change-focus-rotate    = false
 
-# mapping a shortcut to an executable file/script, keys 1-9 are available to run shortcuts
-# uda.taskwarrior-tui.shortcuts.0=~/.config/taskwarrior-tui/shortcut-scripts/add-personal-tag.sh
-# uda.taskwarrior-tui.shortcuts.2=~/.config/taskwarrior-tui/shortcut-scripts/sync.sh
+## mapping a shortcut to an executable file/script, keys 1-9 are available to run shortcuts
+## uda.taskwarrior-tui.shortcuts.0=~/.config/taskwarrior-tui/shortcut-scripts/add-personal-tag.sh
+## uda.taskwarrior-tui.shortcuts.2=~/.config/taskwarrior-tui/shortcut-scripts/sync.sh

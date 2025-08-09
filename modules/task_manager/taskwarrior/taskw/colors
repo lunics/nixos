@@ -1,6 +1,6 @@
-color.deleted   =
-color.completed =
-color.active    = rgb555 on rgb410
+color.deleted   = grey
+color.completed = blue
+color.active    = white on green     # rgb555 on rgb410
 color.overdue   =                    # color9
 color.scheduled =                    # on rgb001
 color.due.today =                    # rgb400

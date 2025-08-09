@@ -2,7 +2,7 @@ uda.taskwarrior-tui.keyconfig.add           = a
 uda.taskwarrior-tui.keyconfig.start-stop    = s
 uda.taskwarrior-tui.keyconfig.done          = d
 uda.taskwarrior-tui.keyconfig.modify        = m
-# uda.taskwarrior-tui.keyconfig.edit        = e      KO
+# uda.taskwarrior-tui.keyconfig.edit        = e      KO, issue never fixed: Malformed entry 'uda.taskwarrior-tui.keyconfig.' in config file
 uda.taskwarrior-tui.keyconfig.filter        = f
 uda.taskwarrior-tui.keyconfig.zoom          = z
 uda.taskwarrior-tui.keyconfig.quit          = q
@@ -17,7 +17,6 @@ uda.taskwarrior-tui.keyconfig.shortcut6     =
 uda.taskwarrior-tui.keyconfig.shortcut7     =
 uda.taskwarrior-tui.keyconfig.shortcut8     =
 uda.taskwarrior-tui.keyconfig.shortcut9     =
-
 
 uda.taskwarrior-tui.keyconfig.down          = j
 uda.taskwarrior-tui.keyconfig.up            = k
