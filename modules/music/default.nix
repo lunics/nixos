@@ -3,6 +3,7 @@
     ./mpd.nix
     ./rmpc
     ./musescore
+    # ./reaper.nix
   ];
 
   home.packages = with pkgs; [
@@ -12,7 +13,6 @@
     ## ncpamixer ?
 
     # home studio
-    # reaper              # best linux DAW not too expensive KO
     jack2               # JACK audio connection kit, version 2 with jackdbus
     carla               # interconnect MIDI apps, and host plugins
     yabridge            # to use Windows VST2, VST3 and CLAP plugins on Linux
