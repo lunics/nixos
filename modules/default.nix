@@ -25,5 +25,6 @@
     ./task_manager
     ./music
     ./stylix.nix
+    ./anki.nix
   ];
 }
