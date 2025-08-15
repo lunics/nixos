@@ -1,5 +1,6 @@
 { config, lib, ... }: with lib; {
   imports = [
+    ./disk.nix
     ./users.nix
     # ./sudo.nix
     ./zramSwap.nix

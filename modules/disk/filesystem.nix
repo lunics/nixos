@@ -1,6 +1,6 @@
 {
   fileSystems = {
-    # "/persistent".neededForBoot = true;
+    "/persistent".neededForBoot = true;
     "/var/log".neededForBoot = true;
   };
 }
