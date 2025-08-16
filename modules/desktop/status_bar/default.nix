@@ -1,6 +1,6 @@
 { 
   imports = [
     ./waybar
-    # ./hyprpanel.nix
+    ./hyprpanel.nix
   ]; 
 }

@@ -1,7 +1,6 @@
 { pkgs, ... }:{
   ## dynamc input & bind
   programs = {
-
     wayprompt = {
       enable   = true;
       package  = pkgs.wayprompt;

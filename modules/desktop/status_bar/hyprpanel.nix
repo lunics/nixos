@@ -1,55 +1,77 @@
-{
-# already in nixpkgs
-# { inputs, ... }:{
-#   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
-#       # inputs.flake-neovim.packages."${system}".default
+{ config, lib, ... }:{
+  config = lib.mkIf (config._.status_bar == "hyprpanel") {
+    programs.hyprpanel = {
+      enable          = true;
+      # package         = pkgs.hyprpanel;
+      systemd.enable  = true;
+      dontAssertNotificationDaemons = true;     # don't use hyprpanel as a notification daemons, because buggy
 
-  programs.hyprpanel = {
-    enable = true;
-    systemd.enable    = true;
-    hyprland.enable   = false;    # Add hyprpanel' to your Hyprland config 'exec-once'.
-    theme             = "gruvbox_split";
-    override = {
-      enable  = true;
-      theme.bar.menus.text = "#123ABC";
-    };
-
-    layout = {   # See 'https://hyprpanel.com/configuration/panel.html'.
-      "bar.layouts" = {
-        "0" = {
-          left   = [ "dashboard" "workspaces" ];
-          middle = [ "media" ];
-          right  = [ "volume" "systray" "notifications" ];
+      settings = {
+        bar.battery.label = true;
+        bar.bluetooth.label = false;
+        bar.clock.format = "%H:%M:%S";
+        bar.layouts = {
+          "*" = {
+            left = [
+              "dashboard"
+              "workspaces"
+              "media"
+            ];
+            middle = [ "windowtitle" ];
+            right = [
+              "volume"
+              "network"
+              "bluetooth"
+              "notifications"
+            ];
+          };
         };
       };
-    };
 
-    # Configure and theme almost all options from the GUI.
-    # Options that require '{}' or '[]' are not yet implemented,
-    # except for the layout above.
-    # See 'https://hyprpanel.com/configuration/settings.html'.
-    # Default: <same as gui>
-    settings = {
-      bar.launcher.autoDetectIcon = true;
-      bar.workspaces.show_icons = true;
 
-      menus.clock = {
-        time = {
-          military = true;
-          hideSeconds = true;
-        };
-        weather.unit = "metric";
-      };
+      # theme           = "gruvbox_split";
+      # override = {
+      #   enable  = true;
+      #   theme.bar.menus.text = "#123ABC";
+      # };
 
-      menus.dashboard.directories.enabled = false;
-      menus.dashboard.stats.enable_gpu = true;
+      # layout = {   # See 'https://hyprpanel.com/configuration/panel.html'.
+      #   "bar.layouts" = {
+      #     "0" = {
+      #       left   = [ "dashboard" "workspaces" ];
+      #       middle = [ "media" ];
+      #       right  = [ "volume" "systray" "notifications" ];
+      #     };
+      #   };
+      # };
 
-      theme.bar.transparent = true;
+      # Configure and theme almost all options from the GUI.
+      # Options that require '{}' or '[]' are not yet implemented,
+      # except for the layout above.
+      # See 'https://hyprpanel.com/configuration/settings.html'.
+      # Default: <same as gui>
+      # settings = {
+      #   bar.launcher.autoDetectIcon = true;
+      #   bar.workspaces.show_icons = true;
 
-      theme.font = {
-        name = "CaskaydiaCove NF";
-        size = "16px";
-      };
+      #   menus.clock = {
+      #     time = {
+      #       military = true;
+      #       hideSeconds = true;
+      #     };
+      #     weather.unit = "metric";
+      #   };
+
+      #   menus.dashboard.directories.enabled = false;
+      #   menus.dashboard.stats.enable_gpu = true;
+
+      #   theme.bar.transparent = true;
+
+      #   theme.font = {
+      #     name = "CaskaydiaCove NF";
+      #     size = "16px";
+      #   };
+      # };
     };
   };
 }

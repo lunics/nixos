@@ -1,6 +1,7 @@
 { config, lib, ... }: with lib; {
   imports = [
     ./ssh.nix
+    ./desktop.nix
   ];
 
   options._ = {
