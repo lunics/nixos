@@ -1,7 +1,7 @@
 # run: hyprctl clients
 
 $terminal   = Alacritty|Kitty
-$browser    = zen-twilight|firefox|librewolf
+$browser    = zen-beta|firefox|librewolf      # zen-twilight
 $message    = discord|org.gajim.Gajim|Element|Session|org.telegram.dekstop|info.mumble.Mumble
 $streaming  = spotify|FreeTube|streamlink-twitch-gui|mpv
 $gaming     = dofus.exe
