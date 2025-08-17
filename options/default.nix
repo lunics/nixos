@@ -1,4 +1,4 @@
-{ config, lib, ... }: with lib; {
+{ lib, ... }: with lib; {
   imports = [
     ./ssh.nix
     ./desktop.nix
