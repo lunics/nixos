@@ -1,5 +1,24 @@
 { pkgs, ... }:{
-  ## dynamc input & bind
+  imports = [ ./hyprland.conf.nix ];
+
+  xdg.configFile = {
+    "hypr" = {
+      source    = ./dot_files;
+      recursive = true;
+    };
+
+    "hypr/config.d/bind".text = builtins.readFile ./dot_files/binds/bind_azerty;
+    # "hypr/config.d/bind".text = builtins.readFile ./hypr/binds/bind_splitkb;
+
+    # "hypr/config.d/bind".text = ''
+    #   splash = false
+    #   preload = ${wallpaper}
+    #   wallpaper = DP-1, ${wallpaper}
+    #   wallpaper = eDP-1, ${wallpaper}
+    # '';
+  };
+
+   ## dynamc input & bind
   programs = {
     wayprompt = {
       enable   = true;
@@ -28,24 +47,7 @@
     brightnessctl
     grimblast           # grim + slurp to take screenshot
   ];
-
-  xdg.configFile = {
-    "hypr" = {
-      recursive = true;
-      source    = ./hypr;
-    };
-
-    "hypr/config.d/bind".text = builtins.readFile ./hypr/binds/bind_azerty;
-    # "hypr/config.d/bind".text = builtins.readFile ./hypr/binds/bind_splitkb;
-
-    # "hypr/config.d/bind".text = ''
-    #   splash = false
-    #   preload = ${wallpaper}
-    #   wallpaper = DP-1, ${wallpaper}
-    #   wallpaper = eDP-1, ${wallpaper}
-    # '';
-  };
-  
+ 
   home.sessionVariables.HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
 }
 
