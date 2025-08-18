@@ -1,18 +1,19 @@
 binds {
-  allow_workspace_cycles = yes
+  allow_workspace_cycles = true
 }
 
 $SUPER  = SUPER         # SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 $SSHIFT = SUPER SHIFT
 
 bind  = $SUPER,     B, exec, toggle_bt_device 90:5F:7A:BC:93:87
+bind  = $SSHIFT,    B, exec, hyprpanel toggleWindow bar-0
 bindr = $SUPER,     SUPER_L, exec, ulauncher-toggle
 bind  = $SUPER,     F, togglefloating,
 bind  = $SUPER,     L, exec, swaylock
 bind  = $SUPER,     Q, killactive,
 bind  = $SUPER,     R, exec, pkill wofi || wofi
 bind  = $SUPER,     S, exec, echo "" > /tmp/pomodoro_cycle && systemctl suspend
-# bind  = $SSHIFT,  S, exec, systemctl suspend & swaylock
+bind  = $SSHIFT,    S, exec, systemctl suspend & swaylock
 bind  = $SUPER,     T, exec, alacritty
 bind  = $SSHIFT,    T, exec, alacritty --title terminal_floats
 # bind  = $SUPER,   H, FOCUS LEFT WINDOW

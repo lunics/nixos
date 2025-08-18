@@ -5,7 +5,7 @@ decoration {
   # blurls = waybar
   # blurls = lockscreen
   blur {
-    enabled = yes
+    enabled = true
     size    = 5                     # blur distance
     passes  = 1
     xray    = false                 # true = floating windows will ignore tiled windows and display background wallpaper in their blur
@@ -20,7 +20,7 @@ decoration {
   inactive_opacity = 1.0
 
   shadow {
-    enabled       = yes
+    enabled       = false
     range         = 4
     render_power  = 2
     sharp         = false
@@ -28,6 +28,6 @@ decoration {
     color         = rgba(1a1a1aee)
     offset        = 0 0
     scale         = 1.0
-    # drop_shadow = yes
+    # drop_shadow = true
   }
 }
