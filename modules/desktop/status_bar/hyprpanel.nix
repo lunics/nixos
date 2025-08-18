@@ -55,11 +55,14 @@
               left = [
                 "dashboard"
                 "workspaces"
+                "custom/taskwarrior"
               ];
-              middle = [ "windowtitle" ];
+              middle = [ 
+                # "windowtitle" 
+                "clock"
+              ];
               right = [
                 # "media"
-                "clock"
                 "volume"
                 "battery"
                 "network"
