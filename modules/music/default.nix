@@ -3,7 +3,7 @@
     ./mpd.nix
     ./rmpc
     ./musescore
-    # ./reaper.nix
+    ./reaper.nix
   ];
 
   home.packages = with pkgs; [
