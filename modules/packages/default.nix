@@ -8,6 +8,7 @@
     ./torrent.nix
     ./neofetch.nix
     ./ai.nix
+    ./media.nix
     # ./yubikey.nix
   ];
 }

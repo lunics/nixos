@@ -39,13 +39,6 @@
     # qt6   KO
     
     jq
-    
-    # media controls
-    playerctl
-    freetube
-    spotify
-    streamlink-twitch-gui-bin
-    mpv
 
     joplin
     
