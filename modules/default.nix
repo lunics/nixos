@@ -24,6 +24,7 @@
     ./k3s
     ./task_manager
     ./music
+    ./media
     ./stylix.nix
     ./anki.nix
   ];
