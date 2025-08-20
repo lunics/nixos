@@ -11,3 +11,5 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 
 uda.score.type  = numeric
 uda.score.label = Score 🏆
+
+report.next.filter = status:pending
