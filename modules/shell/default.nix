@@ -5,7 +5,7 @@
     ./exports.nix
     ./history.nix
     ./prompt.nix
-    ./scripts.nix
+    ./scripts
     ./zsh
   ];
 }
