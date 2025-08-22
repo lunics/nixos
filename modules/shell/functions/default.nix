@@ -1,7 +1,7 @@
-
+{
   home.file = {
     ".local/functions" = {
-      source     = ./functions;
+      source     = ./files;
       recursive  = true; };
   };
-
+}
