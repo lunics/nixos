@@ -10,6 +10,7 @@
     ./timer.nix
     ./otp.nix
     ./toggle_bt_device.nix
+    ./_suspend.nix
   ];
 in {
   home.packages = with pkgs; 
