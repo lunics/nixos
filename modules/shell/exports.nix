@@ -1,11 +1,11 @@
 { config, ... }:{ 
   home.sessionVariables = rec {
-    TERMINAL      = "alacritty";
-    EDITOR        = "nvim";
-    MANPAGER      = "nvim +Man!";
-    READER        = "zathura";
-    BROWSER       = "zen";
-    FILE_EXPLORER = "yazi";
+    TERMINAL        = "alacritty";
+    EDITOR          = "nvim";
+    MANPAGER        = "nvim +Man!";
+    READER          = "zathura";
+    BROWSER         = "zen";
+    FILE_EXPLORER   = "yazi";
     
     # PATH
     CONFIG          = "${config.xdg.configHome}";
@@ -28,7 +28,6 @@
     ANSIBLE         = "$HOMELAB/ansible";
     ANSIBLE_CONFIG  = "$ANSIBLE/ansible.cfg";
     GALAXY          = "$ANSIBLE/galaxy";
-
     
     USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
 

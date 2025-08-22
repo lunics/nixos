@@ -6,6 +6,6 @@
     ./history.nix
     ./prompt.nix
     ./scripts.nix
-    ./zsh.nix
+    ./zsh
   ];
 }
