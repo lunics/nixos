@@ -1,6 +1,6 @@
 general {
   gaps_in             = 4           # gaps between windows
-  gaps_out            = 3           # gaps between monitor edges
+  gaps_out            = 4           # gaps between monitor edges
   border_size         = 2
   layout              = dwindle
   col.inactive_border =	0xff3c443d
