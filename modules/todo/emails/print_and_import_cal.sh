@@ -7,6 +7,6 @@ if [[ -f $1 ]]; then
             exit;
         fi
         khal import -a "$calendar" --batch $1 && \
-            dunstify "Calendar" "Event added to $calendar";
+            notify-send "Calendar" "Event added to $calendar";
     fi
 fi

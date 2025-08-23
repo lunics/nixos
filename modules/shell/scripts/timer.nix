@@ -4,6 +4,7 @@
     coreutils   # to avoid sleep issue
     termdown
     dunst
+    libnotify
   ];
 
   text = ''
@@ -18,6 +19,6 @@
       termdown "$1"
     fi
     
-    dunstify --timeout=3000 "Timer" "Time finished"
+    notify-send --timeout=3000 "Timer" "Time finished"
   '';
 }

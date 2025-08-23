@@ -14,11 +14,11 @@
       Service = {
         Type      = "oneshot";
         ExecStart = [ 
-          "/home/lunics/.nix-profile/bin/dunstify -t 5000 'Poweroff in 10 minutes'"
+          "/home/lunics/.nix-profile/bin/notify-send -t 5000 'Poweroff in 10 minutes'"
           "/run/current-system/sw/bin/sleep 300"
-          "/home/lunics/.nix-profile/bin/dunstify -t 10000 'Poweroff in 5 minutes'"
+          "/home/lunics/.nix-profile/bin/notify-send -t 10000 'Poweroff in 5 minutes'"
           "/run/current-system/sw/bin/sleep 300"
-          "/home/lunics/.nix-profile/bin/dunstify -t 10000 -u critical 'Poweroff in 10 seconds'"
+          "/home/lunics/.nix-profile/bin/notify-send -t 10000 -u critical 'Poweroff in 10 seconds'"
           "/run/current-system/sw/bin/sleep 10"
           "/run/current-system/sw/bin/poweroff"
         ];
