@@ -1,0 +1,5 @@
+[status]
+progress = { hidden = true }
+# progress_normal = { hidden = true }
+# progress_label  = { hidden = true }
+# progress_error = "hidden"

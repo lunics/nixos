@@ -3,14 +3,16 @@ linemode        = "none"
 mouse_events    = ["click", "scroll"]
 ratio           = [2, 3, 6]
 scrolloff       = 5
+title_format    = ""
 show_hidden     = false
 show_symlink    = true
-sort_by         = "alphabetical"
+# symlink         = { fg = "cyan", modifiers = ["bold"] } KO
+# symlink_broken  = { fg = "red",  modifiers = ["bold"] } KO
+sort_by         = "alphabetical"    # alphabetical, mtime, size, ctime
 sort_dir_first  = true
-sort_reverse    = false
+sort_reverse    = true
 sort_sensitive  = false
 sort_translit   = false
-title_format    = ""
 
 [preview]
 cache_dir       = ""
