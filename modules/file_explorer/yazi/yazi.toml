@@ -10,7 +10,7 @@ show_symlink    = true
 # symlink_broken  = { fg = "red",  modifiers = ["bold"] } KO
 sort_by         = "alphabetical"    # alphabetical, mtime, size, ctime
 sort_dir_first  = true
-sort_reverse    = false
+sort_reverse    = true
 sort_sensitive  = false
 sort_translit   = false
 
