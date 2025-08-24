@@ -16,6 +16,7 @@ bind  = $SUPER,     S, exec, _suspend                       # >& /home/lunics/_s
 bind  = $SSHIFT,    S, exec, systemctl suspend & swaylock
 bind  = $SUPER,     T, exec, alacritty
 bind  = $SSHIFT,    T, exec, alacritty --title terminal_floats
+bind  = $SUPER,     V, exec, toggle_vpn
 # bind  = $SUPER,   H, FOCUS LEFT WINDOW
 # bind  = $SUPER,   L, FOCUS RIGHT WINDOW
 
