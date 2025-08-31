@@ -22,5 +22,6 @@ windowrulev2 = workspace 4,     class:^($streaming), title:^($streaming)
 # windowrulev2 = workspace 6,     class:^($music)
 # windowrulev2 = workspace 7,     class:^($libvirt)
 
-windowrulev2 = float,           class:^(udiskie)$
-windowrulev2 = move 40% 40%,    class:^(udiskie)$
+windowrulev2 = float,        class:^(udiskie)$
+windowrulev2 = move 40% 40%, class:^(udiskie)$
+windowrulev2 = size 500 400, class:^(udiskie)$
