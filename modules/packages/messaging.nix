@@ -1,15 +1,20 @@
 { pkgs, ... }:{ 
   home.packages = with pkgs; [
+    # SLACK
     slack
     # slackdump           # KO on nixos, only on OS FHS compliant
+
+    # TELEGRAM
     telegram-desktop
     # materialgram
-    element-desktop
+
     ferdium               # franz app like but free
     whatsie
     nchat                 # Terminal-based chat client with support for Telegram and WhatsApp
     # altus               # client for WhatsApp Web with themes, notifications and multiple account support 
     # wasistlos
+
+    # DISCORD
     discordo              # tui
     discord
     # (discord.override {
@@ -21,5 +26,10 @@
     # todo vencord openasar github star
     # # discord-tweaks discord-nord-theme
     # vesktop         # Screensharing with audio on wayland for Discord and others ?
+
+    # MATRIX
+    element-desktop
+    # matrix-dl         # download backlogs from Matrix as raw text
+    # matrix-hook       # webhook for matrix
   ];
 }
