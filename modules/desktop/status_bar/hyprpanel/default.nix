@@ -3,6 +3,10 @@
     # home.packages = with pkgs; [
     #   astal.battery   ## required for battery level ?
     # ];
+    home.file.".config/hyprpanel/taskwarrior.sh" = {
+      source = ./taskwarrior.sh;
+      executable = true;
+    };
 
     programs.hyprpanel = {
       enable          = true;
