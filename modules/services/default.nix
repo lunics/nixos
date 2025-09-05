@@ -6,6 +6,7 @@
     ./nightly_poweroff.nix
     ./sync_browser_profile.nix
     ./wallpaper.nix
+    ./podman.nix
     # ./usb_sync.nix
     # ./ssh_tpm_agent.nix
   ];
