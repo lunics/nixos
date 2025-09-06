@@ -3,6 +3,7 @@
     ./ssh.nix
     ./desktop.nix
     ./tmux.nix
+    ./hyprland.nix
   ];
 
   options._ = {

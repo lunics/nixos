@@ -1,14 +1,14 @@
 { pkgs, ... }:{
-  imports = [ ./hyprland.conf.nix ];
+  imports = [ 
+    ./hyprland.conf.nix
+    ./binds.nix
+  ];
 
   xdg.configFile = {
-    "hypr" = {
-      source    = ./dot_files;
+    "hypr/config.d" = {
+      source    = ./config.d;
       recursive = true;
     };
-
-    "hypr/config.d/bind".text = builtins.readFile ./dot_files/binds/bind_azerty;
-    # "hypr/config.d/bind".text = builtins.readFile ./hypr/binds/bind_splitkb;
 
     # "hypr/config.d/bind".text = ''
     #   splash = false
@@ -18,7 +18,7 @@
     # '';
   };
 
-   ## dynamc input & bind
+  ## dynamc input & bind
   programs = {
     wayprompt = {
       enable   = true;
