@@ -2,6 +2,7 @@
   imports = [
     ./ssh.nix
     ./desktop.nix
+    ./tmux.nix
   ];
 
   options._ = {
@@ -13,6 +14,11 @@
     openai_api_key = mkOption {
       type    = types.str;
       default = "";
+    };
+
+    splitkb = mkOption {
+      type    = types.bool;
+      default = false;
     };
   };
 }

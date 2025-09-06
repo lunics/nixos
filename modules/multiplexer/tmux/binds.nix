@@ -1,4 +1,7 @@
-{ pkgs, custom-tmux-fzf, ... }:{
+{ config, pkgs, custom-tmux-fzf, ... }:
+let
+  _tmux = config._.tmux;
+in {
   programs.tmux.extraConfig = ''
     unbind '"'      # unbind horizontal split
     unbind %        # unbind vertical split
@@ -9,8 +12,8 @@
     
     bind -n M-a command-prompt "rename-window %%"
     bind -n M-d detach-client
-    bind -n M-h prev                    # go to prev tab/window
-    bind -n M-l next                    # go to next tab/window
+    bind -n ${_tmux.prev_tab} prev                    # go to prev tab/window
+    bind -n ${_tmux.next_tab} next                    # go to next tab/window
     bind -n M-j swap-pane -D \; select-pane -U
     bind -n M-q kill-window             # close window
     # bind -n F4 run-shell -b "tmux display-popup -E \"tmux lsw -F '#{window_index} #{window_name}' | fzf | cut -c 1-1 | xargs tmux select-window -t\""
