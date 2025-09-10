@@ -12,5 +12,6 @@
     # ./radarr.nix
     # ./restic.nix
     # ./sonarr.nix
+    # ./mopidy.nix
   ];
 }
