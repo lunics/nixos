@@ -7,6 +7,7 @@
     ./btrfs_autoscrub.nix
     ./snapraid.nix
     ./snapper.nix
+    ## ./upower.nix       ## maybe uneeded if using hyprpanel custom battery module
     # ./xserver.nix
   ];
 
