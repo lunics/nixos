@@ -13,11 +13,28 @@
       prometheus    = false;     # enable Prometheus metrics at /metrics
     };
 
-    backup = {
-      "NAME1" = {
+    backups = {
+      "remote_backup" = {
+        extraOptions = [
+          "sftp.command='ssh backup@host -i /etc/nixos/secrets/backup-private-keys sftp'"
+        ];
+        passwordFile = "/etc/nixos/secrets/restic-password";
+        paths = [
+          "/home"
+        ];
+        repository = "sftp:backup@host:/backups/home";
+        timerConfig = {
+          OnCalendar = "00:05";
+          RandomizedDelaySec = "5h";
+        };
+      };
+
+      "local_backup" = {
         backupCleanupCommand = "";        # script that must run after finishing the backup process
         backupPrepareCommand = "";        # script that must run before starting the backup process
-        checkOpts = [];                   # options for 'restic check'
+        # checkOpts = [                   # options for 'restic check'
+        #   "--with-cache"
+        # ]
         createWrapper = true;
         # dynamicFilesFrom = "find /home/matt/git -type d -name .git";    #  script that produces a list of files to back up. Results are given to the '--files-from' option
         environmentFile = "";             # file containing the credentials to access the repository
@@ -36,6 +53,7 @@
         # package = pkgs.restic;
         # passwordFile = ""/etc/nixos/restic-password"";                # file repository password
         paths = [                         # paths to backup
+          # "/home"
         ];
         progressFps = 0.1;                # frequency of progress reporting
         pruneOpts = [                     # options to automatically prune old snapshots

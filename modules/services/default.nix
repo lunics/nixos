@@ -9,6 +9,7 @@
     ./snapper.nix
     ## ./upower.nix       ## maybe uneeded if using hyprpanel custom battery module
     # ./xserver.nix
+    # ./restic.nix
   ];
 
   services = {
