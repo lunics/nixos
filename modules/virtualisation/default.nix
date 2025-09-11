@@ -7,5 +7,6 @@
     ./podman.nix
     ./docker.nix
     # ./microvm.nix
+    # ./pci_passthrough
   ];
 }
