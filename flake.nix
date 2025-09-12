@@ -1,5 +1,5 @@
 {
   outputs = { self }:{
-    nixosModules.system = import ./system/config;
+    nixosModules.home = import ./modules;
   };
 }
