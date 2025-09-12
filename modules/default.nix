@@ -10,6 +10,7 @@
     ./shell
     ./ssh_client.nix
     ./git
+    ./neovim
     ./editor.nix
     ./desktop
     ./font.nix

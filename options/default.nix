@@ -1,8 +1,9 @@
 { lib, ... }: with lib; {
   imports = [
     ./ssh.nix
-    ./desktop.nix
     ./tmux.nix
+    ./neovim.nix
+    ./desktop.nix
     ./hyprland.nix
   ];
 

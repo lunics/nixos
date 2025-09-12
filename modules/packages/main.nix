@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:{ 
   home.packages = with pkgs; [
-    inputs.neovim.packages."${system}".default
+    # inputs.neovim.packages."${system}".default
+    # neovim
     systemd
     ueberzugpp
     python3
