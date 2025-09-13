@@ -36,6 +36,7 @@ y = 1
 bindings = [
   { mods = "Alt", key = "C", action = "Copy"  },
   { mods = "Alt", key = "V", action = "Paste" },
-  { key = "J", mods = "Control", chars = "\u001b[B" },    # bind ctrl j as arrow down
-  { key = "K", mods = "Control", chars = "\u001b[A" },    # bind ctrl k as arrow up
+  { mods = "Control|Shift", key = "Z", chars= "\u001b[90;6u" }    # enable ctrl shift z for neovim
+  # { key = "J", mods = "Control", chars = "\u001b[B" },    # bind ctrl j as arrow down
+  # { key = "K", mods = "Control", chars = "\u001b[A" },    # bind ctrl k as arrow up
 ]
