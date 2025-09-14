@@ -56,7 +56,7 @@
 
     suspend =  mkOption {
       type    = types.str;
-      default = "Z";
+      default = "s";
     };
     
     kb_layout =  mkOption {
