@@ -2,12 +2,17 @@
   options._.tmux = {
     prev_tab = mkOption {
       type    = types.str;
-      default = "M-h";
+      default = "h";
     };
 
     next_tab = mkOption {
       type    = types.str;
-      default = "M-l";
+      default = "l";
+    };
+
+    swap_pane_hori = mkOption {
+      type    = types.str;
+      default = "j";
     };
   };
 }

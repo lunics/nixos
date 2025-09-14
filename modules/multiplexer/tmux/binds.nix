@@ -12,9 +12,9 @@ in {
     
     bind -n M-a command-prompt "rename-window %%"
     bind -n M-d detach-client
-    bind -n ${_tmux.prev_tab} prev                    # go to prev tab/window
-    bind -n ${_tmux.next_tab} next                    # go to next tab/window
-    bind -n M-j swap-pane -D \; select-pane -U
+    bind -n M-${_tmux.prev_tab} prev                    # go to prev tab/window
+    bind -n M-${_tmux.next_tab} next                    # go to next tab/window
+    bind -n M-${_tmux.swap_pane_hori} swap-pane -D \; select-pane -U
     bind -n M-q kill-window             # close window
     # bind -n F4 run-shell -b "tmux display-popup -E \"tmux lsw -F '#{window_index} #{window_name}' | fzf | cut -c 1-1 | xargs tmux select-window -t\""
     bind -n M-m copy-mode               # enter in copy mode to scroll and use visual vi mode
