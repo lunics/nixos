@@ -2,6 +2,7 @@
   imports = [
     ./ssh.nix
     ./tmux.nix
+    ./yazi.nix
     ./neovim.nix
     ./desktop.nix
     ./hyprland.nix

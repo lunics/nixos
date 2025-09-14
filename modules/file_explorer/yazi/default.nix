@@ -34,9 +34,10 @@
     # initLua = ./init.lua;
   };
 
-  home.file.".config/yazi/yazi.toml".source   = ./yazi.toml;
-  home.file.".config/yazi/keymap.toml".source = ./keymap.toml;
-  # home.file.".config/yazi/theme.toml".source  = ./theme.toml;
+  imports = [
+    ./yazi.toml.nix
+    ./keymap.toml.nix
+  ];
   
   # to enable yazi's image preview to work correctly in tmux
   # require pkg ueberzugpp
