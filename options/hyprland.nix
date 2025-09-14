@@ -53,5 +53,15 @@
         default = "ccedilla";
       };
     };
+
+    suspend =  mkOption {
+      type    = types.str;
+      default = "Z";
+    };
+    
+    kb_layout =  mkOption {
+      type    = types.str;
+      default = "fr";
+    };
   };
 }

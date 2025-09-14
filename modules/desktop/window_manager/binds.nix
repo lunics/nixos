@@ -12,13 +12,14 @@ in {
     
     bind  = ${_hypr.toggle_bt},  exec, toggle_bt_device 90:5F:7A:BC:93:87
     bind  = ${_hypr.toggle_bar}, exec, hyprpanel toggleWindow bar-0
-    bindr = $SUPER,     SUPER_L, exec, ulauncher-toggle
+    #bindr = $SUPER,     SUPER_L, exec, ulauncher-toggle
     bind  = $SUPER,     F, togglefloating,
     bind  = $SUPER,     L, exec, swaylock
     bind  = $SUPER,     Q, killactive,
     bind  = $SUPER,     R, exec, pkill wofi || wofi
-    bind  = $SUPER,     S, exec, _suspend                       # >& /home/lunics/_suspend.log
-    bind  = $SSHIFT,    S, exec, systemctl suspend & swaylock
+    bind  = $SUPER,     ${_hypr.suspend}, exec, _suspend                       # >& /home/lunics/_suspend.log
+    bind  = $SSHIFT,    ${_hypr.suspend}, exec, systemctl suspend & swaylock
+    # bind = , F11, exec, sudo -A systemctl suspend && swaylock
     bind  = $SUPER,     T, exec, alacritty
     bind  = $SSHIFT,    T, exec, alacritty --title terminal_floats
     bind  = $SUPER,     V, exec, toggle_vpn
@@ -54,6 +55,7 @@ in {
     
     bind = , ${_hypr.prev_workspace}, workspace, previous
     bind = SUPER, space, workspace, previous
+    bindr = SUPER, SUPER_L, workspace, previous
     
     # Switch to workspace [0-9]
     bind = $SUPER, ${_hypr.workspace."1"}, workspace, 1
@@ -85,9 +87,7 @@ in {
     
     bindm = $SUPER, mouse:272, movewindow           # super + left click  = move window
     bindm = $SUPER, mouse:273, resizewindow         # super + right click = resize window
-    
-    bind = , F11, exec, sudo -A systemctl suspend && swaylock
-    
+
     # volume control
     bindl = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     binde = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%+   # -l 2 = 200% max

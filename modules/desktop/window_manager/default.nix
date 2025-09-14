@@ -1,7 +1,8 @@
 { pkgs, ... }:{
   imports = [ 
-    ./hyprland.conf.nix
+    ./hyprland.nix
     ./binds.nix
+    ./input.nix
   ];
 
   xdg.configFile = {
