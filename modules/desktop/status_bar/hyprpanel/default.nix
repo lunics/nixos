@@ -3,9 +3,20 @@
     # home.packages = with pkgs; [
     #   astal.battery   ## required for battery level ?
     # ];
-    home.file.".config/hyprpanel/taskwarrior.sh" = {
-      source = ./taskwarrior.sh;
-      executable = true;
+    home.file = {
+      ".config/hyprpanel/modules.json".source = ./modules.json;
+      ".config/hyprpanel/taskwarrior.sh" = {
+        source     = ./taskwarrior.sh;
+        executable = true;
+      };
+      ".config/hyprpanel/kb_layout.sh" = {
+        source     = ./kb_layout.sh;
+        executable = true;
+      };
+      ".config/hyprpanel/pomodoro.sh" = {
+        source     = ./pomodoro.sh;
+        executable = true;
+      };
     };
 
     programs.hyprpanel = {
@@ -59,6 +70,8 @@
               left = [
                 "dashboard"
                 "workspaces"
+                "custom/kb_layout"
+                "custom/pomodoro"
                 "custom/taskwarrior"
               ];
               middle = [ 
