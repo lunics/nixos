@@ -4,9 +4,18 @@
   ];
 
   xdg.configFile."ghostty/config".text = ''
-    # get all options: ghostty +show-config --default --docs      # https://ghostty.org/docs/config
-
-    font-size = 18
-    # background = #123abc
+    font-size               = 20
+    background-opacity      = 0.8
+    background-blur         = 50
+    mouse-hide-while-typing = false
+    shell-integration       = zsh
+    window-new-tab-position = current
+    focus-follows-mouse     = false
+    copy-on-select          = true
+    linux-cgroup            = always
+    desktop-notifications   = true
+    keybind                 = alt+c=copy_to_clipboard
+    keybind                 = alt+v=paste_from_clipboard
+    initial-command         = tmux
   '';
 }
