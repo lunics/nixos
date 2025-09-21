@@ -14,10 +14,11 @@
       recursive  = true;
     };
 
-    file.".config/taskwarrior/hooks" = {
-      source     = ./hooks;
-      executable = true;
-      recursive  = true;
+    file = {
+      ".config/taskwarrior/hooks/on-modify_timewarrior.py" = {
+        source     = ./hooks/on-modify_timewarrior.py;
+        executable = true;
+      };
     };
 
     sessionVariables = rec {
