@@ -1,6 +1,5 @@
 { config, ... }:{ 
   home.sessionVariables = rec {
-    TERMINAL        = "alacritty";
     EDITOR          = "nvim";
     MANPAGER        = "nvim +Man!";
     READER          = "zathura";

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:{
+{ config, inputs, pkgs, ... }:{
   systemd.user = {
     targets."hyprland".Unit.Description = "Hyprland Session Target";
   };
@@ -15,7 +15,7 @@
     Type=oneshot
     Restart=on-failure
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec mullvad-vpn
-    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec alacritty
+    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec ${config._.terminal}
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec zen
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec udiskie
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec swww-daemon

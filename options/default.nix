@@ -14,6 +14,11 @@
       default = "nixos";
     };
 
+    terminal = mkOption {
+      type    = types.str;
+      default = "ghostty";
+    };
+
     openai_api_key = mkOption {
       type    = types.str;
       default = "";
@@ -25,4 +30,3 @@
     };
   };
 }
-
