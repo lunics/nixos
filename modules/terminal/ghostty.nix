@@ -5,9 +5,11 @@
     ];
 
     xdg.configFile."ghostty/config".text = ''
-      font-size               = 20
-      background-opacity      = 0.8
-      background-blur         = 50
+      font-family             = "Ubuntu Mono:style=Regular"
+      font-size               = 23
+      background-opacity      = 0.7
+      background              = #1f1f1f
+      # background-blur         = 20
       mouse-hide-while-typing = false
       shell-integration       = zsh
       window-new-tab-position = current
