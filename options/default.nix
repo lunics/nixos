@@ -1,4 +1,4 @@
-{ lib, ... }: with lib; {
+{ config, lib, ... }: with lib; {
   imports = [
     ./ssh.nix
     ./tmux.nix
@@ -12,6 +12,11 @@
     username = mkOption {
       type    = types.str;
       default = "nixos";
+    };
+
+    share = mkOption {
+      type    = types.str;
+      default = config.xdg.dataHome;
     };
 
     terminal = mkOption {
