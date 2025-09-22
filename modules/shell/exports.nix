@@ -3,8 +3,6 @@
     EDITOR          = "nvim";
     MANPAGER        = "nvim +Man!";
     READER          = "zathura";
-    BROWSER         = "zen";
-    FILE_EXPLORER   = "yazi";
     
     # PATH
     CONFIG          = "${config.xdg.configHome}";
@@ -30,7 +28,7 @@
     
     USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
 
-    _ZO_DATA_DIR = "$HOME/usb_copy/homelab/share/zoxide";
+    _ZO_DATA_DIR    = "$HOME/usb_copy/homelab/share/zoxide";
     
     # # GUI
     #   name:       gui

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:{
+{ config, inputs, pkgs, ... }:{
 
   imports = [
     ./firefox
@@ -7,4 +7,6 @@
     ./zen.nix
     ./psd.nix
   ];
+
+  home.sessionVariables.BROWSER = "${config._.browser}";
 }

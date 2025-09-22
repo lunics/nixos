@@ -19,6 +19,11 @@
       default = "ghostty";
     };
 
+    browser = mkOption {
+      type    = types.str;
+      default = "zen";
+    };
+
     openai_api_key = mkOption {
       type    = types.str;
       default = "";
