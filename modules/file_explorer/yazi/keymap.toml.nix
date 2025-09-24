@@ -35,14 +35,15 @@ in {
       { on = ["G"],        run = "arrow 99999999",  desc = "Move cursor to the bottom" },
     
       # Selection
-      { on = ["<Space>"], run = ["select --state=none", "arrow 1"], desc = "Toggle the current selection state" },
+      # { on = ["<Space>"], run = ["select --state=none", "arrow 1"], desc = "Toggle the current selection state" },
+      { on = ["<Space>"], run = ["toggle --state=select", "arrow 1"], desc = "Toggle the current selection state and move down" },
       { on = ["v"],       run = "visual_mode",             desc = "Enter visual mode (selection mode)" },
       { on = ["V"],       run = "visual_mode --unset",     desc = "Enter visual mode (unset mode)" },
       { on = ["<C-a>"],   run = "select_all --state=true", desc = "Select all files" },
       { on = ["<C-r>"],   run = "select_all --state=none", desc = "Inverse selection of all files" },
     
       # Operation
-      { on = ["<Enter>"], run = "open", desc = "Open the selected files" },
+      { on = ["<Enter>"], run = "plugin --sync smart-enter", desc = "Enter the subfolder faster, or open the file directly" },
       # { on = ["<Enter>"], run = "open --interactive", desc = "Open the selected files interactively" },
       { on = ["y"], run = ["yank", "escape --visual --select"], desc = "Copy the selected files" },
       { on = ["Y"], run = ["unyank", "escape --visual --select"], desc = "Cancel the yank status of files" },
@@ -62,9 +63,11 @@ in {
       { on = [";"], run = "shell", desc = "Run a shell command" },
       { on = [":"], run = "shell --block", desc = "Run a shell command (block the UI until the command finishes)" },
       { on = ["."], run = "hidden toggle", desc = "Toggle the visibility of hidden files" },
+
       # { on = ["s"], run = "search fd", desc = "Search files by name using fd" },
       # { on = ["S"], run = "search rg", desc = "Search files by content using ripgrep" },
       { on = ["<C-s>"], run = "search none", desc = "Cancel the ongoing search" },
+
       # { on = [ "z" ],         run = "jump zoxide",                                          desc = "Jump to a directory using zoxide" },
       { on = ["z", "u"], run = "shell --confirm 'ouch decompress $@'", desc = "Decompress" },
       { on = ["z", "d"], run = "shell --confirm 'ouch compress $@'", desc = "Compress" },
@@ -78,17 +81,16 @@ in {
       { on = ["c", "n"], run = "copy name_without_ext", desc = "Copy the name of the file without the extension" },
     
       # Filter
-      { on = ["<C-f>"], run = "filter --smart", desc = "Filter the files" },
+      { on = ["f"], run = "filter --smart", desc = "Filter the files" },
     
       # Find
-      # { on = ["s"], run = "find --smart", desc = "Find next file" },
-      { on = ["/"], run = "find --smart", desc = "Find next file" },
-      # { on = ["S"], run = "find --previous --smart", desc = "Find previous file" },
+      { on = ["<C-f>"], run = "find --smart", desc = "Find next file" },
+      { on = ["<C-F>"], run = "find --previous --smart", desc = "Find previous file" },
       { on = ["?"], run = "find --previous --smart", desc = "Find previous file" },
       { on = ["n"], run = "find_arrow", desc = "Go to next found file" },
       { on = ["N"], run = "find_arrow --previous", desc = "Go to previous found file" },
     
-      { on = ["b"],     run = "toggle status"  },
+      # { on = ["b"],     run = "toggle status"  },   ## KO only toggle workspace number  
     
       { on = ["~"], run = "help", desc = "Open help" },
     ]

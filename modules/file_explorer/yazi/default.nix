@@ -10,6 +10,8 @@
     #   ];
     #   # theme  = {};
     # };
+
+    # available plugins: https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/ya/yazi/plugins
     plugins = {
       inherit (pkgs.yaziPlugins) smart-enter;
       inherit (pkgs.yaziPlugins) rich-preview;
@@ -22,7 +24,7 @@
       inherit (pkgs.yaziPlugins) time-travel;
       inherit (pkgs.yaziPlugins) smart-paste;       # Paste files into the hovered directory
       inherit (pkgs.yaziPlugins) smart-filter;
-      inherit (pkgs.yaziPlugins) ouch;              # to preview archives
+      inherit (pkgs.yaziPlugins) ouch;              # to preview and extract archives
       inherit (pkgs.yaziPlugins) mediainfo;         # previewing media files
       inherit (pkgs.yaziPlugins) chmod;
       # fzf         = ./plugins/fzf.yazi;
@@ -31,7 +33,7 @@
     #   foo = ./foo;
     #   inherit (pkgs.yaziPlugins) bar;
     # }
-    # initLua = ./init.lua;
+    initLua = ./init.lua;
   };
 
   imports = [
@@ -39,8 +41,11 @@
     ./keymap.toml.nix
   ];
   
+  home.packages = with pkgs; [
+    ueberzugpp    # required for image preview (in tmux ?)
+  ];
+
   # to enable yazi's image preview to work correctly in tmux
-  # require pkg ueberzugpp
   programs.tmux.extraConfig = ''
     set -g allow-passthrough on
     set -ga update-environment TERM
