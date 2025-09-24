@@ -1,5 +1,5 @@
 { pkgs, ... }:{
-  programs.tmux.plugins = with pkgs.tmuxPlugins; [ {
+  programs.tmux.plugins = with pkgs.tmuxPlugins; [{
     plugin = tmux-floax;
     extraConfig = ''
       # Setting the main key to toggle the floating pane on and off
@@ -7,7 +7,7 @@
 
       # When the pane is toggled, using this bind pops a menu with additional options
       # such as resize, fullscreen, resetting to defaults and more.
-      set -g @floax-bind-menu 'P'
+      set -g @floax-bind-menu 'F'
       
       # The default width and height of the floating pane
       set -g @floax-width '80%'
@@ -38,5 +38,5 @@
       # Change the title of the floating window
       set -g @floax-title 'float'
     '';
-  } ];
+  }];
 }

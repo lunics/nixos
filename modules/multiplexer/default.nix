@@ -1,7 +1,7 @@
 {
   imports = [
     ./tmux
-    # ./zellij.nix
+    ./zellij.nix
     # ./screen.nix
   ];
 }

@@ -5,17 +5,19 @@ source "$CURRENT_DIR/.envs"
 
 current_window_origin=$(tmux display-message -p '#S:#I: #{window_name}')
 current_window=$(tmux display-message -p '#S:#I:')
-if [[ -z "$TMUX_FZF_WINDOW_FORMAT" ]]; then
+# if [[ -z "$TMUX_FZF_WINDOW_FORMAT" ]]; then
     # windows=$(tmux list-windows -a)
     if [ ! -f /tmp/tmux_last_window ]; then
       echo $(tmux lsw | grep active | cut -d ' ' -f 2 | tr -d '*') > /tmp/tmux_last_window
     fi
     last_window=$(cat /tmp/tmux_last_window)
-    windows=$(tmux lsw -F '#{window_name}' | grep -v "$last_window")
+    windows=$(tmux list-windows -F '#{window_name}' | grep -v "$last_window")
     windows=$(echo -e "$last_window\n$windows")
-else
-    windows=$(tmux list-windows -a -F "#S:#{window_index}: $TMUX_FZF_WINDOW_FORMAT")
-fi
+# else
+#     windows=$(tmux list-windows -a -F "#S:#{window_index}: $TMUX_FZF_WINDOW_FORMAT")
+# fi
+
+ERROR
 
 # FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --header='Select an action.'"
 FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"
@@ -53,7 +55,8 @@ else
         FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"
     fi
     if [[ "$action" != "switch" ]]; then
-        target_origin=$(printf "[current]\n%s\n[cancel]" "$windows" | eval "$TMUX_FZF_BIN $TMUX_FZF_OPTIONS $TMUX_FZF_PREVIEW_OPTIONS")
+        # target_origin=$(printf "[current]\n%s\n[cancel]" "$windows" | eval "$TMUX_FZF_BIN $TMUX_FZF_OPTIONS $TMUX_FZF_PREVIEW_OPTIONS")
+        target_origin=$(printf "[current]\n%s" "$windows" | eval "$TMUX_FZF_BIN $TMUX_FZF_OPTIONS $TMUX_FZF_PREVIEW_OPTIONS")
         target_origin=$(echo "$target_origin" | sed -E "s/\[current\]/$current_window_origin/")
     else
         windows=$(echo "$windows" | grep -v "^$current_window")     # delete current window from fzf list
@@ -78,5 +81,6 @@ else
         echo "$target" | xargs tmux select-window -t
     fi
 fi
+
 # windows=$(tmux list-windows -a)
-windows=$(tmux lsw -F '#{window_name}')
+windows=$(tmux list-windows -F '#{window_name}')

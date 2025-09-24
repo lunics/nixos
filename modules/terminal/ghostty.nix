@@ -9,7 +9,7 @@
       font-size               = 23
       background-opacity      = 0.7
       background              = #1f1f1f
-      # background-blur         = 20
+      # background-blur       = 20
       mouse-hide-while-typing = false
       shell-integration       = zsh
       window-new-tab-position = current
@@ -19,7 +19,8 @@
       desktop-notifications   = true
       keybind                 = alt+c=copy_to_clipboard
       keybind                 = alt+v=paste_from_clipboard
-      initial-command         = tmux
+      initial-command         = restore_tmux
     '';
+      # KO initial-command       = "tmux && ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/restore.sh"
   };
 }

@@ -1,6 +1,6 @@
 {
-  programs.screen = {
-    enable   = true;
+  programs.screen = {   ## error programs.screen does not exist
+    enable   = false;
     screenrc = ''
       termcapinfo xterm* ti@:te@
       defscrollback 1000000
