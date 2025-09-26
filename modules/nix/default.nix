@@ -23,6 +23,7 @@
 
   imports = [
     # ./buildMachines.nix
+    ./nixpkgs.nix
     ./gc.nix
     ./optimise.nix
     # ./registry.nix    ## TODO
