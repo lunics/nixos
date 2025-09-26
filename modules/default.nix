@@ -4,7 +4,7 @@
     ./hardware.nix
     ./disk
     # ./impermanence.nix
-    ./boot.nix
+    ./boot
     ./nix
     ./configuration.nix
     ./kernel.nix
