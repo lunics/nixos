@@ -1,54 +1,56 @@
-require("yatline"):setup({
-	show_background = true,
+require("no-status"):setup()
 
-  section_separator = { open = "", close = "" },
-	part_separator = { open = "", close = "" },
-	inverse_separator = { open = "", close = "" },
+-- require("yatline"):setup({
+-- 	show_background = true,
 
+--   section_separator = { open = "", close = "" },
+-- 	part_separator = { open = "", close = "" },
+-- 	inverse_separator = { open = "", close = "" },
 
-	header_line = {
-		left = {
-			section_a = {
-			},
-			section_b = {
-			},
-			section_c = {
-			}
-		},
-		right = {
-			section_a = {
-			},
-			section_b = {
-			},
-			section_c = {
-			}
-		}
-	},
-	status_line = {
-		left = {
-			section_a = {
-        			-- {type = "string", custom = false, name = "tab_mode"},
-			},
-			section_b = {
-        			-- {type = "string", custom = false, name = "cursor_percentage"},
-			},
-			section_c = {
-        			-- {type = "string", custom = false, name = "hovered_name"},
-			}
-		},
-		right = {
-			section_a = {
-        			{type = "string", custom = false, name = "cursor_position"},
-			},
-			section_b = {
-        			{type = "coloreds", custom = false, name = "permissions"},
-			},
-			section_c = {
-        			-- {type = "string", custom = false, name = "hovered_size"},
-			}
-		}
-	},
-})
+-- 	header_line = {
+-- 		left = {
+-- 			section_a = {
+-- 			},
+-- 			section_b = {
+-- 			},
+-- 			section_c = {
+-- 			}
+-- 		},
+-- 		right = {
+-- 			section_a = {
+-- 			},
+-- 			section_b = {
+-- 			},
+-- 			section_c = {
+-- 			}
+-- 		}
+-- 	},
+-- 	status_line = {
+-- 		left = {
+-- 			section_a = {
+--         -- {type = "string", custom = false, name = "tab_mode"},
+-- 			},
+-- 			section_b = {
+--         -- {type = "string", custom = false, name = "cursor_percentage"},
+-- 			},
+-- 			section_c = {
+--         -- {type = "string", custom = false, name = "hovered_name"},
+-- 			}
+-- 		},
+-- 		right = {
+-- 			section_a = {
+--         -- {type = "string", custom = false, name = "cursor_position"},
+-- 			},
+-- 			section_b = {
+--         -- {type = "coloreds", custom = false, name = "permissions"},
+-- 			},
+-- 			section_c = {
+--         -- {type = "string", custom = false, name = "hovered_size"},
+--         {type = "string", custom = false, name = ""},
+-- 			}
+-- 		}
+-- 	},
+-- })
 
 
 -- KO
@@ -58,7 +60,6 @@ require("yatline"):setup({
 -- }
 
 -- require("full-border"):setup()
--- require("no-status"):setup()
 
 -- Show symlink in status bar
 -- Status:children_add(function(self)

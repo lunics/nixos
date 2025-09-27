@@ -3,13 +3,6 @@
     enable  = true;
     package = pkgs.yazi;
     enableZshIntegration = true;
-    # settings = {
-    #   # yazi   = {};
-    #   keymap.mgr.keymap = [
-    #     { on = "s"; run = "shell $SHELL"; }
-    #   ];
-    #   # theme  = {};
-    # };
 
     # available plugins: https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/ya/yazi/plugins
     plugins = {
@@ -37,8 +30,9 @@
   };
 
   imports = [
-    ./yazi.toml.nix
-    ./keymap.toml.nix
+    ./yazi.nix
+    ./keymap.nix
+    # ./theme.nix
   ];
   
   home.packages = with pkgs; [

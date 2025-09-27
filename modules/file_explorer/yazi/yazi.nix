@@ -28,6 +28,9 @@
     ueberzug_offset = [0, 0, 0, 0]
     ueberzug_scale  = 1
     wrap            = "no"
+
+    [statusline]
+    enabled         = false
     
     [opener]
     edit = [

@@ -71,7 +71,7 @@ in {
       # { on = [ "z" ],         run = "jump zoxide",                                          desc = "Jump to a directory using zoxide" },
       { on = ["z", "u"], run = "shell --confirm 'ouch decompress $@'", desc = "Decompress" },
       { on = ["z", "d"], run = "shell --confirm 'ouch compress $@'", desc = "Compress" },
-      { on = ["<Tab>"], run = "plugin fzf --args='fzf'", desc = "Jump to a directory, or reveal a file using fzf" },
+      # { on = ["<Tab>"], run = "plugin fzf --args='fzf'", desc = "Jump to a directory, or reveal a file using fzf" },
       # { on = ["<Tab>"], run = "plugin fg --args='rg'", desc = "find file by content (ripgrep match)" },
     
       # Copy
