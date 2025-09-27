@@ -1,7 +1,8 @@
 { config, pkgs, ... }:{ 
   home.packages = with pkgs; [ 
-    open-interpreter
+    # chatgpt             # desktop app, not available on x86_64-linux
     shell-gpt
+    open-interpreter
   ];
 
   home.shellAliases = {
