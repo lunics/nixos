@@ -1,5 +1,8 @@
 { config, lib, ... }:{
   nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
     hostPlatform  = lib.mkDefault "x86_64-linux";
     buildPlatform = config.nixpkgs.hostPlatform;
     # localSystem   = (import "${nixos}/../lib").lib.systems.examples.aarch64-multiplatform;
@@ -8,7 +11,6 @@
     #   _type = "literalMD";
     #   text = "Traditionally `builtins.currentSystem`, but unset when invoking NixOS through `lib.nixosSystem`.\n";
     # }
-    # config = {};
     # pkgs = import "${nixos}/.." {
     #   inherit (cfg) config overlays localSystem crossSystem;
     # }
