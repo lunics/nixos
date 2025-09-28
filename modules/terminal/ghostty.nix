@@ -15,16 +15,16 @@
       #   };
       # }))
 
-      (pkgs.ghostty.overrideAttrs (oldAttrs: rec {
-        version = "1.1.3";
-        src = pkgs.fetchurl {
-          url    = "https://github.com/ghostty-org/ghostty/archive/refs/tags/v${version}.tar.gz";
-          sha256 = "159bdq7chrvdnbjmfy3vgallqxd3nccw1z44zyrzgnbrfvnrdib6";
-            # nix-prefetch-url https://github.com/ghostty-org/ghostty/archive/refs/tags/v1.1.3.tar.gz
-              # path is '/nix/store/hb09i92ah2wh8s50kfkrdh1srcvx7b29-v1.1.3.tar.gz'
-              # 159bdq7chrvdnbjmfy3vgallqxd3nccw1z44zyrzgnbrfvnrdib6
-        };
-      }))
+      # (pkgs.ghostty.overrideAttrs (oldAttrs: rec {
+      #   version = "1.1.3";
+      #   src = pkgs.fetchurl {
+      #     url    = "https://github.com/ghostty-org/ghostty/archive/refs/tags/v${version}.tar.gz";
+      #     sha256 = "159bdq7chrvdnbjmfy3vgallqxd3nccw1z44zyrzgnbrfvnrdib6";
+      #       # nix-prefetch-url https://github.com/ghostty-org/ghostty/archive/refs/tags/v1.1.3.tar.gz
+      #         # path is '/nix/store/hb09i92ah2wh8s50kfkrdh1srcvx7b29-v1.1.3.tar.gz'
+      #         # 159bdq7chrvdnbjmfy3vgallqxd3nccw1z44zyrzgnbrfvnrdib6
+      #   };
+      # }))
 
     ];
 

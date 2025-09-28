@@ -1,0 +1,71 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "ghostty@1.1.2": {
+      "last_modified": "2025-03-11T17:52:14Z",
+      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#ghostty",
+      "source": "devbox-search",
+      "version": "1.1.2",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vppqyw9y2k6qwwd2jdaq43csr5xbh6kj-ghostty-1.1.2",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/427syikyzppsj22zqqz67yp6zpy88bbf-ghostty-1.1.2-man",
+              "default": true
+            },
+            {
+              "name": "shell_integration",
+              "path": "/nix/store/jbvmpfrv930jjwlgl45k64j7xl32chwq-ghostty-1.1.2-shell_integration",
+              "default": true
+            },
+            {
+              "name": "terminfo",
+              "path": "/nix/store/rb651dpk8jqk67km6k7avfdabkwb4cxm-ghostty-1.1.2-terminfo",
+              "default": true
+            },
+            {
+              "name": "vim",
+              "path": "/nix/store/v7jqvf4ia5vmzxmifs7imhcn31pwh83l-ghostty-1.1.2-vim"
+            }
+          ],
+          "store_path": "/nix/store/vppqyw9y2k6qwwd2jdaq43csr5xbh6kj-ghostty-1.1.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mvqdwl2fi3rf149wvhzs7zs6fxmvpdii-ghostty-1.1.2",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/2hz1fk4bm4fcrnqiyhwza6xckcxdb57z-ghostty-1.1.2-man",
+              "default": true
+            },
+            {
+              "name": "shell_integration",
+              "path": "/nix/store/j9myvw521zx1hn984xrfgn3h8rp85i0c-ghostty-1.1.2-shell_integration",
+              "default": true
+            },
+            {
+              "name": "terminfo",
+              "path": "/nix/store/351pcx7s7zrc8k02flkcwvsld3v8vrc8-ghostty-1.1.2-terminfo",
+              "default": true
+            },
+            {
+              "name": "vim",
+              "path": "/nix/store/7gb6rb89rqfw8fz8q9g2lmvrc290wwjv-ghostty-1.1.2-vim"
+            }
+          ],
+          "store_path": "/nix/store/mvqdwl2fi3rf149wvhzs7zs6fxmvpdii-ghostty-1.1.2"
+        }
+      }
+    }
+  }
+}
