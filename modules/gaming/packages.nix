@@ -13,7 +13,7 @@
     steamcmd
 
     protonup          # Proton GE
-    protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
+    # protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
     playonlinux       # GUI for managing Windows programs under linux
     piper             # 10 MB - app to configure gaming mice
     gamemode
