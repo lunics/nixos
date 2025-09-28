@@ -22,8 +22,9 @@
 
   home.packages = with pkgs; [
     deploy-rs
+    # niv
+    # nix-init          # generate Nix packages from URLs
     # comma             # to runs nix software without installing it
     # distrobox
-    # nix-init          # generate Nix packages from URLs
   ];
 }
