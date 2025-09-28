@@ -14,7 +14,7 @@
     ./location.nix
     ./network
     ./ntp.nix
-    # ./users.nix     KO
+    ./users.nix
     ./audio.nix
     ./login_manager.nix
     ./security
