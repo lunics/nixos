@@ -1,5 +1,5 @@
 { inputs, ... }:{
-  imports = [ inputs.zen-browser.homeModules.beta ];
+  imports = [ inputs.zen-browser.homeModules.beta ];    # beta, twilight, twilight-official
 
   programs.zen-browser = {
     enable = true;
