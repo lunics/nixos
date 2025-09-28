@@ -37,7 +37,7 @@
       username             = null;
       url                  = null;
       syncMedia            = null;
-      passwordFile         = null;
+      keyFile              = null;
       usernameFile         = null;
       networkTimeout       = null;
       autoSync             = null;
