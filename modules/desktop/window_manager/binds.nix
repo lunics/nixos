@@ -19,6 +19,8 @@ in {
     bind  = $SUPER,     R, exec, pkill wofi || wofi
     bind  = $SUPER,     ${_hypr.suspend}, exec, _suspend                       # >& /home/lunics/_suspend.log
     bind  = $SSHIFT,    ${_hypr.suspend}, exec, systemctl suspend & swaylock
+    bind  = $SUPER,     M, exec, hyprctl dispatch dpms toggle eDP-1
+
     # bind = , F11, exec, sudo -A systemctl suspend && swaylock
     bind  = $SUPER,     T, exec, alacritty
     bind  = $SSHIFT,    T, exec, alacritty --title terminal_floats

@@ -2,6 +2,6 @@
 # monitor = , preferred,auto,1
 # hyprctl monitors all
 
-monitor = eDP-1, 1920x1200@60, 0x0, 1         # default P14s monitor
-
-# monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1   # LG TV Gentilly
+monitor = eDP-1, 1920x1200@60, 0x0, 1                 # default P14s monitor
+# monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1         # LG TV Gentilly 1920x1080@60
+monitor = HDMI-A-1, 1920x1080@60, auto, 1, mirror,eDP-1
