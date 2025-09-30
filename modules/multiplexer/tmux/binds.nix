@@ -20,7 +20,7 @@ in {
     bind -n M-q kill-window                 # close the entire tab
     # bind -n F4 run-shell -b "tmux display-popup -E \"tmux lsw -F '#{window_index} #{window_name}' | fzf | cut -c 1-1 | xargs tmux select-window -t\""
     bind -n M-m copy-mode                   # enter in copy mode to scroll and use visual vi mode
-    bind -n M-n new-window
+    bind -n M-n new-window -c "$HOME"
     # bind -n M-p command-prompt "joinp -t:%%" # %% = prompt for window.pane [-V|H] # vert|hor split  ???
     #bind R refresh-client              # Redraw the client (if interrupted by wall, etc) ??
     bind r source $HOME/.config/tmux/tmux.conf\; display "tmux config reloaded"
