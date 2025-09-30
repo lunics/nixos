@@ -5,6 +5,7 @@
     # needed for firefox screen sharing under wayland and other utilities
     exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     exec-once = systemctl --user start hyprland.target
+
   '' + 
     (if config._.status_bar == "waybar" then
       ''exec      = pkill waybar; waybar --log-level error &> /run/user/$(id -u)/waybar.log &''

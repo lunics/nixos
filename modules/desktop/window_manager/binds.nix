@@ -16,6 +16,7 @@ in {
     bind  = $SUPER,     F, togglefloating,
     bind  = $SUPER,     L, exec, swaylock
     bind  = $SUPER,     Q, killactive,
+    ## remove once task 69 done: bind  = $SUPER,     R, exec, pkill wofi || (export PATH="$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default/bin:$PATH" && echo $PATH > $HOME/test.log && wofi)
     bind  = $SUPER,     R, exec, pkill wofi || wofi
     bind  = $SUPER,     ${_hypr.suspend}, exec, _suspend                       # >& /home/lunics/_suspend.log
     bind  = $SSHIFT,    ${_hypr.suspend}, exec, systemctl suspend & swaylock
