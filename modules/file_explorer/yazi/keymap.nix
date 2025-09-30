@@ -81,7 +81,10 @@ in {
       { on = ["c", "n"], run = "copy name_without_ext", desc = "Copy the name of the file without the extension" },
     
       # Filter
-      { on = ["f"], run = "filter --smart", desc = "Filter the files" },
+      { on = ["f"], run = "filter --smart --ignore-case", desc = "Filter the files" },
+
+      { on = ["t"], run = "sort mtime --dir-first=no --reverse", desc = "Sort files by date modified (newest first)" },
+      { on = ["T"], run = "sort alphabetical --dir-first=yes --reverse=no", desc = "To cancel sort by mtim" },
     
       # Find
       { on = ["<C-f>"], run = "find --smart", desc = "Find next file" },
