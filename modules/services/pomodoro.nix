@@ -2,7 +2,7 @@
   systemd.user = {
     timers."pomodoro" = {
       Unit = {
-        Description = "pomodor.timer triggered at boot then every 40 min";
+        Description = "pomodor.timer at boot and every 40 min";
         After       = [ "default.target" "suspend.target" ];
       };
       Timer = {
@@ -15,7 +15,7 @@
 
     services."pomodoro" = {
       Unit = {
-        Description = "one part of a pomodoro.service cycle";
+        Description = "a pomodoro.service cycle";
         Requires    = [ "pomodoro.timer" ];
         # After       = [ "default.target" "suspend.target" ];
       };
