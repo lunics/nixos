@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-cycle=$(cat /tmp/pomodoro_cycle)
+json_file=/tmp/pomodoro.json
+
+cycle_count=$(jq -r '.cycle_count' $json_file)
+work=$(jq -r '.work' $json_file)
+pause=$(jq -r '.pause' $json_file)
 
 if systemctl --user is-active --quiet pomodoro.service; then
-  echo '{"message":"🍅  '$cycle'"}'
+  if [ $work != 0 ]; then
+    echo '{"message":"🍅  '$cycle_count' : work '$work'"}'
+  else
+    echo '{"message":"🍅  '$cycle_count' : pause '$pause'"}'
+  fi
 fi
