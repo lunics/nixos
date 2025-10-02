@@ -28,6 +28,6 @@
 
   home.activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     rm ${config.xdg.configHome}/yt-x/recent.json || true
-    ln -s ${config._.share}/yt-x/recent.json ${config.xdg.configHome}/yt-x/recent.json
+    ln ${config._.share}/yt-x/recent.json ${config.xdg.configHome}/yt-x/recent.json
   '';
 }
