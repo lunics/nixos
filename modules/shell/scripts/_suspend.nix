@@ -11,7 +11,9 @@
       task +ACTIVE stop || true
     fi
 
-    # stop + reset pomodoro
+    echo "" > /tmp/pomodoro_cycle
+    systemctl --user restart pomodoro.timer
+    systemctl --user restart pomodoro.service
 
     systemctl suspend
   '';

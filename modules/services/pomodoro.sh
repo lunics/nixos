@@ -3,22 +3,22 @@
 tmp_file=/tmp/pomodoro.json
 jq -n \
   --arg cycle_count 0 \
-  --arg work 0 \
-  --arg pause 0 \
+  --arg work 1 \
+  --arg pause 1 \
   '{cycle_count:$cycle_count, work:$work, pause:$pause}' > $tmp_file
 
-time_working=30min
-time_pause=3min
+time_working=40min
+time_pause=10min
 
 # conversion
 time_working=${time_working//[^0-9]/}                           # extract integer
 time_pause=${time_pause//[^0-9]/}
 
-now=$(date +%H%M)                                               # convert time H:M in number HM
-if (( 10#$now >= 1200 && 10#$now <= 1330 )); then               # exit service between 12:00 and 13:30 pm
-  echo "service terminated because current time between 12:00 and 13:30"
-  exit 0
-fi
+# now=$(date +%H%M)                                               # convert time H:M in number HM
+# if (( 10#$now >= 1200 && 10#$now <= 1330 )); then               # exit service between 12:00 and 13:30 pm
+#   echo "service terminated because current time between 12:00 and 13:30"
+#   exit 0
+# fi
 
 # if the system has booted, reset cycle_count else continue for the next cycle
 if journalctl --user -u pomodoro.service -n 2 | grep -i boot > /dev/null; then
@@ -47,17 +47,17 @@ echo $json > $tmp_file
 
 echo "Running cycle $(jq -r '.cycle_count' $tmp_file)/3"
 
-notify-send -t 5000 "Pomodoro is starting the cycle $cycle_count"
+# notify-send -t 5000 "Pomodoro is starting the cycle $cycle_count"
 
 loop_minutes(){
   local time=$1
   local mode=$2
 
   if [ "$mode" == "work" ]; then             # if work then reset pause
-    json=$(jq '.pause = "0"' $tmp_file)
+    json=$(jq '.pause = "1"' $tmp_file)
     echo $json > $tmp_file
   else
-    json=$(jq '.work = "0"' $tmp_file)
+    json=$(jq '.work = "1"' $tmp_file)
     echo $json > $tmp_file
   fi
 
