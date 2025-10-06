@@ -7,8 +7,8 @@
 
       set -g @resurrect-capture-pane-contents "on"
       set -g @resurrect-strategy-nvim "session"
-      set -g @resurrect-processes "taskwarrior-tui yazi"          # additional programs we want to restore
-        # programs restored by default: vi vim nvim emacs man less more tail top htop irssi weechat mutt
+      set -g @resurrect-processes "vi nvim vim yazi ssh taskwarrior-tui irssi weechat mutt"   # additional programs we want to restore
+      set -g @resurrect-hook-post-save-all "sed -i 's| --cmd .*-vim-pack-dir||g; s|/home/$USER/.nix-profile/bin||g; s|/nix/store/.*/bin/||g' $(readlink -f ${config._.share}/tmux/last)"
       # set -g @resurrect-save        "S"                         # already set in binds with M-C-s
       # set -g @resurrect-restore     "R"                         # NOT SET
       set -g @resurrect-dir           "${config._.share}/tmux"    # only $HOME and ~ are enabled
