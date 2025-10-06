@@ -43,5 +43,7 @@
       type    = types.listOf types.str;
       default = [];
     };
+
+    yubikey = mkEnableOption "";
   };
 }
