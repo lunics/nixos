@@ -5,7 +5,8 @@
       settings = rec {
         initial_session = {
           command = "Hyprland";
-          user    = config._.wayland_user; };
+          user    = config._.wayland_user; 
+        };
         default_session = initial_session;
       };
     };
