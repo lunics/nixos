@@ -3,7 +3,7 @@
     ./startup_apps.nix
     ./udiskie.nix
     ./pomodoro.nix
-    ./nightly_poweroff.nix
+    # ./nightly_poweroff.nix
     ./sync_browser_profile.nix
     ./wallpaper.nix
     ./podman.nix
