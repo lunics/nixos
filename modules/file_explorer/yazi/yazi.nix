@@ -37,8 +37,7 @@
       { run = '[ -n "$EDITOR" ] && $EDITOR "$@"', desc = "$EDITOR", block = true },
     ]
     open = [
-      { run = 'setsid xdg-open "$@"', desc = "Open" },
-      { run = 'setsid okular "$@"', orphan = true, desc = "Okular" },
+      { run = 'setsid xdg-open "$@"' },
     ]
     reveal = [
       { run = "exiftool \"$1\"; echo \"Press enter to exit\"; read", block = true, desc = "Show EXIF" },
@@ -47,9 +46,7 @@
       { run = 'ouch decompress "$1"', desc = "Extract here" },
     ]
     play = [
-      { run = 'xdg-open "$@"', orphan = true },
-      { run = 'vlc "$@"', orphan = true, desc = "VLC" },
-      { run = "mediainfo \"$1\"; echo \"Press enter to exit\"; read", block = true, desc = "Show media info" },
+      { run = 'mpv "$@"', orphan = true },
     ]
     
     [tasks]
