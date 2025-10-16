@@ -22,7 +22,7 @@
     };
 
     sessionVariables = rec {
-      TASKRC        = "${config.xdg.configHome}/taskwarrior/taskw/taskrc";
+      TASKRC        = "${config._.dot_config}/taskwarrior/taskw/taskrc";
       TASKDATA      = "$HOME/usb_copy/homelab/share/taskwarrior";
       TIMEWARRIORDB = "$HOME/usb_copy/homelab/share/taskwarrior/timewarrior";    # path for data + config
     };

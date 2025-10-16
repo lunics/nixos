@@ -8,15 +8,15 @@
   '';
 
   home.sessionVariables = rec {
-    XDG_BIN_HOME          = "${config.home.homeDirectory}/.local/bin";
-    XDG_SCREENSHOTS_DIR   = "${config.home.homeDirectory}/usb_copy/homelab/share/screenshots";
+    XDG_BIN_HOME          = "${config._.home}/.local/bin";
+    XDG_SCREENSHOTS_DIR   = "${config._.home}/usb_copy/homelab/share/screenshots";
   };
 
   xdg = {
-    configHome = "${config.home.homeDirectory}/.config";         # XDG_CONFIG_HOME
-    cacheHome  = "${config.home.homeDirectory}/.cache";          # XDG_CACHE_HOME
-    dataHome   = "${config.home.homeDirectory}/.local/share";    # XDG_DATA_HOME
-    stateHome  = "${config.home.homeDirectory}/.local/state";    # XDG_STATE_HOME
+    configHome = "${config._.home}/.config";         # XDG_CONFIG_HOME
+    cacheHome  = "${config._.home}/.cache";          # XDG_CACHE_HOME
+    dataHome   = "${config._.home}/.local/share";    # XDG_DATA_HOME
+    stateHome  = "${config._.home}/.local/state";    # XDG_STATE_HOME
     # configFile = {}                     # XDG_CONFIG_HOME's list of files
     # cacheFile = {}                      # XDG_CACHE_HOME's list of files
     # dataFile = {}                       # XDG_DATA_HOME's list of files
@@ -37,8 +37,8 @@
     userDirs = {
       enable            = true;
       createDirectories = true;
-      download          = "${config.home.homeDirectory}/downloads";   # XDG_DOWNLOAD_DIR
-      music             = "${config.home.homeDirectory}/music";       # XDG_MUSIC_DIR
+      download          = "${config._.home}/downloads";   # XDG_DOWNLOAD_DIR
+      music             = "${config._.home}/music";       # XDG_MUSIC_DIR
       desktop           = null;   # XDG_DESKTOP_DIR
       documents         = null;   # XDG_DOCUMENTS_DIR
       pictures          = null;   # XDG_PICTURES_DIR

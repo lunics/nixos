@@ -5,16 +5,16 @@
     READER          = "zathura";
     
     # PATH
-    CONFIG          = "${config.xdg.configHome}";
+    CONFIG          = "${config._.dot_config}";
     # SHELLRC         = "$HOME/{{ path3.shell   }}";
     # FUNCTIONS       = "$SHELLRC/functions";
     LOCAL           = "$HOME/.local";
-    CACHE           = "${config.xdg.cacheHome}";
+    CACHE           = "${config._.dot_cache}";
     # SCRIPTS         = "$HOME/{{ path3.scripts }}";
     BIN             = "$HOME/.local/bin";
     SSH             = "$HOME/.config/ssh";
     # SSH_CONFIG    = "$SSH/config";
-    SHARE           = "${config.xdg.dataHome}";
+    SHARE           = "${config._.local_share}";
     CLOUD           = "$HOME/usb_copy";
     USB             = "/run/media/$USER";
     DOWNLOADS       = "~/downloads";
@@ -28,7 +28,7 @@
     
     USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
 
-    _ZO_DATA_DIR    = "$HOME/usb_copy/homelab/share/zoxide";
+    _ZO_DATA_DIR    = "${config._.share}/zoxide";
     
     # # GUI
     #   name:       gui

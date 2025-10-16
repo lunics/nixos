@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ config, pkgs, ... }:{
   home.packages = with pkgs; [
     git-filter-repo     # rewrite git repository history
   ];
@@ -28,7 +28,7 @@
   };
 
   home.sessionVariables = {
-    GIT_CONFIG_GLOBAL = "$HOME/.config/git/config";
+    GIT_CONFIG_GLOBAL = "${config._.dot_config}/git/config";
     GIT_AUTHOR_NAME   = "lunics";
     GIT_AUTHOR_EMAIL  = "***REMOVED***";
   };

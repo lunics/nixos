@@ -19,7 +19,7 @@
     };
   
     # no need to define: GNUPGHOME = "${XDG_DATA_HOME}/gnupg";
-    homedir = "${config.xdg.dataHome}/gnupg";
+    homedir = "${config._.local_share}/gnupg";
   
     publicKeys = [];
   };

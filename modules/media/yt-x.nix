@@ -27,7 +27,7 @@
   '';
 
   home.activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    rm ${config.xdg.configHome}/yt-x/recent.json || true
-    ln ${config._.share}/yt-x/recent.json ${config.xdg.configHome}/yt-x/recent.json
+    rm ${config._.dot_config}/yt-x/recent.json || true
+    ln ${config._.share}/yt-x/recent.json ${config._.dot_config}/yt-x/recent.json
   '';
 }

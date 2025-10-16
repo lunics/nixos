@@ -10,5 +10,5 @@
   #   mkdir -p "${config.xdg.configHome}/k3s"
   # '';
 
-  home.sessionVariables.KUBECONFIG = "${config.xdg.configHome}/k3s/k3s.yaml";
+  home.sessionVariables.KUBECONFIG = "${config._.dot_config}/k3s/k3s.yaml";
 }

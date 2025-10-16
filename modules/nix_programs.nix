@@ -1,4 +1,4 @@
-{ pkgs, ... }:{ 
+{ config, pkgs, ... }:{ 
   programs = {
     home-manager = {
       enable = true;
@@ -15,7 +15,7 @@
 
     command-not-found = {
       enable = false;
-      dbPath = "/home/lunics/.cache/nix-index/files";
+      dbPath = "${config._.dot_cache}/nix-index/files";
       # dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
     };
   };

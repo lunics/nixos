@@ -3,6 +3,7 @@
     ./ssh.nix
     ./tmux.nix
     ./yazi.nix
+    ./paths.nix
     ./neovim.nix
     ./desktop.nix
     ./hyprland.nix
@@ -12,11 +13,6 @@
     user = mkOption {
       type    = types.str;
       default = "nixos";
-    };
-
-    share = mkOption {
-      type    = types.str;
-      default = config.xdg.dataHome;
     };
 
     terminal = mkOption {

@@ -45,7 +45,7 @@ in {
     bind = $SUPER, down,  movefocus, d
     
     # screenshot
-    bind = $SUPER SHIFT, S, exec, grimblast --notify copysave area $HOME/usb_copy/homelab/share/screenshots/$(date +"%d-%m-%Y%H-%M-%S").png
+    bind = $SUPER SHIFT, S, exec, grimblast --notify copysave area ${config._.share}/screenshots/$(date +"%d-%m-%Y%H-%M-%S").png
     
     #________ WINDOWS ________#
     # to switch between windows in a floating workspace

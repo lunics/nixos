@@ -8,9 +8,9 @@
     ];
 
     sessionVariables = rec {
-      PASSWORD_STORE_DIR      = "$HOME/usb_copy/homelab/share/passage/store";   # for rofi-pass
-      PASSAGE_DIR             = "$HOME/usb_copy/homelab/share/passage/store";
-      PASSAGE_IDENTITIES_FILE = "$HOME/.config/age/identities";
+      PASSWORD_STORE_DIR      = "${config._.share}/passage/store";   # for rofi-pass
+      PASSAGE_DIR             = "${config._.share}/passage/store";
+      PASSAGE_IDENTITIES_FILE = "${config._.dot_config}/age/identities";
       # PASSAGE_AGE             = "";   # IF rage
       PASSWORD_STORE_CLIP_TIME = "20";
     };

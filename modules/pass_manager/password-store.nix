@@ -11,8 +11,8 @@
     ]);
   
     settings = {
-      PASSWORD_STORE_GPG_OPTS = "--homedir ${config.xdg.dataHome}/gnupg";
-      PASSWORD_STORE_DIR      = "${config.xdg.dataHome}/password-store";
+      PASSWORD_STORE_GPG_OPTS = "--homedir ${config._.share}/gnupg";
+      PASSWORD_STORE_DIR      = "${config._.share}/password-store";
       # PASSWORD_STORE_KEY       = "12345678";
       # PASSWORD_STORE_CLIP_TIME = "60";
     };
