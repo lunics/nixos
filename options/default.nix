@@ -9,7 +9,7 @@
   ];
 
   options._ = {
-    username = mkOption {
+    user = mkOption {
       type    = types.str;
       default = "nixos";
     };

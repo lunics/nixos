@@ -1,9 +1,9 @@
 { config, ... }:{
   home = {
-    username        = "${config._.username}";
-    homeDirectory   = "/home/${config._.username}";
-    stateVersion    = "24.05";
-    enableDebugInfo = false;
+    username                  = "${config._.user}";
+    homeDirectory             = "/home/${config._.user}";
+    stateVersion              = "24.05";
+    enableDebugInfo           = false;
     preferXdgDirectories      = true;     # make programs use XDG directories whenever supported
     enableNixpkgsReleaseCheck = true;
 
