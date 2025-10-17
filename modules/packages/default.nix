@@ -9,5 +9,6 @@
     ./neofetch.nix
     ./ai.nix
     # ./yubikey.nix
+    ./anki.nix
   ];
 }

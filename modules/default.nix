@@ -28,6 +28,5 @@
     ./music
     ./media
     ./stylix.nix
-    ./anki.nix
   ];
 }
