@@ -88,7 +88,7 @@
     kapply  = "k apply -f";
     ki      = "k get ingresses.networking.k8s.io --all-namespaces";
     # helm    = "/run/current-system/sw/bin/helm";    ## replace by home-manager path ?
-    synth-helm = "/home/lunics/.nix-profile/bin/helm";
+    synth-helm = "${config._.home}/.nix-profile/bin/helm";
     l_mount = "df -aTh --total";
     l_date  = "eza -la --sort=mod";
     l_filesystems = "lsblk --fs; df -Th --total";
