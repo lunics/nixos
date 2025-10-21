@@ -1,9 +1,9 @@
 {
   imports = [
-    ./grub.nix
     ./initrd.nix
-    ./plymouth.nix
+    ./grub.nix
     ./systemd-boot.nix
+    ./plymouth.nix
   ];
 
   boot = {

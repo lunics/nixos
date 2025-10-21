@@ -10,7 +10,7 @@
             boot = {
               label = "boot";
               name  = "ESP";
-              size  = "512M";
+              size  = "1G";
               type  = "EF00";
               content = {
                 type         = "filesystem";

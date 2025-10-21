@@ -1,8 +1,7 @@
 {
   boot.initrd = {
     systemd.enable = true;
-
-    availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+    availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
     kernelModules = [ ];
     luks = {
       # devices = {

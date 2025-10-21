@@ -5,7 +5,7 @@
   };
 
   i18n = {
-    defaultLocale       = "en_US.UTF-8";
+    defaultLocale       = "fr_FR.UTF-8";    # en_US.UTF-8
 
     extraLocaleSettings = {
       LC_ADDRESS        = "fr_FR.UTF-8";
@@ -23,6 +23,6 @@
   console  = {
     enable = true;
     keyMap = "fr";
-    font   = null;    # lat9w-16 = KO systemd-vconsole-setup.service failed; Unable to find file: lat9w-16
+    # font   = null;    # lat9w-16 = KO systemd-vconsole-setup.service failed; Unable to find file: lat9w-16
   };
 }

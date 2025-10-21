@@ -3,10 +3,9 @@
     ../options
     ./hardware.nix
     ./disk
-    # ./impermanence.nix
     ./boot
     ./nix
-    ./configuration.nix
+    ./system.nix
     ./kernel.nix
     ./swap.nix
     ./etc
@@ -15,14 +14,17 @@
     ./network
     ./ntp.nix
     ./users.nix
+    ./programs
     ./audio.nix
-    ./login_manager.nix
+    # ./login_manager.nix
     ./security
     ./fonts.nix
     ./window_manager.nix
     ./virtualisation
     ./gaming
     ./graphic
+
+    # ./impermanence.nix
     # ./auto-upgrade.nix
     ## ./udev
     ## ./server

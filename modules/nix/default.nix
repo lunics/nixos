@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }:{
   nix = {
     enable = true;
     # package = pkgs.nix;
@@ -20,6 +20,12 @@
     daemonIOSchedPriority = 4;                # Nix daemon process I/O scheduling priority
     daemonCPUSchedPolicy  = "other";          # other, batch, idle; Nix daemon process CPU scheduling policy
   };
+
+  environment.systemPackages = with pkgs; [
+    cachix        # fetch cache after cachix install with: nix flake update
+  ];
+
+  programs.nh.enable = true;
 
   imports = [
     # ./buildMachines.nix

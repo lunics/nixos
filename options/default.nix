@@ -18,6 +18,11 @@
       default = "nixos";
     };
 
+    boot_loader = mkOption {
+      type    = types.str;
+      default = "systemd-boot";     # systemd-boot, grub
+    };
+
     login_manager = mkEnableOption "";
 
     audio = mkEnableOption "";

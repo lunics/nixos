@@ -5,4 +5,6 @@
     priority      = 5;
     algorithm     = "zstd";
   };
+
+  swapDevices = [];
 }
