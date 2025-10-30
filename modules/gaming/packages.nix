@@ -12,8 +12,8 @@
     # steam-tui         ##  Permission denied ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
     steamcmd
 
-    protonup          # Proton GE
-    # protonup-qt       # GUI for managing versions of proton, dxvk, vkd3d
+    protonup-ng       # Proton GE
+    # protonup-qt     # GUI for managing versions of proton, dxvk, vkd3d
     playonlinux       # GUI for managing Windows programs under linux
     piper             # 10 MB - app to configure gaming mice
     gamemode
