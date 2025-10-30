@@ -23,7 +23,6 @@
       enable          = true;
       # package         = pkgs.hyprpanel;
       systemd.enable  = true;
-      dontAssertNotificationDaemons = true;     # don't use hyprpanel as a notification daemons, because buggy
 
       settings = {
         menus = {
