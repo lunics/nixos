@@ -1,8 +1,4 @@
 { config, lib, pkgs, ... }:{
-  programs = {
-    zsh.enable = true;
-    bash.enable = true;
-  };
 }
 
 # KO
