@@ -20,6 +20,8 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     deploy-rs
     # nix-init          # generate Nix packages from URLs
