@@ -4,7 +4,7 @@
     # inputs.nur.hmModules.nur
     ../options
     ./nix_programs.nix
-    ./devbox
+    # ./devbox
     ./home.nix
     ./packages
     ./xdg
@@ -26,7 +26,7 @@
     ./k3s
     ./task_manager
     ./music
-    ./media
+    # ./media   KO if no usb_copy/share present
     ./stylix.nix
   ];
 }

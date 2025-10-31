@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:{
   config = lib.mkIf (config._.terminal == "ghostty") {
     home.packages = with pkgs; [
-      # ghostty         KO build
+      ghostty
       # ghostty-bin     KO only on darwin system ?
 
       # (pkgs.ghostty.overrideAttrs (oldAttrs: rec {

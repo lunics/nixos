@@ -15,8 +15,8 @@
     Type=oneshot
     Restart=on-failure
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec mullvad-vpn
-    # ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec ${config._.terminal}
-    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec /home/lunics/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/ghostty
+    ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec ${config._.terminal}
+    # ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec /home/lunics/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/ghostty
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec ${config._.browser}
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec udiskie
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec swww-daemon
