@@ -2,12 +2,12 @@
   options._ = {
     status_bar = mkOption {
       type    = types.str;
-      default = "waybar";
+      default = "hyprpanel";
     };
 
     notifier = mkOption {
       type    = types.str;
-      default = "dunst";
+      default = "hyprpanel";
     };
   };
 }
