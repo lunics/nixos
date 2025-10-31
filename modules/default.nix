@@ -13,10 +13,10 @@
     ./location.nix
     ./network
     ./ntp.nix
-    ./users.nix
+    # ./users.nix
     ./programs
     ./audio.nix
-    # ./login_manager.nix
+    ./login_manager.nix
     ./security
     ./fonts.nix
     ./window_manager.nix

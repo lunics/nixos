@@ -1,9 +1,9 @@
 {
   imports = [
     ./ssh.nix
+    ./tlp.nix
+    ./logind.nix
     # A DECOMENTER 
-    # ./tlp.nix
-    # ./logind.nix
     # ./avahi.nix
     # ./btrfs_autoscrub.nix
     # ./snapraid.nix
