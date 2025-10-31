@@ -9,7 +9,7 @@
         monospace = [ "Ubuntu Mono" ];  };
     };
     packages = with pkgs; [
-      ubuntu_font_family
+      ubuntu-classic
       liberation_ttf
       vazir-fonts
       dejavu_fonts                 # for bottom graphics
