@@ -17,18 +17,31 @@
     # systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
     virtualisation.libvirtd = {
-      enable = true;
+      enable            = true;
+      # package = with pkgs; [ libvirt ];
+      # extraConfig
+      # extraOptions
+      onBoot            = "start";           # start, ignore
+      onShutdown        = "suspend";     # suspend, shutdown
+      parallelShutdown  = 0;
+      shutdownTimeout   = 300;
+      startDelay        = 0;
+      allowedBridges    = [ "virbr0" ];
+      sshProxy          = true;
+      # hooks
+      # nss
+      # firewallBackend
       qemu = {
         package =      pkgs.qemu_kvm;
         runAsRoot =    true;
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [(pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd];
-        };
+        # ovmf = {      # removed,  All OVMF images distributed with QEMU are now available by default
+        #   enable = true;
+        #   packages = [(pkgs.OVMF.override {
+        #     secureBoot = true;
+        #     tpmSupport = true;
+        #   }).fd];
+        # };
       };
     };
 
