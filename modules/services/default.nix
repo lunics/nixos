@@ -14,12 +14,11 @@
     # ./restic.nix
   ];
 
-  # A DECOMENTER 
-  # services = {
-  #   libinput.enable  = true;      # enable touchpad support (enabled default in most desktopManager).
-  #   udisks2.enable   = true;
-  #   udev.enable      = true;
-  #   throttled.enable = false;     # IF intel THEN true ELIF amd THEN false
-  #   printing.enable  = true;
-  # };
+  services = {
+    libinput.enable  = true;      # enable touchpad support (enabled default in most desktopManager).
+    udisks2.enable   = true;
+    udev.enable      = true;
+    throttled.enable = false;     # IF intel THEN true ELIF amd THEN false
+    printing.enable  = true;
+  };
 }
