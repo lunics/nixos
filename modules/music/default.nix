@@ -30,6 +30,8 @@
     # zita-njbridge     # Jack client to transmit audio over a local IP network
     # cadence           # control panel for audio work
     # vital-synth
+
+    spotify
   ];
 
   # create music directory
