@@ -1,4 +1,4 @@
-{ inputs, ... }:{
+{ config, inputs, ... }:{
   imports = [ inputs.zen-browser.homeModules.beta ];    # beta, twilight, twilight-official
 
   programs.zen-browser = {
@@ -22,6 +22,21 @@
     #     Fingerprinting = true;
     #   };
     # };
+  };
+
+  home.file.".zen/profiles.ini"= {
+    force = true;
+    text = ''
+      [Profile0]
+      Name=lunics
+      IsRelative=0
+      Path=/home/lunics/usb_copy/homelab/share/browser/zen/${config._.user}
+      Default=1
+      
+      [General]
+      StartWithLastProfile=1
+      Version=2
+    '';
   };
 
   xdg = {
