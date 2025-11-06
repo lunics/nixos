@@ -26,7 +26,7 @@
     ./k3s
     ./task_manager
     ./music
-    # ./media   KO if no usb_copy/share present
+    ./media         # KO if no usb_copy/share present
     ./stylix.nix
   ];
 }

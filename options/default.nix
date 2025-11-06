@@ -30,9 +30,8 @@
       default = "";
     };
 
-    splitkb = mkOption {
-      type    = types.bool;
-      default = false;
-    };
+    splitkb = mkEnableOption "";
+
+    home_studio = mkEnableOption "";
   };
 }
