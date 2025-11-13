@@ -9,12 +9,12 @@
     configFile  = "";    # contents of the sudoers file
     extraConfig = "";
     extraRules = [
-      {
-        users    = [ "lunics" ];
-        host     = "ALL";
-        runAs    = "ALL:ALL";
-        commands = [ "/run/current-system/sw/bin/poweroff" ];
-      }
+      # {
+      #   users    = [ "USERNAME" ];
+      #   host     = "ALL";
+      #   runAs    = "ALL:ALL";
+      #   commands = [ "/run/current-system/sw/bin/poweroff" ];
+      # }
     ];
   };
 }
