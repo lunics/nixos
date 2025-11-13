@@ -7,9 +7,7 @@
       # virt-manager
     ];
 
-    users.users.lunics = {    # enable local user access to libvirt, for example by using virt-manager or gnome-boxes, add yourself to the libvirtd group
-      extraGroups = [ "libvirtd" ];
-    };
+    users.users.${config._.user}.extraGroups = [ "libvirtd" ];    # enable local user access to libvirt, for example by using virt-manager or gnome-boxes, add yourself to the libvirtd group
 
     # programs.virt-manager.enable = true;
 

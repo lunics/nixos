@@ -8,6 +8,6 @@
       };
     };
 
-    users.extraGroups.docker.members = [ "lunics" ];
+    users.extraGroups.docker.members = [ "${config._.user}" ];
   };
 }

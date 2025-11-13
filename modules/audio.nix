@@ -16,7 +16,7 @@
       };
       # das_watchdog.enable = false;        # start the das_watchdog service to ensure that a realtime process won't hang the machine, true if musnix.kernel.realtime = true, otherwise false
     };
-    users.users.lunics.extraGroups = [ "audio" ];   # required by musnix
+    users.users.${config._.user}.extraGroups = [ "audio" ];   # required by musnix
 
     security.rtkit.enable      = true;
     services.pulseaudio.enable = false;
