@@ -1,5 +1,5 @@
 { config, ... }:{
-  xdg.configFile."hypr/config.d/input".text = ''
+  wayland.windowManager.hyprland.extraConfig = ''
     input {
       kb_layout     = ${config._.hyprland.kb_layout}
       kb_variant    =                 # altgr-intl = us layout with european accent

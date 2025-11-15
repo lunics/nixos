@@ -1,13 +1,9 @@
 { config, inputs, pkgs, ... }:{
-  systemd.user = {
-    targets."hyprland".Unit.Description = "Hyprland Session Target";
-  };
-
   home.file.".config/systemd/user/startup_apps.service".text = ''
     [Unit]
     Description=Launch desktop applications at Hyprland startup
-    PartOf=hyprland.target
-    After=hyprland.target
+    PartOf=hyprland-session.target
+    After=hyprland-session.target
     Requires=sync_browser_profile@lunics.service
     After=sync_browser_profile@lunics.service
 
@@ -22,15 +18,15 @@
     ExecStart=/run/current-system/sw/bin/hyprctl dispatch exec swww-daemon
     
     [Install]
-    WantedBy=hyprland.target
+    WantedBy=hyprland-session.target
   '';
 }
     ## home-manager restart this service at every rebuild
     # services."startup_apps" = {
     #   Unit = {
     #     Description = "Launch desktop applications at Hyprland startup";
-    #     After       = [ "hyprland.target"  ];
-    #     PartOf      = [ "hyprland.target" ];
+    #     After       = [ "hyprland-session.target"  ];
+    #     PartOf      = [ "hyprland-session.target" ];
     #   };
     #   Service = {
     #     Type = "oneshot";
@@ -44,5 +40,5 @@
     #     ];
     #     Restart   = "on-failure";
     #   };
-    #   Install.WantedBy = [ "hyprland.target" ];
+    #   Install.WantedBy = [ "hyprland-session.target" ];
     # };
