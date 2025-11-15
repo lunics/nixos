@@ -12,7 +12,7 @@
     };
 
     plugins = with pkgs; [
-      networkmanager-openvpn
+      # networkmanager-openvpn
       # networkmanager-strongswan           # multiplatform IPsec implementation
       # networkmanager-openconnect
       # networkmanager-fortisslvpn
@@ -22,8 +22,4 @@
       # networkmanager-sstp
     ];
   };
-
-  # imports = [
-  #   ../etc/NetworkManager/
-  # ];
 }

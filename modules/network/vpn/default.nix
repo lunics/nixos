@@ -1,6 +1,6 @@
 {
   imports = [
-    ./wireguard.nix
+    ./mullvad.nix
     # ./tailscale.nix
   ];
 }

@@ -5,16 +5,20 @@
       Network = {
         EnableIPv6           = false;
         RoutePriorityOffset  = 200;
-        NameResolvingService = "resolvconf"; };
+        NameResolvingService = "resolvconf"; 
+      };
 
       Settings = {
-        AutoConnect = true; };
+        AutoConnect = true; 
+      };
 
       General = {
-        EnableNetworkConfiguration = true; };
+        EnableNetworkConfiguration = true; 
+      };
 
       Scan = {
-        DisablePeriodicScan = false; };
+        DisablePeriodicScan = false; 
+      };
     };
   };
 }

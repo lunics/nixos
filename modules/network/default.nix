@@ -2,8 +2,7 @@
   imports = [
     ./network.nix
     ./network_manager.nix
-    # ./wifi_profiles.nix
-    ./iwd.nix
+    ./wifi
     ./bluetooth.nix
     # ./vpn
     ./dns
