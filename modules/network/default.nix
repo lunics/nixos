@@ -6,6 +6,7 @@
     ./bluetooth.nix
     # ./vpn
     ./dns
+    ./firewall.nix
   ];
 
   # network diagnostic tool that combines ping and traceroute into one program
