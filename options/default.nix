@@ -4,6 +4,7 @@
     ./tmux.nix
     ./yazi.nix
     ./paths.nix
+    ./music.nix
     ./neovim.nix
     ./desktop.nix
     ./hyprland.nix
@@ -31,7 +32,5 @@
     };
 
     splitkb = mkEnableOption "";
-
-    home_studio = mkEnableOption "";
   };
 }

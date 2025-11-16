@@ -2,7 +2,7 @@
   imports = [
     ./mpd.nix
     ./rmpc
-    ./musescore
+    ./musescore.nix
     ./home_studio
   ];
 
