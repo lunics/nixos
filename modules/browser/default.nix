@@ -6,6 +6,7 @@
     ./chromium.nix
     ./zen.nix
     ./psd.nix
+    ./sync_browser_profile.nix
   ];
 
   home.sessionVariables.BROWSER = "${config._.browser}";
