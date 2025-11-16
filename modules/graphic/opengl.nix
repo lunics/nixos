@@ -6,7 +6,12 @@
     # can be enabled on any gpu nvidi/amd
     # hardware.opengl is deprecated
     hardware.graphics = {
-      enable = true;
+      enable        = true;
+
+      # required by steam
+      # enable32Bit   = true;
+      # package32 = pkgs-unstable.pkgsi686Linux.mesa;
+
       extraPackages = with pkgs; [
         vpl-gpu-rt              # to enable video acceleration (for OBS Studio, ffmpeg, ...) via Intel Quick Sync Video (QSV) through Intel VPL
         intel-vaapi-driver      # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
