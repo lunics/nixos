@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:{
   imports = [ inputs.musnix.nixosModules.musnix ];
 
-  config = lib.mkIf config._.audio {
+  config = lib.mkIf config._.musnix {
     musnix = {
       # list options run: nixos-option musnix.rtirq or nixos-option musnix.rtirq.enable
       enable         = true;
@@ -16,19 +16,7 @@
       };
       # das_watchdog.enable = false;        # start the das_watchdog service to ensure that a realtime process won't hang the machine, true if musnix.kernel.realtime = true, otherwise false
     };
-    users.users.${config._.user}.extraGroups = [ "audio" ];   # required by musnix
 
-    security.rtkit.enable      = true;
-    services.pulseaudio.enable = false;
-    
-    services.pipewire = {
-      enable               = true;
-      audio.enable         = true;
-      wireplumber.enable   = true;
-      pulse.enable         = true;
-      alsa.enable          = true;
-      alsa.support32Bit    = true;
-      jack.enable          = true; 
-    };
+    users.users.${config._.user}.extraGroups = [ "audio" ];   # required by musnix
   };
 }

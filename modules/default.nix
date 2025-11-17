@@ -15,7 +15,7 @@
     ./ntp.nix
     # ./users.nix
     ./programs
-    ./audio.nix
+    ./audio
     ./login_manager.nix
     ./security
     ./fonts.nix

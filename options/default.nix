@@ -26,6 +26,7 @@
     login_manager = mkEnableOption "";
 
     audio = mkEnableOption "";
+    musnix = mkEnableOption "";
 
     crypttab.text = mkOption {
       type    = types.str;
