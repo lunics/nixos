@@ -6,7 +6,7 @@ in {
     packages = with pkgs; [ musescore ];
 
     activation.link_musescore_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ln -s ${config._.musescore_share} ${config._.local_share}/MuseScore
+      ln -s ${config._.musescore_share} ${config._.local_share} || true
     '';
   };
 
