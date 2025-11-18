@@ -1,9 +1,15 @@
 { config, inputs, lib, pkgs, ... }:{ 
-  home.packages = with pkgs; [
-    inputs.yt-x.packages."${system}".default
-    yt-dlp
-    kitty       # dependency for icat image preview
-  ];
+  home = {
+    packages = with pkgs; [
+      inputs.yt-x.packages."${system}".default
+      yt-dlp
+      kitty       # dependency for icat image preview
+    ];
+
+    activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      ln ${config._.share}/yt-x/recent.json ${config._.dot_config}/yt-x/recent.json || true
+    '';
+  };
 
   xdg.configFile."yt-x/yt-x.conf".text = ''
     AUTO_LOADED_EXTENSIONS: 
@@ -24,10 +30,5 @@
     DOWNLOAD_DIRECTORY: /home/lunics/videos/yt-x
     UPDATE_CHECK: false
     # CHAFA_ARGS: "--format kitty --passthrough tmux"
-  '';
-
-  home.activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    rm ${config._.dot_config}/yt-x/recent.json || true
-    ln ${config._.share}/yt-x/recent.json ${config._.dot_config}/yt-x/recent.json
   '';
 }
