@@ -1,6 +1,5 @@
 { pkgs }: pkgs.writeShellApplication {
   name = "_suspend";
-
   excludeShellChecks = [ "SC2086" "SC2046" "SC1091" ];
 
   text = ''
@@ -11,9 +10,13 @@
       task +ACTIVE stop || true
     fi
 
-    echo "" > /tmp/pomodoro_cycle
-    systemctl --user restart pomodoro.timer
-    systemctl --user restart pomodoro.service
+    if systemctl is-active --quiet --user pomodoro.service; then
+      echo "" > /tmp/pomodoro_cycle
+      systemctl --user restart pomodoro.timer
+      systemctl --user restart pomodoro.service
+    fi
+
+    ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh
 
     systemctl suspend
   '';

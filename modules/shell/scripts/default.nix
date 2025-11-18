@@ -12,6 +12,7 @@
     ./toggle_bt_device.nix
     ./toggle_vpn.nix
     ./_suspend.nix
+    ./_poweroff.nix
   ];
 in {
   home.packages = with pkgs; 
