@@ -1,7 +1,7 @@
 { config, inputs, lib, pkgs, ... }:{ 
   home = {
     packages = with pkgs; [
-      inputs.yt-x.packages."${system}".default
+      inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
       yt-dlp
       kitty       # dependency for icat image preview
     ];

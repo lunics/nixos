@@ -10,7 +10,7 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  hyprlock-package = inputs.hyprlock.packages.${system}.hyprlock;
+  hyprlock-package = inputs.hyprlock.packages.${stdenv.hostPlatform.system}.hyprlock;
 
   hyprlock-blur = pkgs.writeShellScriptBin "hyprlock-blur" ''
     ${pkgs.grim}/bin/grim -o DP-2 -l 0 /tmp/screenshot1.png &
