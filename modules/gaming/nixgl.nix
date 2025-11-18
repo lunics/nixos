@@ -1,5 +1,5 @@
 {
-  nixGL = {                           # wrapper tool for nix OpenGL 
+  targets.genericLinux.nixGL = {      # wrapper tool for nix OpenGL 
     defaultWrapper = "mesaPrime";     # mesa, mesaPrime, nvidia, nvidiaPrime
     offloadWrapper = "mesaPrime";     # mesa, mesaPrime, nvidia, nvidiaPrime
 
