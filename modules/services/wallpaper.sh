@@ -13,4 +13,6 @@ selected_line=$(shuf -i 0-${max_wallpapers} -n 1)
 
 selected_wallpaper=$(ls -1 $path_wallpapers | sed -n "${selected_line}p")
 
-swww img "$path_wallpapers/$selected_wallpaper" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 3
+echo "Wallpaper name: $selected_wallpaper"
+
+swww img "$path_wallpapers/$selected_wallpaper" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 3 --invert-y
