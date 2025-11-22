@@ -1,4 +1,4 @@
-{
+{ config, ... }:{
   programs.gh = {
     enable   = true;
     # gitCredentialHelper.enable = true;
@@ -10,5 +10,5 @@
     # extensions = [];
   };
 
-  ## home.sessionVariables."GH_TOKEN" = "{{ github_token }}"; 
+  home.sessionVariables."GITHUB_TOKEN" = config._.github_token; 
 }
