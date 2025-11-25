@@ -50,6 +50,11 @@
       default = [];
     };
 
+    github_token = mkOption {
+      type    = types.str;
+      default = "";
+    };
+
     yubikey = mkEnableOption "";
   };
 }

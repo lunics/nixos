@@ -9,6 +9,10 @@
       "flakes" 
     ];
 
+    access-tokens = [
+      "github.com=${config._.github_token}"     # required to avoid Github API rate limit exceeded
+    ];
+
     require-sigs = true;              # will only download binaries cryptographically signed from the binary caches
     substituters        = [           # binary cache URLs used to obtain pre-built binaries pkg
       "https://hyprland.cachix.org" 
