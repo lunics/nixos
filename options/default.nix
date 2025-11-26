@@ -37,5 +37,7 @@
     };
     
     splitkb = mkEnableOption "";
+
+    ansible = mkEnableOption "";
   };
 }

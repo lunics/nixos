@@ -22,10 +22,6 @@
     HOMELAB         = "$CLOUD/homelab";
     KUBERNETES      = "$LINUX/kubernetes";
 
-    ANSIBLE         = "$HOMELAB/ansible";
-    ANSIBLE_CONFIG  = "$ANSIBLE/ansible.cfg";
-    GALAXY          = "$ANSIBLE/galaxy";
-    
     USB_ID          = "0543f662-b81a-484e-9c52-71b6142685b2";
 
     _ZO_DATA_DIR    = "${config._.share}/zoxide";

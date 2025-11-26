@@ -8,10 +8,7 @@
     go-task           # taskfile
     wl-clipboard
     # clipboard-jh    # best wayland clipboard
-    
-    ansible
-    sshpass           # required by ansible for remote connections
-    
+
     # thefuck
     # pay-respects      # thefuck replacement written in Rust
     

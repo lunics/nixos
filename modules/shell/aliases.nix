@@ -1,6 +1,5 @@
 { config, ... }:{ 
   home.shellAliases = {
-    a     = "ansible-playbook";
     l     = "exa -l --group-directories-first --git-repos --hyperlink -X";
     p     = "pkg";
     g     = "lazygit";

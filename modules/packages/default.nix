@@ -10,5 +10,6 @@
     ./ai.nix
     # ./yubikey.nix
     ./anki.nix
+    ./ansible.nix
   ];
 }
