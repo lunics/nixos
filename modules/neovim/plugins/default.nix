@@ -5,7 +5,7 @@
     # ./smear-cursor.nix     KO with t key
 
     ./bufferline.nix
-    ./lualine.nix
+    # ./lualine.nix         # KO build: lualine.nvim-scm-1.rockspec failed with hash
     # https://github.com/vim-airline/vim-airline/
 
     # ./telescope.nix
@@ -31,7 +31,7 @@
     commentary.enable     = true;
     auto-save.enable      = true;
     nvim-surround.enable  = true;
-    spider.enable         = true;   # ?
+    # spider.enable         = true;   # ?, KO build: lualine.nvim-scm-1.rockspec failed with hash
     numbertoggle.enable   = true;   # turn off relative number when buffer not focused
   };
 
