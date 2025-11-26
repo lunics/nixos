@@ -5,5 +5,6 @@
     ./obs.nix
     ./mangohud.nix
     ./nixgl.nix
+    # ./ankaman-launcher.nix
   ];
 }

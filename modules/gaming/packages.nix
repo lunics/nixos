@@ -25,5 +25,7 @@
     # wine            # required by lutris
     wine64            # conflict with wine
     winetricks
+
+    # ankama-launcher
   ];
 }
