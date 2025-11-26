@@ -28,7 +28,6 @@
     md    = "mkdir --parents --verbose";
     ra    = "ranger_no_subshell";
     tt    = "taskwarrior-tui";
-    tf    = "terraform";
     ".."  = "cd ..";
     "..." = "cd ../..";
     cat   = "catt";

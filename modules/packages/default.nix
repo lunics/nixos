@@ -11,5 +11,6 @@
     # ./yubikey.nix
     ./anki.nix
     ./ansible.nix
+    ./terraform.nix
   ];
 }

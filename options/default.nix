@@ -39,5 +39,7 @@
     splitkb = mkEnableOption "";
 
     ansible = mkEnableOption "";
+
+    terraform = mkEnableOption "";
   };
 }
