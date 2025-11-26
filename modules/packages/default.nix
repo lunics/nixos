@@ -12,5 +12,6 @@
     ./anki.nix
     ./ansible.nix
     ./terraform.nix
+    ./tigervnc.nix
   ];
 }

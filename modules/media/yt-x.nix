@@ -7,7 +7,7 @@
     ];
 
     activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ln ${config._.share}/yt-x/recent.json ${config._.dot_config}/yt-x/recent.json || true
+      ln ${config._.share}/yt-x/recent.json ${config._.dot_config}/yt-x/recent.json &> /dev/null || true
     '';
   };
 
