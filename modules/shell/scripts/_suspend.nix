@@ -3,6 +3,10 @@
   excludeShellChecks = [ "SC2086" "SC2046" "SC1091" ];
 
   text = ''
+    if playerctl status | rg -s Playing; then 
+      playerctl pause
+    fi
+
     if which task; then
       export TASKDATA=$HOME/usb_copy/homelab/share/taskwarrior
       export TASKRC=$HOME/.config/taskwarrior/taskw/taskrc
