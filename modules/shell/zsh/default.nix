@@ -5,7 +5,7 @@
     #   https://github.com/jeffreytse/zsh-vi-mode
     
     enable   = true;
-    enableCompletion = false;
+    enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting = {
       enable = true;
@@ -49,7 +49,7 @@
     # ZSHRC       = "$SHELLRC/zsh";           # personnal
     # ZDOTDIR     = "$ZSHRC";                 # official
     # # ZSH_THEME = "robbyrussell";
-    WORDCHARS   = "*?_-[]~=&;!#$%^(){}<>";   # special characters considered as normal letters
+    WORDCHARS   = "*?_-[]~=&;!#$%^(){}<>";    # special characters considered as normal letters
     # KEYTIMEOUT  = 0.1;                      # time to activate vim mode and others mode, ## tester sans
     # ZPLUG_HOME  = "$ZSHRC/zplug";           # zplug home dir
     # ZSH_FZF_HISTORY_SEARCH_BIND = "^r";     # set keybinding for zsh-fzf-history-search plugin
