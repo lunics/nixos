@@ -8,9 +8,10 @@
       yubico-pam
       pam_u2f
       age-plugin-yubikey
-      age
-      # rage      # age in rust
+      # age
+      rage        # age in rust
       pcsclite
+      yubikey-personalization
     ];
 
     services = {
