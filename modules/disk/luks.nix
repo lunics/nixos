@@ -5,7 +5,7 @@ in {
     disko.devices.disk.${_.device}.content.partitions = {
       luks = {
         size    = "100%";
-        label   = "luks";
+        label   = "LUKS";
         content = {
           type          = "luks";
           name          = "luks";
