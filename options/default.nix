@@ -43,5 +43,7 @@
     terraform = mkEnableOption "";
 
     podman    = mkEnableOption "";
+
+    winboat   = mkEnableOption "";
   };
 }

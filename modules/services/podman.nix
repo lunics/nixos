@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:{
-  config = lib.mkIf config._.podman  {
+  config = lib.mkIf config._.podman or config._.winboat  {
     services.podman = {         # daemonless container engine
       enable      = true;
       package     = pkgs.podman;
