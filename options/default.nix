@@ -36,10 +36,12 @@
       default = "";
     };
     
-    splitkb = mkEnableOption "";
+    splitkb   = mkEnableOption "";
 
-    ansible = mkEnableOption "";
+    ansible   = mkEnableOption "";
 
     terraform = mkEnableOption "";
+
+    podman    = mkEnableOption "";
   };
 }
