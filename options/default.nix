@@ -82,7 +82,12 @@
       default = null;
     };
 
-    passage   = mkEnableOption "";
+    pass_manager = mkOption {
+      type    = types.str;
+      default = "gopass";
+    };
+
+    passage = mkEnableOption "";
 
     age_identities = lib.mkOption {
       type    = types.nullOr types.path;

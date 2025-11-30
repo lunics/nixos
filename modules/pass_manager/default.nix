@@ -1,8 +1,8 @@
 {
   imports = [
-    # ./password_store.nix
+    ./password-store.nix
     ./passage.nix
-    ./gopass.nix
+    ./gopass
     ./keyring
   ];
 }
