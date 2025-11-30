@@ -46,7 +46,14 @@ in {
     
     # screenshot
     bind = $SUPER SHIFT, S, exec, grimblast --notify copysave area ${config._.share}/screenshots/$(date +"%d-%m-%Y%H-%M-%S").png
-
+    
+    #________ WINDOWS ________#
+    # to switch between windows in a floating workspace
+    bind = ALT, Tab, cyclenext,               # focuses the next window respecting the layout
+    bind = ALT, Tab, bringactivetotop,        # bring it to the top
+    bind = ALT SHIFT, Tab, cyclenext, prev
+    bind = ALT SHIFT, Tab, bringactivetotop,
+    
     #________ WORKSPACES ________#
     
     bind = , ${_hypr.prev_workspace}, workspace, previous

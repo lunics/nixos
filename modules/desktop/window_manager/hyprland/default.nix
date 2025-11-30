@@ -6,7 +6,7 @@
     ./input.nix
     ./packages.nix
     ./wayprompt.nix
-    ./plugins
+    # ./plugins
   ];
 
   wayland.windowManager.hyprland = {
