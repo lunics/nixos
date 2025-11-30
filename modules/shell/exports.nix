@@ -1,5 +1,6 @@
 { config, ... }:{ 
-  home.sessionVariables = rec {
+  # home.sessionVariables = rec {
+  programs.zsh.sessionVariables = rec {
     EDITOR          = "nvim";
     MANPAGER        = "nvim +Man!";
     READER          = "zathura";
