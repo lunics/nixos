@@ -3,7 +3,9 @@
     enable               = true;
     package              = null;
     extraConfig          = "";
-    extraOptionOverrides = {};
+    extraOptionOverrides = {
+      UserKnownHostsFile = "${config._.share}/ssh/known_hosts";
+    };
     includes             = [];      # File globs of ssh config files
     matchBlocks          = config._.ssh_config;
 
