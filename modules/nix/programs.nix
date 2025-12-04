@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{ 
+{ config, ... }:{ 
   programs = {
     home-manager = {
       enable = true;
@@ -19,12 +19,4 @@
       # dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
-
-  home.packages = with pkgs; [
-    deploy-rs
-    # nix-init          # generate Nix packages from URLs
-    # comma             # to runs nix software without installing it
-  ];
 }

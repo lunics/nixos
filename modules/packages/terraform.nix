@@ -11,7 +11,7 @@
         # atmos         # universal Tool for DevOps and Cloud Automation (works with terraform, helm, helmfile, etc)
       ];
 
-      shellAliases.tf = "terraform";
+      shellAliases.tf = "tofu";
     };
   };
 }

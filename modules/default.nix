@@ -3,7 +3,7 @@
     # inputs.ags.homeManagerModules.default
     # inputs.nur.hmModules.nur
     ../options
-    ./nix_programs.nix
+    ./nix
     # ./devbox
     ./home.nix
     ./packages
