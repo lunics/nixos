@@ -25,8 +25,6 @@
     cachix        # fetch cache after cachix install with: nix flake update
   ];
 
-  programs.nh.enable = true;
-
   imports = [
     # ./buildMachines.nix
     ./nixpkgs.nix
