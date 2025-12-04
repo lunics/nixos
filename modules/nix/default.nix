@@ -3,7 +3,7 @@
     enable = true;
     # package = pkgs.nix;
 
-    channel.enable = true;        # whether the nix-channel command and state files are made available on the machine
+    channel.enable = false;        # whether the nix-channel command and state files are made available on the machine
       # files initialized when enabled
       #   /nix/var/nix/profiles/per-user/root/channels
       #   /root/.nix-channels

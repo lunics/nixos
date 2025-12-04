@@ -1,9 +1,9 @@
 {
   nix.gc = {
-    automatic  = false;
-    dates      = [ "weekly" ];
-    options    = "";               # options given to nix-collect-garbage when runs automatically. ex "--max-freed $((64 * 1024**3))" 
-    persistent = true;
+    automatic          = true;
+    dates              = [ "weekly" ];
+    persistent         = true;
+    options            = "";   # "--max-freed $((64 * 1024**3))"
     randomizedDelaySec = "0";
   };
 }
