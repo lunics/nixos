@@ -29,10 +29,23 @@
       # serverAddr = "https://10.0.0.10:6443";      # The k3s server to connect to
       # charts = ../charts/argocd.tgz;
     };
+
+    systemd.services.k3s.postStart = ''
+      if [ -f /etc/rancher/k3s/k3s.yaml ]; then
+        chown lunics:users /etc/rancher/k3s/k3s.yaml
+      fi
+
+      # IF ARGO-CD NOT INSTALLED /home/lunics/.nix-profile/bin/kubectl THEN
+      #   /home/lunics/.nix-profile/bin/helm 
+      #   helm repo add argo https://argoproj.github.io/argo-helm
+      #   helm repo update
+      #   helm install argocd argo/argo-cd -n argo-cd
+      # FI
+    '';
   };
 
   imports = [
     # ./path_permissions.nix
-    ./network.nix
+    ./firewall.nix
   ];
 }
