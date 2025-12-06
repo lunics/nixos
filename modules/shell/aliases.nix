@@ -69,23 +69,7 @@
     charge_once  = "sudo tlp chargeonce";
     stop_pomodoro  = "systemctl --user stop  pomodoro.timer && systemctl --user stop  pomodoro.service && echo '0' > /tmp/pomodoro_cycle";
     start_pomodoro = "echo '0' > /tmp/pomodoro_cycle && systemctl --user start pomodoro.timer";
-    
-    # kubernetes
-    # kubectl = "/usr/bin/kubectl --cache-dir ~/.cache/kube";
-    k       = "kubecolor";    # --no-headers
-    kk      = "c $LINUX/kubernetes";
-    kcc     = "k config current-context";
-    kg      = "k get";
-    ka      = "k get all --all-namespaces";
-    knodes  = "k get nodes -o wide";
-    kp      = "k get pods --all-namespaces -o wide";
-    ks      = "k get services";
-    kt      = "k top nodes --use-protocol-buffers; echo; k top pods --use-protocol-buffers";
-    kd      = "k get deployments --all-namespaces";
-    kv      = "k get pv,pvc";
-    kapply  = "k apply -f";
-    ki      = "k get ingresses.networking.k8s.io --all-namespaces";
-    # helm    = "/run/current-system/sw/bin/helm";    ## replace by home-manager path ?
+
     synth-helm = "${config._.home}/.nix-profile/bin/helm";
     l_mount = "df -aTh --total";
     l_date  = "eza -la --sort=mod";

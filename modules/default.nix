@@ -22,7 +22,7 @@
     ./gpg.nix
     ./pass_manager
     ./services
-    ./k3s
+    ./kube
     ./task_manager
     ./music
     ./media         # KO if no usb_copy/share present

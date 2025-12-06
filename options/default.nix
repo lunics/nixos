@@ -47,5 +47,7 @@
     winboat   = mkEnableOption "";
 
     devbox    = mkEnableOption "";
+
+    kube      = mkEnableOption "";
   };
 }
