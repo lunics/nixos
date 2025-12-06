@@ -14,5 +14,6 @@
     ./terraform.nix
     ./tigervnc.nix
     # ./winboat.nix 
+    ./devbox.nix
   ];
 }

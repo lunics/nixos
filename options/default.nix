@@ -45,5 +45,7 @@
     podman    = mkEnableOption "";
 
     winboat   = mkEnableOption "";
+
+    devbox    = mkEnableOption "";
   };
 }

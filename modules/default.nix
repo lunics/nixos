@@ -4,7 +4,6 @@
     # inputs.nur.hmModules.nur
     ../options
     ./nix
-    # ./devbox
     ./home.nix
     ./packages
     ./xdg
