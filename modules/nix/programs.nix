@@ -8,11 +8,12 @@
     ## run "nix-index" to generate the database in /home/$USER/.cache/nix-index/files, takes btw 5-20 min
     nix-index = {       
       enable = true;
-      enableZshIntegration = false;    
+      enableZshIntegration = true;    
         # mutually exclusive with command-not-found
         # send message if command fail: The program '#' is currently not installed: nix-shell -p  --run '# ...'
     };
 
+    ## comma is a better replacement
     command-not-found = {
       enable = false;
       dbPath = "${config._.dot_cache}/nix-index/files";
