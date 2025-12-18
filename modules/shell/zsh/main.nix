@@ -11,7 +11,7 @@
     autocd               = true;    # automatically enter into a directory if typed directly
 
     completionInit = ''
-      autoload -U compinit && compinit
+      autoload -Uz compinit && compinit
     '';
 
     # promptInit = ''

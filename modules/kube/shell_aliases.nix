@@ -15,4 +15,10 @@
     ki      = "k get ingresses.networking.k8s.io --all-namespaces";
     # helm    = "/run/current-system/sw/bin/helm";    ## replace by home-manager path ?
   };
+
+  programs.zsh.initContent = ''
+    source <(kubectl completion zsh)    # get zsh complete kubectl
+    alias kubectl=kubecolor
+    compdef kubecolor=kubectl           # make completion work with kubecolor
+  '';
 }
