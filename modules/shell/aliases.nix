@@ -35,8 +35,8 @@
     vim   = "nvim";
     pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
     calc  = "numbat";
-    wget  = "echo Use http/https instead        #";
-    curl  = "echo Use http/https instead        #";
+    # wget  = "echo Use http/https instead        #";
+    # curl  = "echo Use http/https instead        #";
     pass  = "passfzf";
     copy  = "rsync -rlptgoDvzh --progress";
     # gpg = "/usr/bin/gpg --homedir {{ path_share }}/gnupg";
