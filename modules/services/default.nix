@@ -3,15 +3,16 @@
     ./ssh.nix
     ./tlp.nix
     ./logind.nix
-    # A DECOMENTER 
+    # ./btrbk.nix
+    # ./restic.nix
+
     # ./avahi.nix
     # ./btrfs_autoscrub.nix
     # ./snapraid.nix
     # ./snapper.nix
 
-    ## ./upower.nix       ## maybe uneeded if using hyprpanel custom battery module
+    # ./upower.nix       ## maybe uneeded if using hyprpanel custom battery module
     # ./xserver.nix
-    # ./restic.nix
   ];
 
   services = {
