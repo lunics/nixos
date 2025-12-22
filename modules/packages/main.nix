@@ -57,5 +57,9 @@
     libreoffice
 
     tigervnc
+
+    curl
+    yq
+    dig
   ];
 }

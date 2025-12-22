@@ -11,6 +11,8 @@
     '';
   };
 
+  # get logs: yt-x &> yt-x.log
+
   xdg.configFile."yt-x/yt-x.conf".text = ''
     AUTO_LOADED_EXTENSIONS: 
     PRETTY_PRINT: true                # whether to show colors when printing ouput
