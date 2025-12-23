@@ -2,7 +2,6 @@
   imports = [
     ./startup_apps.nix
     ./udiskie.nix
-    ./pomodoro.nix
     # ./nightly_poweroff.nix
     ./wallpaper.nix
     ./podman.nix

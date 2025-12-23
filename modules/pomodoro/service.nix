@@ -29,5 +29,5 @@
     };
   };
 
-  home.file.".config/systemd/user/pomodoro.sh".source = ./pomodoro.sh;
+  xdg.configFile."systemd/user/pomodoro.sh".source = ./service_script.sh;
 }

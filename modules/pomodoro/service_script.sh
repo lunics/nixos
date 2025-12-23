@@ -78,12 +78,11 @@ if [ "$cycle_count" -lt 3 ]; then                       # if cycle 1 or 2 then t
     playerctl pause
   fi
 
-  ## KO hyprland issue: Couldn't commit output {}
-  # hyprctl dispatch dpms off
+  hyprctl dispatch dpms off
 
   loop_minutes $time_pause pause
 
-  # hyprctl dispatch dpms on
+  hyprctl dispatch dpms on
 
 elif [ $cycle_count -eq 3 ]; then                       # if cycle 3 then keep the system suspended until a user action
   notify-send -t 5000 "Only $time_pause minutes left before suspend"

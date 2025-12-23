@@ -13,10 +13,6 @@
         source     = ./kb_layout.sh;
         executable = true;
       };
-      ".config/hyprpanel/pomodoro.sh" = {
-        source     = ./pomodoro.sh;
-        executable = true;
-      };
     };
 
     programs.hyprpanel = {
