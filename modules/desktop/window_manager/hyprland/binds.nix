@@ -29,6 +29,8 @@ in {
     # bind  = $SUPER,   H, FOCUS LEFT WINDOW
     # bind  = $SUPER,   L, FOCUS RIGHT WINDOW
     
+    
+    bind  = $SUPER,     P, exec, toggle_pomodoro
     # bind = $SUPER,    P,      pseudo,            # dwindle  KO
     # bind = $SUPER,    P,      pin, active        # pin the current window across all workspaces
     
