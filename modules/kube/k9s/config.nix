@@ -8,7 +8,6 @@
       noExitOnCtrlC:       false
       skipLatestRevCheck:  false
       screenDumpDir:       /tmp/k9s-screens-lunics
-      currentContext:      default
       currentCluster:      default
       liveViewAutoRefresh: false
 
