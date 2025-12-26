@@ -49,8 +49,6 @@
       sudoers  = [];
     };
 
-    rebuild.enableNg = true;      # use nixos-rebuild-ng in place of nixos-rebuild, the Python-based re-implementation of the original in Bash
-
     tools = {                      # toggle cli scripts
       nixos-build-vms.enable       = true;
       nixos-enter.enable           = true;
