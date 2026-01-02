@@ -20,10 +20,6 @@
         mountpoint   = "/nix";
         mountOptions = ["subvol=nix" "compress=zstd" "noatime"]; 
       };
-      "/persistent" = {
-        mountpoint   = "/persistent";
-        mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
-      };
       "/log" = {
         mountpoint   = "/var/log";
         mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec"]; 
@@ -37,12 +33,19 @@
         mountOptions = ["subvol=snapshots" "compress=zstd"]; 
       };
     }
+    (lib.mkIf config._.impermanence {
+      "/persistent" = {
+        mountpoint   = "/persistent";
+        mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
+      };
+    })
     (lib.mkIf config._.k3s {
       "/kube" = {
         mountpoint   = "/kube";
-        mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
+        mountOptions = ["subvol=kube" "compress=zstd" "noatime"]; 
       };
-    })];
+    }) 
+    ];
   };
 in {
   config = _mkIfElse (_.luks or false)

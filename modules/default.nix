@@ -5,6 +5,7 @@
     ./disk
     ./boot
     ./nix
+    ./impermanence.nix
     ./system.nix
     ./kernel.nix
     ./swap.nix
@@ -24,7 +25,6 @@
     ./gaming
     ./graphic
 
-    # ./impermanence.nix
     # ./auto-upgrade.nix
     ## ./udev
     ## ./server

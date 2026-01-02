@@ -9,7 +9,7 @@
     ./window_manager.nix
     ./wifi.nix
     ./udev.nix
-    # ./impermanence.nix
+    ./impermanence.nix
   ];
 
   options._ = {
