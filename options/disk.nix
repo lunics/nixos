@@ -12,6 +12,10 @@
       type    = types.bool;
       default = true;
     };
+    luks_device = mkOption {
+      type    = types.str;
+      default = "";
+    };
   };
 }
 

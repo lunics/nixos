@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{ 
+{ config, lib, pkgs, ... }:{ 
   config = lib.mkIf (config._.boot_splash == "plymouth") {
     boot.plymouth = {
       enable        = true;
