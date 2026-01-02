@@ -1,9 +1,10 @@
-{ pkgs, ... }:{
+{ pkgs, inputs, ... }:{
   # https://github.com/AshleyYakeley/NixVirt/tree/master/checks
 
-  # imports = [
-  #   ./nixvirt_vm_linux.nix
-  # ];
+  imports = [
+    inputs.nixvirt.nixosModules.default
+    ./nixvirt_vm_linux.nix
+  ];
 
   virtualisation.libvirt = {
     enable       = true;
