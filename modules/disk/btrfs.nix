@@ -6,36 +6,43 @@
   _subvolumes = {
     type       = "btrfs";
     extraArgs  = ["-L" "nixos" "-f"];
-    subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                      mountOptions = ["subvol=root" "compress=zstd" "relatime"]; 
-                    };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = ["subvol=home" "compress=zstd" "rw" "relatime" "nodev" "nosuid"]; 
-                    };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = ["subvol=nix" "compress=zstd" "noatime"]; 
-                    };
-                    "/persistent" = {
-                      mountpoint = "/persistent";
-                      mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
-                    };
-                    "/log" = {
-                      mountpoint = "/var/log";
-                      mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec"]; 
-                    };
-                    "/tmp" = {
-                      mountpoint = "/tmp";
-                      mountOptions = ["subvol=tmp" "compress=zstd" "rw" "nodev" "nosuid" "noexec"]; 
-                    };
-                    "/snapshots" = {
-                      mountpoint = "/snapshots";
-                      mountOptions = ["subvol=snapshots" "compress=zstd"]; 
-                    };
-    };
+    subvolumes = lib.mkMerge [
+    {
+      "/root" = {
+        mountpoint   = "/";
+        mountOptions = ["subvol=root" "compress=zstd" "relatime"]; 
+      };
+      "/home" = {
+        mountpoint   = "/home";
+        mountOptions = ["subvol=home" "compress=zstd" "rw" "relatime" "nodev" "nosuid"]; 
+      };
+      "/nix" = {
+        mountpoint   = "/nix";
+        mountOptions = ["subvol=nix" "compress=zstd" "noatime"]; 
+      };
+      "/persistent" = {
+        mountpoint   = "/persistent";
+        mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
+      };
+      "/log" = {
+        mountpoint   = "/var/log";
+        mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec"]; 
+      };
+      "/tmp" = {
+        mountpoint   = "/tmp";
+        mountOptions = ["subvol=tmp" "compress=zstd" "rw" "nodev" "nosuid" "noexec"]; 
+      };
+      "/snapshots" = {
+        mountpoint   = "/snapshots";
+        mountOptions = ["subvol=snapshots" "compress=zstd"]; 
+      };
+    }
+    (lib.mkIf config._.k3s {
+      "/kube" = {
+        mountpoint   = "/kube";
+        mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
+      };
+    })];
   };
 in {
   config = _mkIfElse (_.luks or false)

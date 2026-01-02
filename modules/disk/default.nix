@@ -1,5 +1,6 @@
-{
+{ inputs, ... }:{
   imports = [
+    inputs.disko.nixosModules.disko
     ./device.nix
     ./boot.nix
     ./luks.nix
