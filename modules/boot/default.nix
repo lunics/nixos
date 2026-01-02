@@ -3,7 +3,7 @@
     ./initrd.nix
     ./grub.nix
     ./systemd-boot.nix
-    # ./plymouth.nix
+    ./plymouth.nix
   ];
 
   boot = {

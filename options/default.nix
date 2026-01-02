@@ -28,6 +28,11 @@
       default = "systemd-boot";     # systemd-boot, grub
     };
 
+    boot_splash = mkOption {
+      type    = types.str;
+      default = "";                 # plymouth
+    };
+
     login_manager = mkEnableOption "";
 
     audio = mkEnableOption "";
