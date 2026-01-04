@@ -1,12 +1,25 @@
-color.deleted   = grey
-color.completed = blue
-color.active    = green              # rgb555 on rgb410
-color.overdue   =                    # color9
-color.scheduled =                    # on rgb001
-color.due.today =                    # rgb400
-color.due       =                    # color1
-color.blocked   =                    # white on color8
-color.blocking  =                    # black on color15
-color.recurring =                    # rgb013
-color.tagged    =                    # rgb031
-# color1 = red;
+color.urgent         = 
+color.uda.priority.H =
+color.uda.priority.M =
+color.deleted        = black
+color.completed      = rgb020
+color.active         = green
+color.overdue        =                 # color9
+color.scheduled      =                 # on rgb001
+color.due.today      =                 # rgb400
+color.due            =                 # color1
+color.blocked        =                 # white on color8
+color.blocking       =                 # black on color15
+color.recurring      =                 # rgb013
+color.tagged         =                 # rgb031
+
+# rgb050 bold     WITH BOLD
+# rgb050  green light
+# rgb020  green dark
+# rgb500  red light
+# rgb100  red dark
+# color1  red
+# rgb550  yellow
+# rgb410  yellow more dark
+# rgb530  orange
+# rgb410  orange more dark but nice

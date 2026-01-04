@@ -29,10 +29,8 @@ uda.taskwarrior-tui.style.report.scrollbar.area = white
 uda.taskwarrior-tui.scrollbar.indicator         =         # default = █
 uda.taskwarrior-tui.scrollbar.area              =         # default = ║
 
-#uda.taskwarrior-tui.task-report.next.filter    = $(task show report.next.filter)
-#uda.taskwarrior-tui.task-report.next.filter=status:pending        # default = $(task show report.next.filter)
-  # default KO
-  # if empty will keep show deleted task, what we don't want
+uda.taskwarrior-tui.task-report.next.filter                           = status:pending         
+  # limit:300 or $(task show report.next.filter)
 uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-add      = false
 uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-annotate = false
 uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-log      = false
