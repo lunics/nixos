@@ -8,5 +8,6 @@
     ./functions
     ./scripts
     ./zsh
+    ./nushell
   ];
 }
