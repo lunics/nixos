@@ -47,5 +47,6 @@
   imports = [
     # ./path_permissions.nix
     ./firewall.nix
+    ./open-iscsi.nix
   ];
 }
