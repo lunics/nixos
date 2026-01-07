@@ -4,6 +4,7 @@
     ./udiskie.nix
     # ./nightly_poweroff.nix
     ./wallpaper
+    ./pomodoro
     ./podman.nix
     ./ollama.nix
     ./auto-upgrade.nix
