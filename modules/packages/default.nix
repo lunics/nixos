@@ -13,7 +13,7 @@
     ./ansible.nix
     ./terraform.nix
     ./tigervnc.nix
-    # ./winboat.nix 
+    ./winboat.nix 
     ./devbox.nix
   ];
 }

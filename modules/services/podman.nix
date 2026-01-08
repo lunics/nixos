@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:{
-  config = lib.mkIf config._.podman or config._.winboat  {
+  config = lib.mkIf (config._.podman || config._.winboat) {
     services.podman = {         # daemonless container engine
       enable      = true;
       package     = pkgs.podman;
@@ -19,6 +19,7 @@
           insecure = [];        # insecure repositories
           search   = [          # repositories to search
             "docker.io"
+            "quay.io"
           ];
         };
         policy = {};            # signature verification policy file
