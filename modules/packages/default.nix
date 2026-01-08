@@ -15,5 +15,6 @@
     ./tigervnc.nix
     ./winboat.nix 
     ./devbox.nix
+    ./direnv.nix
   ];
 }
