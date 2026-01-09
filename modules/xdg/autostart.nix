@@ -1,6 +1,6 @@
 { pkgs, ... }:{
   xdg.autostart = {
-    enable  = false;
+    enable  = true;
     # entries = [
     #   "${pkgs.evolution}/share/applications/org.gnome.Evolution.desktop"
     # ];

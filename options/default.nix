@@ -49,5 +49,10 @@
     devbox    = mkEnableOption "";
 
     kube      = mkEnableOption "";
+
+    keyring = mkOption {
+      type    = types.str;
+      default = "";
+    };
   };
 }
