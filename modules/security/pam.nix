@@ -23,7 +23,10 @@
       };
     };
     services = {
-      # login.u2fAuth    = true;
+      login = {
+        # u2fAuth    = true;
+        enableGnomeKeyring = true;    ## can be toggle if add option keyring = false
+      };
       greetd.u2fAuth   = true;
       sudo.u2fAuth     = true;
       swaylock.u2fAuth = true;
