@@ -1,9 +1,8 @@
 { config, lib, pkgs, ... }:{
-  config = lib.mkIf (config._.podman || config._.winboat) {
+  config = lib.mkIf (config._.podman) {
     services.podman = {         # daemonless container engine
       enable      = true;
       package     = pkgs.podman;
-
       builds      = {};
       containers  = {};
       volumes     = {};
@@ -35,6 +34,9 @@
 
     home.packages = with pkgs; [
       podman-compose
+      # lazydocker
+      # pods            # gui
+      # podman-tui    # user lazydocker instead
     ];
   };
 }
