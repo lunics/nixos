@@ -4,5 +4,6 @@
     ./firewall.nix
     ./open-iscsi.nix
     # ./path_permissions.nix
+    ./uninstall.nix
   ];
 }
