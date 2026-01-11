@@ -9,5 +9,6 @@
     ./docker.nix
     ./microvm
     # ./pci_passthrough
+    # ./proxmox.nix
   ];
 }
