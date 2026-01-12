@@ -28,5 +28,6 @@
     ./media         # KO if no usb_copy/share present
     ./stylix.nix
     ./pomodoro
+    # "./client mail"
   ];
 }
