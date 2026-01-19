@@ -7,6 +7,8 @@
     # ./vpn
     ./dns
     ./firewall.nix
+    ./systemd.nix
+    ./nat.nix
   ];
 
   # network diagnostic tool that combines ping and traceroute into one program
