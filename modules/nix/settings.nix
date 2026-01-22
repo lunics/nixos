@@ -16,12 +16,15 @@
     require-sigs = true;              # will only download binaries cryptographically signed from the binary caches
     substituters        = [           # binary cache URLs used to obtain pre-built binaries pkg
       "https://hyprland.cachix.org" 
+      "https://microvm.cachix.org"
     ];
     trusted-substituters = [          # binary cache URLs that non-root users can use
       "https://hyprland.cachix.org"
+      "https://microvm.cachix.org"
     ];
     trusted-public-keys = [           # public keys used to sign binary caches
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" 
+      "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
     ];   
 
     cores    = 0;                     # 0 means that the builder should use all available CPU cores

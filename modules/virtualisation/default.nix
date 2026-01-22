@@ -6,7 +6,7 @@
     ./xen.nix
     ./podman.nix
     ./docker.nix
-    # ./microvm.nix
+    ./microvm
     # ./pci_passthrough
   ];
 }

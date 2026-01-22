@@ -1,0 +1,21 @@
+{ config, inputs, lib, ... }:{
+  imports = [ 
+    inputs.microvm.nixosModules.host
+  ];
+
+  config = lib.mkIf config._.microvm.enable {
+    microvm = {
+      vms = config._.microvm.vms;
+      
+      stateDir = "/var/lib/microvms";
+
+      host = {
+        enable           = true;
+        startupTimeout   = 150;
+        useNotifySockets = false;
+      };
+
+      autostart = [];
+    };
+  };
+}
