@@ -3,6 +3,7 @@
     ./ssh.nix
     ./tlp.nix
     ./logind.nix
+    ./upgrade.nix
     # ./btrbk.nix
     # ./restic.nix
 

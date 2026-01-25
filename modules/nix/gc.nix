@@ -3,7 +3,7 @@
     automatic          = true;
     dates              = [ "weekly" ];
     persistent         = true;
-    options            = "";   # "--max-freed $((64 * 1024**3))"
+    options            = "--delete-older-than 30d";
     randomizedDelaySec = "0";
   };
 }
