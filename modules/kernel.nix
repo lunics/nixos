@@ -1,6 +1,8 @@
 { pkgs, ... }:{
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    # kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+
     kernel.sysctl."net.ipv4.ip_forward" = 1;
 
     # kernelParams = [
