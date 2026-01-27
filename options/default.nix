@@ -35,6 +35,11 @@
       type    = types.str;
       default = "";
     };
+
+    flake_dir = mkOption {
+      type    = types.str;
+      default = "";
+    };
     
     splitkb   = mkEnableOption "";
 
