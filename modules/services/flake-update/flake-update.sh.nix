@@ -1,16 +1,11 @@
-{ config, pkgs, ... }:{
-  home.packages = [
-    (pkgs.writeShellApplication {
+{ config, pkgs, ... }:
+let
+  script_overlay = self: super: {
+    flake-update = super.writeShellApplication {
       name = "flake-update";
 
       text = ''
-        #!/usr/bin/env bash
-
         FLAKE_DIR=${config._.flake_dir}
-
-        set -o errexit
-        set -o nounset
-        set -o pipefail
         
         # export PATH="/nix/store/ihxcykgfmgvymd1fq5zrfs14q2cplczs-home-manager/bin:/nix/store/vfgzadk2clbi922nixidc7w2hf9na4dz-nix-2.31.3/bin:$PATH"
         
@@ -22,9 +17,14 @@
         
         echo "Changing to flake directory $FLAKE_DIR"
         cd "$FLAKE_DIR"
+
         echo "Update all flake inputs"
         nix flake update
       '';
-    })
-  ];
+    };
+  };
+in {
+  nixpkgs.overlays = [ script_overlay ];
+
+  home.packages = [ pkgs.flake-update ];
 }
