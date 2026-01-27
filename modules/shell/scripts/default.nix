@@ -1,11 +1,12 @@
-{ pkgs, ... }:let
-  scripts = [
-    ./gen_pass.nix
+{ pkgs, ... }:
+let
+  scripts = [ 
+    ./catt.nix
+    ./gen-pass.nix
     ./passfzf.nix
     ./pkg.nix
-    ./catt.nix      
     ./disk.nix
-    #./ ssh.nix         # KO breaks git actions via SSH
+    # ./ssh.nix         # KO breaks git actions via SSH
     ./rr.nix
     ./timer.nix
     ./otp.nix
@@ -15,6 +16,10 @@
     ./_poweroff.nix
   ];
 in {
-  home.packages = with pkgs; 
-    map (item: import item { inherit pkgs; }) scripts;
+  nixpkgs.overlays = map import scripts;
+
+  home.packages = map (name: pkgs.${
+    builtins.replaceStrings [ ".nix" ] [ "" ] (   # remove .nix from catt.nix
+      builtins.baseNameOf (toString name)         # extract catt.nix from ./catt.nix
+    )}) scripts;
 }

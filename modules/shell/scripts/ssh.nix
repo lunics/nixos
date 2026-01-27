@@ -1,15 +1,18 @@
-{ pkgs }: pkgs.writeShellApplication {
-  name = "ssh";
-  runtimeInputs = with pkgs; [
-    sshs
-    openssh
-  ];
+self: super: {
+  ssh = super.writeShellApplication {
+    name = "ssh";
 
-  text = ''
-    if [ $# -eq 0 ]; then
+    runtimeInputs = with super; [
       sshs
-    else
-      ssh "$*"
-    fi
-  '';
+      openssh
+    ];
+
+    text = ''
+      if [ $# -eq 0 ]; then
+        sshs
+      else
+        ssh "$*"
+      fi
+    '';
+  };
 }
