@@ -5,7 +5,5 @@
     useDHCP = lib.mkDefault true;
 
     # interfaces.wlp3s0.useDHCP    = lib.mkDefault true;
-
-    useNetworkd = true;     ## IF MICROVM IS TRUE
   };
 }

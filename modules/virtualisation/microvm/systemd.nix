@@ -1,5 +1,7 @@
 { config, lib, ... }:{
   config = lib.mkIf config._.microvm.enable {
+    networking.useNetworkd = true;     # alias of systemd.network.enable = true;
+
     systemd.network = {
       enable = true;
       netdevs = {
