@@ -10,4 +10,6 @@
   ];
 
   home.sessionVariables.BROWSER = "${config._.browser}";
+
+  _.add_to_startup = [ config._.browser ];
 }

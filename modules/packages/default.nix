@@ -16,5 +16,6 @@
     ./winboat.nix 
     ./devbox.nix
     ./direnv.nix
+    # ./mullvad.nix
   ];
 }

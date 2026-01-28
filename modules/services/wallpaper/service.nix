@@ -1,12 +1,4 @@
 { pkgs, ... }:{
-  home = {
-    packages = with pkgs; [ 
-      swww 
-      coreutils   # for shuf to get a random value
-    ];
-    file.".config/systemd/user/wallpaper.sh".source = ./wallpaper.sh;
-  };
-
   systemd.user = {
     timers."wallpaper" = {
       Unit.Description = "wallpaper.timer triggered every hour";
@@ -27,7 +19,7 @@
 
       Service = {
         Type      = "oneshot";
-        ExecStart = "${pkgs.bash}/bin/bash %h/.config/systemd/user/wallpaper.sh";
+        ExecStart = "${pkgs.update-wallpaper}/bin/update-wallpaper";
       };
 
       # Install.WantedBy = [ "hyprland.target" ];   # restart wallpaper at every home-manager build

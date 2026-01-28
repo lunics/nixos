@@ -9,5 +9,11 @@
       type    = types.str;
       default = "hyprpanel";
     };
+
+    add_to_startup = mkOption {
+      # type    = types.str;
+      type    = types.listOf types.str;
+      default = "";
+    };
   };
 }

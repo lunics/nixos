@@ -22,4 +22,6 @@
       # ];
     };
   };
+
+  _.add_to_startup = [ "udiskie" ];
 }

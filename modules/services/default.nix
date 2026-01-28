@@ -3,7 +3,7 @@
     ./startup_apps.nix
     ./udiskie.nix
     # ./nightly_poweroff.nix
-    ./wallpaper.nix
+    ./wallpaper
     ./podman.nix
     ./ollama.nix
     ./flake-update

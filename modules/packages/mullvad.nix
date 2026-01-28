@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }:{
   programs.mullvad-vpn = {
     enable  = true;
     package = pkgs.mullvad-vpn;
@@ -15,4 +15,6 @@
       browsedForSplitTunnelingApplications = [];
     };
   };
+
+  _.add_to_startup = [ config._.mullvad-vpn ];
 }
