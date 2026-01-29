@@ -28,7 +28,8 @@ bindkey "^Z" _run_zoxide            # ctrl z = zoxide + fzf
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 
-bindkey "^H" backward-kill-word     # ctrl backspace = delete word before (respecting WORDCHARS)
+bindkey "^H"   backward-kill-word     # ctrl backspace = delete word before (respecting WORDCHARS)
+bindkey "^[^?" backward-kill-word     # alt  backspace
 
 # zle -N _bypass_wordchars
 # bindkey "" _bypass_wordchars      # ctrl shift backspace = delete word before (ignoring WORDCHARS)
