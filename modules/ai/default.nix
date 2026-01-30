@@ -12,5 +12,6 @@
     ./chatgpt.nix
     ./fabric-ai.nix
     ./opencode.nix
+    ./mcp.nix
   ];
 }
