@@ -4,12 +4,13 @@
     # shell-gpt         # KO build 17/10/25
     # open-interpreter  # KO build pygame
     claude-code
-    opencode
     # gpt-cli
   ];
 
   imports = [ 
     # ./crush.nix
     ./chatgpt.nix
+    ./fabric-ai.nix
+    ./opencode.nix
   ];
 }
