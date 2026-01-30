@@ -7,7 +7,6 @@
     ./rclone.nix
     ./torrent.nix
     ./neofetch.nix
-    ./ai.nix
     # ./yubikey.nix
     ./anki.nix
     ./ansible.nix

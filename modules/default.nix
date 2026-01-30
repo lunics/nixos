@@ -29,5 +29,6 @@
     ./stylix.nix
     ./pomodoro
     # "./client mail"
+    ./ai
   ];
 }
