@@ -1,4 +1,4 @@
-{ lib, ... }:{
+{ config, lib, ... }:{
   security.sudo-rs = {
     enable             = true;
     execWheelOnly      = lib.mkDefault true;  # only allow members of the wheel group to execute sudo, prevents users that are not members of wheel from exploiting vulnerabilities in sudo such as CVE-2021-3156
@@ -9,12 +9,15 @@
     configFile  = "";    # contents of the sudoers file
     extraConfig = "";
     extraRules = [
-      # {
-      #   users    = [ "USERNAME" ];
-      #   host     = "ALL";
-      #   runAs    = "ALL:ALL";
-      #   commands = [ "/run/current-system/sw/bin/poweroff" ];
-      # }
+      {
+        users    = [ config._.user ];
+        host     = "ALL";
+        runAs    = "ALL:ALL";
+        commands = map (cmd: {
+          command = cmd;
+          options = [ "NOPASSWD" ];
+        }) config._.sudo.no_passwd;
+      }
     ];
   };
 }

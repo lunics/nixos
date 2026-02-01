@@ -2,7 +2,7 @@
   imports = [
     ./disk.nix
     ./users.nix
-    # ./sudo.nix
+    ./sudo.nix
     ./zramSwap.nix
     ./virtualisation.nix
     ./gaming.nix
