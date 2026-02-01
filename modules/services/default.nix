@@ -3,7 +3,8 @@
     ./ssh.nix
     ./tlp.nix
     ./logind.nix
-    # ./auto-upgrade
+    ./flake-update
+    ./auto-upgrade
     # ./btrbk.nix
     # ./restic.nix
 
