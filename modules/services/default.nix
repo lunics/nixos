@@ -6,8 +6,7 @@
     ./wallpaper
     ./podman.nix
     ./ollama.nix
-    ./flake-update
-    ./auto-upgrade
+    ./auto-upgrade.nix
     # ./usb_sync.nix
     # ./ssh_tpm_agent.nix
   ];

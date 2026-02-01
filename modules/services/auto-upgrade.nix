@@ -1,8 +1,8 @@
 { config, ... }: {
   services.home-manager.autoUpgrade = {
-    enable    = true;
+    enable    = false;
     frequency = "Fri *-*-* 21:00:00";
     useFlake  = true;
-    flakeDir  = "/home/lunics/usb_copy/homelab/nixos/inventory";
+    flakeDir  = "${config._.flake_dir}#${config._.user}";
   };
 }
