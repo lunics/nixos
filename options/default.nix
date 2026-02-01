@@ -18,6 +18,11 @@
       default = "nixos";
     };
 
+    flake_dir = mkOption {
+      type    = types.str;
+      default = "";
+    };
+
     boot_loader = mkOption {
       type    = types.str;
       default = "systemd-boot";     # systemd-boot, grub

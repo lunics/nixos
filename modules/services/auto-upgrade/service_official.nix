@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:{
   system.autoUpgrade = {              # Enable the nixos-update script and service
-    enable               = true;      # run nixos-rebuild switch --upgrade once a day
+    enable               = false;     # run nixos-rebuild switch --upgrade once a day
     dates                = "Fri *-*-* 20:00:00";  # run every friday at 20h
     upgrade              = true;      # disable adding the --upgrade parameter when channel is not set, such as when upgrading to the latest version of a flake honouring its lockfile
     operation            = "switch";  # switch, boot. Whether to run nixos-rebuild switch --upgrade or run nixos-rebuild boot --upgrade
