@@ -1,7 +1,8 @@
 {
   imports = [ 
-    ./service_official.nix
-    ./service_custom.nix
-    ./script-auto-upgrade.nix
+    ./git.nix
+    ./flake-update
+    ./service-nixos-upgrade.nix
+    ./service-hm-upgrade.nix
   ];
 }
