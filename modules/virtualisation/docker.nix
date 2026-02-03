@@ -2,10 +2,11 @@
   config = lib.mkIf config._.docker {
     virtualisation.docker = {
       enable        = true;
-      storageDriver = "btrfs";      # null, aufs, btrfs, devicemapper, overlay, overlay2, zfs
+      package       = pkgs.docker;
+      # storageDriver = "btrfs";      # null, aufs, btrfs, devicemapper, overlay, overlay2, zfs
                                     # Changing the storage driver will cause any existing containers and images to become inaccessible
       rootless = {
-        enable            = true;
+        enable            = false;
         package           = pkgs.docker;
         setSocketVariable = true;   # Point DOCKER_HOST to rootless Docker instance for normal users by default
         extraPackages     = [];
@@ -33,8 +34,7 @@
 
       enableOnBoot  = true;
       listenOptions = [ "/run/docker.sock" ];
-      logDriver     = "journald";   # none, json-file, syslog, journald, gelf, fluentd, awslogs, splunk, etwlogs, gcplogs, local 
-      package       = pkgs.docker;
+      logDriver     = "journald";   # none, json-file, syslog, journald, gelf, fluentd, awslogs, splunk, etwlogs, gcplogs, local
 
       extraPackages = [];           # extra packages to add to PATH for the docker daemon process
       extraOptions  = "";           # extra command-line options to pass to docker daemon
