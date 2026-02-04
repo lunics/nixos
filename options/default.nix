@@ -16,6 +16,11 @@
       default = "nixos";
     };
 
+    user_id = mkOption {
+      type    = types.int;
+      default = 1000;
+    };
+
     terminal = mkOption {
       type    = types.str;
       default = "ghostty";

@@ -8,8 +8,8 @@
     Service = {
       Type        = "simple";
       Environment = [
-        "XDG_RUNTIME_DIR=/run/user/1000"
-        "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+        "XDG_RUNTIME_DIR=/run/user/${toString config._.user_id}"
+        "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${toString config._.user_id}/bus"
       ];
       ExecStart   = [ "${pkgs.nu-pomodoro}/bin/nu-pomodoro" ];
     };
