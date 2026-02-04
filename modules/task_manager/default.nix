@@ -23,8 +23,8 @@
 
     sessionVariables = rec {
       TASKRC        = "${config._.dot_config}/taskwarrior/taskw/taskrc";
-      TASKDATA      = "$HOME/usb_copy/homelab/share/taskwarrior";
-      TIMEWARRIORDB = "$HOME/usb_copy/homelab/share/taskwarrior/timewarrior";    # path for data + config
+      TASKDATA      = "${config._.share}/taskwarrior";
+      TIMEWARRIORDB = "${config._.share}/taskwarrior/timewarrior";    # path for data + config
     };
   };
 }
