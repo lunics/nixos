@@ -3,7 +3,10 @@ let
   version = "4";
 in {
   home = {
-    packages = with pkgs; [ musescore ];
+    packages = with pkgs; [ 
+      musescore
+      muse-sounds-manager
+    ];
 
     activation.link_musescore_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ln -s ${config._.musescore_share} ${config._.local_share} &> /dev/null || true
