@@ -4,9 +4,6 @@
     network.enable = false;
 
     availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-    # IF LUKS AND YUBIKEY
-    #   kernelModules = [ "vfat" "nls_cp437" "nls_iso8859-1" "usbhid" ];
-    # FI
 
     luks = {
       cryptoModules      = [ "aes" "xts" "sha512" ];
@@ -25,7 +22,7 @@
                                       # Use periodic TRIM instead: systemctl enable fstrim.timer
           bypassWorkqueues   = true;  # increase SSD performance
 
-          fido2  = {                  # if fido2Support is true ?
+          fido2 = {
             passwordLess = true;      # Enable only when your device is PIN protected
             gracePeriod  = 10;        # seconds to wait for the FIDO2 key
             credentials  = [];        # multiple FIDO2 keys for the same luks device
