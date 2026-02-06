@@ -3,6 +3,7 @@
     ./initrd.nix
     ./grub.nix
     ./systemd-boot.nix
+    ./lanzaboot.nix
     ./plymouth.nix
   ];
 
