@@ -67,6 +67,8 @@
       fi
     '';
 
+    _.persistent.dirs = lib.mkIf config._.impermanence [ "/kube" ];
+
     # systemd.tmpfiles.rules = [
     #   "C /var/lib/rancher/k3s/server/manifests/argo-cd.yml 0644 root root - ${./argo-cd.yml}"
     # ];

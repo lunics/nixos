@@ -1,4 +1,4 @@
-{
+{ config, lib, ... }:{
   networking.wireless.iwd = {
     enable = true;
     settings = {
@@ -21,4 +21,8 @@
       };
     };
   };
+
+  _.persistent.dirs = lib.mkIf config._.impermanence [ 
+    "/var/lib/iwd" 
+  ];
 }
