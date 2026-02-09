@@ -11,4 +11,6 @@
     # ./usb_sync.nix
     # ./ssh_tpm_agent.nix
   ];
+
+  systemd.user.startServices = "sd-switch";   # suggest, sd-switch
 }
