@@ -20,6 +20,10 @@
             { cycle: 1, break: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
           }
 
+          if $data.last_run != (date now | format date "%Y-%m-%d") {
+            $data = { cycle: 1, break: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
+          }
+
           def reduce_brightness [_data: record, _duration: duration = 20sec ] {
             # get current brightness level
             let level = (brightnessctl -m | split row ',' | get 3 | str replace '%' "" | into int)
