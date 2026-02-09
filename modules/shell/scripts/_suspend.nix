@@ -16,7 +16,6 @@ self: super: {
 
       if systemctl is-active --quiet --user pomodoro.service; then
         echo "" > /tmp/pomodoro_cycle
-        systemctl --user restart pomodoro.timer
         systemctl --user restart pomodoro.service
       fi
 
