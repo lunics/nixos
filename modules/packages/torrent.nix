@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ lib, pkgs, ... }:{
   ## nixos non home-manager https://mynixos.com/nixpkgs/options/services.rtorrent
   programs.rtorrent = {
     enable      = true;
@@ -6,6 +6,10 @@
       # https://github.com/rakshasa/rtorrent/wiki/Config-Guide
     package     = pkgs.rtorrent;
   };
+
+  home.activation.torrents-dir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/torrents"
+  '';
 
   xdg.dataFile."applications/rtorrent-magnet.desktop".text = ''
     [Desktop Entry]

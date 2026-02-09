@@ -1,10 +1,6 @@
 { config, lib, ... }:{
   home.activation.home-dirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p "$HOME/downloads"
-    mkdir -p "$HOME/repos"
-    mkdir -p "$HOME/torrents"
-    mkdir -p "$HOME/usb_copy"
-    mkdir -p "$HOME/.config/k3s"
   '';
 
   home.sessionVariables = rec {
