@@ -64,5 +64,10 @@
       type    = types.str;
       default = "";
     };
+
+    external_vpn = mkOption {
+      type    = types.str;
+      default = "";
+    };
   };
 }

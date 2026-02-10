@@ -1,20 +1,26 @@
-{ pkgs, ... }:{
-  programs.mullvad-vpn = {
-    enable  = true;
-    package = pkgs.mullvad-vpn;
-    settings = {
-      preferredLocale              = "system";
-      autoConnect                  = false;
-      enableSystemNotifications    = true;
-      monochromaticIcon            = false;
-      startMinimized               = false;
-      unpinnedWindow               = true;
-      updateDismissedForVersion    = "";
-      animateMap                   = true;
-      changelogDisplayedForVersion = "";
-      browsedForSplitTunnelingApplications = [];
+{ config, lib, pkgs, ... }:{
+  config = lib.mkIf (config._.external_vpn == "mullvad") {
+    programs.mullvad-vpn = {
+      enable  = true;
+      package = pkgs.mullvad-vpn;
+      settings = {
+        preferredLocale              = "system";
+        autoConnect                  = true;
+        enableSystemNotifications    = true;
+        monochromaticIcon            = false;
+        startMinimized               = true;
+        unpinnedWindow               = true;
+        updateDismissedForVersion    = "";
+        animateMap                   = true;
+        changelogDisplayedForVersion = "";
+        browsedForSplitTunnelingApplications = [];
+      };
     };
-  };
 
-  _.add_to_startup = [ config._.mullvad-vpn ];
+    home.packages = with pkgs; [
+      mullvad-compass    # find Mullvad servers with the lowest latency at your location
+    ];
+
+    _.add_to_startup = [ "mullvad-vpn" ];
+  };
 }
