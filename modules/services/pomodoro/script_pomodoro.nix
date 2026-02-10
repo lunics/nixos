@@ -34,12 +34,12 @@
             $data | save -f $env.cache_file
             
             if $level > 0 {   # only run if brightness is above 0
-              # 3. Calculate delay (total time / number of steps)
+              # calculate delay (total time / number of steps)
               let delay = ($_duration / $level)
               print $"Starting fade out over ($_duration)..."
             
-              # 4. Loop from 1 up to the current level
-              1..$level | each { |iter|
+              # loop from 2 up to the current level, 2 instead of 1 to keep 1% of brightness
+              2..$level | each { |iter|
                 brightnessctl --quiet set 1%-
                 # print $"Step: ($iter) of ($level)"
                 sleep $delay

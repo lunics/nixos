@@ -4,6 +4,7 @@
       Description = "endless pomodoro";
       # Requires    = [ "pomodoro.timer" ];
       # After       = [ "default.target" "suspend.target" ];
+      X-SwitchMethod = "keep-old";
     };
     Service = {
       Type        = "simple";
@@ -12,7 +13,11 @@
         "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${toString config._.user_id}/bus"
       ];
       ExecStart   = [ "${pkgs.nu-pomodoro}/bin/nu-pomodoro" ];
+      RemainAfterExit = true;
     };
-    # Install.WantedBy = [ "suspend.target" ];
+    Install.WantedBy = [ 
+      "hyprland-session.target" 
+      "suspend.target" 
+    ];
   };
 }
