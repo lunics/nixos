@@ -66,5 +66,7 @@
     };
 
     yubikey = mkEnableOption "";
+
+    mullvad = mkEnableOption "";
   };
 }

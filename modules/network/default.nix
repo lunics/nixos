@@ -4,7 +4,7 @@
     ./network_manager.nix
     ./wifi
     ./bluetooth.nix
-    # ./vpn
+    ./vpn
     ./dns
     ./firewall.nix
     # ./nat.nix
