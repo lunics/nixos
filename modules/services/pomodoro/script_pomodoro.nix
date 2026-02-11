@@ -39,7 +39,7 @@
               print $"Starting fade out over ($_duration)..."
             
               # loop from 2 up to the current level, 2 instead of 1 to keep 1% of brightness
-              2..$level | each { |iter|
+              1..$level | each { |iter|
                 brightnessctl --quiet set 1%-
                 # print $"Step: ($iter) of ($level)"
                 sleep $delay

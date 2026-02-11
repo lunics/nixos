@@ -1,11 +1,4 @@
 { config, lib, ... }:{
-  imports = [
-    ./packages.nix
-    ./helm.nix
-    ./k9s
-    ./shell_aliases.nix
-  ];
-
   config = lib.mkIf config._.kube {
     home = {
       activation.k3s_config = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

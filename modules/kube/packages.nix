@@ -8,6 +8,7 @@
       kubecolor       # kubectl wrapper used to add colors 
       stern           # Log tailing for Kubernetes
       argocd
+      kompose         # convert docker-compose to kube manifests
       # kubelogin
       # kubelogin-oidc
       # kubeseal
