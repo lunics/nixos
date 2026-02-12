@@ -10,14 +10,10 @@
     ./wifi.nix
     ./udev.nix
     ./impermanence.nix
+    ./network.nix
   ];
 
   options._ = {
-    hostName = mkOption {
-      type    = types.str;
-      default = "nixos";
-    };
-
     flake_dir = mkOption {
       type    = types.str;
       default = "";
@@ -45,11 +41,6 @@
 
     graphic = mkEnableOption "";
 
-    dns = {
-      bind9 = mkEnableOption "";
-      nsd   = mkEnableOption "";
-    };
-
     laptop_lid = mkOption {
       type    = types.str;
       default = "suspend";
@@ -66,7 +57,5 @@
     };
 
     yubikey = mkEnableOption "";
-
-    mullvad = mkEnableOption "";
   };
 }
