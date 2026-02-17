@@ -10,8 +10,6 @@
     ./shell
     ./ssh_client.nix
     ./git
-    ./neovim
-    ./editor.nix
     ./desktop
     ./font.nix
     ./gaming
@@ -26,6 +24,7 @@
     ./task_manager
     ./music
     ./media         # KO if no usb_copy/share present
+    ./editor
     ./stylix.nix
     # "./client mail"
     ./ai
