@@ -6,16 +6,16 @@
     READER          = "zathura";
     
     # PATH
-    CONFIG          = "${config._.dot_config}";
+    CONFIG          = config._.dot_config;
     # SHELLRC         = "$HOME/{{ path3.shell   }}";
     # FUNCTIONS       = "$SHELLRC/functions";
     LOCAL           = "$HOME/.local";
-    CACHE           = "${config._.dot_cache}";
+    CACHE           = config._.dot_cache;
     # SCRIPTS         = "$HOME/{{ path3.scripts }}";
     BIN             = "$HOME/.local/bin";
     SSH             = "$HOME/.config/ssh";
     # SSH_CONFIG    = "$SSH/config";
-    SHARE           = "${config._.local_share}";
+    SHARE           = config._.local_share;
     CLOUD           = "$HOME/usb_copy";
     USB             = "/run/media/$USER";
     DOWNLOADS       = "~/downloads";
