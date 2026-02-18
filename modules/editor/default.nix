@@ -6,6 +6,7 @@
   ];
 
   home.packages = with pkgs; [
-    anytype
+    anytype         # p2p note-taking tool
+    anytype-heart   # shared library for Anytype clients
   ];
 }

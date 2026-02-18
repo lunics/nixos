@@ -21,6 +21,11 @@
       default = 1000;
     };
 
+    editor = mkOption {
+      type    = types.str;
+      default = "nvim";
+    };
+
     terminal = mkOption {
       type    = types.str;
       default = "ghostty";

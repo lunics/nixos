@@ -16,7 +16,7 @@
   xdg.configFile."yt-x/yt-x.conf".text = ''
     AUTO_LOADED_EXTENSIONS: 
     PRETTY_PRINT: true                # whether to show colors when printing ouput
-    EDITOR: nvim
+    EDITOR: ${config._.editor}
     PREFERRED_SELECTOR: fzf           # fzf, rofi
     VIDEO_QUALITY: 1080               # the quality of the video when streaming with a player other than mpv
     ENABLE_PREVIEW: true

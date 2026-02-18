@@ -4,7 +4,7 @@
     # gitCredentialHelper.enable = true;
     settings = {
       git_protocol = "ssh"; 
-      editor       = "nvim";
+      editor       = config._.editor;
       # alias      = {}
     }; 
     # extensions = [];
