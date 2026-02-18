@@ -5,6 +5,7 @@
     spotify
     streamlink-twitch-gui-bin
     mpv
+    instaloader       # dl insta videos/pictures with metadatas
   ];
 
   imports = [
