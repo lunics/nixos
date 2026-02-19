@@ -79,5 +79,12 @@
       type    = types.nullOr types.path;
       default = null;
     };
+
+    passage   = mkEnableOption "";
+
+    age_identities = lib.mkOption {
+      type    = types.nullOr types.path;
+      default = null;
+    };
   };
 }
