@@ -5,8 +5,8 @@
         #!${pkgs.nushell}/bin/nu
         
         def pomodoro [
-          --work:      int = 40
-          --1st_break: int = 3
+          --work:      int    = 40
+          --1st_break: int    = 3
           --unit:      string = "min"  # min, sec
         ] {
           $env.cache_file = "/tmp/pomodoro.json"    # $env instead of let to be accessible in any def
@@ -14,16 +14,19 @@
           
           let time_unit = if $unit == "sec" { 1sec } else { 1min }
           
+          # if /tmp/pomodoro.json presents then use it else reset the variable
           mut data = if ($env.cache_file | path exists) {
             open $env.cache_file
           } else {
             { cycle: 1, break: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
           }
 
+          # reset everything if we start a new day
           if $data.last_run != (date now | format date "%Y-%m-%d") {
             $data = { cycle: 1, break: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
           }
 
+          # reduce brightness until 0 when we start a break
           def reduce_brightness [_data: record, _duration: duration = 20sec ] {
             # get current brightness level
             let level = (brightnessctl -m | split row ',' | get 3 | str replace '%' "" | into int)
@@ -47,6 +50,7 @@
             }
           }
           
+          # run many system commands to pause everthing before the break
           def take_break [break_time: int, time_unit: duration, unit: string, _data: record] {
             notify-send -t 10000 -u critical "🍅 Pomodoro" $"Breath and rest your eyes for ($break_time)($unit)"
             sleep 10sec
@@ -65,16 +69,19 @@
               }
             }
         
-            print $"(char bel)(ansi yellow)✓ Break ($break_time)($unit)(ansi reset)"
+            ## KO print $"(char bel)(ansi yellow)✓ Break ($break_time)($unit)(ansi reset)"
+            print $"Break for ($break_time * $time_unit) ($unit)"
             sleep ($break_time * $time_unit)
         
             # hyprctl dispatch dpms on
-            brightnessctl --quiet set $"($_data.brightness)%"
+            mut __data = open /tmp/pomodoro.json
+            print $"Restore brightness to ($__data.brightness)%"
+            brightnessctl --quiet set $"($__data.brightness)%"
         
             return $break_time
           }
           
-          if $data.current_work >= 3 {
+          if $data.current_work >= 30 {
             $data.cycle = $data.cycle + 1
             $data.current_work = 0
           }

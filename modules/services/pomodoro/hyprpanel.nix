@@ -25,7 +25,7 @@
       "custom/pomodoro": {
         "label":    "{message}",
         "execute":  "~/.config/hyprpanel/pomodoro.sh",
-        "interval": 30000
+        "interval": 5000     // 5 sec
       },
     '' ];
   };
