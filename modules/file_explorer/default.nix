@@ -1,6 +1,7 @@
 {
   imports = [
     ./yazi
+    ./zoxide.nix
     # ./fzf.nix
   ];
 
