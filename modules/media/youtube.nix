@@ -1,9 +1,12 @@
 { config, inputs, lib, pkgs, ... }:{ 
   home = {
     packages = with pkgs; [
+      freetube
+      
+      # yt-x dependencies
       inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
       yt-dlp
-      kitty       # dependency for icat image preview
+      kitty       # icat image preview
     ];
 
     activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
