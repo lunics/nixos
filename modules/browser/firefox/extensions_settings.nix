@@ -1,6 +1,6 @@
 { 
   programs.firefox.policies.ExtensionSettings = {
-    # todo extensions datas location: /home/lunics/.mozilla/firefox/Lunics/storage/default
+    # todo extensions datas location: /home/$USER/.mozilla/firefox/PROFILE/storage/default
     # https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action
     # https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager
     # valid synthax

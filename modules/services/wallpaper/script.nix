@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   scriptOverlay = self: super: {
     update-wallpaper = super.writeShellApplication {
@@ -19,7 +19,7 @@ let
         max_wallpapers=$(ls -1 $path_wallpapers | wc -l)
         
         # swww query 
-        #   /home/lunics/usb_copy/homelab/share/wallpapers/summer-anime-girl-cat-4k-wallpaper-uhdpaper.com-414@5@d.jpg
+        #   ${config._.share}/wallpapers/summer-anime-girl-cat-4k-wallpaper-uhdpaper.com-414@5@d.jpg
         
         selected_line=$(shuf -i 0-''\${max_wallpapers} -n 1)
         

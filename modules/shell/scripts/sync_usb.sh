@@ -9,7 +9,7 @@ luks_uuid="luks-2590eb50-1395-4c41-955b-976a599e2a3f"
   # luks-e0db3d7d-e237-4883-82a7-7fdfea49e097     lexar
 
 if [ "$(hostname)" = "nixos" ]; then
-  usb_uncrypted=/run/media/lunics/$btrfs_uuid 
+  usb_uncrypted=/run/media/$USER/$btrfs_uuid 
 elif [ "$(hostname)" = "ILTP-014" ]; then
   usb_uncrypted=/run/media/root/$btrfs_uuid
 fi

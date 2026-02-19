@@ -1,6 +1,7 @@
 { config, lib, ... }: with lib; {
   imports = [
     ./ssh.nix
+    ./git.nix
     ./tmux.nix
     ./yazi.nix
     ./paths.nix

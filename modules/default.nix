@@ -23,7 +23,7 @@
     ./kube
     ./task_manager
     ./music
-    ./media         # KO if no usb_copy/share present
+    ./media
     ./editor
     ./stylix.nix
     # "./client mail"

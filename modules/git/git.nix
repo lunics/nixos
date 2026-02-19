@@ -1,8 +1,4 @@
 { config, pkgs, ... }:{
-  home.packages = with pkgs; [
-    git-filter-repo     # rewrite git repository history
-  ];
-
   programs.git = {
     enable       = true;
     # hooks = {     # default hooks used when git clone
@@ -10,8 +6,8 @@
     # };
     settings = {
       user = {
-        name  = "lunics";
-        email = "***REMOVED***";
+        name  = config._.git.user;
+        email = config._.git.email;
       };
       init.defaultBranch = "main"; 
       # user.signingkey = lib.mkIf (builtins.hasAttr osConfig.networking.hostName signingKeys) (signingKeys.${osConfig.networking.hostName});
@@ -35,8 +31,8 @@
 
   home.sessionVariables = {
     GIT_CONFIG_GLOBAL = "${config._.dot_config}/git/config";
-    GIT_AUTHOR_NAME   = "lunics";
-    GIT_AUTHOR_EMAIL  = "***REMOVED***";
+    GIT_AUTHOR_NAME   = config._.git.user;
+    GIT_AUTHOR_EMAIL  = config._.git.email;
   };
 }
 

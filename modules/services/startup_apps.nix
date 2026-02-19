@@ -3,8 +3,8 @@
     Unit = {
       Description    = "Launch desktop applications at Hyprland startup";
       PartOf         = [ "hyprland-session.target" ];
-      After          = [ "hyprland-session.target" "sync_browser_profile@lunics.service" ];
-      # Requires       = [ "sync_browser_profile@lunics.service" ];   # restart startup_apps service everytime sync_browser_profile is restarted
+      After          = [ "hyprland-session.target" "sync_browser_profile@${config._.user}.service" ];
+      # Requires       = [ "sync_browser_profile@${config._.user}.service" ];   # restart startup_apps service everytime sync_browser_profile is restarted
       X-SwitchMethod = "keep-old";
     };
     Service = {

@@ -28,9 +28,9 @@
     force = true;
     text = ''
       [Profile0]
-      Name=lunics
+      Name=${config._.user}
       IsRelative=0
-      Path=/home/lunics/usb_copy/homelab/share/browser/zen/${config._.user}
+      Path=${config._.share}/browser/zen/${config._.user}
       Default=1
       
       [General]
