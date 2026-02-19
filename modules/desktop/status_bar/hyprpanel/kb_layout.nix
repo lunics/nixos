@@ -15,12 +15,12 @@
       '';
     };
 
-    _.hyprpanel_modules = [ ''
-      "custom/kb_layout": {
-        "label":    "{message}",
-        "execute":  "~/.config/hyprpanel/kb_layout.sh",
-        "interval": 5000
-      },
-    '' ];
+    _.hyprpanel_modules = {
+      "custom/kb_layout" = {
+        label    = "{message}";
+        execute  = "~/.config/hyprpanel/kb_layout.sh";
+        interval = 5000;
+      };
+    };
   };
 }

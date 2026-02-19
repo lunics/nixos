@@ -17,12 +17,12 @@
       '';
     };
 
-    _.hyprpanel_modules = [ ''
-      "custom/taskwarrior": {
-        "label":    "{message}",
-        "execute":  "~/.config/hyprpanel/taskwarrior.sh",
-        "interval": 5000
-      },
-    '' ];
+    _.hyprpanel_modules = {
+      "custom/taskwarrior" = {
+        label    = "{message}";
+        execute  = "~/.config/hyprpanel/taskwarrior.sh";
+        interval = 5000;
+      };
+    };
   };
 }

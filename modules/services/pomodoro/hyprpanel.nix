@@ -21,12 +21,12 @@
       '';
     };
 
-    _.hyprpanel_modules = [ ''
-      "custom/pomodoro": {
-        "label":    "{message}",
-        "execute":  "~/.config/hyprpanel/pomodoro.sh",
-        "interval": 5000     // 5 sec
-      },
-    '' ];
+    _.hyprpanel_modules = {
+      "custom/pomodoro" = {
+        label    = "{message}";
+        execute  = "~/.config/hyprpanel/pomodoro.sh";
+        interval = 5000;
+      };
+    };
   };
 }

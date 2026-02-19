@@ -16,8 +16,8 @@
     };
 
     hyprpanel_modules = mkOption {
-      type    = types.listOf types.str;
-      default = "";
+      type    = types.attrsOf types.anything;
+      default = {};
     };
   };
 }

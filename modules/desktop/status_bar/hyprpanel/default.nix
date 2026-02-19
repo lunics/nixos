@@ -7,13 +7,16 @@
     # home.packages = with pkgs; [
     #   astal.battery   ## required for battery level ?
     # ];
-    home.file.".config/hyprpanel/modules.json".text = let
-      parts = lib.concatStringsSep "\n" config._.hyprpanel_modules;
-    in ''
-      {
-      ${parts}
-      }
-    '';
+
+    # home.file.".config/hyprpanel/modules.json".text = let
+    #   parts = lib.concatStringsSep "\n" config._.hyprpanel_modules;
+    # in ''
+    #   {
+    #   ${parts}
+    #   }
+    # '';
+
+    home.file.".config/hyprpanel/modules.json".text = builtins.toJSON config._.hyprpanel_modules;
 
     programs.hyprpanel = {
       enable          = true;
