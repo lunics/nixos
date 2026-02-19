@@ -1,5 +1,5 @@
-report.next.labels  = id,deps,project,recur,s,due,until,description,p,urg,age,active
-report.next.columns = id,depends,project,recur,scheduled.countdown,due.relative,until.remaining,description.truncated_count,priority,urgency,entry.age,start.age
+report.next.labels  = id,deps,project,recur,s,due,until,description,p,tags,urg,age,active
+report.next.columns = id,depends,project,recur,scheduled.countdown,due.relative,until.remaining,description.truncated_count,priority,tags,urgency,entry.age,start.age
 
 uda.taskwarrior-tui.selection.indicator = •
 uda.taskwarrior-tui.selection.bold      = true
