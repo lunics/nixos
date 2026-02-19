@@ -1,19 +1,19 @@
 { config, lib, pkgs, ... }:{
+  imports = [
+    ./kb_layout.nix
+  ];
+
   config = lib.mkIf (config._.status_bar == "hyprpanel") {
     # home.packages = with pkgs; [
     #   astal.battery   ## required for battery level ?
     # ];
-    home.file = {
-      ".config/hyprpanel/modules.json".source = ./modules.json;
-      ".config/hyprpanel/taskwarrior.sh" = {
-        source     = ./taskwarrior.sh;
-        executable = true;
-      };
-      ".config/hyprpanel/kb_layout.sh" = {
-        source     = ./kb_layout.sh;
-        executable = true;
-      };
-    };
+    home.file.".config/hyprpanel/modules.json".text = let
+      parts = lib.concatStringsSep "\n" config._.hyprpanel_modules;
+    in ''
+      {
+      ${parts}
+      }
+    '';
 
     programs.hyprpanel = {
       enable          = true;

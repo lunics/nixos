@@ -1,4 +1,8 @@
 { config, lib, pkgs, ... }:{ 
+  imports = [
+    ./hyprpanel.nix
+  ];
+
   home = {
     packages = with pkgs; [
       (lib.hiPrio taskwarrior3)     # hiPrio needed to avoid conflict with go-task/taskfile

@@ -14,5 +14,10 @@
       type    = types.listOf types.str;
       default = "";
     };
+
+    hyprpanel_modules = mkOption {
+      type    = types.listOf types.str;
+      default = "";
+    };
   };
 }
