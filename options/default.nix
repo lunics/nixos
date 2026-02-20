@@ -7,6 +7,7 @@
     ./paths.nix
     ./music.nix
     ./neovim.nix
+    ./torrent.nix
     ./desktop.nix
     ./hyprland.nix
   ];

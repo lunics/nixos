@@ -28,5 +28,6 @@
     ./stylix.nix
     # "./client mail"
     ./ai
+    ./torrent
   ];
 }
