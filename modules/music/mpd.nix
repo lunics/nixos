@@ -8,7 +8,7 @@
 
   services.mpd = {
     enable  = true;
-    musicDirectory = "${config.xdg.userDirs.music}";     # where mpd reads music from
+    musicDirectory = "${config._.home}/music";     # where mpd reads music from
     extraConfig = ''
       auto_update "yes"         # auto update db
       restore_paused "yes"      # startup behavior

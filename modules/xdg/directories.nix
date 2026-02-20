@@ -1,11 +1,11 @@
 { config, lib, ... }:{
   home.activation.home-dirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    mkdir -p "$HOME/downloads"
+    mkdir -p ${config._.logs}
   '';
 
   home.sessionVariables = rec {
     XDG_BIN_HOME          = "${config._.home}/.local/bin";
-    XDG_SCREENSHOTS_DIR   = "${config._.home}/usb_copy/homelab/share/screenshots";
+    XDG_SCREENSHOTS_DIR   = "${config._.share}/screenshots";
   };
 
   xdg = {
@@ -33,8 +33,8 @@
     userDirs = {
       enable            = true;
       createDirectories = true;
-      download          = "${config._.home}/downloads";   # XDG_DOWNLOAD_DIR
-      music             = "${config._.home}/music";       # XDG_MUSIC_DIR
+      download          = config._.downloads; # XDG_DOWNLOAD_DIR
+      music             = null;   # XDG_MUSIC_DIR
       desktop           = null;   # XDG_DESKTOP_DIR
       documents         = null;   # XDG_DOCUMENTS_DIR
       pictures          = null;   # XDG_PICTURES_DIR

@@ -20,5 +20,13 @@
       type    = types.str;
       default = config.xdg.dataHome;
     };
+    downloads = mkOption {
+      type    = types.str;
+      default = "${config._.home}/downloads";
+    };
+    logs = mkOption {
+      type    = types.str;
+      default = "${config._.home}/.local/logs";
+    };
   };
 }

@@ -8,7 +8,7 @@
         readOnly:            false
         noExitOnCtrlC:       false
         skipLatestRevCheck:  false
-        screenDumpDir:       /tmp/k9s-screens-lunics
+        screenDumpDir:       ${config._.logs}/k9s_screens
         currentCluster:      default
         liveViewAutoRefresh: false
 
