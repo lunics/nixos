@@ -1,16 +1,18 @@
-self: super: {
-  disk = super.writeShellApplication {
-    name = "disk";
+{ pkgs, ... }:{
+  home.packages = [
+    (pkgs.writeShellApplication {
+      name = "disk";
 
-    runtimeInputs = with super; [ 
-      duf
-      dysk
-    ];
+      runtimeInputs = with pkgs; [ 
+        duf
+        dysk
+      ];
 
-    text = ''
-      duf --hide special
-      echo
-      dysk
-    '';
-  };
+      text = ''
+        duf --hide special
+        echo
+        dysk
+      '';
+    })
+  ];
 }

@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-let
-  scripts = [ 
+{
+  imports = [ 
     ./catt.nix
     ./gen-pass.nix
     ./passfzf.nix
@@ -15,11 +14,4 @@ let
     ./_suspend.nix
     ./_poweroff.nix
   ];
-in {
-  nixpkgs.overlays = map import scripts;
-
-  home.packages = map (name: pkgs.${
-    builtins.replaceStrings [ ".nix" ] [ "" ] (   # remove .nix from catt.nix
-      builtins.baseNameOf (toString name)         # extract catt.nix from ./catt.nix
-    )}) scripts;
 }

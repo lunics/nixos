@@ -1,18 +1,20 @@
-self: super: {
-  ssh = super.writeShellApplication {
-    name = "ssh";
+{ pkgs, ... }:{
+  home.packages = [
+    (pkgs.writeShellApplication {
+      name = "ssh";
 
-    runtimeInputs = with super; [
-      sshs
-      openssh
-    ];
-
-    text = ''
-      if [ $# -eq 0 ]; then
+      runtimeInputs = with pkgs; [
         sshs
-      else
-        ssh "$*"
-      fi
-    '';
-  };
+        openssh
+      ];
+
+      text = ''
+        if [ $# -eq 0 ]; then
+          sshs
+        else
+          ssh "$*"
+        fi
+      '';
+    })
+  ];
 }
