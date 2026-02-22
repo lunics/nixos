@@ -1,4 +1,4 @@
-{ pkgs, ...}: { # animate the cursor with a smear effec
+{ pkgs, ... }:{ # animate the cursor with a smear effec
 
   extraPlugins = with pkgs.vimPlugins; [
     smear-cursor-nvim

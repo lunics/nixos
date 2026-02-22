@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:{
+{
   imports = [
     ./highlight-undo.nix
     ./transparent.nix
@@ -25,6 +25,9 @@
 
     # ./plenary.nix                     # required by neovim-session-manager
     # ./auto-save.nix
+    
+    ./render-markdown.nix
+    # ./markdown-preview.nix
   ];
 
   plugins = {
@@ -43,7 +46,6 @@
   # { 'jghauser/mkdir.nvim', },
   #   'willothy/flatten.nvim',
   #   'kana/vim-textobj-line',
-  #   treesitter
   # https://github.com/akinsho/git-conflict.nvim/
   # folke/which-key.nvim',
   # toggleterm.nvim   manage multiple terminal windows

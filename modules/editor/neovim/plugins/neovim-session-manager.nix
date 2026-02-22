@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }:{
   # A simple wrapper around :mksession
 
   ## REQUIRE plenary.nix

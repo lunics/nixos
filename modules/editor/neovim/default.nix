@@ -1,12 +1,24 @@
-{ inputs, lib, ... }:{
+{ config, inputs, ... }:{
   imports = [ 
     inputs.nixvim.homeModules.nixvim
-    ./keymaps
   ];
 
-  programs.nixvim = lib.mkMerge [
-     (import ./opts.nix)
-     (import ./plugins)
-     (import ./autocmds)
-  ];
+  programs.nixvim = {
+    _module.args._config = config;    # config already used by nixvim
+
+    imports = [
+     ./opts.nix
+     ./plugins
+     ./autocmds
+     ./keymaps
+    ];
+  };
+
+  # old
+  # programs.nixvim = lib.mkMerge [
+  #    (import ./opts.nix)
+  #    (import ./plugins)
+  #    (import ./autocmds)
+  #    (import ./keymaps)
+  # ];
 }

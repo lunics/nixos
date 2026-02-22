@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }:{
   # manage workspace directories in neovim
 
   # no nix pkg

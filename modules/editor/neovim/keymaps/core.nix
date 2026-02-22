@@ -1,7 +1,7 @@
-{ config, ...}:let
-  _map = config._.neovim.keymap;
+{ _config, ... }:let
+  _map = _config._.neovim.keymap;
 in {
-  programs.nixvim.extraConfigLua = ''
+  extraConfigLua = ''
     local map   = vim.keymap.set
     local opts1 = { noremap = true }
     local opts2 = { noremap = true, silent = true }
