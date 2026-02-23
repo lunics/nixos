@@ -3,6 +3,7 @@
     ./highlight-undo.nix
     ./transparent.nix
     # ./smear-cursor.nix     KO with t key
+    # ./treesitter.nix       KO synthax highlighting broken, and auto fold code
 
     ./bufferline.nix
     # ./lualine.nix         # KO build: lualine.nvim-scm-1.rockspec failed with hash
