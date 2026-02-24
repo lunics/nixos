@@ -14,12 +14,4 @@
      ./colorschemes.nix
     ];
   };
-
-  # old
-  # programs.nixvim = lib.mkMerge [
-  #    (import ./opts.nix)
-  #    (import ./plugins)
-  #    (import ./autocmds)
-  #    (import ./keymaps)
-  # ];
 }
