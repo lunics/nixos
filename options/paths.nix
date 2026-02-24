@@ -12,6 +12,10 @@
       type    = types.str;
       default = config.xdg.cacheHome;
     };
+    local_state = mkOption {
+      type    = types.str;
+      default = config.xdg.stateHome;
+    };
     local_share = mkOption {    # stay local
       type    = types.str;
       default = config.xdg.dataHome;
