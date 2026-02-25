@@ -15,6 +15,7 @@
 
     ./flash.nix
     ./better-escape.nix
+    ./neoscroll.nix
 
     ./lazygit.nix
     # ./trim.nix
