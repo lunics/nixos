@@ -26,7 +26,7 @@
     ./workspaces.nix
 
     # ./plenary.nix                     # required by neovim-session-manager
-    # ./auto-save.nix
+    ./auto-save.nix
     
     ./render-markdown.nix
     # ./markdown-preview.nix
@@ -36,34 +36,8 @@
 
   plugins = {
     commentary.enable     = true;
-    auto-save.enable      = true;
     nvim-surround.enable  = true;
-    # spider.enable         = true;   # ?, KO build: lualine.nvim-scm-1.rockspec failed with hash
+    # spider.enable       = true;   # ?, KO build: lualine.nvim-scm-1.rockspec failed with hash
     numbertoggle.enable   = true;   # turn off relative number when buffer not focused
   };
-
-  # yetone/avante nvim
-  # { 'nvim-tree/nvim-web-devicons', },
-  #   'nacro90/numb.nvim',
-  # { 'svban/YankAssassin.vim', },
-  # { 'tommcdo/vim-exchange', },
-  # { 'jghauser/mkdir.nvim', },
-  #   'willothy/flatten.nvim',
-  #   'kana/vim-textobj-line',
-  # https://github.com/akinsho/git-conflict.nvim/
-  # folke/which-key.nvim',
-  # toggleterm.nvim   manage multiple terminal windows
-  # https://github.com/nat-418/boole.nvim
-  # https://github.com/gerazov/toggle-bool.nvim
-  # https://github.com/AckslD/nvim-neoclip.lua/
-  #   age.nvim — Neovim utility for loading encrypted secrets.
-  # https://github.com/pocco81/high-str.nvim
-  #   To create on fly highlighting
-
-
-# 2
-  # { 'tpope/vim-abolish', },
-
-# 3
-# https://github.com/stevearc/aerial.nvim/
 }
