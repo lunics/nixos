@@ -29,6 +29,8 @@
     
     ./render-markdown.nix
     # ./markdown-preview.nix
+
+    ./noice.nix
   ];
 
   plugins = {
