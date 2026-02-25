@@ -36,5 +36,6 @@
     ./nvim-surround.nix
     ./commentary.nix
     ./numbertoggle.nix
+    ./notify.nix
   ];
 }
