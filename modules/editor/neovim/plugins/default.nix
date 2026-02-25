@@ -37,7 +37,6 @@
   ];
 
   plugins = {
-    commentary.enable     = true;
     # spider.enable       = true;   # ?, KO build: lualine.nvim-scm-1.rockspec failed with hash
     numbertoggle.enable   = true;   # turn off relative number when buffer not focused
   };
