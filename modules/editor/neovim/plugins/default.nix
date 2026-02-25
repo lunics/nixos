@@ -2,7 +2,7 @@
   imports = [
     ./highlight-undo.nix
     ./transparent.nix
-    # ./smear-cursor.nix     KO with t key
+    ./smear-cursor.nix
     # ./treesitter.nix       KO synthax highlighting broken, and auto fold code
 
     ./bufferline.nix
