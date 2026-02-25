@@ -18,6 +18,7 @@
     ./neoscroll.nix
 
     ./lazygit.nix
+
     # ./trim.nix
     ./vim-obsession.nix               # modifies the session files to always autosave after sourcing.
     # ./auto-session.nix              # Automatically stores sessions in a shared directory
@@ -32,11 +33,11 @@
     # ./markdown-preview.nix
 
     ./noice.nix
+    ./nvim-surround.nix
   ];
 
   plugins = {
     commentary.enable     = true;
-    nvim-surround.enable  = true;
     # spider.enable       = true;   # ?, KO build: lualine.nvim-scm-1.rockspec failed with hash
     numbertoggle.enable   = true;   # turn off relative number when buffer not focused
   };
