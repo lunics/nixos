@@ -12,6 +12,7 @@
     # ./telescope.nix
     ./fzf-lua.nix
     # ./yazi.nix
+    # ./fff.nix
 
     ./flash.nix
     ./better-escape.nix
