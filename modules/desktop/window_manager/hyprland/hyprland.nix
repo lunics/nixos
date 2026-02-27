@@ -5,8 +5,8 @@
   '' + 
     (if config._.status_bar == "waybar" then
       ''exec      = pkill waybar; waybar --log-level error &> /run/user/$(id -u)/waybar.log &''
-    else if config._.status_bar == "hyprpanel" then
-      ''exec      = pkill hyprpanel; hyprpanel &> /run/user/$(id -u)/hyprpanel.log &''
+    # else if config._.status_bar == "hyprpanel" then     # already run by systemd
+    #   ''exec      = pkill hyprpanel; hyprpanel &> /run/user/$(id -u)/hyprpanel.log &''
     else "") + 
   ''
 
