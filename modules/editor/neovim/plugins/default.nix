@@ -37,5 +37,6 @@
     ./commentary.nix
     ./numbertoggle.nix
     ./notify.nix
+    ./lsp.nix
   ];
 }
