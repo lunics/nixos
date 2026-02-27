@@ -4,6 +4,8 @@
   ];
 
   programs.nixvim = {
+    enable = true;
+
     _module.args._config = config;    # config already used by nixvim
 
     imports = [

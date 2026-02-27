@@ -1,7 +1,7 @@
 {
   # https://github.com/okuuva/auto-save.nvim/
 
-  plugins.auto-save.enable      = true;
+  plugins.auto-save.enable = true;
 
   extraConfigLua = ''
     require("auto-save").setup {

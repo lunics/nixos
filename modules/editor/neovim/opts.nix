@@ -1,5 +1,4 @@
 { _config, ... }:{
-  enable = true;
   opts = {
     backup              = false;    # creates a backup file
     writebackup         = false;    # write to a backup file
@@ -57,7 +56,7 @@
     # shortmess         = o.shortmess + "c"             #  don't give |ins-completion-menu| messages
     # fillchars         = { eob = ""; };                # hide ~ on empty lines; ## KO not the right synthax
     hidden              = true;     # allow hidden buffers
-    errorbells           = false;    # no error sounds
+    errorbells          = false;    # no error sounds
     autochdir           = false;    # do not auto change directories
   };
 }

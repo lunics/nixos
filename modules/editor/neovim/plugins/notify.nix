@@ -13,7 +13,7 @@
       level             = 2,
       top_down          = true,
       minimum_width     = 50,
-      background_colour = "NotifyBackground",
+      background_colour = "#000000",
       icons = {
         DEBUG = "",
         ERROR = "",
