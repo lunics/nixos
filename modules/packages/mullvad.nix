@@ -6,7 +6,7 @@
       settings = {
         preferredLocale              = "system";
         autoConnect                  = true;
-        enableSystemNotifications    = true;
+        enableSystemNotifications    = false;
         monochromaticIcon            = false;
         startMinimized               = true;
         unpinnedWindow               = true;
