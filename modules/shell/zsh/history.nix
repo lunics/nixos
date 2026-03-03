@@ -1,7 +1,7 @@
 { config, ... }:{ 
   programs.zsh = {
     history = {
-      path          = "${config._.share}/zsh/history";    # KO if empty to disable zsh history
+      path          = "${config._.share}/zsh/history";  # require a path, can't be empty for disabling zsh history
       size          = 0;              # 10000 (default), history lines to keep
       save          = 0;              # 10000 (default), history lines to save
       share         = true;           # share command history between zsh sessions
