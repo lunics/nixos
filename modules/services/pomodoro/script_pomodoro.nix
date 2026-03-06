@@ -5,9 +5,9 @@
         #!${pkgs.nushell}/bin/nu
         
         def pomodoro [
-          --work:      int    = 40
+          --work:      int    = 10
           --1st_break: int    = 3
-          --unit:      string = "min"  # min, sec
+          --unit:      string = "sec"  # min, sec
         ] {
           $env.cache_file = "/tmp/pomodoro.json"    # $env instead of let to be accessible in any def
           mkdir ($env.cache_file | path dirname)
@@ -81,32 +81,29 @@
             return $break_time
           }
           
-          if $data.current_work >= 30 {
+          if $data.current_work >= 8 {
             $data.cycle = $data.cycle + 1
             $data.current_work = 0
+            $data | save -f $env.cache_file
+          }
+          
+          let break_time = $1st_break * $data.cycle
+        
+          print $"(ansi green)🍅 Cycle #($data.cycle) - Work for ($work)($unit)(ansi reset)"
+          
+          for iter in 1..$work {
+            sleep (1 * $time_unit)
+            $data.current_work = $iter
+            $data | save -f $env.cache_file
           }
 
+          $data.break = (take_break $break_time $time_unit $unit $data)
+        
+          $data.current_work = 0
+          $data.last_run = (date now | format date "%Y-%m-%d")
           $data | save -f $env.cache_file
           
-          loop {
-            let break_time = $1st_break * $data.cycle
-        
-            print $"(ansi green)🍅 Cycle #($data.cycle) - Work ($work)($unit)(ansi reset)"
-            
-            for _ in 1..$work {
-              sleep (1 * $time_unit)
-              $data.current_work = $data.current_work + 1
-              $data | save -f $env.cache_file
-            }
-            
-            $data.break = (take_break $break_time $time_unit $unit $data)
-        
-            $data.current_work = 0
-            $data.last_run = (date now | format date "%Y-%m-%d")
-            $data | save -f $env.cache_file
-            
-            $data.cycle = $data.cycle + 1
-          }
+          $data.cycle = $data.cycle + 1
         }
         
         pomodoro
