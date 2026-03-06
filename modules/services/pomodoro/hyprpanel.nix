@@ -9,7 +9,7 @@
         
         cycle=$(jq -r '.cycle' $json_file)
         work=$(jq -r  '.current_work' $json_file)
-        break=$(jq -r '.break' $json_file)
+        break=$(jq -r '.break_time' $json_file)
         
         if systemctl --user is-active --quiet pomodoro.service; then
           if [ $work != 0 ]; then

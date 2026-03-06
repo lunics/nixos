@@ -5,33 +5,21 @@
         #!${pkgs.nushell}/bin/nu
         
         def pomodoro [
-          --work:      int    = 10
+          --work:      int    = 40
           --1st_break: int    = 3
-          --unit:      string = "sec"  # min, sec
+          --unit:      string = "min"  # min, sec
         ] {
           $env.cache_file = "/tmp/pomodoro.json"    # $env instead of let to be accessible in any def
           mkdir ($env.cache_file | path dirname)
           
           let time_unit = if $unit == "sec" { 1sec } else { 1min }
           
-          # if /tmp/pomodoro.json presents then use it else reset the variable
-          mut data = if ($env.cache_file | path exists) {
-            open $env.cache_file
-          } else {
-            { cycle: 1, break: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
-          }
-
-          # reset everything if we start a new day
-          if $data.last_run != (date now | format date "%Y-%m-%d") {
-            $data = { cycle: 1, break: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
-          }
-
           # reduce brightness until 0 when we start a break
           def reduce_brightness [_data: record, _duration: duration = 20sec ] {
             # get current brightness level
             let level = (brightnessctl -m | split row ',' | get 3 | str replace '%' "" | into int)
 
-            # save level in /tmp/pomodoro.json
+            # save brightness level in /tmp/pomodoro.json
             mut data = $_data
             $data.brightness = $level
             $data | save -f $env.cache_file
@@ -51,14 +39,20 @@
           }
           
           # run many system commands to pause everthing before the break
-          def take_break [break_time: int, time_unit: duration, unit: string, _data: record] {
-            notify-send -t 10000 -u critical "🍅 Pomodoro" $"Breath and rest your eyes for ($break_time)($unit)"
+          def take_break [1st_break: int, time_unit: duration, unit: string, _data: record] {
+            mut data = $_data
+
+            $data.break_time = $1st_break * $data.cycle
+
+            $data | save -f $env.cache_file       # finale persistent save
+
+            notify-send -t 10000 -u critical "🍅 Pomodoro" $"Breath and rest your eyes for ($data.break_time)($unit)"
             sleep 10sec
         
-            playerctl pause
+            try { playerctl pause }               # to avoid errors of type: No players found
         
             # hyprctl dispatch dpms off
-            reduce_brightness $_data 20sec
+            reduce_brightness $data 20sec
 
             with-env {
               TASKDATA: ${config._.share}/taskwarrior
@@ -68,42 +62,48 @@
                 task +ACTIVE stop
               }
             }
+
+            # swaylock
         
-            ## KO print $"(char bel)(ansi yellow)✓ Break ($break_time)($unit)(ansi reset)"
-            print $"Break for ($break_time * $time_unit) ($unit)"
-            sleep ($break_time * $time_unit)
+            print $"Break for ($data.break_time * $time_unit) ($unit)"
+            sleep ($data.break_time * $time_unit)
         
             # hyprctl dispatch dpms on
-            mut __data = open /tmp/pomodoro.json
-            print $"Restore brightness to ($__data.brightness)%"
-            brightnessctl --quiet set $"($__data.brightness)%"
-        
-            return $break_time
+            print $"Restore brightness to ($data.brightness)%"
+            brightnessctl --quiet set $"($data.brightness)%"
+          }
+
+          # if /tmp/pomodoro.json presents then use it else reset the variable
+          mut data = if ($env.cache_file | path exists) {
+            open $env.cache_file
+          } else {
+            { cycle: 1, break_time: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
+          }
+
+          # reset everything if we start a new day
+          if $data.last_run != (date now | format date "%Y-%m-%d") {
+            $data = { cycle: 1, break_time: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
           }
           
-          if $data.current_work >= 8 {
+          if $data.current_work >= 30 {
             $data.cycle = $data.cycle + 1
             $data.current_work = 0
-            $data | save -f $env.cache_file
           }
-          
-          let break_time = $1st_break * $data.cycle
+
+          $data | save -f $env.cache_file         # first persistent save before continue
         
           print $"(ansi green)🍅 Cycle #($data.cycle) - Work for ($work)($unit)(ansi reset)"
           
           for iter in 1..$work {
             sleep (1 * $time_unit)
             $data.current_work = $iter
-            $data | save -f $env.cache_file
+            $data | save -f $env.cache_file       # persistent save after each minute
           }
 
-          $data.break = (take_break $break_time $time_unit $unit $data)
-        
+          $data.cycle        = $data.cycle + 1
           $data.current_work = 0
-          $data.last_run = (date now | format date "%Y-%m-%d")
-          $data | save -f $env.cache_file
-          
-          $data.cycle = $data.cycle + 1
+
+          take_break $1st_break $time_unit $unit $data
         }
         
         pomodoro
