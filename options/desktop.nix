@@ -19,5 +19,10 @@
       type    = types.attrsOf types.anything;
       default = {};
     };
+
+    screen_locker = mkOption {
+      type    = types.str;
+      default = "swaylock";
+    };
   };
 }

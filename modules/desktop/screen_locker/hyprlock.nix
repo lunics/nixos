@@ -1,18 +1,14 @@
-{ pkgs, ... }:{ 
-  programs.swaylock = {
-    enable   = true;
-    package  = pkgs.swaylock-effects;
-    settings = {
-      daemonize = true;
-      screenshots = true;
-      indicator = true;
-      indicator-radius = 100;
-      indicator-thickness = 8;
-      effect-blur = "7x5";
-      effect-vignette = "0.5:0.5";
-      inside-color = "00000000";
-      grace = 0;
-      fade-in = 0.0;
+{ config, lib, pkgs, ... }:{
+  config = lib.mkIf (config._.screen_locker == "hyprlock") {
+    programs.hyprlock = {
+      enable            = true;
+      package           = pkgs.hyprlock;
+      sourceFirst       = true; # enable putting source entries at the top of the configuration
+      importantPrefixes = [ "$" "bezier" "monitor" "size" ];
+      settings          = {};
+      extraConfig       = "";
     };
+
+    xdg.configFile."hypr/hyprlock.conf".text = builtins.readFile ./hyprlock.conf;
   };
 }
