@@ -39,7 +39,7 @@
           }
           
           # run many system commands to pause everthing before the break
-          def take_break [1st_break: int, time_unit: duration, unit: string, _data: record] {
+          def break [1st_break: int, time_unit: duration, unit: string, _data: record] {
             mut data = $_data
 
             $data.break_time = $1st_break * $data.cycle
@@ -103,7 +103,7 @@
           $data.cycle        = $data.cycle + 1
           $data.current_work = 0
 
-          take_break $1st_break $time_unit $unit $data
+          break $1st_break $time_unit $unit $data
         }
         
         pomodoro
