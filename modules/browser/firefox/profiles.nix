@@ -1,8 +1,4 @@
 { config, lib, ... }:{
-  # is the path above relative or absolute
-  home.activation.fixFirefoxProfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    sed -i 's/IsRelative=1/IsRelative=0/' ~/.mozilla/firefox/profiles.ini
-  '';
   programs.firefox.profiles."${config._.user}" = {
     id         = 0;
     name       = config._.user;
@@ -19,4 +15,9 @@
     #  *{scrollbar-width:none !important}
     #'';
   };
+
+  # required to consider the custom profile path as absolute instead of relative
+  home.activation.fixFirefoxProfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    sed -i 's/IsRelative=1/IsRelative=0/' ${config._.dot_config}/mozilla/firefox/profiles.ini
+  '';
 }
