@@ -36,15 +36,19 @@
                 sleep $delay
               }
             }
+
+            $data.brightness      # return the brightness level value
           }
           
           # run many system commands to pause everthing before the break
           def break [1st_break: int, time_unit: duration, unit: string, _data: record] {
             mut data = $_data
 
-            $data.break_time = $1st_break * $data.cycle
+            $data.break_time   = $1st_break * $data.cycle
+            $data.cycle        = $data.cycle + 1  # increase cycle after breat_time but before sleep to save value
+            $data.current_work = 0
 
-            $data | save -f $env.cache_file       # finale persistent save
+            $data | save -f $env.cache_file       # last persistent save
 
             notify-send -t 10000 -u critical "🍅 Pomodoro" $"Breath and rest your eyes for ($data.break_time)($unit)"
             sleep 10sec
@@ -52,7 +56,7 @@
             try { playerctl pause }               # to avoid errors of type: No players found
         
             # hyprctl dispatch dpms off
-            reduce_brightness $data 20sec
+            $data.brightness = reduce_brightness $data 20sec
 
             with-env {
               TASKDATA: ${config._.share}/taskwarrior
@@ -63,14 +67,14 @@
               }
             }
 
-            # swaylock
-        
             print $"Break for ($data.break_time * $time_unit) ($unit)"
             sleep ($data.break_time * $time_unit)
         
             # hyprctl dispatch dpms on
             print $"Restore brightness to ($data.brightness)%"
             brightnessctl --quiet set $"($data.brightness)%"
+
+            ${config._.screen_locker}
           }
 
           # if /tmp/pomodoro.json presents then use it else reset the variable
@@ -99,9 +103,6 @@
             $data.current_work = $iter
             $data | save -f $env.cache_file       # persistent save after each minute
           }
-
-          $data.cycle        = $data.cycle + 1
-          $data.current_work = 0
 
           break $1st_break $time_unit $unit $data
         }
