@@ -32,5 +32,9 @@
       type    = types.str;
       default = "${config._.home}/.local/logs";
     };
+    firefox_path = mkOption {
+      type    = types.str;
+      default = "~/.mozilla/firefox";
+    };
   };
 }

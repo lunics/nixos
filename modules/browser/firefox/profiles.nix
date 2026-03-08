@@ -1,5 +1,5 @@
-{ config, lib, ... }:{
-  programs.firefox.profiles."${config._.user}" = {
+{ config, ... }:{
+  programs.firefox.profiles.${config._.user} = {
     id         = 0;
     name       = config._.user;
     isDefault  = true;
@@ -15,9 +15,4 @@
     #  *{scrollbar-width:none !important}
     #'';
   };
-
-  # required to consider the custom profile path as absolute instead of relative
-  home.activation.fixFirefoxProfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    sed -i 's/IsRelative=1/IsRelative=0/' ${config._.dot_config}/mozilla/firefox/profiles.ini
-  '';
 }
