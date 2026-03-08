@@ -6,7 +6,8 @@
     languagePacks = [ "fr" "en-US" ];
   };
 
-  home.activation.fix_firefox_profiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    sed -i 's/IsRelative=1/IsRelative=0/' ${config._.firefox_path}/profiles.ini
-  '';
+  ## break the symlink of profiles.ini
+  # home.activation.fix_firefox_profiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #   sed -i 's/IsRelative=1/IsRelative=0/' ${config._.firefox_path}/profiles.ini
+  # '';
 }

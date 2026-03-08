@@ -3,7 +3,8 @@
     id         = 0;
     name       = config._.user;
     isDefault  = true;
-    path       = "${config._.share}/browser/firefox/${config._.user}";   # default = ~/.mozilla/firefox/PROFILE_NAME
+    path       = "${config._.user}";   # default = ~/.mozilla/firefox/PROFILE_NAME
+    # path       = "${config._.share}/browser/firefox/${config._.user}";   # default = ~/.mozilla/firefox/PROFILE_NAME
     preConfig  = "";      # extra preferences to be added to 'user.js' before .settings
     # extraConfig = ''
     #   browser.bookmarks.file = ./bookmarks.html;
