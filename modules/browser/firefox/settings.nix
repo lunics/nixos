@@ -1,5 +1,5 @@
 { 
-  programs.firefox.profiles.PROFILE_NAME.settings = {
+  profiles.PROFILE_NAME.settings = {
     "browser.fullscreen.autohide"       = false;
     "browser.quitShortcut.disabled"     = true;
     "browser.tabs.tabMinWidth"          = 5;

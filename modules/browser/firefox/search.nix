@@ -1,5 +1,5 @@
 { 
-  programs.firefox.profiles.PROFILE_NAME.search = {
+  profiles.PROFILE_NAME.search = {
     default        = "DuckDuckGo";
     privateDefault = "DuckDuckGo";
     order          = [ "DuckDuckGo" "Google" ];

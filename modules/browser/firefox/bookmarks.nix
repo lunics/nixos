@@ -1,5 +1,5 @@
 { 
-  programs.firefox.profiles.PROFILE_NAME.bookmarks = [
+  profiles.PROFILE_NAME.bookmarks = [
     {
       name = "wikipedia";
       tags = [ "wiki" ];

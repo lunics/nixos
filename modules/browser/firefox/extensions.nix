@@ -1,5 +1,5 @@
 { pkgs, inputs, ... }:{
-  programs.firefox.profiles.PROFILE_NAME.extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+  profiles.PROFILE_NAME.extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
   # todo line 518 /h/l/d/r/nixos/official/nur-expressions/pkgs/firefox-addons/addons.json
                                             # TODO with pkgs.nur.repos.rycee.firefox-addons; [
 

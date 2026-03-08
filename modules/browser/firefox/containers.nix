@@ -1,7 +1,7 @@
 { 
   # proton, microsoft, twitch, gaming, twitter, reddit, social, aliexpress, amazon, vinted
   # personnal, bank, job
-  programs.firefox.profiles.PROFILE_NAME.containers = {
+  profiles.PROFILE_NAME.containers = {
     "Google" = {
       id    = 1;
       color = "green";

@@ -1,16 +1,16 @@
-{
-  programs.firefox.profiles = {
-    PROFILE_NAME = {
+{ #config, ... }:{
+  profiles = {
+    config._.user = {
       id        = 0;
-      name      = "PROFILE_NAME";
+      name      = config._.user;
       isDefault = true;
-      path      = "PROFILE_NAME";   # = /home/USER/.mozilla/firefox/PROFILE_NAME
+      path      = "${config._.share}/browser/zen/${config._.user}";   # default = ~/.mozilla/firefox/PROFILE_NAME
       preConfig = "";               # extra preferences to be added to 'user.js' before .settings
-      extraConfig = ''
-        browser.bookmarks.file = ./bookmarks.html;
-        browser.places.importBookmarksHTML = true;
-      '';
-      userChrome = "";
+      # extraConfig = ''
+      #   browser.bookmarks.file = ./bookmarks.html;
+      #   browser.places.importBookmarksHTML = true;
+      # '';
+      # userChrome = "";
       #userContent = ''
       #  /* Hide scrollbar in FF Quantum */
       #  *{scrollbar-width:none !important}

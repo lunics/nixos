@@ -1,5 +1,5 @@
 { 
-  programs.firefox.policies = {
+  policies = {
     AppAutoUpdate               = false;
     DisablePocket               = true;
     DisableTelemetry            = true;
