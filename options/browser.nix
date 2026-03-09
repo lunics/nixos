@@ -10,8 +10,8 @@
         default = "~/.mozilla/firefox";
       };
       containers = mkOption {
-        type    = types.str;
-        default = "~/.mozilla/firefox";
+        type    = types.listOf types.str;
+        default = [];
       };
     };
   };
