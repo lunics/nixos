@@ -2,7 +2,7 @@
   imports = [
     ./main.nix
     ./profiles.nix
-    ./extensions.nix
+    ./extensions
     # ./policies.nix
     # ./extensions_settings.nix
     # ./settings.nix
