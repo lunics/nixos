@@ -2,6 +2,7 @@
   programs.firefox.profiles.${config._.user}.extensions.settings = {
     # get extensions ID: about:debugging#/runtime/this-firefox
 
+    # https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions
     # TEMPLATE.settings = {
     #   permissions = [
     #     "<all_urls>"      # access your data for all websites ?
