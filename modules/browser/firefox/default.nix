@@ -3,9 +3,8 @@
     ./main.nix
     ./profiles.nix
     ./extensions
-    # ./policies.nix
-    # ./extensions_settings.nix
-    # ./settings.nix
+    ./policies.nix
+    ./settings.nix
     # ./search.nix
     # ./bookmarks.nix
     # ./containers.nix
