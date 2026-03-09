@@ -5,8 +5,8 @@
     ./extensions
     ./policies.nix
     ./settings.nix
+    ./containers.nix
     # ./search.nix
     # ./bookmarks.nix
-    # ./containers.nix
   ];
 }

@@ -7,6 +7,7 @@
     ./paths.nix
     ./music.nix
     ./neovim.nix
+    ./browser.nix
     ./torrent.nix
     ./desktop.nix
     ./hyprland.nix
@@ -31,11 +32,6 @@
     terminal = mkOption {
       type    = types.str;
       default = "ghostty";
-    };
-
-    browser = mkOption {
-      type    = types.str;
-      default = "zen";
     };
 
     openai_api_key = mkOption {

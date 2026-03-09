@@ -1,15 +1,16 @@
-{ 
-  # proton, microsoft, twitch, gaming, twitter, reddit, social, aliexpress, amazon, vinted
-  # personnal, bank, job
-  profiles.PROFILE_NAME.containers = {
+{ config, ... }:{
+  programs.firefox.profiles.${config._.user}.containers = {
     "Google" = {
       id    = 1;
       color = "green";
-      icon  = "circle"; };
+      icon  = "circle"; 
+    };
     "Microsoft" = {
       id    = 2;
       color = "blue";
-      icon  = "circle"; };
+      icon  = "circle"; 
+    };
+  };
     "Twitch" = {
       id    = 3;
       color = "purple";
