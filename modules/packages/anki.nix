@@ -1,4 +1,4 @@
-{
+{ config, ... }:{
   programs.anki = {
     enable             = true;
     # package          = pkgs.anki;
@@ -33,15 +33,17 @@
         key  = "down";
       }
     ];
-    sync = {
-      username             = null;
-      url                  = null;
-      syncMedia            = null;
-      keyFile              = null;
-      usernameFile         = null;
-      networkTimeout       = null;
-      autoSync             = null;
-      autoSyncMediaMinutes = null;        # 0 = disable periodic media syncing. sync media every X minutes
+    profiles.$config._.user = {
+      sync = {
+        username             = null;
+        url                  = null;
+        syncMedia            = null;
+        keyFile              = null;
+        usernameFile         = null;
+        networkTimeout       = null;
+        autoSync             = null;
+        autoSyncMediaMinutes = null;        # 0 = disable periodic media syncing. sync media every X minutes
+      };
     };
     addons = [];
   };
