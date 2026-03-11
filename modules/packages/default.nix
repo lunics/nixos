@@ -5,7 +5,7 @@
     ./file_sharing.nix
     ./sys_info.nix
     ./rclone.nix
-    ./neofetch.nix
+    # ./neofetch.nix    # unmaintained upstream, use fastfetch instead
     # ./yubikey.nix
     ./anki.nix
     ./ansible.nix
