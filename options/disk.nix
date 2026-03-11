@@ -8,6 +8,10 @@
       type    = types.str;
       default = "1G";
     };
+    boot_uuid = mkOption {
+      type    = types.str;
+      default = "";           # required in dual boot
+    };
     luks = mkOption {
       type    = types.bool;
       default = true;
@@ -16,6 +20,11 @@
       type    = types.str;
       default = "";
     };
+    btrfs_opts = mkOption {
+      type    = types.listOf types.str;
+      default = ["compress=zstd" "noatime" "lazytime" "space_cache=v2" "ssd"];
+    };
+    dual_boot = mkEnableOption "";
   };
 }
 
