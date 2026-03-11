@@ -6,43 +6,43 @@
   _subvolumes = {
     type       = "btrfs";
     extraArgs  = ["-L" "nixos" "-f"];
-    subvolumes = lib.mkMerge [
+    subvolumes = mkMerge [
     {
       "/root" = {
         mountpoint   = "/";
-        mountOptions = ["subvol=root" "compress=zstd" "relatime"]; 
-      };
-      "/home" = {
-        mountpoint   = "/home";
-        mountOptions = ["subvol=home" "compress=zstd" "rw" "relatime" "nodev" "nosuid"]; 
+        mountOptions = ["subvol=root"] ++ _.btrfs_opts; 
       };
       "/nix" = {
         mountpoint   = "/nix";
-        mountOptions = ["subvol=nix" "compress=zstd" "noatime"]; 
+        mountOptions = ["subvol=nix"] ++ _.btrfs_opts; 
+      };
+      "/home" = {
+        mountpoint   = "/home";
+        mountOptions = ["subvol=home" "rw" "nodev" "nosuid"] ++ _.btrfs_opts; 
       };
       "/log" = {
         mountpoint   = "/var/log";
-        mountOptions = ["subvol=log" "compress=zstd" "rw" "relatime" "nodev" "nosuid" "noexec"]; 
+        mountOptions = ["subvol=log" "rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
       };
       "/tmp" = {
         mountpoint   = "/tmp";
-        mountOptions = ["subvol=tmp" "compress=zstd" "rw" "nodev" "nosuid" "noexec"]; 
+        mountOptions = ["subvol=tmp" "rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
       };
       "/snapshots" = {
         mountpoint   = "/snapshots";
-        mountOptions = ["subvol=snapshots" "compress=zstd"]; 
+        mountOptions = ["subvol=snapshots"] ++ _.btrfs_opts;
       };
     }
-    (lib.mkIf config._.impermanence {
+    (mkIf config._.impermanence {
       "/persistent" = {
         mountpoint   = "/persistent";
-        mountOptions = ["subvol=persistent" "compress=zstd" "noatime"]; 
+        mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
       };
     })
-    (lib.mkIf config._.k3s {
+    (mkIf config._.k3s {
       "/kube" = {
         mountpoint   = "/kube";
-        mountOptions = ["subvol=kube" "compress=zstd" "noatime"]; 
+        mountOptions = ["subvol=kube"] ++ _.btrfs_opts;
       };
     }) 
     ];
