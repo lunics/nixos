@@ -1,18 +1,20 @@
-{ config, ... }:let 
+{ config, lib, ... }:let 
   _ = config._.disk; 
 in {
-  config.disko.devices.disk.${_.device}.content.partitions = {
-    boot = {
-      label = "BOOT";
-      name  = "ESP";
-      size  = "${_.boot}";
-      type  = "EF00";
-      content = {
-        type         = "filesystem";
-        format       = "vfat";
-        mountpoint   = "/boot";
-        mountOptions = [ "defaults" ]; 
-      }; 
+  config = lib.mkIf (! _.dual_boot) {
+    config.disko.devices.disk.${_.device}.content.partitions = {
+      boot = {
+        label = "BOOT";
+        name  = "ESP";
+        size  = "${_.boot}";
+        type  = "EF00";
+        content = {
+          type         = "filesystem";
+          format       = "vfat";
+          mountpoint   = "/boot";
+          mountOptions = [ "defaults" ]; 
+        }; 
+      };
     };
   };
 }
