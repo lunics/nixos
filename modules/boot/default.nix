@@ -17,7 +17,7 @@
 
       efi  = {
         canTouchEfiVariables = true;
-        efiSysMountPoint     = "/boot";     # KO /boot/efi, TRY at live installation
+        efiSysMountPoint     = "/boot";     # will install in /boot/EFI, /boot/efi isn't compatible
       };
     };
   };

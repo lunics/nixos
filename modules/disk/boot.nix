@@ -3,7 +3,7 @@
 in {
   config.disko.devices.disk.${_.device}.content.partitions = {
     boot = {
-      label = "BOOT";       ## lowercase KO, try uppercase
+      label = "BOOT";
       name  = "ESP";
       size  = "${_.boot}";
       type  = "EF00";
