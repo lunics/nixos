@@ -18,7 +18,8 @@
       devices = {
         "luks" = {
           # device           = config._.disk.luks_device;  # refers to the existing encrypted block device, conflic with disko.luks.label
-          allowDiscards      = true;  # improves performance on SSD storage but has security implications
+          allowDiscards      = false; # required for discard=async for continuous TRIM
+                                      # improves performance on SSD storage but has security implications
                                       # Use periodic TRIM instead: systemctl enable fstrim.timer
           bypassWorkqueues   = true;  # increase SSD performance
 
