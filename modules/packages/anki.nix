@@ -33,7 +33,7 @@
         key  = "down";
       }
     ];
-    profiles.$config._.user = {
+    profiles.${config._.user} = {
       sync = {
         username             = null;
         url                  = null;
