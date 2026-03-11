@@ -12,53 +12,53 @@ in {
   (mkIf config._.impermanence {
     fileSystems."/persistent".neededForBoot = true;
   })
-  (mkIf _.dual_boot {
-    fileSystems = {
-      "/boot" = { 
-        device = "/dev/disk/by-uuid/${_.boot_uuid}";
-        fsType = "vfat";
-      };
-      # "/root" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=root"];
-      # };
-      # "/nix" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=nix"];
-      # };
-      # "/home" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=home" "rw" "nodev" "nosuid"];
-      # };
-      # "/var/log" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=log" "rw" "nodev" "nosuid" "noexec"];
-      # };
-      # "/tmp" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=tmp" "rw" "nodev" "nosuid" "noexec"];
-      # };
-      # "/snapshots" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=snapshots"];
-      # };
-      # "/kube" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=kube"];
-      # };
-      # "/persistent" = { 
-      #   device  = _luks;
-      #   fsType  = "btrfs";
-      #   options = [_.btrfs_opts "subvol=persistent"];
-      # };
-    };
-  })
+  # (mkIf _.dual_boot {
+  #   fileSystems = {
+  #     "/boot" = { 
+  #       device = "/dev/disk/by-uuid/${_.boot_uuid}";
+  #       fsType = "vfat";
+  #     };
+  #     # "/root" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=root"];
+  #     # };
+  #     # "/nix" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=nix"];
+  #     # };
+  #     # "/home" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=home" "rw" "nodev" "nosuid"];
+  #     # };
+  #     # "/var/log" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=log" "rw" "nodev" "nosuid" "noexec"];
+  #     # };
+  #     # "/tmp" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=tmp" "rw" "nodev" "nosuid" "noexec"];
+  #     # };
+  #     # "/snapshots" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=snapshots"];
+  #     # };
+  #     # "/kube" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=kube"];
+  #     # };
+  #     # "/persistent" = { 
+  #     #   device  = _luks;
+  #     #   fsType  = "btrfs";
+  #     #   options = [_.btrfs_opts "subvol=persistent"];
+  #     # };
+  #   };
+  # })
   ];
 }
