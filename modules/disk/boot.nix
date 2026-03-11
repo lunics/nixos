@@ -2,11 +2,11 @@
   _ = config._.disk; 
 in {
   config = lib.mkIf (! _.dual_boot) {
-    config.disko.devices.disk.${_.device}.content.partitions = {
+    disko.devices.disk.${_.device}.content.partitions = {
       boot = {
         label = "BOOT";
         name  = "ESP";
-        size  = "${_.boot}";
+        size  = "${_.boot_size}";
         type  = "EF00";
         content = {
           type         = "filesystem";

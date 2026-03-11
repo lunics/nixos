@@ -4,7 +4,7 @@
       type    = types.str;
       default = "nvme0n1";
     };
-    boot = mkOption {
+    boot_size = mkOption {
       type    = types.str;
       default = "1G";
     };
