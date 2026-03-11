@@ -2,6 +2,7 @@
   programs.yazi = {
     enable  = true;
     package = pkgs.yazi;
+    shellWrapperName     = "y";
     enableZshIntegration = true;
 
     # available plugins: https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/ya/yazi/plugins
