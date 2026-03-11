@@ -7,9 +7,11 @@ in {
     fileSystems = {
       "/nix".neededForBoot        = true;
       "/var/log".neededForBoot    = true;
-      "/persistent".neededForBoot = true;
     };
   }
+  (mkIf config._.impermanence {
+    fileSystems."/persistent".neededForBoot = true;
+  })
   (mkIf _.dual_boot {
     fileSystems = {
       "/boot" = { 
