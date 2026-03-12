@@ -94,10 +94,14 @@
     enableMcpIntegration = false;
   };
 
-  home.packages = with pkgs; [ 
-    claude-monitor        # real-time claude code usage monitor
-    # claude-code-router  # to route claude code requests to different models and customize any request
-    # claude-code-acp     # acp-compatible coding agent powered by the claude code sdk
-    # open-interpreter    # KO build pygame
-  ];
+  home = {
+    packages = with pkgs; [ 
+      claude-monitor        # real-time claude code usage monitor
+      # claude-code-router  # to route claude code requests to different models and customize any request
+      # claude-code-acp     # acp-compatible coding agent powered by the claude code sdk
+      # open-interpreter    # KO build pygame
+    ];
+
+    sessionVariables."CLAUDE_CONFIG_DIR" = "${config._.share}/claude";
+  };
 }
