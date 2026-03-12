@@ -12,6 +12,11 @@
         type    = types.str;
         default = "";
       };
+
+      projects_path = mkOption {
+        type    = types.str;
+        default = config._.home;
+      };
     };
   };
 }

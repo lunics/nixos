@@ -16,7 +16,7 @@ in {
   xdg.configFile."MuseScore/MuseScore4.ini".text = ''
     [application]
     hasCompletedFirstLaunchSetup=true
-    paths\lastOpenedProjectsPath=/home/${config._.user}/
+    paths\lastOpenedProjectsPath=${config._.musescore.projects_path}
     paths\myPlugins=${config._.musescore.share}/MuseScore${version}/Plugins
     paths\myScores=${config._.musescore.share}/MuseScore${version}/Scores
     paths\mySoundfonts=${config._.musescore.share}/MuseScore${version}/SoundFonts
