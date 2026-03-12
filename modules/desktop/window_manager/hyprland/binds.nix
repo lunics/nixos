@@ -37,8 +37,8 @@ in {
     bind = $SSHIFT,     BACKSPACE, movetoworkspace, special       # move active window to the special workspace
     bind = $SUPER,      BACKSPACE, togglespecialworkspace         # toggle pin the special workspace on top of the current workspace
     
-    bind = $SUPER, Z, togglesplit,
-    # bind = $SUPER,       P, exec, hyprctl --batch "dispatch togglefloating active; dispatch pin active; ";
+    # bind = $SUPER,    Z, togglesplit,             # KO togglesplit doesn't exist anymore
+    # bind = $SUPER,    P, exec, hyprctl --batch "dispatch togglefloating active; dispatch pin active; ";
     
     # change window focus
     bind = $SUPER, left,  movefocus, l
