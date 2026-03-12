@@ -9,7 +9,7 @@ in {
     ];
 
     activation.link_musescore_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ln -s ${config._.musescore_share} ${config._.local_share} &> /dev/null || true
+      ln -s ${config._.musescore.share} ${config._.local_share} &> /dev/null || true
     '';
   };
 
@@ -17,13 +17,16 @@ in {
     [application]
     hasCompletedFirstLaunchSetup=true
     paths\lastOpenedProjectsPath=/home/${config._.user}/
-    paths\myPlugins=${config._.musescore_share}/MuseScore${version}/Plugins
-    paths\myScores=${config._.musescore_share}/MuseScore${version}/Scores
-    paths\mySoundfonts=${config._.musescore_share}/MuseScore${version}/SoundFonts
-    paths\myStyles=${config._.musescore_share}/MuseScore${version}/Styles
-    paths\myTemplates=${config._.musescore_share}/MuseScore${version}/Templates
+    paths\myPlugins=${config._.musescore.share}/MuseScore${version}/Plugins
+    paths\myScores=${config._.musescore.share}/MuseScore${version}/Scores
+    paths\mySoundfonts=${config._.musescore.share}/MuseScore${version}/SoundFonts
+    paths\myStyles=${config._.musescore.share}/MuseScore${version}/Styles
+    paths\myTemplates=${config._.musescore.share}/MuseScore${version}/Templates
+    welcomeDialogLastShownIndex=0
+    welcomeDialogLastShownVersion=4.6.5.
+    welcomeDialogShowOnStartup=false
     
     [cloud]
-    clientId=${config._.musescore_client_id}
+    clientId=${config._.musescore.client_id}
   '';
 }
