@@ -23,6 +23,14 @@
     "browser.ctrlTab.recentlyUsedOrder"       = false;    # disable thumbnail preview ctrl + tab
     "browser.translations.enable"             = false;
     "browser.translations.automaticallyPopup" = false;
+
+    "browser.cache.disk.enable"           = true;
+    # "browser.cache.disk.parent_directory" = "/run/user/${toString config._.user_id}/${config._.browser}_cache";   # is now a read-only builtin parameter, not available in user.js anymore
+    "browser.cache.memory.enable"         = true;
+    "browser.cache.memory.capacity"       = -1;       # -1 = auto allocation
+
+    "dom.ipc.processCount"                = 8;        # 1-8
+    "browser.preferences.defaultPerformanceSettings.enabled" = false;
     
     "widget.gtk.non-native-titlebar-buttons.enabled" = false;   # use native GTK buttons
     "widget.non-native-theme.scrollbar.size"         = 24;      # custom scrollbar
@@ -61,8 +69,6 @@
     # "browser.ping-centre.telemetry" = false;
     
     # https://wiki.archlinux.org/index.php/Firefox/Tweaks#Performance
-    # "browser.preferences.defaultPerformanceSettings.enabled" = false;
-    # "dom.ipc.processCount" = 8;
     
     # Workaround for when xdg.portal is enabled? set to false
     # https://bugzilla.mozilla.org/show_bug.cgi?id=1618094
