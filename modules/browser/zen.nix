@@ -1,7 +1,7 @@
 { config, lib, inputs, ... }:{
   imports = [ inputs.zen-browser.homeModules.beta ];    # beta, twilight, twilight-official
 
-  # config = lib.mkIf (config._.browser == "zen") {
+  config = lib.mkIf (config._.browser == "zen") {
     programs.zen-browser = {
       enable = true;
       # nativeMessagingHosts = [ pkgs.firefoxpwa ];
@@ -73,5 +73,5 @@
         };
       };
     };
-  # };
+  };
 }
