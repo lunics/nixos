@@ -8,5 +8,6 @@
     ./containers.nix
     # ./search.nix
     # ./bookmarks.nix
+    ./mime_apps.nix
   ];
 }
