@@ -1,4 +1,4 @@
-{ lib, ... }: with lib; {
+{ config, lib, ... }: with lib; {
   options._ = {
     browser = mkOption {
       type    = types.str;
@@ -7,7 +7,7 @@
     firefox= {
       path = mkOption {
         type    = types.str;
-        default = "~/.mozilla/firefox";
+        default = "${config._.dot_config}/mozilla/firefox";  # "~/.mozilla/firefox";
       };
       containers = mkOption {
         type    = types.listOf types.str;
