@@ -1,7 +1,7 @@
 { config, lib, ... }:{
   config = lib.mkIf (config._.pass_manager == "gopass") {
     # old REMOVE if OK "path":        "${config._.dot_config}/gopass/gopass_wrapper.sh",
-    home.file.".mozilla/native-messaging-hosts/com.justwatch.gopass.json".text = ''
+    xdg.configFile."mozilla/native-messaging-hosts/com.justwatch.gopass.json".text = ''
       {
         "name":        "com.justwatch.gopass",
         "description": "Gopass wrapper to search and return passwords",
