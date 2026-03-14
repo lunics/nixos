@@ -28,9 +28,9 @@ fi
 
 if [ -e $link/.unpacked ]; then
 	rsync -av --delete --exclude .unpacked ./$link/ ./$static/                  # sync profile ram -> disk
-	rsync -av --delete --exclude .unpacked $cache_path_ram/ $cache_path_disk/   # sync cache   ram -> disk
+	# rsync -av --delete --exclude .unpacked $cache_path_ram/ $cache_path_disk/   # sync cache   ram -> disk
 else
 	rsync -av ./$static/ ./$link/                     # sync profile disk -> ram
-	rsync -av $cache_path_disk/ $cache_path_ram/      # sync cache   disk -> ram
+	# rsync -av $cache_path_disk/ $cache_path_ram/      # sync cache   disk -> ram
 	touch $link/.unpacked                             # create a flag to sync to ram only once
 fi
