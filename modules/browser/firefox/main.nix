@@ -7,7 +7,11 @@
   };
 
   home.activation.firefox_cache = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ln -s ${config._.share}/browser/firefox/${config._.user}_cache ${config._.dot_cache}/mozilla/firefox/${config._.user}
+    link_cache=${config._.dot_cache}/mozilla/firefox/${config._.user}
+
+    if [ ! -L $link_cache ]; then
+      ln -s ${config._.share}/browser/firefox/${config._.user}_cache $link_cache
+    fi
   '';
 
   ## break the symlink of profiles.ini
