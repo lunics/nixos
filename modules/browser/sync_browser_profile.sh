@@ -4,7 +4,7 @@ source /home/${1}/.nix-profile/etc/profile.d/hm-session-vars.sh       # needed t
 
 browser_path="/home/${1}/usb_copy/homelab/share/browser/${BROWSER}"
 profile_name="$1"
-cache_path_disk="${browser_path}/cache"
+cache_path_disk="${browser_path}/${1}_cache"
 cache_path_ram="/run/user/${UID}/${BROWSER}_cache"
 static="${profile_name}_on_disk"
 link="${profile_name}"
