@@ -1,8 +1,4 @@
-{ config, inputs, lib, ... }:{
-  imports = [ 
-    inputs.microvm.nixosModules.host
-  ];
-
+{ config, lib, ... }:{
   config = lib.mkIf config._.microvm.enable {
     microvm = {
       vms = config._.microvm.vms;
