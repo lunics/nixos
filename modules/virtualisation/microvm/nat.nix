@@ -2,9 +2,9 @@
   config = lib.mkIf config._.microvm.enable {
     networking.nat = {
       enable             = true;
-      enableIPv6         = true;              # whether to enable ipv6 nat
+      enableIPv6         = true;              # enable ipv6 nat
       externalInterface  = "wlan0";           # interface connected to the router
-      internalInterfaces = [ "microvm" ];     # interface connected to the machine B
+      internalInterfaces = [ "br0-microvm" ]; # interface connected to the machines
       # forwardPorts = [
       #   { # forwards TCP ports 80 of host to microvm domain
       #     proto       = "tcp";

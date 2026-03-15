@@ -7,15 +7,16 @@
       netdevs = {
         "bridge-microvm".netdevConfig = {
           Kind = "bridge";
-          Name = "bridge-microvm";
+          Name = "br0-microvm";
         };
       };
       networks = {
         "bridge-microvm" = {
-          matchConfig.Name = "bridge-microvm";
+          matchConfig.Name = "br0-microvm";
           networkConfig = {
-            DHCPServer = true;
-            IPv6SendRA = true;
+            ConfigureWithoutCarrier = true;
+            # DHCPServer = true;
+            # IPv6SendRA = true;
           };
           addresses = [ 
             { Address = "10.0.0.1/24"; } 
@@ -26,10 +27,9 @@
           ];
         };
 
-        "microvm-eth0" = {
-          matchConfig.Name = "vm-*";
-          # Attach to the bridge that was configured above
-          networkConfig.Bridge = "bridge-microvm";
+        "tap-microvm" = {
+          networkConfig.Bridge = "br0-microvm";
+          matchConfig.Name = "microvm-*";
         };
       };
       links = {};
