@@ -5,13 +5,13 @@
     systemd.network = {
       enable = true;
       netdevs = {
-        "10-microvm".netdevConfig = {
+        "bridge-microvm".netdevConfig = {
           Kind = "bridge";
           Name = "bridge-microvm";
         };
       };
       networks = {
-        "10-microvm" = {
+        "bridge-microvm" = {
           matchConfig.Name = "bridge-microvm";
           networkConfig = {
             DHCPServer = true;
@@ -26,7 +26,7 @@
           ];
         };
 
-        "11-microvm" = {
+        "microvm-eth0" = {      ## eth0 or wlan0 to be more compliant to the reality ?
           matchConfig.Name = "vm-*";
           # Attach to the bridge that was configured above
           networkConfig.Bridge = "bridge-microvm";
