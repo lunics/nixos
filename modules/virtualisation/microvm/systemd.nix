@@ -14,17 +14,17 @@
         "bridge-microvm" = {
           matchConfig.Name = "br0-microvm";
           networkConfig = {
-            ConfigureWithoutCarrier = true;
-            # DHCPServer = true;
+            DHCPServer = true;
             # IPv6SendRA = true;
+            # ConfigureWithoutCarrier = true;
           };
           addresses = [ 
             { Address = "10.0.0.1/24"; } 
-            { Address = "fd12:3456:789a::1/64"; } 
+            # { Address = "fd12:3456:789a::1/64"; } 
           ];
-          ipv6Prefixes = [ 
-            { Prefix = "fd12:3456:789a::/64"; } 
-          ];
+          # ipv6Prefixes = [ 
+          #   { Prefix = "fd12:3456:789a::/64"; } 
+          # ];
         };
 
         "tap-microvm" = {
@@ -35,9 +35,9 @@
       links = {};
       config = {
         addRouteTablesToIPRoute2 = true;
-        networkConfig = {
-          IPv6PrivacyExtensions = true;
-        };
+        # networkConfig = {
+        #   IPv6PrivacyExtensions = true;
+        # };
         routeTables  = {};
         dhcpV6Config = {};
         dhcpV4Config = {};
