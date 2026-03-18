@@ -71,7 +71,7 @@
             print $"Restore brightness to ($data.brightness)%"
             brightnessctl --quiet set $"($data.brightness)%"
 
-            ${config._.screen_locker}
+            ${config._.screen_locker} --config ~/.config/swaylock/config &
 
             print $"Break for ($data.break_time * $time_unit) ($unit)"
             sleep ($data.break_time * $time_unit)
