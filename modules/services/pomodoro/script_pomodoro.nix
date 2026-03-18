@@ -24,17 +24,15 @@
             $data.brightness = $level
             $data | save -f $env.cache_file
             
-            if $level > 0 {   # only run if brightness is above 0
-              # calculate delay (total time / number of steps)
-              let delay = ($_duration / $level)
-              print $"Starting fade out over ($_duration)..."
+            # calculate delay (total time / number of steps)
+            let delay = ($_duration / $level)
+            print $"Starting fade out over ($_duration)..."
             
-              # loop from 2 up to the current level, 2 instead of 1 to keep 1% of brightness
-              1..$level | each { |iter|
-                brightnessctl --quiet set 1%-
-                # print $"Step: ($iter) of ($level)"
-                sleep $delay
-              }
+            # loop from 1 up to the current level
+            1..$level | each { |iter|
+              brightnessctl --quiet set 1%-
+              # print $"Step: ($iter) of ($level)"
+              sleep $delay
             }
 
             $data.brightness      # return the brightness level value
@@ -67,14 +65,16 @@
               }
             }
 
-            print $"Break for ($data.break_time * $time_unit) ($unit)"
-            sleep ($data.break_time * $time_unit)
+            sleep 30sec     # sleep in the dark before screen locked
         
             # hyprctl dispatch dpms on
             print $"Restore brightness to ($data.brightness)%"
             brightnessctl --quiet set $"($data.brightness)%"
 
             ${config._.screen_locker}
+
+            print $"Break for ($data.break_time * $time_unit) ($unit)"
+            sleep ($data.break_time * $time_unit)
           }
 
           # if /tmp/pomodoro.json presents then use it else reset the variable
