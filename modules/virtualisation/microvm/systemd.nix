@@ -2,35 +2,36 @@
   config = lib.mkIf config._.microvm.enable {
     networking.useNetworkd = true;     # alias of systemd.network.enable = true;
 
+    # files generated in /etc/systemd/network
     systemd.network = {
       enable = true;
-      netdevs = {
-        "bridge-microvm".netdevConfig = {
-          Kind = "bridge";
-          Name = "br0-microvm";
-        };
-      };
+      # netdevs = {
+      #   "bridge-microvm".netdevConfig = {
+      #     Kind = "bridge";
+      #     Name = "br0-microvm";
+      #   };
+      # };
       networks = {
-        "bridge-microvm" = {
-          matchConfig.Name = "br0-microvm";
-          networkConfig = {
-            DHCPServer = true;
-            # IPv6SendRA = true;
-            # ConfigureWithoutCarrier = true;
-          };
-          addresses = [ 
-            { Address = "10.0.0.1/24"; } 
-            # { Address = "fd12:3456:789a::1/64"; } 
-          ];
-          # ipv6Prefixes = [ 
-          #   { Prefix = "fd12:3456:789a::/64"; } 
-          # ];
-        };
+        # "bridge-microvm" = {
+        #   matchConfig.Name = "br0-microvm";
+        #   networkConfig = {
+        #     DHCPServer = true;
+        #     # IPv6SendRA = true;
+        #     # ConfigureWithoutCarrier = true;
+        #   };
+        #   addresses = [ 
+        #     { Address = "10.0.0.1/24"; } 
+        #     # { Address = "fd12:3456:789a::1/64"; } 
+        #   ];
+        #   # ipv6Prefixes = [ 
+        #   #   { Prefix = "fd12:3456:789a::/64"; } 
+        #   # ];
+        # };
 
-        "tap-microvm" = {
-          networkConfig.Bridge = "br0-microvm";
-          matchConfig.Name = "microvm-*";
-        };
+        # "tap-microvm" = {
+        #   networkConfig.Bridge = "br0-microvm";
+        #   matchConfig.Name = "microvm-*";
+        # };
 
         "30-vm" = {
           matchConfig.Name = "microvm-*";
@@ -38,12 +39,12 @@
             "10.0.0.0/32"
             # "fec0::/128"
           ];
-          # Setup routes to the VM
+          # setup routes to the VM
           routes = [ 
             { Destination = "10.0.0.1/32"; } 
             # { Destination = "fec0::${lib.toHexString index}/128"; } 
           ];
-          # Enable routing
+          # enable routing
           networkConfig = {
             IPv4Forwarding = true;
             # IPv6Forwarding = true;
@@ -60,19 +61,19 @@
           routes = [ 
           {
             # A route to the host
-            Destination = "10.0.0.0/32";
+            Destination   = "10.0.0.0/32";
             GatewayOnLink = true;
           } 
           {
             # Default route
-            Destination = "0.0.0.0/0";
-            Gateway = "10.0.0.0";
+            Destination   = "0.0.0.0/0";
+            Gateway       = "10.0.0.0";
             GatewayOnLink = true;
           } 
           # {
           #   # Default route
-          #   Destination = "::/0";
-          #   Gateway = "fec0::";
+          #   Destination   = "::/0";
+          #   Gateway       = "fec0::";
           #   GatewayOnLink = true;
           # } 
           ];
