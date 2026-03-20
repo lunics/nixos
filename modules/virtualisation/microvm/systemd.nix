@@ -47,7 +47,7 @@
           # enable routing
           networkConfig = {
             IPv4Forwarding = true;
-            # IPv6Forwarding = true;
+            IPv6Forwarding = config._.microvm.ipv6;
           };
         };
 
@@ -81,7 +81,7 @@
             # DNS servers no longer come from DHCP nor Router
             # Advertisements. Perhaps you want to change the defaults:
             DNS = [
-              # Quad9.net
+              # quad9.net
               "9.9.9.9"
               "149.112.112.112"
               "2620:fe::fe"
@@ -93,9 +93,9 @@
       links = {};
       config = {
         addRouteTablesToIPRoute2 = true;
-        # networkConfig = {
-        #   IPv6PrivacyExtensions = true;
-        # };
+        networkConfig = {
+          IPv6PrivacyExtensions = config._.microvm.ipv6;
+        };
         routeTables  = {};
         dhcpV6Config = {};
         dhcpV4Config = {};

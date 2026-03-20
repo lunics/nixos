@@ -11,6 +11,7 @@
         type    = lib.types.attrs;
         default = {};
       };
+      ipv6 = mkEnableOption "";
     };
   };
 }
