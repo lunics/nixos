@@ -5,47 +5,18 @@
     # files generated in /etc/systemd/network
     systemd.network = {
       enable = true;
-      # netdevs = {
-      #   "bridge-microvm".netdevConfig = {
-      #     Kind = "bridge";
-      #     Name = "br0-microvm";
-      #   };
-      # };
       networks = {
-        # "bridge-microvm" = {
-        #   matchConfig.Name = "br0-microvm";
-        #   networkConfig = {
-        #     DHCPServer = true;
-        #     # IPv6SendRA = true;
-        #     # ConfigureWithoutCarrier = true;
-        #   };
-        #   addresses = [ 
-        #     { Address = "10.0.0.1/24"; } 
-        #     # { Address = "fd12:3456:789a::1/64"; } 
-        #   ];
-        #   # ipv6Prefixes = [ 
-        #   #   { Prefix = "fd12:3456:789a::/64"; } 
-        #   # ];
-        # };
-
-        # "tap-microvm" = {
-        #   networkConfig.Bridge = "br0-microvm";
-        #   matchConfig.Name = "microvm-*";
-        # };
-
         "30-vm" = {
           matchConfig.Name = "microvm-*";
           address = [
             "10.0.0.0/32"
             # "fec0::/128"
           ];
-          # setup routes to the VM
-          routes = [ 
+          routes = [            # setup routes to the VM
             { Destination = "10.0.0.1/32"; } 
             # { Destination = "fec0::${lib.toHexString index}/128"; } 
           ];
-          # enable routing
-          networkConfig = {
+          networkConfig = {     # enable routing
             IPv4Forwarding = true;
             IPv6Forwarding = config._.microvm.ipv6;
           };
@@ -53,25 +24,25 @@
 
         "10-wlan" = {
           matchConfig.MACAddress = "FE:ED:BA:BE:00:02";
-          # Static IP configuration
+          # static IP configuration
           address = [
             "10.0.0.1/32"
             # "fec0::${lib.toHexString index}/128"
           ];
           routes = [ 
           {
-            # A route to the host
+            # a route to the host
             Destination   = "10.0.0.0/32";
             GatewayOnLink = true;
           } 
           {
-            # Default route
+            # default route
             Destination   = "0.0.0.0/0";
             Gateway       = "10.0.0.0";
             GatewayOnLink = true;
           } 
           # {
-          #   # Default route
+          #   # default route
           #   Destination   = "::/0";
           #   Gateway       = "fec0::";
           #   GatewayOnLink = true;
