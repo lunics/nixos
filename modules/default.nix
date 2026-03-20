@@ -24,6 +24,7 @@
     ./virtualisation
     ./gaming
     ./graphic
+    ./wsl.nix
 
     # ./auto-upgrade.nix
     ## ./udev

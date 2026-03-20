@@ -57,5 +57,7 @@
     };
 
     yubikey = mkEnableOption "";
+
+    wsl = mkEnableOption "";
   };
 }
