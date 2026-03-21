@@ -1,6 +1,7 @@
 { pkgs, ... }:{ 
   imports = [
     ./whatsapp.nix
+    ./discord.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,19 +15,6 @@
 
     ferdium               # franz app like but free
     nchat                 # Terminal-based chat client with support for Telegram and WhatsApp
-
-    # DISCORD
-    discordo              # tui
-    discord
-    # (discord.override {
-    #   # remove any overrides that you don't want
-    #   withOpenASAR = true;
-    #   withVencord  = true;
-    # })
-    # betterdiscordctl
-    # todo vencord openasar github star
-    # # discord-tweaks discord-nord-theme
-    # vesktop         # Screensharing with audio on wayland for Discord and others ?
 
     # MATRIX
     element-desktop
