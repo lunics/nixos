@@ -9,7 +9,7 @@
     # materialgram
 
     ferdium               # franz app like but free
-    # whatsie             # KO qtwebengine security issue ?
+    whatsie
     nchat                 # Terminal-based chat client with support for Telegram and WhatsApp
     # altus               # client for WhatsApp Web with themes, notifications and multiple account support 
     # wasistlos
