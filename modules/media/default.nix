@@ -9,5 +9,6 @@
     spotify
     streamlink-twitch-gui-bin
     mpv
+    vlc
   ];
 }
