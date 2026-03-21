@@ -29,5 +29,6 @@
     # "./client mail"
     ./ai
     ./torrent
+    ./messaging
   ];
 }
