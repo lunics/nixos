@@ -1,4 +1,8 @@
 { pkgs, ... }:{ 
+  imports = [
+    ./whatsapp.nix
+  ];
+
   home.packages = with pkgs; [
     # SLACK
     slack
@@ -9,10 +13,7 @@
     # materialgram
 
     ferdium               # franz app like but free
-    whatsie
     nchat                 # Terminal-based chat client with support for Telegram and WhatsApp
-    # altus               # client for WhatsApp Web with themes, notifications and multiple account support 
-    # wasistlos
 
     # DISCORD
     discordo              # tui
