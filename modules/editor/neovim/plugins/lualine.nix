@@ -26,16 +26,20 @@
       sections = {
         -- lualine_a = {'mode'},
         lualine_a = { { 'filename', path = 2 } },
-        lualine_b = { 'branch' },             -- 'branch', 'diff', 'diagnostics'
+        lualine_b = { 'branch' },   -- 'branch', 'diff', 'diagnostics'
         lualine_c = {},
         lualine_x = {
           function()
             return require('auto-session.lib').current_session_name(true)
           end
         },
-        -- lualine_x = {},             -- {'encoding', 'fileformat', 'filetype'},
+        -- lualine_x = {},          -- {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
-        lualine_z = {}              -- {'location'}
+        lualine_z = {               -- {'location'}
+          {
+            require("opencode").statusline,
+          },
+        }
       },
       inactive_sections = {
         lualine_a = {},
