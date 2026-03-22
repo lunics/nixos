@@ -32,7 +32,7 @@
 
     rename = mkOption {
       type    = types.str;
-      default = "r";
+      default = "e";        # e for edit
     };
   };
 }
