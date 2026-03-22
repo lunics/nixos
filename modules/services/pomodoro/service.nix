@@ -11,6 +11,7 @@
       Environment = [
         "XDG_RUNTIME_DIR=/run/user/${toString config._.user_id}"
         "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${toString config._.user_id}/bus"
+        "WAYLAND_DISPLAY=wayland-1"
       ];
       ExecStart   = [ "${pkgs.nu-pomodoro}/bin/nu-pomodoro" ];
       RemainAfterExit = true;
