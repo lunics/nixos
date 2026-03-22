@@ -12,6 +12,7 @@
     "browser.tabs.tabMinWidth"               = 5;
     "browser.tabs.drawInTitlebar"            = false; # use os window border
 
+
     "browser.link.open_newwindow"                   = 3; # open links from external apps in: 1=current tab, 2=new window, 3=new tab
     "browser.link.open_newwindow.restriction"       = 0;
     "browser.link.open_newwindow.override.external" = 7; # open links from apps next to your active tab
@@ -23,6 +24,7 @@
     "browser.ctrlTab.recentlyUsedOrder"       = false;    # disable thumbnail preview ctrl + tab
     "browser.translations.enable"             = false;
     "browser.translations.automaticallyPopup" = false;
+    "browser.onboarding.enabled"              = false;    # disable welcome guide for new users
 
     "browser.cache.disk.enable"           = true;
     # "browser.cache.disk.parent_directory" = "/run/user/${toString config._.user_id}/${config._.browser}_cache";   # is now a read-only builtin parameter, not available in user.js anymore
