@@ -40,5 +40,6 @@
     ./notify.nix
     ./lsp.nix
     ./opencode.nix
+    ./snacs.nix
   ];
 }
