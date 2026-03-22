@@ -22,7 +22,7 @@
 
     screen_locker = mkOption {
       type    = types.str;
-      default = "swaylock";
+      default = "hyprlock";
     };
   };
 }
