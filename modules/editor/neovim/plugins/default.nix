@@ -39,5 +39,6 @@
     ./numbertoggle.nix
     ./notify.nix
     ./lsp.nix
+    ./opencode.nix
   ];
 }
