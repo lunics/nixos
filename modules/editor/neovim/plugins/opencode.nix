@@ -5,10 +5,11 @@
 
   plugins.opencode.enable = true;
 
+  # Run :checkhealth opencode after setup
   extraConfigLua = ''
-    map({ "n", "x" }, "<C-a>", "<ESC>")
+    map({ "n", "x" }, "<leader>a", "<ESC>")
 
-    map({ "n", "x" }, "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
+    map({ "n", "x" }, "<leader>a", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
     map({ "n", "x" }, "<C-x>", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
     map({ "n", "t" }, "<C-.>", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
 
@@ -21,17 +22,15 @@
     -- You may want these if you use the opinionated `<C-a>` and `<C-x>` keymaps above — otherwise consider `<leader>o…` (and remove terminal mode from the `toggle` keymap)
     map("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
     map("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
+
+    # require("lualine").setup({
+    #   sections = {
+    #     lualine_z = {
+    #       {
+    #         require("opencode").statusline,
+    #       },
+    #     }
+    #   }
+    # })
   '';
-
-  # Run :checkhealth opencode after setup
-
-  # require("lualine").setup({
-  #   sections = {
-  #     lualine_z = {
-  #       {
-  #         require("opencode").statusline,
-  #       },
-  #     }
-  #   }
-  # })
 }
