@@ -40,6 +40,6 @@
     ./notify.nix
     ./lsp.nix
     ./opencode.nix
-    ./snacks.nix
+    # ./snacks.nix
   ];
 }
