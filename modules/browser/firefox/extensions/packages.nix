@@ -13,7 +13,6 @@
     consent-o-matic
     skip-redirect
     adnauseam
-    # ublock-origin
     auto-tab-discard
     behave
     darkreader
@@ -24,8 +23,7 @@
     multi-account-containers
     open-url-in-container
     istilldontcareaboutcookies
-    keepa                         # amazon price tracker
-    pipewire-screenaudio          # connect webcall to pipewire
+    keepa
     refined-github
     return-youtube-dislikes
     scroll_anywhere
