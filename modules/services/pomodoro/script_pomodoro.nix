@@ -73,7 +73,7 @@
 
             ${config._.screen_locker} --quiet
 
-            print $"Break for ($data.break_time * $time_unit) ($unit)"
+            print $"Break for ($data.break_time * $time_unit)"
             sleep ($data.break_time * $time_unit)
           }
 
