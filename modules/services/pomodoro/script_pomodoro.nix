@@ -71,7 +71,9 @@
             print $"Restore brightness to ($data.brightness)%"
             brightnessctl --quiet set $"($data.brightness)%"
 
-            ${config._.screen_locker} --quiet
+            job spawn { 
+              ${config._.screen_locker} o+e> /dev/null
+            }
 
             print $"Break for ($data.break_time * $time_unit)"
             sleep ($data.break_time * $time_unit)
