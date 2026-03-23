@@ -71,12 +71,19 @@
             print $"Restore brightness to ($data.brightness)%"
             brightnessctl --quiet set $"($data.brightness)%"
 
-            job spawn { 
-              ${config._.screen_locker} o+e> /dev/null
+            # code required to run the break in a parallele thread
+            let job_id = job spawn {
+              let ctx = job recv
+              print $"Break for ($ctx.break_time * $ctx.time_unit)"
+              sleep ($ctx.break_time * $ctx.time_unit)
             }
+            {
+              break_time: $data.break_time
+              time_unit: $time_unit
+            } | job send $job_id            # the job send signature only takes <id>, the value is piped in, not passed as an argument
 
-            print $"Break for ($data.break_time * $time_unit)"
-            sleep ($data.break_time * $time_unit)
+            print "Lock screen"
+            ${config._.screen_locker} o+e> /dev/null
           }
 
           # if /tmp/pomodoro.json presents then use it else reset the variable
