@@ -4,14 +4,12 @@
     "sidebar.visibility"    = "always-show";
     "sidebar.revamp"        = true;                   # to help keep sidebar expanded
     "sidebar.expandOnHover" = false;
-    
 
     "browser.tabs.inTitlebar"                = 0;     # 0 = hide horizontal tab bar, 1 = show
     "browser.tabs.insertAfterCurrent"        = true;  # open tab next to the current
     "browser.tabs.insertRelatedAfterCurrent" = true;  
     "browser.tabs.tabMinWidth"               = 5;
     "browser.tabs.drawInTitlebar"            = false; # use os window border
-
 
     "browser.link.open_newwindow"                   = 3; # open links from external apps in: 1=current tab, 2=new window, 3=new tab
     "browser.link.open_newwindow.restriction"       = 0;
@@ -30,6 +28,9 @@
     # "browser.cache.disk.parent_directory" = "/run/user/${toString config._.user_id}/${config._.browser}_cache";   # is now a read-only builtin parameter, not available in user.js anymore
     "browser.cache.memory.enable"         = true;
     "browser.cache.memory.capacity"       = -1;       # -1 = auto allocation
+
+    "media.eme.enabled"      = true;                  # enable DRM
+    "browser.eme.ui.enabled" = true;                  # display in about:preferences "Read DRM protected content"
 
     "dom.ipc.processCount"                = 8;        # 1-8
     "browser.preferences.defaultPerformanceSettings.enabled" = false;
