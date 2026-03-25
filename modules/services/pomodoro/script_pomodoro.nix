@@ -28,8 +28,8 @@
             let delay = ($_duration / $level)
             print $"Starting fade out over ($_duration)..."
             
-            # loop from 1 up to the current level
-            1..$level | each { |iter|
+            # loop from 0 up to the current level, replace 0 by 1 to keep 1% of brighteness
+            0..$level | each { |iter|
               brightnessctl --quiet set 1%-
               # print $"Step: ($iter) of ($level)"
               sleep $delay
@@ -65,7 +65,7 @@
               }
             }
 
-            sleep 30sec     # sleep in the dark before screen locked
+            sleep 1min     # sleep in the dark before screen locked
         
             # hyprctl dispatch dpms on
             print $"Restore brightness to ($data.brightness)%"
