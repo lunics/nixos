@@ -12,13 +12,13 @@
     settings = {};
     enableMcpIntegration = false;
 
-    # settings = {   # config written to $XDG_CONFIG_HOME/opencode/config.json
-    #   theme      = "opencode";
-    #   model      = "anthropic/claude-sonnet-4-20250514";
-    #   autoshare  = false;
-    #   autoupdate = true;
-    #   mcp        = true;
-    # };
+    settings = {   # config written to $XDG_CONFIG_HOME/opencode/config.json
+      theme      = "tokyonight";
+      model      = "anthropic/claude-sonnet-4-6";
+      # autoshare  = false;
+      # autoupdate = false;
+      # mcp        = false;
+    };
 
     # See https://opencode.ai/docs/tools/
     # can be attribute set defining tools or a path to a directory containing multiple tool files
