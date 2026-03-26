@@ -4,8 +4,8 @@
       enable             = true;                    # nat ipv4
       enableIPv6         = config._.microvm.ipv6;   # nat ipv6
       externalInterface  = "wlan0";                 # interface connected to the router
-      internalIPs        = [ "10.0.0.0/24" ];
-      # internalInterfaces = [ "br0-microvm" ]; # interface connected to the machines
+      internalInterfaces = [ "microvm-net-2" ];     # interface connected to the machines
+      # internalIPs        = [ "10.0.0.0/24" ];
       # forwardPorts = [
       #   { # forwards TCP ports 80 of host to microvm domain
       #     proto       = "tcp";
