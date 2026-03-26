@@ -1,11 +1,7 @@
 { config, lib, ... }:{
   config = lib.mkIf config._.microvm.enable {
-    networking.useNetworkd = true;     # alias of systemd.network.enable = true;
-
     ## reopen the advanced network configuration from the guide before implement this file
-
     systemd.network = {
-      enable = true;
       netdevs = {
         "bridge-microvm".netdevConfig = {
           Kind = "bridge";
