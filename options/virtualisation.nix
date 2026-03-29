@@ -1,6 +1,7 @@
 { config, lib, ... }: with lib; {
   options._ = {
     libvirt  = mkEnableOption "";
+    k0s      = mkEnableOption "";
     k3s      = mkEnableOption "";
     docker   = mkEnableOption "";
     podman   = mkEnableOption "";
