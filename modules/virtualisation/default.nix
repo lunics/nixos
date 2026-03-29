@@ -2,7 +2,7 @@
   imports = [
     ./libvirt
     ./waydroid.nix
-    # ./k0s.nix
+    ./k0s.nix
     ./k3s
     ./xen.nix
     ./podman.nix
