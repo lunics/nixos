@@ -8,7 +8,6 @@
     ./impermanence.nix
     ./system.nix
     ./kernel.nix
-    ./swap.nix
     ./etc
     ./services
     ./location.nix
