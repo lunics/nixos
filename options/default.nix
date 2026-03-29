@@ -89,5 +89,7 @@
       type    = types.nullOr types.path;
       default = null;
     };
+
+    pomodoro = mkEnableOption "";
   };
 }
