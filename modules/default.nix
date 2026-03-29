@@ -17,10 +17,9 @@
     # ./users.nix
     ./programs
     ./audio
-    ./login_manager.nix
+    ./desktop
     ./security
     ./fonts.nix
-    ./window_manager.nix
     ./virtualisation
     ./gaming
     ./graphic
