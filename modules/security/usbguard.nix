@@ -1,5 +1,4 @@
 { pkgs, ... }:{
-
   services.usbguard = {
     enable      = false;
     dbus.enable = true;
