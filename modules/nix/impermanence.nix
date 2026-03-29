@@ -1,5 +1,4 @@
 { config, lib, inputs, ... }: with lib; {
-  # imports = lib.optionals config._.impermanence [ inputs.impermanence.nixosModules.impermanence ];
   imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   environment.persistence."/persistent" = {
