@@ -5,7 +5,6 @@
     ./disk
     ./boot
     ./nix
-    ./impermanence.nix
     ./system.nix
     ./kernel.nix
     ./etc

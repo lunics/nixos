@@ -8,5 +8,6 @@
     # ./registry.nix    ## TODO
     ./settings.nix
     ./sshServe.nix
+    ./impermanence.nix
   ];
 }
