@@ -31,7 +31,7 @@
 
     login_manager = mkEnableOption "";
 
-    audio = mkEnableOption "";
+    audio  = mkEnableOption "";
     musnix = mkEnableOption "";
 
     crypttab.text = mkOption {
@@ -59,5 +59,7 @@
     yubikey = mkEnableOption "";
 
     wsl = mkEnableOption "";
+
+    headless = mkEnableOption "";
   };
 }

@@ -1,5 +1,8 @@
-{ config, lib, ... }:{
-  config = lib.mkIf (config._.login_manager && config._.wayland_user != "") {
+{ config, lib, ... }:
+let 
+  _ = config._;
+in {
+  config = lib.mkIf (_.login_manager && _.wayland_user != "" && !_.headless){
     services.greetd = {
       enable = true;
       settings = rec {

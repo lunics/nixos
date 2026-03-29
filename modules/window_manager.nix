@@ -2,7 +2,7 @@
 let 
   _ = config._;
 in {
-  config = lib.mkIf (_.window_manager && _.wayland_user != "") {
+  config = lib.mkIf (_.window_manager && _.wayland_user != "" && !_.headless) {
     ## todo https://haseebmajid.dev/posts/2023-11-15-part-3-hyprland-as-part-of-your-development-workflow/
 
     programs.hyprland = {
