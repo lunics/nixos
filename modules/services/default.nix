@@ -4,6 +4,7 @@
     ./tlp.nix
     ./logind.nix
     ./auto-upgrade
+    ./no-wakeup.nix
     # ./btrbk.nix
     # ./restic.nix
 
