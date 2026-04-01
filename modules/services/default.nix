@@ -5,6 +5,7 @@
     ./logind.nix
     ./auto-upgrade
     ./no-wakeup.nix
+    ./fwupd.nix
     # ./btrbk.nix
     # ./restic.nix
 
