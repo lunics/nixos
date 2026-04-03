@@ -5,10 +5,10 @@
 
   imports = [ 
     # ./crush.nix
-    ./chatgpt.nix
-    ./fabric-ai.nix
+    # ./chatgpt.nix
+    # ./fabric-ai.nix
     ./opencode.nix
-    ./mcp.nix
-    ./claude.nix
+    # ./mcp.nix
+    # ./claude.nix
   ];
 }
