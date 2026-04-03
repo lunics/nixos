@@ -65,6 +65,7 @@
     logout   = "systemctl restart getty@tty1.service";
     poweroff = "save_env && sudo /run/current-system/sw/bin/poweroff";
     suspend  = "save_env && systemctl suspend";
+    reboot   = "save_env && systemctl reboot";
     battery  = "sudo tlp chargeonce";       ## delete if charge_once used
     charge_once  = "sudo tlp chargeonce";
     stop_pomodoro  = "systemctl --user stop  pomodoro.timer && systemctl --user stop  pomodoro.service && echo '0' > /tmp/pomodoro_cycle";
