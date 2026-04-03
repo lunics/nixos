@@ -63,8 +63,8 @@
     # hybrid-sleep Hibernate and suspend  # save state to RAM then to disk so the power on is faster if battery is still on
     # Suspend & hibernate                 # Suspend the system, wake after a period of time and put it into hibernate
     logout   = "systemctl restart getty@tty1.service";
-    poweroff = "_poweroff";
-    suspend  = "systemctl suspend";
+    poweroff = "save_env && sudo /run/current-system/sw/bin/poweroff";
+    suspend  = "save_env && systemctl suspend";
     battery  = "sudo tlp chargeonce";       ## delete if charge_once used
     charge_once  = "sudo tlp chargeonce";
     stop_pomodoro  = "systemctl --user stop  pomodoro.timer && systemctl --user stop  pomodoro.service && echo '0' > /tmp/pomodoro_cycle";

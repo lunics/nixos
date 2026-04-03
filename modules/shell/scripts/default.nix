@@ -11,7 +11,6 @@
     ./otp.nix
     ./toggle_bt_device.nix
     ./toggle_vpn.nix
-    ./_suspend.nix
-    ./_poweroff.nix
+    ./save_env.nix
   ];
 }
