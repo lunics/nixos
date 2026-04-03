@@ -7,7 +7,7 @@ let
       excludeShellChecks = [ "SC2086" "SC2046" "SC1091" "SC2012" ];
 
       runtimeInputs = with super; [
-        swww 
+        awww 
         coreutils   # for shuf to get a random value
       ];
 
@@ -18,7 +18,7 @@ let
         
         max_wallpapers=$(ls -1 $path_wallpapers | wc -l)
         
-        # swww query 
+        # awww query 
         #   ${config._.share}/wallpapers/summer-anime-girl-cat-4k-wallpaper-uhdpaper.com-414@5@d.jpg
         
         selected_line=$(shuf -i 0-''\${max_wallpapers} -n 1)
@@ -27,7 +27,7 @@ let
         
         echo "Wallpaper name: $selected_wallpaper"
         
-        swww img "$path_wallpapers/$selected_wallpaper" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 3 --invert-y
+        awww img "$path_wallpapers/$selected_wallpaper" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 3 --invert-y
       '';
     };
   };

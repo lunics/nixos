@@ -4,5 +4,5 @@
     ./script.nix
   ];
 
-  _.add_to_startup = [ "swww-daemon" ];
+  _.add_to_startup = [ "awww-daemon" ];
 }
