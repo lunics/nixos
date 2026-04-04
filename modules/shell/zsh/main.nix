@@ -11,7 +11,11 @@
     autocd               = true;    # automatically enter into a directory if typed directly
 
     completionInit = ''
-      autoload -Uz compinit && compinit
+      autoload -U compinit && compinit
+
+      # Better completion UX
+      zstyle ':completion:*' menu select
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
     '';
 
     # promptInit = ''
