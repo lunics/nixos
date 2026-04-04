@@ -3,8 +3,8 @@
     yubikey = mkEnableOption "";
 
     u2f_keys = mkOption {
-      type    = types.path;
-      default = "";
+      type    = types.nullOr types.path;
+      default = null;
     };
   };
 }
