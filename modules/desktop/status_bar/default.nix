@@ -2,6 +2,6 @@
   imports = [
     ./waybar
     ./hyprpanel
-    ./quickshell.nix
+    # ./quickshell.nix
   ]; 
 }
