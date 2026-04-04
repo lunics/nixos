@@ -11,6 +11,7 @@
     ./udev.nix
     ./impermanence.nix
     ./network.nix
+    ./security.nix
   ];
 
   options._ = {
@@ -55,8 +56,6 @@
       type    = types.str;
       default = "";
     };
-
-    yubikey = mkEnableOption "";
 
     wsl = mkEnableOption "";
 
