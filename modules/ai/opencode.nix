@@ -6,7 +6,7 @@
     agents   = {};
     commands = {};
     skills   = {};
-    themes   = {};
+    # tui      = {};
     tools    = {};
     rules    = "";
     settings = {};
@@ -14,7 +14,7 @@
 
     settings = {   # config written to $XDG_CONFIG_HOME/opencode/config.json
       theme      = "tokyonight";
-      model      = "anthropic/claude-sonnet-4-6";
+      model      = "anthropic/claude-opus-4-6";
       # autoshare  = false;
       # autoupdate = false;
       # mcp        = false;
