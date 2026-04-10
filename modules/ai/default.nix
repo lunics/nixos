@@ -9,6 +9,6 @@
     # ./fabric-ai.nix
     ./opencode.nix
     # ./mcp.nix
-    # ./claude.nix
+    ./claude.nix
   ];
 }
