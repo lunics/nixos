@@ -3,7 +3,7 @@
     systemd.network = {
       networks = {
         "10-microvm-tap" = {            # one network to matches ALL microvm-net-* TAPs
-          matchConfig.Name = "microvm-net-*";
+          matchConfig.Name = "mvm-*";
           address = [ "10.0.0.1/24" ];  # host IP of the TAPs, where each VM sets it as its default gateway
           # address = [
           #   "10.0.0.0/32"       # Assign IP 10.0.0.0 to the host side of the interface (/32 = no subnet, point-to-point)
