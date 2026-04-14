@@ -1,14 +1,13 @@
-kind:       HelmChart
+kind: HelmChart
 apiVersion: helm.cattle.io/v1
-
 metadata:
-  name:      argo-cd
+  name: argo-cd
   namespace: kube-system
 
 spec:
-  repo:            https://argoproj.github.io/argo-helm
-  chart:           argo-cd
-  version:         9.2.4
+  repo: https://argoproj.github.io/argo-helm
+  chart: argo-cd
+  version: 9.5.0              # https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/Chart.yaml
   targetNamespace: argo-cd
   createNamespace: true
   valuesContent: |-
