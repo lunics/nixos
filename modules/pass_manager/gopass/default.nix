@@ -3,6 +3,7 @@
     ./packages.nix
     ./config.nix
     ./mozilla_json.nix
+    ./gopass_wrapper.nix
     ./gopass_completion.nix
   ];
 
