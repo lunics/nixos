@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:{
   config = lib.mkIf (config._.pass_manager == "gopass") {
-    xdg.configFile."mozilla/native-messaging-hosts/com.justwatch.gopass.json".text = ''
+    ## the app is coded to search in ~/.mozilla, requires a patch
+    # xdg.configFile."mozilla/native-messaging-hosts/com.justwatch.gopass.json".text = ''
+    home.file.".mozilla/native-messaging-hosts/com.justwatch.gopass.json".text = ''
       {
         "name":        "com.justwatch.gopass",
         "description": "Gopass wrapper to search and return passwords",
