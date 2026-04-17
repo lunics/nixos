@@ -15,9 +15,9 @@ in {
       # git-credential-gopass     # to cache your git-credentials with gopass
       # gopass-summon-provider    # inject secrets as environment variables
       # gopass-hibp               # gopass haveibeenpwnd.com integration
-    ] ++ optionals (config._.browser == "zen") [    ## REPLACE BY FIREFOX once default browser changed
-      gopass-jsonapi              # gopass browser bindings 
-    ] ++ optionals (config._.browser == "null") [ 
+    ] ++ optionals (config._.browser == "firefox") [
+      gopass-jsonapi              # gopass browser bindings
+    ] ++ optionals (config._.browser == "zen") [ 
       gopass-jsonapi-zen
     ];
   };
