@@ -24,6 +24,10 @@
       type    = types.listOf types.str;
       default = ["compress=zstd" "noatime" "lazytime" "space_cache=v2" "ssd"];
     };
+    btrfs_vol = {
+      impermanence = mkEnableOption "";
+      kube         = mkEnableOption "";
+    };
     dual_boot = mkEnableOption "";
   };
 }

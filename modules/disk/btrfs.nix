@@ -33,13 +33,13 @@
         mountOptions = ["subvol=snapshots"] ++ _.btrfs_opts;
       };
     }
-    (mkIf config._.impermanence {
+    (mkIf _.btrfs_vol.impermanence {
       "/persistent" = {
         mountpoint   = "/persistent";
         mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
       };
     })
-    (mkIf config._.k3s {
+    (mkIf _.btrfs_vol.kube {
       "/kube" = {
         mountpoint   = "/kube";
         mountOptions = ["subvol=kube"] ++ _.btrfs_opts;
