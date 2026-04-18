@@ -4,11 +4,11 @@
   # ];
 
   imports = [ 
-    # ./crush.nix
-    # ./chatgpt.nix
-    # ./fabric-ai.nix
+    ./crush.nix
+    ./chatgpt.nix
+    ./fabric-ai.nix
     ./opencode.nix
-    # ./mcp.nix
+    ./mcp.nix
     ./claude.nix
   ];
 }
