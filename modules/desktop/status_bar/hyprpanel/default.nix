@@ -91,13 +91,13 @@
           };
         };
 
-        notifications.position = "top right";
+        notifications.position = "bottom right";
 
         theme = {
           bar = {
             transparent          = true;
             opacity              = 60;
-            location             = "top";
+            location             = "bottom";    # top, bottom
             border_radius        = "0.5em";
             margin_top           = "0.5em";
             enableShadow         = false;
