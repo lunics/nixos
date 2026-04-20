@@ -22,12 +22,13 @@ uda.taskwarrior-tui.task-report.prompt-on-delete = false
 uda.taskwarrior-tui.task-report.prompt-on-done   = false
 
 uda.taskwarrior-tui.style.report.selection      = green
-uda.taskwarrior-tui.style.context.active        = white
-uda.taskwarrior-tui.style.calendar.title        = black on rgb444
 uda.taskwarrior-tui.style.report.scrollbar      = black
 uda.taskwarrior-tui.style.report.scrollbar.area = white
-uda.taskwarrior-tui.scrollbar.indicator         =         # default = █
-uda.taskwarrior-tui.scrollbar.area              =         # default = ║
+uda.taskwarrior-tui.style.report-menu.active    = black on rgb444
+uda.taskwarrior-tui.style.context.active        = white
+uda.taskwarrior-tui.style.calendar.title        = black on rgb444
+uda.taskwarrior-tui.scrollbar.indicator         =                   # default = █
+uda.taskwarrior-tui.scrollbar.area              =                   # default = ║
 
 uda.taskwarrior-tui.task-report.next.filter                           = status:pending         
   # limit:300 or $(task show report.next.filter)
