@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:{
+  config = lib.mkIf (config._.alarm-clock){
     nixpkgs.overlays = [
       (self: super: {
         alarm-clock = super.writeScriptBin "alarm-clock" ''
@@ -28,4 +29,5 @@
         '';
       })
     ];
+  };
 }

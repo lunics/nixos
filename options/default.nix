@@ -91,5 +91,7 @@
     };
 
     pomodoro = mkEnableOption "";
+
+    alarm-clock = mkEnableOption "";
   };
 }

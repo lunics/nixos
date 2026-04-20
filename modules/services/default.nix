@@ -5,7 +5,7 @@
     # ./nightly_poweroff.nix
     ./wallpaper
     ./pomodoro
-    ./alarm_clock
+    ./alarm-clock
     ./podman.nix
     ./ollama.nix
     ./auto-upgrade.nix

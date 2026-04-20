@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:{
-  # config = lib.mkIf (config._.alarm-clock){
+  config = lib.mkIf (config._.alarm-clock){
     systemd.user = {
       timers."alarm-clock" = {
         Unit.Description = "triger alarm-clock.service everyday at 8am";
@@ -21,5 +21,5 @@
         };
       };
     };
-  # };
+  };
 }
