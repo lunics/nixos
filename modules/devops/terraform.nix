@@ -3,6 +3,7 @@
     home = {
       packages = with pkgs; [
         opentofu
+        vault
         # tofu-ls       # openTofu language server
         # tfmigrate     # terraform/opentofu state migration tool for GitOps
         # tenv          # openTofu, Terraform, Terragrunt and Atmos version manager written in Go
