@@ -20,7 +20,6 @@
     ./gpg.nix
     ./pass_manager
     ./services
-    ./kube
     ./task_manager
     ./music
     ./media
@@ -30,5 +29,6 @@
     # ./ai
     ./torrent
     ./messaging
+    ./devops
   ];
 }

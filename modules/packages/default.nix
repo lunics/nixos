@@ -7,8 +7,6 @@
     # ./neofetch.nix    # unmaintained upstream, use fastfetch instead
     # ./yubikey.nix
     ./anki.nix
-    ./ansible.nix
-    ./terraform.nix
     ./tigervnc.nix
     ./winboat.nix 
     ./devbox.nix
