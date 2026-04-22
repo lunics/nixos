@@ -13,6 +13,7 @@
         type    = types.listOf types.str;
         default = [];
       };
+      profile_on_ram = mkEnableOption "";
     };
   };
 }

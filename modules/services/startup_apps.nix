@@ -1,9 +1,12 @@
-{ config, pkgs, ... }:{
+{ config, lib, pkgs, ... }:{
   systemd.user.services."startup_apps" = {
     Unit = {
       Description    = "Launch desktop applications at Hyprland startup";
       PartOf         = [ "hyprland-session.target" ];
-      After          = [ "hyprland-session.target" "sync_browser_profile@${config._.user}.service" ];
+      After          = [ 
+        "hyprland-session.target" ] ++ lib.optionals config._.firefox.profile_on_ram [ 
+        "sync_browser_profile@${config._.user}.service" 
+      ];
       # Requires     = [ "sync_browser_profile@${config._.user}.service" ];   # restart startup_apps service everytime sync_browser_profile is restarted
       X-SwitchMethod = "keep-old";
     };
