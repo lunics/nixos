@@ -20,6 +20,11 @@
           systemctl --user stop pomodoro.service
         fi
 
+        # only useful when ran manually
+        if systemctl is-active --quiet --user sync_browser_profile@$USER.service; then
+          systemctl --user stop sync_browser_profile@$USER.service
+        fi
+
         if ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh; then
           echo -e "\e[1;32mTmux saved\e[0m"
         else
