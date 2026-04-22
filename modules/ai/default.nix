@@ -10,5 +10,6 @@
     ./opencode.nix
     ./mcp.nix
     ./claude.nix
+    ./ollama.nix
   ];
 }

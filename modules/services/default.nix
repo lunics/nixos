@@ -7,7 +7,6 @@
     ./pomodoro
     ./alarm-clock
     ./podman.nix
-    ./ollama.nix
     ./auto-upgrade.nix
     # ./usb_sync.nix
     # ./ssh_tpm_agent.nix

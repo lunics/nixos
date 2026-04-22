@@ -1,6 +1,6 @@
 {
   services.ollama = {
-    enable = true;
+    enable = false;
     host   = "127.0.0.1";   # the ollama server HTTP interface listens to
     port   = 11434;
     acceleration = null;    # rocm for AMD GPUs, cuda for NVIDIA GPUs
