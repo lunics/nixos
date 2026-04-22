@@ -8,7 +8,7 @@
     vimium
     tabliss
     videospeed
-    video-downloadhelper
+    # video-downloadhelper
     leechblock-ng
     consent-o-matic
     skip-redirect
@@ -17,7 +17,7 @@
     behave
     darkreader
     gesturefy
-    gopass-bridge
+    # gopass-bridge
     hover-zoom-plus
     enhancer-for-youtube
     multi-account-containers
