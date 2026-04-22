@@ -12,7 +12,9 @@
           export TASKDATA=$HOME/usb_copy/homelab/share/taskwarrior
           export TASKRC=$HOME/.config/taskwarrior/taskw/taskrc
 
-          task +ACTIVE stop || true
+          if task +active &> /dev/null; then
+            task +active stop &> /dev/null
+          fi
         fi
 
         if systemctl is-active --quiet --user pomodoro.service; then
