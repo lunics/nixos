@@ -12,5 +12,6 @@
     ./toggle_bt_device.nix
     ./toggle_vpn.nix
     ./save_env.nix
+    ./night_mode.nix
   ];
 }
