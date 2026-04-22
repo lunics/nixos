@@ -8,23 +8,26 @@
           playerctl pause
         fi
 
-        if which task; then
+        if which task &> /dev/null; then
           export TASKDATA=$HOME/usb_copy/homelab/share/taskwarrior
           export TASKRC=$HOME/.config/taskwarrior/taskw/taskrc
 
-          if task +active &> /dev/null; then
-            task +active stop &> /dev/null
+          if task +ACTIVE &> /dev/null; then
+            task +ACTIVE stop &> /dev/null
+            echo -e "\e[1;32mTaskw stopped\e[0m"
           fi
         fi
 
         if systemctl is-active --quiet --user pomodoro.service; then
           echo "" > /tmp/pomodoro_cycle
           systemctl --user stop pomodoro.service
+          echo -e "\e[1;32mPomodoro stopped\e[0m"
         fi
 
         # only useful when ran manually
-        if systemctl is-active --quiet --user sync_browser_profile@$USER.service; then
-          systemctl --user stop sync_browser_profile@$USER.service
+        if systemctl is-active --quiet --user sync_browser_profile@"$USER".service; then
+          systemctl --user stop sync_browser_profile@"$USER".service
+          echo -e "\e[1;32mFirefox profile saved\e[0m"
         fi
 
         if ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh; then
