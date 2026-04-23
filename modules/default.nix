@@ -26,7 +26,7 @@
     ./editor
     ./stylix.nix
     # "./client mail"
-    # ./ai
+    ./ai
     ./torrent
     ./messaging
     ./devops
