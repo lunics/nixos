@@ -10,7 +10,7 @@
       theme  = "tokyonight";
     };
     tools    = {};
-    rules    = "";
+    context  = "";
     settings = {};
     enableMcpIntegration = false;
 
