@@ -71,13 +71,13 @@
       # security = ./rules/security.md;
     };
     rulesDir = null;      # path to dir containing rule files
-    skills = {
-      # xlsx = ./skills/xlsx.md;
-      # pdf-processing = ''
-      #   Use pdfplumber to extract text from PDFs:
-      # '';
-    };
-    skillsDir = null;
+    # skills = {
+    #   # xlsx = ./skills/xlsx.md;
+    #   # pdf-processing = ''
+    #   #   Use pdfplumber to extract text from PDFs:
+    #   # '';
+    # };
+    # skillsDir = null;
     memory = {
       # text = ""; # content for CLAUDE.md, mutually exclusive with memory.source
       #   # Project Memory

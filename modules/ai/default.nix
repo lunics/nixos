@@ -7,9 +7,9 @@
     # ./crush.nix
     # ./chatgpt.nix
     # ./fabric-ai.nix
-    ./opencode.nix
+    # ./opencode.nix
     # ./mcp.nix
-    # ./claude.nix
+    ./claude-code.nix
     # ./ollama.nix
   ];
 }
