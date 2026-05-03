@@ -1,6 +1,6 @@
 {
-  flake.modules.generic.myoptions = { lib, ... }:{
-    options.my-hm.git = {
+  flake.modules.generic.myoptions = { lib, ... }: with lib; {
+    options._.git = {
       userName = lib.mkOption {
         type = lib.types.str;
         default = "git-user";
