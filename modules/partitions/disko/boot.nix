@@ -19,7 +19,7 @@
           };
         };
       })
-      (mkIf (_.dual_boot) {
+      (mkIf _.dual_boot {
         disko.devices.nodev."/boot" = {
           device     = "/dev/disk/by-uuid/${_.boot_uuid}";
           mountpoint = "/boot";
