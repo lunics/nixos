@@ -130,11 +130,21 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hosts = {
+      url = "git+file:./hosts";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        import-tree.follows = "import-tree";
+      };
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
     imports = [
       (inputs.import-tree ./modules)
+      inputs.hosts.flakeModules.default
     ];
   };
 }
