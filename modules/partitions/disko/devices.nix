@@ -1,10 +1,12 @@
 { inputs, ... }:{
-  flake.modules.nixos.disko = {
+  flake.modules.nixos.disko = { config, ... }: let
+    _device = config._.disk.device;
+  in {
     imports = [ inputs.disko.nixosModules.disko ];
 
-    disko.devices.disk.nvme0n1 = {
+    disko.devices.disk.${_device} = {
       type   = "disk";
-      device = "/dev/nvme0n1";
+      device = "/dev/${_device}";
       content.type = "gpt";
     };
   };
