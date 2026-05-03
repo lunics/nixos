@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.disko = { lib, ... }: with lib; {
-    disko.devices.disk.nvme0n1.content.partitions = {
+    disko.devices.disk.nvme0n1.content.partitions.btrfs = {
       size    = "100%";
       content = {
         type       = "btrfs";
