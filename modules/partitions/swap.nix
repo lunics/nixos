@@ -1,0 +1,12 @@
+{
+  flake.modules.nixos.disk = { config, ... }:{
+    zramSwap = {
+      enable        = config._.zramSwap.enable;
+      memoryPercent = config._.zramSwap.memoryPercent;
+      priority      = 5;
+      algorithm     = "zstd";
+    };
+
+    swapDevices = [];
+  };
+}
