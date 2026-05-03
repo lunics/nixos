@@ -4,7 +4,7 @@
 
     _subvolumes = {
       type       = "btrfs";
-      extraArgs  = ["-L" "nixos" "-f"];
+      extraArgs  = ["--label" "NIXOS" "-f"];
       subvolumes = mkMerge [
         {
           "/root" = {
