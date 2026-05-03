@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.disko = { config, lib, ... }: with lib; let
+  flake.modules.nixos.disk = { config, lib, ... }: with lib; let
     _ = config._.disk;
   in {
     config = mkMerge [
