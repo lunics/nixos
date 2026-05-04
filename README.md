@@ -37,13 +37,13 @@
 </details>
 
 <details>
-  <summary>hostname-A.nix</summary>
+  <summary>host-A.nix</summary>
 
 ```nix
 { self, ... }:{
-  flake.nixosConfigurations = self.lib.mk_nixos "x86_64-linux" "hostname-A";
+  flake.nixosConfigurations = self.lib.mk_nixos "x86_64-linux" "host-A";
 
-  flake.modules.nixos.hostname-A = {
+  flake.modules.nixos.host-A = {
     imports = with self.modules.nixos; [
       base
       disk
