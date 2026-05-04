@@ -2,16 +2,17 @@
 
 ## Features
 
-- ✅ disko
 - ✅ flake-parts
+- ✅ flake-file
 - ✅ import-tree
-- ✅ impermanence
-- ✅ lanzaboote
+- ✅ disko
 - ✅ dual boot
+- ✅ lanzaboote
 - ✅ microvm
-- ✅ home-manager
+- ✅ impermanence
+- ✅ [home-manager](# "as a standalone or a Nixos subvolume")
 
-## How to setup hosts
+## How to setup hosts from an external repo
 
 <details>
   <summary>flake.nix</summary>
