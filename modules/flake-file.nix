@@ -1,5 +1,5 @@
 { inputs, ... }:{
-  imports = [ inputs.flake-file.flakeModules.default ];
+  imports = [ inputs.flake-file.flakeModules.dendritic ];
 
   flake-file = {
     inputs = {
@@ -33,7 +33,7 @@
           (inputs.import-tree [ ./modules ./options ])
           inputs.hosts.flakeModules.default
         ];
-      };
+      }
     '';
   };
 
