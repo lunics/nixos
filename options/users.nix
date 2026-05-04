@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.myoptions = { lib, pkgs, ... }: with lib; {
+  flake.modules.generic.options = { lib, pkgs, ... }: with lib; {
     options._ = {
       user = mkOption {
         type    = types.str;

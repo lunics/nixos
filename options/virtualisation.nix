@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.myoptions = { lib, ... }: with lib; {
+  flake.modules.generic.options = { lib, ... }: with lib; {
     options._ = {
       libvirt  = mkEnableOption "";
       k0s      = mkEnableOption "";

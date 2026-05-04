@@ -17,7 +17,7 @@
     mk_nixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          self.modules.generic.myoptions
+          self.modules.generic.options
           self.modules.nixos.${name}
           { nixpkgs.hostPlatform = lib.mkDefault system; }
         ];
@@ -27,7 +27,7 @@
     mk_darwin = system: name: {
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
-          self.modules.generic.myoptions
+          self.modules.generic.options
           self.modules.darwin.${name}
           { nixpkgs.hostPlatform = lib.mkDefault system; }
         ];
@@ -38,12 +38,12 @@
     mk_nixos-hm = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          self.modules.generic.myoptions
+          self.modules.generic.options
           self.modules.nixos.${name}
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
-            home-manager.sharedModules = [ self.modules.generic.myoptions ];
+            home-manager.sharedModules = [ self.modules.generic.options ];
           }
         ];
       };
@@ -53,7 +53,7 @@
       ${name} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
-          self.modules.generic.myoptions
+          self.modules.generic.options
           self.modules.homeManager.${name}
           {
             home.username = name;

@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.myoptions = { config, lib, ... }: with lib; {
+  flake.modules.generic.options = { config, lib, ... }: with lib; {
     options._ = {
       gaming = mkEnableOption "";
 
