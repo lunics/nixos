@@ -7,6 +7,7 @@
         nix
         impermanence
         network
+        desktop
       ]);
   };
 }
