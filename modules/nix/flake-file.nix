@@ -7,7 +7,6 @@
       # nixpkgs.url     = "github:nixos/nixpkgs/nixpkgs-unstable";  ?
       flake-file.url    = "github:vic/flake-file";
       import-tree.url   = "github:vic/import-tree";
-      impermanence.url  = "github:nix-community/impermanence";
       flake-aspects.url = "github:vic/flake-aspects";
       flake-parts = {
         url = "github:hercules-ci/flake-parts";

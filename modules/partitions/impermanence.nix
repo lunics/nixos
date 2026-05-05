@@ -1,4 +1,6 @@
 { inputs, ... }:{
+  flake-file.inputs.impermanence.url  = "github:nix-community/impermanence";
+
   flake.modules.nixos.impermanence = { config, lib, ... }: with lib; {
     imports = [ inputs.impermanence.nixosModules.impermanence ];
 
