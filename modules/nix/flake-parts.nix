@@ -17,9 +17,7 @@
     mk_nixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          self.modules.generic.options
           self.modules.nixos.${name}
-          self.modules.nixos.impermanence
           { nixpkgs.hostPlatform = lib.mkDefault system; }
         ];
       };
