@@ -1,5 +1,14 @@
-{
+{ self, ... }:{
   flake.modules.nixos.network = { config, lib, ... }:{
+    imports = with self.modules.nixos; [
+      network_manager
+      firewall
+      wifi
+      bluetooth
+      vpn
+      dns
+    ];
+
     networking = {
       hostName = config._.hostName;
 

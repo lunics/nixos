@@ -6,6 +6,7 @@
         boot
         nix
         impermanence
+        network
       ]);
   };
 }
