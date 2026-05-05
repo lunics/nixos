@@ -19,6 +19,7 @@
         modules = [
           self.modules.generic.options
           self.modules.nixos.${name}
+          self.modules.nixos.impermanence
           { nixpkgs.hostPlatform = lib.mkDefault system; }
         ];
       };
