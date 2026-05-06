@@ -12,6 +12,16 @@
 - ✅ impermanence
 - ✅ [home-manager](# "as a standalone or a Nixos subvolume")
 
+## Structure
+
+```
+nixos
+├─ hosts/       # external repo, consumes modules using flake-parts
+├─ modules/     # modules declaration using flake-aspects
+├─ options/
+└─ flake.nix
+```
+
 ## How to setup hosts from an external repo
 
 <details>
