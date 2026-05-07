@@ -9,6 +9,7 @@
         network
         desktop
         audio
+        etc
       ]);
   };
 }
