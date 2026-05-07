@@ -19,6 +19,7 @@
         users
         programs
         udev
+        wsl
       ]);
   };
 }

@@ -1,4 +1,9 @@
 { inputs, ... }:{
+  flake-file.inputs.wsl = {
+    url = "github:nix-community/NixOS-WSL";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.aspects.wsl.nixos = { config, pkgs, ... }:{
     imports = [ inputs.wsl.nixosModules.default ];
 
