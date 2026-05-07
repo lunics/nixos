@@ -8,6 +8,7 @@
         impermanence
         network
         desktop
+        audio
       ]);
   };
 }

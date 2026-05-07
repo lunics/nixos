@@ -1,4 +1,9 @@
 { inputs, ... }:{
+  flake-file.inputs.musnix = { 
+    url = "github:musnix/musnix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.aspects.audio.nixos = { config, lib, pkgs, ... }:{
     imports = [ inputs.musnix.nixosModules.musnix ];
 
