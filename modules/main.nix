@@ -17,6 +17,8 @@
         location
         ntp
         users
+        programs
+        udev
       ]);
   };
 }
