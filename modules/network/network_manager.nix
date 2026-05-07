@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.network_manager = { pkgs, ... }:{
+  flake.aspects.network_manager.nixos = { pkgs, ... }:{
     ## Set Network Manager Priority to Use Wired Connection Over Wi-Fi
     networking.networkmanager = {
       enable       = true;

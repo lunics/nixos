@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nix = { pkgs, ... }: {
+  flake.aspects.nix.nixos = { pkgs, ... }: {
     nix = {
       enable = true;
       # package = pkgs.nix;

@@ -1,5 +1,5 @@
 { self, ... }:{
-  flake.modules.nixos.network = { config, lib, ... }:{
+  flake.aspects.network.nixos = { config, lib, ... }:{
     imports = with self.modules.nixos; [
       network_manager
       firewall

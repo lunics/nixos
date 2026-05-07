@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.disk = { config, lib, ... }: with lib; {
+  flake.aspects.disk.nixos = { config, lib, ... }: with lib; {
     config = mkMerge [{
       fileSystems = {
         "/nix".neededForBoot        = true;

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.wifi = { config, lib, ... }: with lib; {
+  flake.aspects.wifi.nixos = { config, lib, ... }: with lib; {
     networking.networkmanager.ensureProfiles.profiles = mapAttrs (ssid: psk: {
       connection = {
         id   = ssid;

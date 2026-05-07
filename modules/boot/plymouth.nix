@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.boot = { config, lib, pkgs, ... }: {
+  flake.aspects.boot.nixos = { config, lib, pkgs, ... }: {
     config = lib.mkIf (config._.boot_splash == "plymouth") {
       boot.plymouth = {
         enable        = true;

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = { config, lib, ... }:
+  flake.aspects.desktop.nixos = { config, lib, ... }:
   let
     _ = config._;
   in {

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.boot = {
+  flake.aspects.boot.nixos = {
     boot = {
       kernelModules = [ "kvm-intel" ];
 

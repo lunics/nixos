@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.disk = { config, lib, ... }: with lib; let
+  flake.aspects.disk.nixos = { config, lib, ... }: with lib; let
     _ = config._.disk;
 
     _subvolumes = {

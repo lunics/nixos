@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.boot = { config, lib, pkgs, ... }: with lib; {
+  flake.aspects.boot.nixos = { config, lib, pkgs, ... }: with lib; {
     imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
 
     config = mkIf (config._.boot_loader == "lanzaboot") {

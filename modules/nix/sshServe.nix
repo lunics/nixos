@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nix = {
+  flake.aspects.nix.nixos = {
     nix.sshServe = {      # nix store as a remote store via SSH
       enable   = false;
       keys     = [];      # ssh public keys allowed to access the binary cache

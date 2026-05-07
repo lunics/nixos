@@ -1,5 +1,5 @@
 { inputs, ... }:{
-  flake.modules.nixos.disk = { config, ... }: let
+  flake.aspects.disk.nixos = { config, ... }: let
     _device = config._.disk.device;
   in {
     imports = [ inputs.disko.nixosModules.disko ];

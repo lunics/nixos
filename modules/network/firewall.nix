@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.firewall = {
+  flake.aspects.firewall.nixos = {
     networking.firewall = {
       enable = true;
 

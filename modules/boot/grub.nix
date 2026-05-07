@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.boot = { config, lib, ... }: {
+  flake.aspects.boot.nixos = { config, lib, ... }: {
     config = lib.mkIf (config._.boot_loader == "grub") {
       boot.loader.grub = {
         enable            = true;

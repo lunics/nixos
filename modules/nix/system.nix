@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nix = { config, pkgs, ... }:{
+  flake.aspects.nix.nixos = { config, pkgs, ... }:{
     system = {
       switch.enable = true;
       activatable   = true;           # to add the activation script to the system profile

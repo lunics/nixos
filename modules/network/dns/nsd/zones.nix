@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.dns = { config, lib, dns, ... }:{
+  flake.aspects.dns.nixos = { config, lib, dns, ... }:{
     config = lib.mkIf config._.dns.nsd {
       services.nsd.zones = {
         "thinkpad-t14" = {

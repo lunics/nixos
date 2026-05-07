@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.dns = {   # KO failed build, 1,6 GB derivation
+  flake.aspects.dns.nixos = {   # KO failed build, 1,6 GB derivation
     services.technitium-dns-server = {
       enable           = true;
       openFirewall     = true;

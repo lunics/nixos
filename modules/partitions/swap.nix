@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.disk = { config, ... }:{
+  flake.aspects.disk.nixos = { config, ... }:{
     zramSwap = {
       enable        = config._.zramSwap.enable;
       memoryPercent = config._.zramSwap.memoryPercent;

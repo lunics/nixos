@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.vpn = { config, lib, pkgs, ... }: with lib; {
+  flake.aspects.vpn.nixos = { config, lib, pkgs, ... }: with lib; {
     config = mkIf config._.mullvad {
       services.mullvad-vpn = {
         enable  = true;

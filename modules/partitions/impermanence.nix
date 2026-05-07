@@ -1,7 +1,7 @@
 { inputs, ... }:{
   flake-file.inputs.impermanence.url  = "github:nix-community/impermanence";
 
-  flake.modules.nixos.impermanence = { config, lib, ... }: with lib; {
+  flake.aspects.impermanence.nixos = { config, lib, ... }: with lib; {
     imports = [ inputs.impermanence.nixosModules.impermanence ];
 
     environment.persistence."/persistent" = {

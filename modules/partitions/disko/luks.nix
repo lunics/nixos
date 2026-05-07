@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.disk = { config, lib, ... }: let
+  flake.aspects.disk.nixos = { config, lib, ... }: let
     _ = config._.disk;
   in {
     config = lib.mkIf _.luks {

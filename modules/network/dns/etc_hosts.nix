@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.dns = { config, ... }: {
+  flake.aspects.dns.nixos = { config, ... }: {
     networking.extraHosts = config._.dns.etc_hosts;
 
     networking.hosts = {   # alternative

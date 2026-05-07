@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nat = {
+  flake.aspects.nat.nixos = {
     networking.nat = {
       enable             = true;
       enableIPv6         = true;            # whether to enable ipv6 nat

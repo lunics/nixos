@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.vpn = { config, lib, pkgs, ... }: with lib; {
+  flake.aspects.vpn.nixos = { config, lib, pkgs, ... }: with lib; {
     environment.systemPackages = with pkgs; [ tailscale ];
 
     networking.firewall = {

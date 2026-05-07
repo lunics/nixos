@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.dns = { config, lib, ... }:{
+  flake.aspects.dns.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.dns.nsd {
       services.nsd = {
         enable            = true;
