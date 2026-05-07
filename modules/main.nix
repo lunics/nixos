@@ -11,6 +11,7 @@
         audio
         etc
         gaming
+        graphic
       ]);
   };
 }
