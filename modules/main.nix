@@ -12,6 +12,11 @@
         etc
         gaming
         graphic
+        hardware
+        kernel
+        location
+        ntp
+        users
       ]);
   };
 }

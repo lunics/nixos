@@ -1,5 +1,5 @@
 {
-  flake.aspects.user.nixos = { pkgs, ... }:{
+  flake.aspects.users.nixos = { pkgs, ... }:{
     users.users.lunics = {
       isNormalUser = true;
       shell = pkgs.bash;
