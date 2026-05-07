@@ -10,6 +10,7 @@
         desktop
         audio
         etc
+        gaming
       ]);
   };
 }
