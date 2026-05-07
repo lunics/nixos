@@ -3,6 +3,7 @@
 ## Features
 
 - ✅ flake-parts
+- ✅ flake-aspects
 - ✅ flake-file
 - ✅ import-tree
 - ✅ disko
@@ -10,14 +11,14 @@
 - ✅ lanzaboote
 - ✅ microvm
 - ✅ impermanence
-- ✅ [home-manager](# "as a standalone or a Nixos subvolume")
+- ✅ hosts kept private
 
 ## Structure
 
 ```
 nixos
-├─ hosts/       # external repo, consumes modules using flake-parts
-├─ modules/     # modules declaration using flake-aspects
+├─ hosts/       # external repo
+├─ modules/
 ├─ options/
 └─ flake.nix
 ```
