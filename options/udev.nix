@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.options = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { lib, ... }: with lib; {
     options._.udev = {
       disable_mouse_wakeup = {
         id_vendor = mkOption {

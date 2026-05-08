@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.options = { lib, pkgs, ... }: with lib; {
+  flake.aspects.options.generic = { lib, pkgs, ... }: with lib; {
     options._ = {
       user = mkOption {
         type    = types.str;

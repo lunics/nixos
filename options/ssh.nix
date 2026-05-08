@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.options = { config, lib, ... }: with lib; {
+  flake.aspects.options.generic = { config, lib, ... }: with lib; {
     options._.ssh_config = mkOption {
       type = types.attrsOf (types.submodule ({ config, name, ... }:{
         options = {

@@ -1,5 +1,5 @@
 {
-  flake.modules.generic.options = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { lib, ... }: with lib; {
     options._ = {
       status_bar = mkOption {
         type    = types.str;
