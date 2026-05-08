@@ -1,16 +1,6 @@
 {
   flake.modules.generic.options = { lib, ... }: with lib; {
     options._ = {
-      user = mkOption {
-        type    = types.str;
-        default = "nixos";
-      };
-
-      user_id = mkOption {
-        type    = types.int;
-        default = 1000;
-      };
-
       editor = mkOption {
         type    = types.str;
         default = "nvim";
@@ -41,8 +31,6 @@
       ansible   = mkEnableOption "";
 
       terraform = mkEnableOption "";
-
-      podman    = mkEnableOption "";
 
       winboat   = mkEnableOption "";
 

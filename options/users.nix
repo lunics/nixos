@@ -3,7 +3,12 @@
     options._ = {
       user = mkOption {
         type    = types.str;
-        default = "";
+        default = "user-nix";
+      };
+
+      user_id = mkOption {
+        type    = types.int;
+        default = 1000;
       };
 
       users = mkOption {

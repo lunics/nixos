@@ -1,11 +1,6 @@
 {
   flake.modules.generic.options = { lib, ... }: with lib; {
     options._ = {
-      flake_dir = mkOption {
-        type    = types.str;
-        default = "";
-      };
-
       boot_loader = mkOption {
         type    = types.str;
         default = "systemd-boot";     # systemd-boot, grub
