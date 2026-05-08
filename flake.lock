@@ -50,6 +50,21 @@
         "type": "github"
       }
     },
+    "flake-aspects_2": {
+      "locked": {
+        "lastModified": 1773552804,
+        "narHash": "sha256-a0kjpCZGnD5lt7yW6C3hzPhSf5KjnTyvX6XZ2NuhGs4=",
+        "owner": "vic",
+        "repo": "flake-aspects",
+        "rev": "56fa8d4d4772d58eb7f9d66c28c1cd2762b60423",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "flake-aspects",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -162,6 +177,7 @@
     },
     "hosts": {
       "inputs": {
+        "flake-aspects": "flake-aspects_2",
         "flake-parts": [
           "flake-parts"
         ],
@@ -173,11 +189,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778000589,
-        "narHash": "sha256-1YMh1kutdt6V+QuzpAEyZROtUZEY1XHLIc0fu7QDHGw=",
+        "lastModified": 1778238860,
+        "narHash": "sha256-zza0kUPU3xiEeZiEqxGaIjj1vUvN+Qht2ErX/Cg3S5s=",
         "ref": "refs/heads/main",
-        "rev": "316b86912c559b227532123177b524a3c8ff70ad",
-        "revCount": 4,
+        "rev": "7d90b8e7443853c780acb8e9e2d0f147cf2c8d79",
+        "revCount": 8,
         "type": "git",
         "url": "file:./hosts"
       },
