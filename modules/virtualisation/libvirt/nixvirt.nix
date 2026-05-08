@@ -6,10 +6,7 @@
 
   # https://github.com/AshleyYakeley/NixVirt/tree/master/checks
   flake.aspects.virtualisation.nixos = {
-    imports = [
-      inputs.nixvirt.nixosModules.default
-      ./nixvirt_vm_linux.nix
-    ];
+    imports = [ inputs.nixvirt.nixosModules.default ];
 
     virtualisation.libvirt = {
       enable       = true;
