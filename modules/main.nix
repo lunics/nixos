@@ -22,6 +22,7 @@
         wsl
         security
         services
+        virtualisation
       ]);
   };
 }
