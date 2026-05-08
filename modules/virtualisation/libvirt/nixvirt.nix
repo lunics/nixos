@@ -1,4 +1,9 @@
 { inputs, ... }:{
+  flake-file.inputs.nixvirt = {
+    url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+    inputs.nixpkgs.follows = "nixpkgs"; 
+  };
+
   # https://github.com/AshleyYakeley/NixVirt/tree/master/checks
   flake.aspects.virtualisation.nixos = {
     imports = [
