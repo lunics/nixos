@@ -189,11 +189,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778244859,
-        "narHash": "sha256-8ODvgawU5wx7XU4XVZNnCDkV4JMsJKhJcEQafSAA+/c=",
+        "lastModified": 1778246955,
+        "narHash": "sha256-xAarKmux7uDLPNSpJs96l2SBtv5nMN84bNFSQIBGAXc=",
         "ref": "refs/heads/main",
-        "rev": "d2ec13e82971c880df6ebb28427f6e727548f644",
-        "revCount": 15,
+        "rev": "f1c7f331d9b406ce798307a112107057b6994a26",
+        "revCount": 10,
         "type": "git",
         "url": "file:./hosts"
       },
