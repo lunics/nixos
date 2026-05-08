@@ -33,11 +33,6 @@
         default = [];
       };
 
-      github_token = mkOption {
-        type    = types.str;
-        default = "";
-      };
-
       wsl = mkEnableOption "";
 
       headless = mkEnableOption "";
