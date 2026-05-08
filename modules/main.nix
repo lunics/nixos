@@ -1,5 +1,6 @@
 { self, ... }:{
-  flake.aspects.main.nixos = {
+  flake.aspects = { aspects, ... }:{
+    main.includes = with aspects; [
     imports = [ self.modules.generic.options ]
       ++ (with self.modules.nixos; [
         disk
