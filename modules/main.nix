@@ -20,6 +20,7 @@
         programs
         udev
         wsl
+        security
       ]);
   };
 }
