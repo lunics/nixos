@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.nixos = { lib, ... }: with lib; {
     options._ = {
       torrents_dir = mkOption {
         type    = types.str;
