@@ -21,6 +21,7 @@
         udev
         wsl
         security
+        services
       ]);
   };
 }
