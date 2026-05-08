@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.nixos = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { lib, ... }: with lib; {
     options._ = {
       editor = mkOption {
         type    = types.str;

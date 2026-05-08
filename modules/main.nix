@@ -1,7 +1,7 @@
 { self, ... }:{
   flake.aspects = { aspects, ... }:{
     main.includes = with aspects; [
-      options
+      # options
       disk
       boot
       nix
