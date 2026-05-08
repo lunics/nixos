@@ -1,4 +1,9 @@
 { inputs, ... }:{
+  flake-file.inputs.k0s = {
+    url = "github:johbo/k0s-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.aspects.virtualisation.nixos = { config, lib, pkgs, ... }:{
     imports = [ inputs.k0s.nixosModules.default ];
 
