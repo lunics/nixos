@@ -1,0 +1,15 @@
+data.location  = $SHARE/taskwarrior
+hooks.location = $CONFIG/taskwarrior/hooks
+
+include ./urgency
+include ./colors
+include ../tui/keyconfig
+include ../tui/advanced
+# include ~/themes/solarized-dark-256.theme
+
+verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
+
+uda.score.type  = numeric
+uda.score.label = Score 🏆
+
+report.next.filter = status:pending

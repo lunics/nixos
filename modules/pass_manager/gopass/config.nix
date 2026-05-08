@@ -1,0 +1,39 @@
+{ config, lib, ... }:{
+  config = lib.mkIf (config._.pass_manager == "gopass") {
+    home.file.".config/gopass/config".text = ''
+      [mounts]
+      	path = ${config._.share}/gopass
+      
+      [generate]
+        autoclip  = true        # copy the password created
+        generator = ""          # password generator: xkcd, memorable, external or ""
+        length    = 24          # length for generated password
+        strict    = false       # use strict mode for generated password
+        symbols   = true        #	include symbols
+      
+      [recipients]
+        hash = 0ad55b628793e85ad95847d9296fedd36a250e37238d7ea283db03cbae24f8c7
+
+      age.usekeychain = false
+      pwgen.xkcd-lang = en
+      
+      [otp]
+        autoclip = true         # clip otp by default, while still displaying the codes and timers
+        onlyclip = false        # copy otp to clipboard, without displaying the OTP codes. This takes precedence over otp.autoclip
+      
+      [core]
+        autopush      = true
+        autosync      = true
+        cliptimeout   = 45
+        exportkeys    = true
+        notifications = true
+      
+      [pwgen]
+        xkcd-sep        = " " 	  # xkcd password generator separator
+        xkcd-lang       = en      # xkcd password generator language
+        xkcd-capitalize = true    # capitalize the first character of each word
+        xkcd-numbers    = true    # add random numbers after each word
+        xkcd-len        = 5       # number of words to generated
+    '';
+  };
+}
