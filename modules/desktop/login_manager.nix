@@ -1,5 +1,6 @@
 {
-  flake.aspects.desktop.nixos = { config, lib, ... }: let
+  flake.aspects.desktop.nixos = { config, lib, ... }: 
+  let
     _ = config._;
   in {
     config = lib.mkIf (_.login_manager && _.wayland_user != "" && !_.headless){
