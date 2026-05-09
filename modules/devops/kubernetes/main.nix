@@ -1,15 +1,17 @@
-{ config, lib, ... }:{
-  config = lib.mkIf config._.kube {
-    home = {
-      activation.k3s_config = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        mkdir -p "$HOME/.config/k3s"
+{
+  flake.aspects.kubernetes.homeManager = { config, lib, ... }:{
+    config = lib.mkIf config._.kube {
+      home = {
+        activation.k3s_config = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          mkdir -p "$HOME/.config/k3s"
 
-        if [ -e /etc/rancher/k3s/k3s.yaml ] && [ ! -L ${config._.dot_config}/k3s/k3s.yaml ]; then
-          ln -s /etc/rancher/k3s/k3s.yaml ${config._.dot_config}/k3s/k3s.yaml
-        fi
-      '';
+          if [ -e /etc/rancher/k3s/k3s.yaml ] && [ ! -L ${config._.dot_config}/k3s/k3s.yaml ]; then
+            ln -s /etc/rancher/k3s/k3s.yaml ${config._.dot_config}/k3s/k3s.yaml
+          fi
+        '';
 
-      sessionVariables.KUBECONFIG = "${config._.dot_config}/k3s/k3s.yaml";
+        sessionVariables.KUBECONFIG = "${config._.dot_config}/k3s/k3s.yaml";
+      };
     };
   };
 }

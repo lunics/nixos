@@ -1,15 +1,17 @@
-{ pkgs, ... }:{
-  xdg.portal = {
-    enable = false;
-    # config = {
-    #   common = {
-    #     default = [
-    #       "gtk"
-    #     ];
-    #   };
-    # };
-    # configPackages   = [ pkgs.gnome.gnome-session ];
-    # extraPortals     = [];
-    # xdgOpenUsePortal = false;
+{
+  flake.aspects.xdg.homeManager = { pkgs, ... }:{
+    xdg.portal = {
+      enable = false;
+      # config = {
+      #   common = {
+      #     default = [
+      #       "gtk"
+      #     ];
+      #   };
+      # };
+      # configPackages   = [ pkgs.gnome.gnome-session ];
+      # extraPortals     = [];
+      # xdgOpenUsePortal = false;
+    };
   };
 }

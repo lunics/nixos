@@ -1,20 +1,22 @@
-{ config, pkgs, ... }:{ 
-  programs.nushell = {
-    enable               = true;
-    package              = pkgs.nushell;
-    configDir            = "${config.xdg.configHome}/nushell";
-    settings             = {};
-    shellAliases         = {};
-    environmentVariables = {};
-    extraLogin           = "";
-    extraEnv             = "";
-    extraConfig          = "";
-    configFile           = null;
-    loginFile            = null;
-    envFile              = null;
-  };
+{
+  flake.aspects.nushell.homeManager = { config, pkgs, ... }:{ 
+    programs.nushell = {
+      enable               = true;
+      package              = pkgs.nushell;
+      configDir            = "${config.xdg.configHome}/nushell";
+      settings             = {};
+      shellAliases         = {};
+      environmentVariables = {};
+      extraLogin           = "";
+      extraEnv             = "";
+      extraConfig          = "";
+      configFile           = null;
+      loginFile            = null;
+      envFile              = null;
+    };
 
-  imports = [
-    # ./plugins.nix KO
-  ];
+    imports = [
+      # ./plugins.nix KO
+    ];
+  };
 }

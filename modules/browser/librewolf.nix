@@ -1,9 +1,11 @@
 {
-  programs.librewolf = {
-    enable  = false;
-    settings = {
-      "webgl.disabled" = false;
-      "privacy.resistFingerprinting" = false;
+  flake.aspects.browser.homeManager = {
+    programs.librewolf = {
+      enable  = false;
+      settings = {
+        "webgl.disabled" = false;
+        "privacy.resistFingerprinting" = false;
+      };
     };
   };
 }

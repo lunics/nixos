@@ -1,18 +1,20 @@
-{ pkgs, ... }:{
-  home.packages = [
-    (pkgs.writeShellApplication {
-      name = "disk";
+{
+  flake.aspects.scripts.homeManager = { pkgs, ... }:{
+    home.packages = [
+      (pkgs.writeShellApplication {
+        name = "disk";
 
-      runtimeInputs = with pkgs; [ 
-        duf
-        dysk
-      ];
+        runtimeInputs = with pkgs; [ 
+          duf
+          dysk
+        ];
 
-      text = ''
-        duf --hide special
-        echo
-        dysk
-      '';
-    })
-  ];
+        text = ''
+          duf --hide special
+          echo
+          dysk
+        '';
+      })
+    ];
+  };
 }

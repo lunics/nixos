@@ -1,18 +1,20 @@
-{ pkgs, ... }:{
-  home.packages = with pkgs; [
-    (pkgs.writeShellApplication {
-      name = "restore_tmux";                   # restore all sessions then switch to home session
+{
+  flake.aspects.extras.homeManager = { pkgs, ... }:{
+    home.packages = with pkgs; [
+      (pkgs.writeShellApplication {
+        name = "restore_tmux";                   # restore all sessions then switch to home session
 
-      runtimeInputs = with pkgs; [ 
-        tmux
-      ];
+        runtimeInputs = with pkgs; [ 
+          tmux
+        ];
 
-      text = ''
-        tmux new-session -d -s dummy \; \
-          run-shell "${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/restore.sh" \; \
-          kill-session -t dummy \; \
-          attach -t home
-      '';
-    })
-  ];
+        text = ''
+          tmux new-session -d -s dummy \; \
+            run-shell "${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/restore.sh" \; \
+            kill-session -t dummy \; \
+            attach -t home
+        '';
+      })
+    ];
+  };
 }

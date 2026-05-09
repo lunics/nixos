@@ -1,20 +1,22 @@
-{ pkgs, ... }:{
-  home.packages = [
-    (pkgs.writeShellApplication {
-      name = "otp";
+{
+  flake.aspects.scripts.homeManager = { pkgs, ... }:{
+    home.packages = [
+      (pkgs.writeShellApplication {
+        name = "otp";
 
-      runtimeInputs = with pkgs; [ 
-        wl-clipboard-rs
-        oath-toolkit
-      ];
+        runtimeInputs = with pkgs; [ 
+          wl-clipboard-rs
+          oath-toolkit
+        ];
 
-      text = ''
-        read -sp "Enter the otp secret key: " -r secret
-        
-        oathtool -b --totp=SHA1 "$secret" | wl-copy; echo
-        
-        echo "code: $(wl-paste)"
-      '';
-    })
-  ];
+        text = ''
+          read -sp "Enter the otp secret key: " -r secret
+
+          oathtool -b --totp=SHA1 "$secret" | wl-copy; echo
+
+          echo "code: $(wl-paste)"
+        '';
+      })
+    ];
+  };
 }
