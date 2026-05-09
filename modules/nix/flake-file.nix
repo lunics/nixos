@@ -1,20 +1,13 @@
 { inputs, ... }:{
-  imports = [ inputs.flake-file.flakeModules.default ];
-
   flake-file = {
     inputs = {
       nixpkgs.url       = "github:nixos/nixpkgs/nixos-unstable";
       # nixpkgs.url     = "github:nixos/nixpkgs/nixpkgs-unstable";  ?
       flake-file.url    = "github:vic/flake-file";
       import-tree.url   = "github:vic/import-tree";
-      flake-aspects.url = "github:vic/flake-aspects";
       flake-parts = {
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
-      };
-      disko = {
-        url = "github:nix-community/disko";
-        inputs.nixpkgs.follows = "nixpkgs";
       };
       hosts = {
         url = "git+file:./hosts";
@@ -39,6 +32,8 @@
       }
     '';
   };
+
+  imports = [ inputs.flake-file.flakeModules.default ];
 
   systems = [ "x86_64-linux" ];
 }

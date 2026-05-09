@@ -1,4 +1,9 @@
 { inputs, ... }:{
+  flake-file.inputs.zen-browser = {
+    url = "github:0xc000022070/zen-browser-flake";
+    inputs.nixpkgs.follows = "nixpkgs"; 
+  };
+
   flake.aspects.browser.homeManager = { config, lib, ... }:{
     imports = [ inputs.zen-browser.homeModules.beta ];    # beta, twilight, twilight-official
 

@@ -1,7 +1,5 @@
 { inputs, lib, self, ... }:{
-  imports = [
-    inputs.flake-parts.flakeModules.modules
-  ];
+  imports = [ inputs.flake-parts.flakeModules.modules ];
 
   # helper functions for creating system / home-manager configurations
   options.flake.lib = lib.mkOption {

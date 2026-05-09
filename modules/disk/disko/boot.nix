@@ -1,4 +1,9 @@
 {
+  flake-file.inputs.disko = {
+    url = "github:nix-community/disko";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.aspects.disk.nixos = { config, lib, ... }: with lib; let
     _ = config._.disk;
   in {

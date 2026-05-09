@@ -1,4 +1,9 @@
 { inputs, ... }:{ 
+  flake-file.inputs.stylix = {
+    url = "github:danth/stylix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.aspects.stylix.homeManager = { pkgs, ... }:{
     imports = [ inputs.stylix.homeModules.stylix ];
 

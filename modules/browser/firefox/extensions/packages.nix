@@ -1,4 +1,9 @@
 { inputs, ... }:{
+  flake-file.inputs.nur = {     # nixos community repo: firefox-addons, crush
+    url = "github:nix-community/NUR";
+    inputs.nixpkgs.follows = "nixpkgs"; 
+  };
+
   flake.aspects.extensions.homeManager = { config, pkgs, ... }:{
     nixpkgs.overlays = [ inputs.nur.overlays.default ];
 
