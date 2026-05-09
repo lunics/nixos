@@ -1,0 +1,7 @@
+{
+  "custom/updates": {
+    "exec": "(pacman -Qu ; {{ aur_user }} -Qua) | wc -l",
+    "interval": 7200,
+    "format": " {}"
+  }
+}

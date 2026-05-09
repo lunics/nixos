@@ -1,0 +1,25 @@
+# run: hyprctl clients
+
+$terminal   = Alacritty|Kitty|com.mitchellh.ghostty
+$browser    = zen-beta|firefox|librewolf      # zen-twilight
+$message    = discord|org.gajim.Gajim|Element|Session|org.telegram.dekstop|info.mumble.Mumble
+$streaming  = spotify|FreeTube|streamlink-twitch-gui|mpv
+$gaming     = dofus.exe
+$music      = org.musescore.MuseScore
+$libvirt    = virt-viewer
+$all        = $terminal|$browser|$message|$streaming|$gaming|$music|$libvirt
+
+windowrule = maximize on, match:class $all
+# windowrule = move 6 52, class:.*
+#windowrule = size 99.4% 95%, class:.*
+# windowrule = size 1908 1142, class:.*     # 1920-, 1200-
+
+windowrule = border_size 0,   match:class $browser
+windowrule = workspace 1,     match:class $terminal
+windowrule = workspace 2,     match:class $browser
+windowrule = workspace 3,     match:class $message
+# windowrule = workspace 4,     match:class $streaming, title:^($streaming)
+
+# windowrule = float,        class:^(udiskie)$
+# windowrule = move 40% 40%, class:^(udiskie)$
+# windowrule = size 500 400, class:^(udiskie)$

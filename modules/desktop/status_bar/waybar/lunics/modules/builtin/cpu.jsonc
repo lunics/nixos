@@ -1,0 +1,8 @@
+{
+  "cpu": {
+    "tooltip":  true,
+    "format":   "{usage}% ",
+    "interval": 5,
+    "on-click": ""
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "clock": {
+    "timezone": "Europe/Paris",
+		// "interval": 30,
+		// "align": 0,
+		// "rotate": 0,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%d-%m-%Y}"
+    // "format": " {:%a %b %d, %H:%M}",
+    // "format": "{: %R   %d/%m}",
+    // "format-alt": " {:%a %d %b, %G}"
+    // "format": " {:%a %d %b, %G}"
+  }
+}
