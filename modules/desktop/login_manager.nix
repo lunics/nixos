@@ -8,7 +8,7 @@
         enable = true;
         settings = rec {
           initial_session = {
-            command = "Hyprland";
+            command = "${config.programs.hyprland.package}/bin/Hyprland";
             user    = _.wayland_user;
           };
           default_session = initial_session;
