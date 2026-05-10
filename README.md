@@ -1,5 +1,3 @@
-*big refacto in progress*
-
 ## Features
 
 - ✅ flake-parts
@@ -17,6 +15,7 @@
 
 ```
 nixos
+├─ aspects/
 ├─ hosts/       # external repo
 ├─ modules/
 ├─ options/
