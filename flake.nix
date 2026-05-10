@@ -10,6 +10,7 @@
         (inputs.import-tree [
           ./modules
           ./options
+          ./aspects
         ])
       ];
     };
