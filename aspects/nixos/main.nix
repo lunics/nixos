@@ -22,6 +22,7 @@
       security
       services
       virtualisation
+      secrets
     ];
   };
 }
