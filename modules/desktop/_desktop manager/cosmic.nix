@@ -1,5 +1,5 @@
 {
-  flake.aspects._desktop_manager.homeManager = {
+  flake.aspects.desktop_manager.homeManager = {
     services.desktopManager = {
       cosmic-greeter.enable = true;   # COSMIC login manager
 

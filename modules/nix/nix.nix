@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.home = {
+  flake.aspects.nix-home.homeManager = {
     nix = {
       keepOldNixPath = true;    # keep the previously set values in NIX_PATH
       checkConfig    = true;    # parse nix files before building

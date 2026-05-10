@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.nixos = {
+  flake.aspects.nix-nixos.nixos = {
     nix.buildMachines."NAME" = {
       hostName
       mandatoryFeatures

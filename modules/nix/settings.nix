@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.nixos = { config, ... }: {
+  flake.aspects.nix-nixos.nixos = { config, ... }: {
     nix.settings = {
       allowed-users = [ "*" ];          # users allowed to connect to the Nix daemon, trusted users are always allowed to connect, @group to add new group
       trusted-users = [ "root" ]        # users that have additional rights when connecting to the Nix daemon, required for deploy-rs, @group to add new group

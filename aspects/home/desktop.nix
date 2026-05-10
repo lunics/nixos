@@ -3,7 +3,6 @@
     desktop.includes = with aspects; [
       window_manager
       notifier
-      login_manager
       wallpaper
       # qt
       # gtk

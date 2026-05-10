@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.home = { config, pkgs, ... }:{
+  flake.aspects.nix-home.homeManager = { config, pkgs, ... }:{
     programs.nh = {
       enable      = true;
       package     = pkgs.nh;

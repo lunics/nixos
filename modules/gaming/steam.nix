@@ -3,7 +3,7 @@
 ##   mangohud %command%
 ##   gamescope %command%
 {
-  flake.aspects.gaming.nixos = { config, pkgs, ... }:{
+  flake.aspects.gaming-nixos.nixos = { config, pkgs, ... }:{
     programs.steam = {
       enable  = config._.steam;
       package = pkgs.steam;

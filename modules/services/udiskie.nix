@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { pkgs, ... }:{
+  flake.aspects.user-services.homeManager = { pkgs, ... }:{
     services.udiskie = {
       enable    = true;
       package   = pkgs.udiskie;

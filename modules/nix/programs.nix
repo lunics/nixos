@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.home = { config, ... }:{
+  flake.aspects.nix-home.homeManager = { config, ... }:{
     programs = {
       home-manager = {
         enable = true;

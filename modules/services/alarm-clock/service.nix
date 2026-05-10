@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.user-services.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.alarm-clock){
       systemd.user = {
         timers."alarm-clock" = {

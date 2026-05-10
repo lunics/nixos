@@ -1,5 +1,5 @@
 {
-  flake.aspects.gaming.nixos = { config, ... }:{
+  flake.aspects.gaming-nixos.nixos = { config, ... }:{
     programs.gamescope = {
       enable     = config._.gamescope;
       capSysNice = false;   # add cap_sys_nice capability to the GameScope binary so that it may renice itself

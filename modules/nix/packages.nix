@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.home = { pkgs, ... }:{
+  flake.aspects.nix-home.homeManager = { pkgs, ... }:{
     home.packages = with pkgs; [
       deploy-rs
       # nix-init          # generate Nix packages from URLs

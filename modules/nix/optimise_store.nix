@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.nixos = {
+  flake.aspects.nix-nixos.nixos = {
     nix.optimise = {
       automatic          = true;          # run the nix store optimiser at a specific time
       persistent         = true;          # make the systemd timer persistent, to avoid running after the date if missed

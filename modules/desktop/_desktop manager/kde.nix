@@ -1,3 +1,3 @@
 {
-  flake.aspects._desktop_manager.homeManager = 
+  flake.aspects.desktop_manager.homeManager = 
 }

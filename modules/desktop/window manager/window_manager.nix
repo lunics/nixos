@@ -1,5 +1,5 @@
 { inputs, ... }:{
-  flake.aspects.window_manager.nixos = { config, lib, pkgs, ... }:
+  flake.aspects.desktop-nixos.nixos = { config, lib, pkgs, ... }:
   let
     _ = config._;
   in {

@@ -1,5 +1,5 @@
 {
-  flake.aspects.gaming.nixos = { config, ... }:{
+  flake.aspects.gaming-nixos.nixos = { config, ... }:{
     programs.gamemode = {
       enable       = config._.gamemode; # daemon that greatly improves game performance by applying temporary OS optimizations
       enableRenice = true;              # enable CAP_SYS_NICE on gamemoded to support lowering process niceness

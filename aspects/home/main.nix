@@ -20,10 +20,10 @@
         stylix
       multiplexer
       music
-      nix
+      nix-home
       packages
       pass_manager
-      services
+      user-services
       shell
       task_manager
       terminal

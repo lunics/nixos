@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop.nixos = { pkgs, ... }:{
+  flake.aspects.desktop_nixos.nixos = { pkgs, ... }:{
     fonts = {
       fontconfig = {
         enable = true;

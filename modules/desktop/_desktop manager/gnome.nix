@@ -1,5 +1,5 @@
 {
-  flake.aspects._desktop_manager.homeManager = { pkgs, ... }:{
+  flake.aspects.desktop_manager.homeManager = { pkgs, ... }:{
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;

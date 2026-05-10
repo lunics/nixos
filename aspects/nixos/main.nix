@@ -4,15 +4,15 @@
       options
       disk
       boot
-      nix
+      nix-nixos
       impermanence
       hardware
       kernel
       etc
       network
-      desktop
+      desktop_nixos
       audio
-      gaming
+      gaming-nixos
       graphic
       location
       ntp

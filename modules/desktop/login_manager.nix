@@ -1,5 +1,5 @@
 {
-  flake.aspects.login_manager.nixos = { config, lib, ... }: 
+  flake.aspects.desktop_nixos.nixos = { config, lib, ... }: 
   let
     _ = config._;
   in {
