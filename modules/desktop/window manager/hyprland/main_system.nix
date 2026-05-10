@@ -1,4 +1,12 @@
 { inputs, ... }:{
+  flake-file.inputs = {
+    hyprland.url     = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland"; 
+    };
+  };
+
   flake.aspects.desktop-nixos.nixos = { config, lib, pkgs, ... }:
   let
     _ = config._;
