@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = {
+  flake.aspects.backup.nixos = {
     services.btrbk = {
       # sshAccess = { # SSH keys that should be able to make or push snapshots on this system remotely
       #   key

@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = {
+  flake.aspects.backup.nixos = {
     services.snapper = {
       configs = {                                    # subvolume configuration
         # home = {

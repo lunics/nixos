@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = {
+  flake.aspects.backup.nixos = {
     services.snapraid = {
       enable = false;
       # dataDisks = {
