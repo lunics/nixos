@@ -32,6 +32,7 @@
         flake-parts.follows = "flake-parts";
         import-tree.follows = "import-tree";
         nixpkgs.follows = "nixpkgs";
+        sops-nix.follows = "sops-nix";
       };
     };
     hyprland.url = "github:hyprwm/Hyprland";

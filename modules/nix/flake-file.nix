@@ -12,9 +12,10 @@
       hosts = {
         url = "git+file:./hosts";
         inputs = {
-          nixpkgs.follows = "nixpkgs";
+          nixpkgs.follows     = "nixpkgs";
           flake-parts.follows = "flake-parts";
           import-tree.follows = "import-tree";
+          sops-nix.follows    = "sops-nix";
         };
       };
     };
