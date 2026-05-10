@@ -1,5 +1,5 @@
 {
-  flake.aspects.shell.homeManager = { config, ... }:{ 
+  flake.aspects.aliases.homeManager = { config, ... }:{ 
     home.shellAliases = {
       l     = "exa -l --group-directories-first --git-repos --hyperlink -X";
       p     = "pkg";

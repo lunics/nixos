@@ -1,5 +1,5 @@
 {
-  flake.aspects.yazi.homeManager = { pkgs, ... }:{
+  flake.aspects.file_explorer.homeManager = { pkgs, ... }:{
     programs.yazi = {
       enable  = true;
       package = pkgs.yazi;

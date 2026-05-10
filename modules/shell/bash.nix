@@ -1,5 +1,5 @@
 {
-  flake.aspects.shell.homeManager = {
+  flake.aspects.bash.homeManager = {
     programs.bash.enable = false;
   };
 }

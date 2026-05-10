@@ -1,5 +1,5 @@
 {
-  flake.aspects._plugins.homeManager = { pkgs, ... }:{
+  flake.aspects.window_manager.homeManager = { pkgs, ... }:{
     # run: pkg search hyprlandPlugins
     wayland.windowManager.hyprland.plugins = [ 
       # hyprlandPlugins.hycov             # tile all of your windows in a single workspace via grid layout

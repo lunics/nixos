@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.notifier.homeManager = { config, lib, pkgs, ... }:{
     home.packages = with pkgs; [
       libnotify     # required by dunst and needed to send notif on hyprpanel
     ];

@@ -1,5 +1,5 @@
 {
-  flake.aspects.plugins.homeManager = {
+  flake.aspects.zsh.homeManager = {
     programs.zsh.zplug.plugins = [
       { name = "Aloxaf/fzf-tab";     } # completion with fzf!
       { name = "xPMo/zsh-ls-colors"; } # required by fzf-tab

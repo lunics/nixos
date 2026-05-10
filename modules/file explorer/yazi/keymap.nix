@@ -1,5 +1,5 @@
 {
-  flake.aspects.yazi.homeManager = { config, ... }:
+  flake.aspects.file_explorer.homeManager = { config, ... }:
   let
     _yazi = config._.yazi;
   in {

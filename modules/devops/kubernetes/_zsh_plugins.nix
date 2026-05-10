@@ -1,5 +1,5 @@
 {
-  flake.aspects.kubernetes.homeManager = { config, pkgs, ... }:{ 
+  flake.aspects.devops.homeManager = { config, pkgs, ... }:{ 
     programs.zsh.zplug = {
       enable    = true;
       zplugHome = "${config.programs.zsh.dotDir}/zplug";

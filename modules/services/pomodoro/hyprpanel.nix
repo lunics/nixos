@@ -1,5 +1,5 @@
 {
-  flake.aspects.pomodoro.homeManager = { config, lib, ... }:{ 
+  flake.aspects.services.homeManager = { config, lib, ... }:{ 
     config = lib.mkIf (config._.pomodoro && config._.status_bar == "hyprpanel"){
       home.file.".config/hyprpanel/pomodoro.sh" = {
         executable = true;

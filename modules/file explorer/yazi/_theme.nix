@@ -1,5 +1,5 @@
 {
-  flake.aspects.yazi.homeManager = {
+  flake.aspects.file_explorer.homeManager = {
     home.file.".config/yazi/theme.toml".text = ''
       [status]
       bg = "none"

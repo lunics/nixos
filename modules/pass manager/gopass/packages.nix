@@ -1,5 +1,5 @@
 {
-  flake.aspects.gopass.homeManager = { config, lib, pkgs, ... }: with lib;
+  flake.aspects.pass_manager.homeManager = { config, lib, pkgs, ... }: with lib;
   let
     gopass-jsonapi-zen = pkgs.gopass-jsonapi.overrideAttrs (old: {
       src = pkgs.fetchFromGitHub {

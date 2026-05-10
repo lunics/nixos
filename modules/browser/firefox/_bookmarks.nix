@@ -1,5 +1,5 @@
 {
-  flake.aspects.firefox.homeManager = { 
+  flake.aspects.browser.homeManager = { 
     profiles.PROFILE_NAME.bookmarks = [
       {
         name = "wikipedia";

@@ -1,5 +1,5 @@
 {
-  flake.aspects.shell.homeManager = { config, ... }:{
+  flake.aspects.history.homeManager = { config, ... }:{
     programs.atuin = {
       enable   = true;
       settings = {

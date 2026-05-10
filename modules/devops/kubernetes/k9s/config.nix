@@ -1,5 +1,5 @@
 {
-  flake.aspects.k9s.homeManager = { config, lib, ... }:{
+  flake.aspects.devops.homeManager = { config, lib, ... }:{
     config = lib.mkIf config._.kube {
       xdg.configFile."k9s/config.yaml".text = ''
         k9s:

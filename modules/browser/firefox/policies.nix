@@ -1,5 +1,5 @@
 {
-  flake.aspects.firefox.homeManager = { 
+  flake.aspects.browser.homeManager = { 
     programs.firefox.policies = {
       DisablePocket               = true;
       DisableTelemetry            = true;

@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs"; 
   };
 
-  flake.aspects.extensions.homeManager = { config, pkgs, ... }:{
+  flake.aspects.browser.homeManager = { config, pkgs, ... }:{
     nixpkgs.overlays = [ inputs.nur.overlays.default ];
 
     programs.firefox.profiles.${config._.user}.extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [

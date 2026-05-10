@@ -1,5 +1,5 @@
 {
-  flake.aspects.wofi.homeManager = {
+  flake.aspects.launcher.homeManager = {
     programs.wofi = {
       enable   = true;
       settings = {

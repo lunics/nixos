@@ -1,5 +1,5 @@
 {
-  flake.aspects.extras.homeManager = { config, pkgs, ... }:{
+  flake.aspects.multiplexer.homeManager = { config, pkgs, ... }:{
     systemd.user = {
       timers."tmux-save" = {
         Unit.Description = "run tmux-save.service every 5 minutes";

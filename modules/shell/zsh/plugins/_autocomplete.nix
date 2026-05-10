@@ -1,5 +1,5 @@
 {
-  flake.aspects.plugins.homeManager = {
+  flake.aspects.zsh.homeManager = {
     programs.zsh.zplug.plugins = [
       { name = "marlonrichert/zsh-autocomplete"; }
     ];

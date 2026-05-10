@@ -1,5 +1,5 @@
 {
-  flake.aspects.gopass.homeManager = { pkgs, ... }:{
+  flake.aspects.pass_manager.homeManager = { pkgs, ... }:{
     nixpkgs.overlays = [
       (self: super: {
         gopass_wrapper = super.writeShellApplication {

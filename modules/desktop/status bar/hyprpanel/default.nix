@@ -1,5 +1,5 @@
 {
-  flake.aspects.hyprpanel.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.status_bar.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.status_bar == "hyprpanel") {
       # home.packages = with pkgs; [
       #   astal.battery   ## required for battery level ?

@@ -1,5 +1,5 @@
 {
-  flake.aspects.shell.homeManager = { pkgs, lib, ... }:{
+  flake.aspects.prompt.homeManager = { pkgs, lib, ... }:{
     programs.starship = {
       # todo
       #   docker

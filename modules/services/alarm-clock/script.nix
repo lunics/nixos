@@ -1,5 +1,5 @@
 {
-  flake.aspects.alarm-clock.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.services.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.alarm-clock){
       nixpkgs.overlays = [
         (self: super: {

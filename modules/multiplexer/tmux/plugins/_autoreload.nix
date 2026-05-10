@@ -1,5 +1,5 @@
 {
-  flake.aspects.plugins.homeManager = { pkgs }: let
+  flake.aspects.multiplexer.homeManager = { pkgs }: let
     tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
       pluginName = "tmux-autoreload";
       version    = "unstable-2023-01-06";

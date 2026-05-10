@@ -1,5 +1,5 @@
 {
-  flake.aspects._plugins.homeManager = { # workspace overview
+  flake.aspects.window_manager.homeManager = { # workspace overview
     wayland.windowManager.hyprland.plugins = [ 
       hyprlandPlugins.hyprexpo
     ];

@@ -1,5 +1,5 @@
 {
-  flake.aspects.kubernetes.homeManager = { config, lib, ... }:{
+  flake.aspects.devops.homeManager = { config, lib, ... }:{
     config = lib.mkIf config._.kube {
       home = {
         activation.k3s_config = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

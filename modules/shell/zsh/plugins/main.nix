@@ -1,5 +1,5 @@
 {
-  flake.aspects.plugins.homeManager = { config, pkgs, ... }:{ 
+  flake.aspects.zsh.homeManager = { config, pkgs, ... }:{ 
     programs.zsh.zplug = {
       enable    = true;
       zplugHome = "${config.programs.zsh.dotDir}/zplug";

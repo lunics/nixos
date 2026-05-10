@@ -1,6 +1,6 @@
 {
   # https://k9scli.io/topics/aliases/
-  flake.aspects.k9s.homeManager = { config, lib, ... }:{
+  flake.aspects.devops.homeManager = { config, lib, ... }:{
     config = lib.mkIf config._.kube {
       xdg.configFile."k9s/aliases.yaml".text = ''
         aliases:

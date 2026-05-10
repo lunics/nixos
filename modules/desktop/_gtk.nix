@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop.homeManager = { pkgs, ... }:{ 
+  flake.aspects.gtk.homeManager = { pkgs, ... }:{ 
     gtk = {
       enable = true;
 

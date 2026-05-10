@@ -1,5 +1,5 @@
 {
-  flake.aspects.hyprland.homeManager = { config, ... }:
+  flake.aspects.window_manager.homeManager = { config, ... }:
   let
     _hypr = config._.hyprland;
   in {

@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop.homeManager = ## enable on condition
+  flake.aspects.font_home.homeManager = ## enable on condition
   {
     fonts.fontconfig = {
       enable       = true;

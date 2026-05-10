@@ -1,5 +1,5 @@
 {
-  flake.aspects.firefox.homeManager = { config, ... }:{
+  flake.aspects.browser.homeManager = { config, ... }:{
     programs.firefox.profiles.${config._.user}.settings = {
       "sidebar.verticalTabs"  = true;                   # enable vertical tabs
       "sidebar.visibility"    = "always-show";

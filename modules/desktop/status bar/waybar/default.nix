@@ -1,5 +1,5 @@
 {
-  flake.aspects.waybar.homeManager = { config, lib, ... }:{
+  flake.aspects.status_bar.homeManager = { config, lib, ... }:{
     config = lib.mkIf (config._.status_bar == "waybar") {
       programs.waybar.enable = true;
 

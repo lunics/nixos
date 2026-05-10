@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop.homeManager = {
+  flake.aspects.qt.homeManager = {
     qt = {
       enable        = true;
       style         = "adwaita-dark";

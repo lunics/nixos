@@ -1,5 +1,5 @@
 {
-  flake.aspects.tmux.homeManager = {
+  flake.aspects.multiplexer.homeManager = {
     programs.tmux.extraConfig = ''
       set -g allow-rename off               # don't allow ssh or ranger to rename window name
       set -g status-position top

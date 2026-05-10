@@ -1,5 +1,5 @@
 {
-  flake.aspects.rtorrent.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.torrent.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.rtorrent {
       ## nixos non home-manager https://mynixos.com/nixpkgs/options/services.rtorrent
       programs.rtorrent = {

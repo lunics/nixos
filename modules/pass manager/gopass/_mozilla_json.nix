@@ -1,5 +1,5 @@
 {
-  flake.aspects.gopass.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.pass_manager.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.pass_manager == "gopass") {
       ## the app is coded to search in ~/.mozilla, requires a patch
       # xdg.configFile."mozilla/native-messaging-hosts/com.justwatch.gopass.json".text = ''

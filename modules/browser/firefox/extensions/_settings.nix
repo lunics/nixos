@@ -1,5 +1,5 @@
 {
-  flake.aspects.extensions.homeManager = { config, ... }:{
+  flake.aspects.browser.homeManager = { config, ... }:{
     programs.firefox.profiles.${config._.user}.extensions.settings = {
       # get extensions ID: about:debugging#/runtime/this-firefox
 

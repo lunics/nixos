@@ -1,6 +1,6 @@
 {
   # https://github.com/derailed/k9s/tree/master/skins
-  flake.aspects.k9s.homeManager = { config, lib, ... }:{
+  flake.aspects.devops.homeManager = { config, lib, ... }:{
     config = lib.mkIf config._.kube {
       xdg.configFile."k9s/skins/transparent.yaml".text = ''
         k9s:

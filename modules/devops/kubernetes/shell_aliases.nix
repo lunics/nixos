@@ -1,5 +1,5 @@
 {
-  flake.aspects.kubernetes.homeManager = { config, lib, ... }:{
+  flake.aspects.devops.homeManager = { config, lib, ... }:{
     config = lib.mkIf config._.kube {
       home.shellAliases = {
         k       = "kubecolor --cache-dir ~/.cache/kube";    # --no-headers

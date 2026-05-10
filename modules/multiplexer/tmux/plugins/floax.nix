@@ -1,5 +1,5 @@
 {
-  flake.aspects.plugins.homeManager = { pkgs, ... }:{
+  flake.aspects.multiplexer.homeManager = { pkgs, ... }:{
     programs.tmux.plugins = with pkgs.tmuxPlugins; [{
       plugin = tmux-floax;
       extraConfig = ''

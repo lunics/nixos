@@ -1,5 +1,5 @@
 {
-  flake.aspects.firefox.homeManager = { config, lib, ... }:{
+  flake.aspects.browser.homeManager = { config, lib, ... }:{
     config = lib.mkIf (config._.browser == "firefox") {
       xdg = {
         mimeApps = {

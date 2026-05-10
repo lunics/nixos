@@ -1,5 +1,5 @@
 {
-  flake.aspects.tmux.homeManager = { pkgs, ... }:{
+  flake.aspects.multiplexer.homeManager = { pkgs, ... }:{
     # tmux config can't be reloaded without exiting the current session, because pointing the older home-manager symlink
     programs.tmux = {
       enable       = true;

@@ -1,5 +1,5 @@
 {
-  flake.aspects.rmpc.homeManager = {
+  flake.aspects.music.homeManager = {
     programs.rmpc = {
       enable = true;
       config = builtins.readFile ./config.ron;

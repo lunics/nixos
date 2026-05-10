@@ -1,5 +1,5 @@
 {
-  flake.aspects.kubernetes.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.devops.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.kube {
       home.packages = with pkgs; [
         kubectl

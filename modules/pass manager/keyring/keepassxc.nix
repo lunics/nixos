@@ -1,5 +1,5 @@
 {
-  flake.aspects.keyring.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.pass_manager.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.keyring == "keepassxc") {
       programs.keepassxc = {
         autostart = true;

@@ -1,5 +1,5 @@
 {
-  flake.aspects.hyprland.homeManager = { pkgs, ... }:{
+  flake.aspects.window_manager.homeManager = { pkgs, ... }:{
     ## dynamc input & bind
     programs = {
       wayprompt = {

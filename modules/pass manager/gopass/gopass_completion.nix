@@ -1,5 +1,5 @@
 {
-  flake.aspects.gopass.homeManager = { config, lib, ... }:{
+  flake.aspects.pass_manager.homeManager = { config, lib, ... }:{
     config = lib.mkIf (config._.pass_manager == "gopass") {
       home.file.".local/functions/zsh/gopass_completion.zsh".text = ''
         #!/usr/bin/env zsh

@@ -1,5 +1,5 @@
 {
-  flake.aspects.rtorrent.homeManager = { config, lib, ... }:{
+  flake.aspects.torrent.homeManager = { config, lib, ... }:{
     config = lib.mkIf config._.rtorrent {
       programs.rtorrent.extraConfig = ''
         ## Instance layout (base paths)

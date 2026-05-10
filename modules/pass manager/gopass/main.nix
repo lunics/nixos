@@ -1,5 +1,5 @@
 {
-  flake.aspects.gopass.homeManager = { config, lib, ... }: with lib; {
+  flake.aspects.pass_manager.homeManager = { config, lib, ... }: with lib; {
     config = mkMerge [
       (mkIf (config._.pass_manager == "gopass") {
         # sessionVariables.PASSWORD_STORE_DIR = "${config._.share}/gopass";   # for rofi-pass

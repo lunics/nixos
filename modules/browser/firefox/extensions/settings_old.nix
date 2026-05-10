@@ -1,5 +1,5 @@
 {
-  flake.aspects.extensions.homeManager = { 
+  flake.aspects.browser.homeManager = { 
     policies.ExtensionSettings = {
       # todo extensions datas location: /home/$USER/.mozilla/firefox/PROFILE/storage/default
       # https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action

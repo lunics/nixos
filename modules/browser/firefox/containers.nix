@@ -1,5 +1,5 @@
 {
-  flake.aspects.firefox.homeManager = { config, lib, ... }:{
+  flake.aspects.browser.homeManager = { config, lib, ... }:{
     programs.firefox.profiles.${config._.user}.containers = lib.listToAttrs (
       lib.imap1 (iteration: name: {
         inherit name;

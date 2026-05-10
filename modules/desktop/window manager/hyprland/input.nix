@@ -1,5 +1,5 @@
 {
-  flake.aspects.hyprland.homeManager = { config, ... }:{
+  flake.aspects.window_manager.homeManager = { config, ... }:{
     wayland.windowManager.hyprland.extraConfig = ''
       input {
         kb_layout     = ${config._.hyprland.kb_layout}

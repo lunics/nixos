@@ -1,5 +1,5 @@
 {
-  flake.aspects.hyprpanel.homeManager = { config, lib, ... }:{ 
+  flake.aspects.status_bar.homeManager = { config, lib, ... }:{ 
     config = lib.mkIf (config._.status_bar == "hyprpanel") {
       home.file.".config/hyprpanel/kb_layout.sh" = {
         executable = true;

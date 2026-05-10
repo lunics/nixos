@@ -1,5 +1,5 @@
 {
-  flake.aspects.shell.homeManager = { config, ... }:{ 
+  flake.aspects.exports.homeManager = { config, ... }:{ 
     # home.sessionVariables = rec {
     programs.zsh.sessionVariables = rec {
       EDITOR          = config._.editor;

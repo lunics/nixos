@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop.homeManager = {
+  flake.aspects.wallpaper.homeManager = {
     ## KO CMake Error
     services.linux-wallpaperengine = {      # an implementation of Wallpaper Engine functionality.
       enable     = true;

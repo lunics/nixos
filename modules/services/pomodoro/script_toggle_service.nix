@@ -1,5 +1,5 @@
 {
-  flake.aspects.pomodoro.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.services.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.pomodoro){
       home.packages = [
         (pkgs.writeShellApplication {
