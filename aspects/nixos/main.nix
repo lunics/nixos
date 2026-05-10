@@ -16,7 +16,6 @@
       graphic
       location
       ntp
-      users
       programs
       udev
       wsl
