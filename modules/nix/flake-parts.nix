@@ -41,7 +41,10 @@
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
-            home-manager.sharedModules = [ self.modules.generic.options ];
+            home-manager.sharedModules = [ 
+              self.modules.generic.options 
+              inputs.sops-nix.homeManagerModules.sops
+            ];
           }
         ];
       };

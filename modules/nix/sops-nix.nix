@@ -4,7 +4,8 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.secrets.nixos = {
-    imports = [ inputs.sops-nix.nixosModules.sops ];
+  flake.aspects.secrets = {
+    nixos.imports       = [ inputs.sops-nix.nixosModules.sops ];
+    homeManager.imports = [ inputs.sops-nix.homeManagerModules.sops ];
   };
 }
