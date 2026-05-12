@@ -6,7 +6,7 @@
 
         Service = {
           Type      = "oneshot";
-          ExecStart = "${pkgs.playerctld}/bin/playerctld daemon";
+          ExecStart = "${pkgs.playerctl}/bin/playerctld daemon";
         };
 
         Install.WantedBy  = [ "default.target" ];
