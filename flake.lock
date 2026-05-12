@@ -426,6 +426,26 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778594112,
+        "narHash": "sha256-VA9z90SZviIvOcA4QyatA48FIyqb8mmsmH/EsXXWAG4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "1768d4e49860b86cb7652ee738de0e6b3050dd40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
           "impermanence",
           "nixpkgs"
         ]
@@ -444,7 +464,7 @@
         "type": "github"
       }
     },
-    "home-manager_2": {
+    "home-manager_3": {
       "inputs": {
         "nixpkgs": [
           "zen-browser",
@@ -482,11 +502,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778589118,
-        "narHash": "sha256-Ze9VdjRD9TQHXBHDXuzaqzVjGJfQ53FV45jW61XugyM=",
+        "lastModified": 1778606513,
+        "narHash": "sha256-bR5kfo8uiljZEI9801VrRyhzlP+ZX+daFGOZXa6WdwQ=",
         "ref": "refs/heads/main",
-        "rev": "01444b78e4cf87feb0ffcf1adac8517c9858febf",
-        "revCount": 28,
+        "rev": "79445866b2918152fe9fb04d379b71c6d46fe194",
+        "revCount": 33,
         "type": "git",
         "url": "file:./hosts"
       },
@@ -846,7 +866,7 @@
     },
     "impermanence": {
       "inputs": {
-        "home-manager": "home-manager",
+        "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
@@ -1149,6 +1169,7 @@
         "flake-aspects": "flake-aspects",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
+        "home-manager": "home-manager",
         "hosts": "hosts",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
@@ -1468,7 +1489,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager_3",
         "nixpkgs": [
           "nixpkgs"
         ]
