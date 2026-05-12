@@ -50,15 +50,15 @@
       };
     };
 
-    mk_home-manager = system: name: {
-      ${name} = inputs.home-manager.lib.homeManagerConfiguration {
+    mk_home-manager = system: username: {
+      ${username} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
           self.modules.generic.options
-          self.modules.homeManager.${name}
+          self.modules.homeManager.${username}
           {
-            home.username = name;
-            home.homeDirectory = "/home/${name}";
+            home.username = username;
+            home.homeDirectory = "/home/${username}";
           }
         ];
       };
