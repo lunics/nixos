@@ -5,9 +5,9 @@
       trusted-users = [ "root" ]        # users that have additional rights, required for deploy-rs
         ++config._.nix.trusted-users;
 
-      access-tokens = [
-        "github.com=${config._.github_token}"     # required to avoid Github API rate limit exceeded
-      ];
+      # access-tokens = [
+      #   "github.com=${config._.github_token}"     # required to avoid Github API rate limit exceeded
+      # ];
 
       experimental-features = [
         "nix-command"
