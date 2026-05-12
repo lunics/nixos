@@ -7,8 +7,10 @@
 - ✅ disko
 - ✅ dual boot
 - ✅ lanzaboote
-- ✅ microvm
 - ✅ impermanence
+- ✅ microvm
+- ✅ sops-nix
+- ✅ nixvim
 - ✅ hosts kept private
 
 ## Structure
