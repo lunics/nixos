@@ -21,7 +21,7 @@
       multiplexer
       music
       nix-home
-      nix-settings
+      # nix-settings
       packages
       pass_manager
       user-services
