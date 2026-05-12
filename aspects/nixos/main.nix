@@ -5,6 +5,7 @@
       disk
       boot
       nix-nixos
+      nix-settings
       impermanence
       hardware
       kernel
