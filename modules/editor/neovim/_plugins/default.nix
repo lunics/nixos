@@ -34,7 +34,7 @@
     # ./markdown-preview.nix
 
     ./noice.nix
-    ./nvim-surround.nix
+    # ./nvim-surround.nix     # build KO
     ./commentary.nix
     ./numbertoggle.nix
     ./notify.nix
