@@ -1,4 +1,9 @@
 {
+  flake-file.inputs.home-manager = {
+    url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs"; 
+  };
+
   flake.aspects.nix-home.homeManager = {
     nix = {
       keepOldNixPath = true;    # keep the previously set values in NIX_PATH
