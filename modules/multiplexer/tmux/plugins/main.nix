@@ -31,12 +31,5 @@
       # open
       # tmux-thumbs
     ];
-
-    imports = [
-      ./sessionx.nix
-      ./resurrect.nix
-      ./floax.nix
-      ./tmux-fzf
-    ];
   };
 }
