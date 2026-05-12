@@ -4,7 +4,7 @@
     programs = {
       wayprompt = {
         enable   = true;
-        package  = pkgs.wayprompt;
+        # package  = pkgs.wayprompt;
         # settings = {
         #   general = {
         #     font-regular = "sans:size=14";
