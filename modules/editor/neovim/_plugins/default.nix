@@ -39,7 +39,7 @@
     ./numbertoggle.nix
     ./notify.nix
     ./lsp.nix
-    ./opencode.nix
+    # ./opencode.nix          # build KO
     # ./snacks.nix
   ];
 }

@@ -1,4 +1,6 @@
 {
+  ## build KO
+
   # https://github.com/nickjvandyke/opencode.nvim/
 
   # Recommended: snacks.enable with settings.input.enabled = true
