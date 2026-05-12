@@ -3,7 +3,7 @@
     options._ = {
       browser = mkOption {
         type    = types.str;
-        default = "zen";
+        default = "firefox";
       };
       firefox= {
         path = mkOption {
