@@ -1,7 +1,7 @@
 {
   imports = [
     ./highlight-undo.nix
-    ./transparent.nix
+    # ./transparent.nix
     ./smear-cursor.nix
     # ./treesitter.nix       KO synthax highlighting broken, and auto fold code
 

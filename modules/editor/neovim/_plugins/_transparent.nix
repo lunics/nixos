@@ -1,5 +1,6 @@
 {
   # https://github.com/xiyaowong/transparent.nvim
+  # ! UNFREE LICENSE !
 
   plugins.transparent.enable = true;
 
