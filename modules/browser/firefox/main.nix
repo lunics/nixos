@@ -7,11 +7,12 @@
       languagePacks = [ "fr" "en-US" ];
     };
 
-    home.activation.firefox_cache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    home.activation.firefox-cache = lib.hm.dag.entryAfter ["writeBoundary"] ''
       link_cache=${config._.dot_cache}/mozilla/firefox/${config._.user}
+      dest_cache=${config._.share}/browser/firefox/${config._.user}_cache
 
-      if [ ! -L $link_cache ]; then
-        ln -s ${config._.share}/browser/firefox/${config._.user}_cache $link_cache
+      if [ -e $(dirname $link_cache) ] && [ -e $(dirname $dest_cache) ] && [ ! -L $link_cache ]; then
+        ln -s $dest_cache $link_cache
       fi
     '';
 
