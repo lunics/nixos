@@ -9,7 +9,7 @@
         source $file
       done
 
-      ${builtins.readFile ./bindkeys.zsh }
+      ${builtins.readFile ./bindkeys.zsh}
     '';
   };
 }
