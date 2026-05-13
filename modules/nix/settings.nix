@@ -15,15 +15,12 @@
       ];
       require-sigs = true;                  # will only download binaries cryptographically signed
       substituters = [
-        "https://hyprland.cachix.org"
         "https://microvm.cachix.org"
       ];
       trusted-substituters = [              # binary cache URLs that non-root users can use
-        "https://hyprland.cachix.org"
         "https://microvm.cachix.org"
       ];
       trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
       ];
       cores    = 0;                         # 0 means use all available CPU cores
