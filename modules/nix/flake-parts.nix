@@ -12,7 +12,7 @@
   ];
 
   config.flake.lib = {
-    mk_nixos = system: name: {
+    make_nixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           self.modules.generic.options
@@ -22,7 +22,7 @@
       };
     };
 
-    mk_darwin = system: name: {
+    make_darwin = system: name: {
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
           self.modules.generic.options
@@ -33,7 +33,7 @@
     };
 
     # nixos + home-manager as submodule
-    mk_nixos-hm = system: name: {
+    make_nixos-hm = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           self.modules.generic.options
@@ -50,7 +50,7 @@
       };
     };
 
-    mk_home-manager = system: username: {
+    make_home-manager = system: username: {
       ${username} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
