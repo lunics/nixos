@@ -14,15 +14,9 @@
         "flakes"
       ];
       require-sigs = true;                  # will only download binaries cryptographically signed
-      substituters = [
-        "https://microvm.cachix.org"
-      ];
-      trusted-substituters = [              # binary cache URLs that non-root users can use
-        "https://microvm.cachix.org"
-      ];
-      trusted-public-keys = [
-        "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
-      ];
+      substituters = [];
+      trusted-substituters = [];            # binary cache URLs that non-root users can use 
+      trusted-public-keys  = [];
       cores    = 0;                         # 0 means use all available CPU cores
       max-jobs = "auto";                    # will use all available logical cores
       auto-optimise-store = true;           # replaces identical files in the store with hard links
