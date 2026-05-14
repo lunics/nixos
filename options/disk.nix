@@ -21,6 +21,10 @@
         type    = types.str;
         default = "";
       };
+      luks_partuuid = mkOption {
+        type    = types.str;
+        default = "";
+      };
       btrfs_opts = mkOption {
         type    = types.listOf types.str;
         default = ["compress=zstd" "noatime" "lazytime" "space_cache=v2" "ssd"];
