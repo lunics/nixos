@@ -6,7 +6,7 @@
         set -g @sessionx-prefix on               #  bind '<mykey>' with the tmux '<prefix>'
         # set -g @sessionx-bind 's'               
         bind -n M-s run-shell -b "${pkgs.tmuxPlugins.tmux-sessionx}/share/tmux-plugins/sessionx/scripts/sessionx.sh";
-        set -g @sessionx-x-path "${config._.share}/tmux"
+        set -g @sessionx-x-path "${config._.tmux.sessions-dir}"
         set -g @sessionx-fzf-builtin-tmux 'true'    # Uses fzf --tmux instead of fzf-tmux
         set -g @sessionx-filter-current 'true'      # the current session will not be shown on first view
         set -g @sessionx-window-mode 'true'         # all the windows listed rather than sessions only

@@ -15,6 +15,11 @@
         type    = types.str;
         default = "j";
       };
+
+      sessions-dir = mkOption {
+        type    = types.str;
+        default = "${config._.share}/tmux";
+      };
     };
   };
 }

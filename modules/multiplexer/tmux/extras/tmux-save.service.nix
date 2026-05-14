@@ -27,7 +27,7 @@
     xdg.configFile."systemd/user/tmux-save.sh".text = ''
       if pgrep tmux; then
         if ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh quiet; then
-          cd ${config._.share}/tmux
+          cd ${config._.tmux.sessions-dir}
           ls -t tmux_resurrect_* | tail -n +40 | xargs rm -f
         fi
       fi
