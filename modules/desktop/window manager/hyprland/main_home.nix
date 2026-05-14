@@ -78,6 +78,7 @@
     #   # '';
     # };
 
-    home.sessionVariables.HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
+    ## automatically set by Hyprland ?
+    # home.sessionVariables.HYPRLAND_INSTANCE_SIGNATURE = "$(hyprctl instances | rg -io '\\b\\w{60,}\\b')";
   };
 }
