@@ -9,9 +9,9 @@
         type    = types.str;
         default = "1G";
       };
-      boot_uuid = mkOption {
-        type    = types.str;
-        default = "";           # required in dual boot
+      boot_uuid = mkOption {    # required in dual boot
+        type    = types.nullOr types.str;
+        default = null;
       };
       luks = mkOption {
         type    = types.bool;
