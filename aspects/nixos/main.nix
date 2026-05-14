@@ -4,8 +4,7 @@
       options
       disk
       boot
-      nix-nixos
-      nix-settings
+      nix
       impermanence
       hardware
       kernel

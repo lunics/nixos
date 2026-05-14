@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix-nixos.nixos = { config, lib, ... }: {
+  flake.aspects.nix.nixos = { config, lib, ... }: {
     nixpkgs = {
       config = {
         allowUnfree = true;

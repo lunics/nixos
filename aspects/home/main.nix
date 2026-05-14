@@ -20,8 +20,7 @@
         stylix
       multiplexer
       music
-      nix-home
-      # nix-settings
+      nix
       packages
       pass_manager
       user-services

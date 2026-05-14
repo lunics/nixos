@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix-nixos.nixos = {
+  flake.aspects.nix.nixos = {
     nix.gc = {
       automatic          = true;
       dates              = [ "weekly" ];

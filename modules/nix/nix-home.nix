@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs"; 
   };
 
-  flake.aspects.nix-home.homeManager = {
+  flake.aspects.nix.homeManager = {
     nix = {
       keepOldNixPath = true;    # keep the previously set values in NIX_PATH
       checkConfig    = true;    # parse nix files before building
