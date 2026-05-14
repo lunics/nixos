@@ -4,7 +4,7 @@
       enable = true;
       package = pkgs.ollama-cuda; # ollama-cuda for nvidia, ollama-rocm for amd
       environmentVariables = {};
-      user  = "llm";              # user account under which to run ollama
+      user  = "llm";              # system user account under which to run ollama, can't be a normal user
       group = config.services.ollama.user;
       home = "/var/lib/ollama";   # home directory that the ollama service is started in
       host = "127.0.0.1";         # ollama server HTTP interface listens to
