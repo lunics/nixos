@@ -26,6 +26,23 @@
       ];
     };
 
+    services.open-webui = {
+      enable       = true;
+      package      = pkgs.open-webui;
+      host         = "127.0.0.1";
+      openFirewall = true;
+      port         = 8080;
+      stateDir     = "/var/lib/open-webui";
+      environment = {
+        OLLAMA_API_BASE_URL  = "http://127.0.0.1:11434";
+        DO_NOT_TRACK         = "True";
+        SCARF_NO_ANALYTICS   = "True";
+        ANONYMIZED_TELEMETRY = "False";
+        WEBUI_AUTH           = "False";
+      };
+      environmentFile = null;
+    };
+
     hardware.graphics.enable = true;
     hardware.nvidia = {
       # modesetting.enable = true;
