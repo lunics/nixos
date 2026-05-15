@@ -1,7 +1,7 @@
 {
-  flake.aspects.ai.homeManager = { pkgs, ... }:{ 
+  flake.aspects.ai.homeManager = { config, pkgs, ... }:{ 
     programs.opencode = { 
-      enable   = false;
+      enable   = config._.opencode;
       package  = pkgs.opencode;
 
       agents   = {};
@@ -16,7 +16,7 @@
       enableMcpIntegration = false;
 
       settings = {   # config written to $XDG_CONFIG_HOME/opencode/config.json
-        model      = "anthropic/claude-opus-4-6";
+        # model      = "anthropic/claude-opus-4-6";
         # autoshare  = false;
         # autoupdate = false;
         # mcp        = false;
