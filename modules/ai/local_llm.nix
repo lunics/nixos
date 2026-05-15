@@ -16,7 +16,7 @@
         CUDA_VISIBLE_DEVICES = config._.gpu-nvidia-uuid;
       };
       loadModels = [
-        "qwen3.6:27B"
+        # "qwen3.6:27B"
         # "dolphin3"
         # "gemma3"
         # "gemma3:27b"
