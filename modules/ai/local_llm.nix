@@ -13,8 +13,10 @@
       syncModels   = false;     # synchronize all currently installed models with those declared in loadModels, removing any others models installed but not declared
       environmentVariables = {
         CUDA_VISIBLE_DEVICES   = config._.gpu-nvidia-uuid;
-        OLLAMA_FLASH_ATTENTION = "1";     # set to 1 if GPU supports Flash Attention
-        OLLAMA_KV_CACHE_TYPE   = "q8_0";  # fp16 (default), q8_0, q4_0
+        OLLAMA_FLASH_ATTENTION = "1";       # set to 1 if GPU supports Flash Attention
+        OLLAMA_KV_CACHE_TYPE   = "q8_0";    # fp16 (default), q8_0, q4_0
+        # OLLAMA_CONTEXT_LENGTH  = "32000"; # set to 4GB ?
+        OLLAMA_KEEP_ALIVE      = "24h";     # 5m (default) of inactivity before ollama unload models
       };
       loadModels = [
         # "qwen3.6:27B"
