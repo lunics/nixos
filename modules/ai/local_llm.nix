@@ -2,7 +2,6 @@
   flake.aspects.llm.nixos = { config, lib, pkgs, ... }:{ 
     services.ollama = {
       enable       = true;
-      acceleration = "cuda";
       package      = pkgs.ollama-cuda; # ollama-cuda for nvidia, ollama-rocm for amd
       user         = "llm";              # system user account under which to run ollama, can't be a normal user
       group        = config.services.ollama.user;
