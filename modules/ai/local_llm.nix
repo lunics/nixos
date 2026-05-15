@@ -35,7 +35,7 @@
     services.open-webui = {
       enable       = true;
       package      = pkgs.open-webui;
-      host         = "127.0.0.1";
+      host         = "0.0.0.0";         # 127.0.0.1 = local, 0.0.0.0 = exposed
       openFirewall = true;
       port         = 8080;
       stateDir     = "/var/lib/open-webui";
