@@ -39,6 +39,7 @@
         SCARF_NO_ANALYTICS   = "True";
         ANONYMIZED_TELEMETRY = "False";
         WEBUI_AUTH           = "False";
+        HOME                 = "/home/llm";
       };
       environmentFile = null;
     };
