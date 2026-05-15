@@ -11,9 +11,9 @@
       openFirewall = true;      # adds services.ollama.port to networking.firewall.allowedTCPPorts
       port         = 11434;
       syncModels   = false;     # synchronize all currently installed models with those declared in loadModels, removing any others models installed but not declared
-
       environmentVariables = {
-        CUDA_VISIBLE_DEVICES = config._.gpu-nvidia-uuid;
+        CUDA_VISIBLE_DEVICES   = config._.gpu-nvidia-uuid;
+        OLLAMA_FLASH_ATTENTION = "1";   # set to 1 if GPU supports Flash Attention
       };
       loadModels = [
         # "qwen3.6:27B"
