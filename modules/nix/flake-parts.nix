@@ -50,12 +50,17 @@
       };
     };
 
-    make_home-manager = system: username: {
+    make_home-manager = system: user-at-host: let
+      # required to split username from user@host
+      parts    = inputs.nixpkgs.lib.splitString "@" user-at-host;
+      username = builtins.elemAt parts 0;
+      # host     = builtins.elemAt parts 1;
+    in {
       ${username} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
           self.modules.generic.options
-          self.modules.homeManager.${username}
+          self.modules.homeManager.${user-at-host}
           {
             home.username = username;
             home.homeDirectory = "/home/${username}";
