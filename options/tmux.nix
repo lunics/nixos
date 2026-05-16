@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { config, lib, ... }: with lib; {
     options._.tmux = {
       prev_tab = mkOption {
         type    = types.str;
