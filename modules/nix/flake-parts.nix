@@ -56,7 +56,7 @@
       username = builtins.elemAt parts 0;
       # host     = builtins.elemAt parts 1;
     in {
-      ${username} = inputs.home-manager.lib.homeManagerConfiguration {
+      ${user-at-host} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
           self.modules.generic.options
