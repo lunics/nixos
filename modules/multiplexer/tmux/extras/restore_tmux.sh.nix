@@ -15,7 +15,7 @@
               kill-session -t dummy \; \
               attach -t home
           else
-            exec "${SHELL:-zsh}"
+            exec $SHELL
           fi
         '';
       })
