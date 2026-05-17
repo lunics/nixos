@@ -8,7 +8,7 @@
         enable = true;
         settings = rec {
           initial_session = {
-            command = "${pkgs.hyprland}/bin/Hyprland";
+            command = "${pkgs.hyprland}/bin/start-hyprland";
             # command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
             user    = _.wayland_user;
           };
