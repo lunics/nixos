@@ -1,6 +1,6 @@
 {
   flake.aspects.terminal.homeManager = { config, lib, pkgs, ... }:{
-    config = lib.mkIf (config._.terminal == "alacritty") {
+    # config = lib.mkIf (config._.terminal == "alacritty") {
       programs.alacritty = {
         enable       = true;
         package      = pkgs.alacritty;
@@ -51,6 +51,6 @@
         #
         # };
       };
-    };
+    # };
   };
 }
