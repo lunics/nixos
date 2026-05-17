@@ -18,7 +18,7 @@
       leechblock-ng
       consent-o-matic
       skip-redirect
-      # adnauseam     KO Could not resolve host: addons.mozilla.org
+      adnauseam
       auto-tab-discard
       behave
       darkreader
