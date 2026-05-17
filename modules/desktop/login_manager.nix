@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop_nixos.nixos = { config, lib, ... }: 
+  flake.aspects.desktop_nixos.nixos = { config, lib, pkgs, ... }: 
   let
     _ = config._;
   in {
@@ -8,7 +8,8 @@
         enable = true;
         settings = rec {
           initial_session = {
-            command = "${config.programs.hyprland.package}/bin/Hyprland";
+            # command = "${pkgs.hyprland}/bin/Hyprland";
+            command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
             user    = _.wayland_user;
           };
           default_session = initial_session;
