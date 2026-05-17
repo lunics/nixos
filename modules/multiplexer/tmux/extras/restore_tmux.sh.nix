@@ -14,6 +14,8 @@
               run-shell "${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/restore.sh" \; \
               kill-session -t dummy \; \
               attach -t home
+          else
+            exec "${SHELL:-zsh}"
           fi
         '';
       })
