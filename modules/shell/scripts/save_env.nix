@@ -5,11 +5,12 @@
         name = "save_env";
 
         text = ''
-          playerctl pause 2> /dev/null
-
           ## status can return Stopped even if something is playing
-          # if playerctl status | rg -s Playing; then 
+          # if (playerctl status 2>/dev/null) || echo "No player" ; then 
+          #   continue
+          # else
           #   playerctl pause
+          #   # playerctl status | rg "Playing" && playerctl pause
           # fi
 
           if which task &> /dev/null; then
