@@ -11,6 +11,7 @@
       etc
       network
       desktop_nixos
+      desktop-nixos
       audio
       gaming-nixos
       graphic
