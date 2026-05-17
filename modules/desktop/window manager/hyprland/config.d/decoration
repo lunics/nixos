@@ -20,11 +20,10 @@ decoration {
   inactive_opacity = 1.0
 
   shadow {
-    enabled       = false
+    enabled       = true
     range         = 4
-    render_power  = 2
+    render_power  = 3
     sharp         = false
-    ignore_window = true      # if true, the shadow will not be rendered behind the window itself, only around it
     color         = rgba(1a1a1aee)
     offset        = 0 0
     scale         = 1.0

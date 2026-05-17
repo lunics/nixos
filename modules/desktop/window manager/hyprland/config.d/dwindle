@@ -1,6 +1,5 @@
 dwindle {
   # REMOVED no_gaps_when_only            = 1        # 0 = disabled, 1 = no border when only one window, 2 = with border
-  pseudotile                   = false    # retain their floating size when tiled. master switch for pseudotiling.bound to mainMod + P
   use_active_for_splits        = true     # true = split from the active window or cursor position
   force_split                  = 1        # 0 = split follows mouse, 1 = always split to the left or top, 2 = always split to the right or bottom
   preserve_split               = false    # the split (side/top) will not change regardless of what happens to the container
