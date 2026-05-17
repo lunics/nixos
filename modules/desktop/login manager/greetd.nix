@@ -21,7 +21,7 @@
         u2fAuth      = true;
       };
 
-      environment.etc."greetd/environments".text = "Hyprland";
+      # environment.etc."greetd/environments".text = "Hyprland"; ## try without and check journalctl -u greetd
     };
   };
 }
