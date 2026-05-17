@@ -16,6 +16,11 @@
         };
       };
 
+      security.pam.services.greetd = {
+        startSession = true;
+        u2fAuth      = true;
+      };
+
       environment.etc."greetd/environments".text = "Hyprland";
     };
   };
