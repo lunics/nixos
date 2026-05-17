@@ -1,13 +1,16 @@
 {
-  flake.aspects.scripts.homeManager = { pkgs, ... }:{
+  flake.aspects.scripts.homeManager = { config, pkgs, ... }:{
     home.packages = [
       (pkgs.writeShellApplication {
         name = "save_env";
 
         text = ''
-          if playerctl status | rg -s Playing; then 
-            playerctl pause
-          fi
+          playerctl pause 2> /dev/null
+
+          ## status can return Stopped even if something is playing
+          # if playerctl status | rg -s Playing; then 
+          #   playerctl pause
+          # fi
 
           if which task &> /dev/null; then
             export TASKDATA=$HOME/usb_copy/homelab/share/taskwarrior
@@ -25,13 +28,13 @@
             echo -e "\e[1;32mPomodoro stopped\e[0m"
           fi
 
-          # only useful when ran manually
+          # only useful when ran manually, because service already manages it
           if systemctl is-active --quiet --user sync_browser_profile@"$USER".service; then
             systemctl --user stop sync_browser_profile@"$USER".service
             echo -e "\e[1;32mFirefox profile saved\e[0m"
           fi
 
-          if ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh; then
+          if [ -f /run/user/${toString config._.user_id}/tmux-${toString config._.user_id} ] && ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/scripts/save.sh; then
             echo -e "\e[1;32mTmux saved\e[0m"
           else
             echo -e "\e[1;31mTmux save failed\e[0m"
