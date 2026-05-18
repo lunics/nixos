@@ -11,8 +11,8 @@
       (mkIf (! _.dual_boot) {
         disko.devices.disk.${_.device}.content.partitions = {
           boot = {
-            label = "BOOT";
             name  = "ESP";
+            label = "BOOT";
             size  = "${_.boot_size}";
             type  = "EF00";
             content = {
