@@ -2,8 +2,8 @@
   flake.aspects.messaging.homeManager = { pkgs, ... }:{ 
     home.packages = with pkgs; [
       # SLACK
-      slack
-      # slackdump           # KO on nixos, only on OS FHS compliant
+      # slack               # KO build
+      # slackdump           # KO only on FHS compliant OS
 
       # TELEGRAM
       telegram-desktop
