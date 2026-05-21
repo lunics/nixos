@@ -1,7 +1,7 @@
 {
   flake.aspects.ai.homeManager = { config, pkgs, ... }:{ 
     programs.claude-code = {
-      enable  = true;
+      enable  = false;
       package = pkgs.claude-code;
       agents = {
         # code-reviewer = ''
