@@ -32,7 +32,7 @@
             mountOptions = ["subvol=snapshots"] ++ _.btrfs_opts;
           };
         }
-        (mkIf _.btrfs_vol.impermanence {
+        (mkIf _.btrfs_vol.persistent {
           "/persistent" = {
             mountpoint   = "/persistent";
             mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
