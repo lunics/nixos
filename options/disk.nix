@@ -22,8 +22,8 @@
         default = "";
       };
       luks_partuuid = mkOption {
-        type    = types.str;
-        default = "";
+        type    = types.nullOr types.str;
+        default = null;
       };
       btrfs_opts = mkOption {
         type    = types.listOf types.str;
