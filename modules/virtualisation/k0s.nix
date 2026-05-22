@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.virtualisation.nixos = { config, lib, pkgs, ... }:{
+  flake.aspects.k0s.nixos = { config, lib, pkgs, ... }:{
     imports = [ inputs.k0s.nixosModules.default ];
 
     config = lib.mkIf config._.k0s {

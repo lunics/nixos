@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = { config, lib, pkgs, ... }:{
+  flake.aspects.docker.nixos = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.docker {
       virtualisation.docker = {
         enable        = true;

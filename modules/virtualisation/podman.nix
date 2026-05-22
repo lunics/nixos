@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = { config, lib, ... }:{
+  flake.aspects.podman.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.podman {
       virtualisation.podman = {
         enable        = true;

@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = { lib, pkgs, ... }:{
+  flake.aspects.xen.nixos = { lib, pkgs, ... }:{
     virtualisation.xen = {
       enable  = lib.mkDefault false;       # BUILD KO qemu-xen-9.2.0: WARNING: '--replace' is deprecated, use --replace-{fail,warn,quiet}
       package = pkgs.xen;
