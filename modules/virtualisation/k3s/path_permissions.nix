@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = { config, lib, ... }:{
+  flake.aspects.k3s.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.k3s {
       systemd.tmpfiles.rules = [
         # "d /opt/k3s 0775 {config._.user} data -"
