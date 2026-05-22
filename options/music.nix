@@ -6,7 +6,7 @@
       musescore = {
         share = mkOption {
           type    = types.str;
-          default = "${config._.local_share}/MuseScore";
+          default = "${config._.share}/MuseScore";
         };
 
         client_id = mkOption {
@@ -16,7 +16,7 @@
 
         projects_path = mkOption {
           type    = types.str;
-          default = config._.home;
+          default = "${config._.share}/MuseScore/Projects";
         };
       };
     };
