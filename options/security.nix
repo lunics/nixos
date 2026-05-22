@@ -7,6 +7,11 @@
         type    = types.nullOr types.path;
         default = null;
       };
+
+      sops-group = mkOption {
+        type    = types.str;
+        default = "sops";
+      };
     };
   };
 }

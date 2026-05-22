@@ -5,7 +5,10 @@
   };
 
   flake.aspects.secrets = {
-    nixos.imports       = [ inputs.sops-nix.nixosModules.sops ];
+    nixos = { config, ... }:{
+      imports = [ inputs.sops-nix.nixosModules.sops ];
+      users.groups.sops.name = config._.sops-group;
+    };
     homeManager.imports = [ inputs.sops-nix.homeManagerModules.sops ];
   };
 }
