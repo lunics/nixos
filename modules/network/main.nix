@@ -1,14 +1,5 @@
 { self, ... }:{
   flake.aspects.network.nixos = { config, lib, ... }:{
-    imports = with self.modules.nixos; [
-      network_manager
-      firewall
-      wifi
-      bluetooth
-      vpn
-      dns
-    ];
-
     networking = {
       hostName = config._.hostName;
 
