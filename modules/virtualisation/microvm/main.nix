@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs"; 
   };
 
-  flake.aspects.virtualisation.nixos = { ... }:{
+  flake.aspects.microvm.nixos = { ... }:{
     imports = [ inputs.microvm.nixosModules.host ];
 
     nix.settings = {

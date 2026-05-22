@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = { config, lib, ... }:{
+  flake.aspects.microvm.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       networking.nat = {
         enable             = true;                    # nat ipv4
