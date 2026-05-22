@@ -7,7 +7,7 @@
   flake.aspects.browser.homeManager = { config, lib, ... }:{
     imports = [ inputs.zen-browser.homeModules.beta ];    # beta, twilight, twilight-official
 
-    programs.zen-browser.enable = false;
+    programs.zen-browser.enable = lib.mkDefault false;
 
     # config = lib.mkIf (config._.browser == "zen") {
     #   programs.zen-browser = {
