@@ -7,15 +7,15 @@
     '';
 
     home.sessionVariables = rec {
-      XDG_BIN_HOME          = "${config._.home}/.local/bin";
+      XDG_BIN_HOME          = "${config._.dot_dir}local/bin";
       XDG_SCREENSHOTS_DIR   = "${config._.share}/screenshots";
     };
 
     xdg = {
-      configHome = "${config._.home}/.config";         # XDG_CONFIG_HOME
-      cacheHome  = "${config._.home}/.cache";          # XDG_CACHE_HOME
-      dataHome   = "${config._.home}/.local/share";    # XDG_DATA_HOME
-      stateHome  = "${config._.home}/.local/state";    # XDG_STATE_HOME
+      configHome = "${config._.dot_dir}config";         # XDG_CONFIG_HOME
+      cacheHome  = "${config._.dot_dir}cache";          # XDG_CACHE_HOME
+      dataHome   = "${config._.dot_dir}local/share";    # XDG_DATA_HOME
+      stateHome  = "${config._.dot_dir}local/state";    # XDG_STATE_HOME
       # configFile = {}                     # XDG_CONFIG_HOME's list of files
       # cacheFile = {}                      # XDG_CACHE_HOME's list of files
       # dataFile = {}                       # XDG_DATA_HOME's list of files

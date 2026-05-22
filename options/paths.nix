@@ -5,6 +5,10 @@
         type    = types.str;
         default = config.home.homeDirectory;
       };
+      dot_dir = mkOption {
+        type    = types.str;
+        default = "${config.home.homeDirectory}/.";
+      };
       dot_config = mkOption {
         type    = types.str;
         default = config.xdg.configHome;
