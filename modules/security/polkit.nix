@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { pkgs, ... }:{
+  flake.aspects.polkit.nixos = { pkgs, ... }:{
     # environment.etc."polkit-kde-authentication-agent-1".source = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
     # environment.systemPackages = with pkgs; [ libsForQt5.polkit-kde-agent ];
 

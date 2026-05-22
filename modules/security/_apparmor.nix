@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { pkgs, ... }:{
+  flake.aspects.apparmor.nixos = { pkgs, ... }:{
     security.apparmor = {
       enable   = true;
       packages = with pkgs; [ 

@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { config, lib, ... }:{
+  flake.aspects.sudo.nixos = { config, lib, ... }:{
     security.sudo-rs = {
       enable             = true;
       execWheelOnly      = lib.mkDefault true;  # prevents non-wheel users from exploiting sudo vulnerabilities (eg CVE-2021-3156)

@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = {
+  flake.aspects.pki.nixos = {
     security.pki = {
       certificateFiles = [
         # ./mycert.pem

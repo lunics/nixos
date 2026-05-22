@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { config, lib, pkgs, ... }:{
+  flake.aspects.yubikey.nixos = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.yubikey {
       environment.systemPackages = with pkgs; [
         yubikey-manager

@@ -1,7 +1,7 @@
 # todo: https://mynixos.com/nixpkgs/options/programs.ssh
 # regroup in 1 dir with services/ssh.nix ?
 {
-  flake.aspects.security.nixos = { pkgs, ... }:{
+  flake.aspects.ssh.nixos = { pkgs, ... }:{
     programs.ssh = {
       # agentPKCS11Whitelist  = "";           # pattern-list of acceptable paths for PKCS#11 shared libraries
       # agentTimeout          = "1h";         # how long to keep private keys in memory, null = forever

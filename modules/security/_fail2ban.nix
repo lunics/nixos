@@ -1,6 +1,6 @@
 ## use crowdsec instead
 {
-  flake.aspects.security.nixos = {
+  flake.aspects.fail2ban.nixos = {
     services.fail2ban = {
       enable   = true;
       maxretry = 5;           # Ban IP after 5 failures

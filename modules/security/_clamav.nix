@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = {
+  flake.aspects.clamav.nixos = {
     services.clamav = {
       daemon.enable       = true;
       fangfrisch.enable   = true;

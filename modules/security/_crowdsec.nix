@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = {
+  flake.aspects.crowdsec.nixos = {
     services.crowdsec = {
       enable        = true;
       enrollKeyFile = "/path/to/enroll-key";

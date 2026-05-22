@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { config, lib, ... }: with lib; {
+  flake.aspects.pam.nixos = { config, lib, ... }: with lib; {
     config = mkMerge [
       {
         security.pam = {

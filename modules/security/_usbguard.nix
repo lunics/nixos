@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { pkgs, ... }:{
+  flake.aspects.usbguard.nixos = { pkgs, ... }:{
     services.usbguard = {
       enable               = false;
       dbus.enable          = true;

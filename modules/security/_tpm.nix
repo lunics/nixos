@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = {
+  flake.aspects.tpm.nixos = {
     security.tpm2 = {
       enable                 = true;
       pkcs11.enable          = true;

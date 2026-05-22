@@ -1,5 +1,5 @@
 {
-  flake.aspects.security.nixos = { lib, pkgs, ... }:{
+  flake.aspects.firejail.nixos = { lib, pkgs, ... }:{
     programs.firejail = {
       enable = true;
       wrappedBinaries = {
