@@ -1,5 +1,5 @@
 {
-  flake.aspects.music.homeManager = { config, lib, pkgs, ... }: let
+  flake.aspects.musescore.homeManager = { config, lib, pkgs, ... }: let
     version = "4";
   in {
     home = {

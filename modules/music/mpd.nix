@@ -1,5 +1,5 @@
 {
-  flake.aspects.music.homeManager = { pkgs, config, ... }:{ 
+  flake.aspects.mpd.homeManager = { pkgs, config, ... }:{ 
     home.packages = with pkgs; [
       mpd
       mpd-notification

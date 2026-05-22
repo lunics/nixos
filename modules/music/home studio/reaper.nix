@@ -1,5 +1,5 @@
 {
-  flake.aspects.music.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.home-studio.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.home_studio {
       home.packages = with pkgs; [
         reaper                      # best linux DAW not too expensive
