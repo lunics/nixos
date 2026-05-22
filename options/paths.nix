@@ -21,7 +21,7 @@
         type    = types.str;
         default = config.xdg.dataHome;
       };
-      share = mkOption {          # on USB
+      share = mkOption {          # made to be override for a network share
         type    = types.str;
         default = config.xdg.dataHome;
       };
