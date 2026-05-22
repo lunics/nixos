@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = { config, lib, pkgs, ... }:{
+  flake.aspects.libvirt.nixos = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.libvirt {
       environment.systemPackages = with pkgs; [
         qemu

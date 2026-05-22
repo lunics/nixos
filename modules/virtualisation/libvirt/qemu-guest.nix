@@ -1,5 +1,5 @@
 {
-  flake.aspects.virtualisation.nixos = {
+  flake.aspects.libvirt.nixos = {
     boot.initrd.availableKernelModules = [
       "virtio_net"
       "virtio_pci"

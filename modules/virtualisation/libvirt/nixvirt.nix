@@ -5,7 +5,7 @@
   };
 
   # https://github.com/AshleyYakeley/NixVirt/tree/master/checks
-  flake.aspects.virtualisation.nixos = {
+  flake.aspects.libvirt.nixos = {
     imports = [ inputs.nixvirt.nixosModules.default ];
 
     virtualisation.libvirt = {
