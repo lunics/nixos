@@ -14,6 +14,10 @@
       if [ -e $(dirname $link_cache) ] && [ -e $(dirname $dest_cache) ] && [ ! -L $link_cache ]; then
         ln -s $dest_cache $link_cache
       fi
+
+      if [ ! -L ${config._.firefox.path}/${config._.user} ]; then
+        ln -s ${config._.share}/browser/firefox/ ${config._.firefox.path}/${config._.user}
+      fi
     '';
 
     ## break the symlink of profiles.ini
