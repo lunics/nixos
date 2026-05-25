@@ -24,11 +24,12 @@
       home
       packages
       pass_manager
-      user-services
+      secrets
       shell
       task_manager
       terminal
       torrent
+      user-services
       xdg
     ];
   };
