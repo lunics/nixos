@@ -12,7 +12,7 @@
       gaming
       git
       media
-      messaging
+      # messaging
       # misc
         # gpg
         home
