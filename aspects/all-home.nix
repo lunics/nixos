@@ -1,6 +1,6 @@
 { self, ... }:{
   flake.aspects = { aspects, ... }:{
-    main-home.includes = with aspects; [
+    all-home.includes = with aspects; [
       ai
       browser
       # client_mail
