@@ -10,6 +10,7 @@
       neovim
       file_explorer
       gaming
+      steam
       git
       media
       # messaging

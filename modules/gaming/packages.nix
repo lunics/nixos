@@ -1,15 +1,5 @@
 {
   flake.aspects.gaming.homeManager = { pkgs, ... }:{
-    ## run prontonup to download latest Proton GE
-    ##    Steam > Compatibility > Select latest GE-Proton9-4
-
-    home.sessionVariables."STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
-
-    _.allow-unfree = with pkgs; [ 
-      steamcmd 
-      steam-unwrapped
-    ];
-
     home.packages = with pkgs; [
       appimage-run      # to run dofus app image
 
