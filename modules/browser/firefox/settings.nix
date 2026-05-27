@@ -18,7 +18,7 @@
 
       "browser.fullscreen.autohide"             = false;
       "browser.quitShortcut.disabled"           = true;
-      "browser.startup.page"                    = 3;        # resume previous session on startup
+      "browser.startup.page"                    = 1;        # 3 = resume previous session on startup, 1 = open new blank window
       "browser.uidensity"                       = 1;        # 1 = Density compact
       "browser.ctrlTab.recentlyUsedOrder"       = false;    # disable thumbnail preview ctrl + tab
       "browser.translations.enable"             = false;
