@@ -31,6 +31,7 @@
       torrent
       user-services
       xdg
+      bluetooth
     ];
   };
 }
