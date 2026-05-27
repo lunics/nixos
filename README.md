@@ -12,6 +12,7 @@
 - ✅ sops-nix
 - ✅ nixvim
 - ✅ hosts kept private
+- ✅ shared options between nixos and home-manager
 
 ## Structure
 
@@ -39,7 +40,14 @@ nixos
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    flake-aspects.url = "github:vic/flake-aspects";
+
     import-tree.url = "github:vic/import-tree";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
@@ -54,12 +62,11 @@ nixos
 
 ```nix
 { self, ... }:{
-  flake.nixosConfigurations = self.lib.mk_nixos "x86_64-linux" "host-A";
+  flake.nixosConfigurations = self.lib.make_nixos "x86_64-linux" "host-A";
 
   flake.modules.nixos.host-A = {
     imports = with self.modules.nixos; [
-      base
-      disk
+      all-system
     ];
   };
 }
