@@ -1,12 +1,13 @@
 {
-  flake.aspects.gaming.homeManager = { lib, pkgs, ... }:{
+  flake.aspects.gaming.homeManager = { pkgs, ... }:{
     ## run prontonup to download latest Proton GE
     ##    Steam > Compatibility > Select latest GE-Proton9-4
 
     home.sessionVariables."STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
 
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "steamcmd"
+    _.allow-unfree = with pkgs; [ 
+      steamcmd 
+      steam-unwrapped
     ];
 
     home.packages = with pkgs; [

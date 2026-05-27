@@ -16,10 +16,10 @@
       ];
     };
 
-    homeManager = { lib, ... }:{
-      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "simpledbus"    # lib of SimpleBLE as a wrapper of libdbus-1
-        "simplebluez"
+    homeManager = { pkgs, ... }:{
+      _.allow-unfree = with pkgs; [ 
+        simpledbus    # lib of SimpleBLE as a wrapper of libdbus-1
+        simplebluez
       ];
     };
   };

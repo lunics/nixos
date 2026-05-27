@@ -1,5 +1,7 @@
 {
-  flake.aspects.zsh.homeManager = {
+  flake.aspects.zsh.homeManager = { pkgs, ... }:{ 
+    _.allow-unfree = with pkgs; [ zsh-abbr ];
+
     programs.zsh.zsh-abbr = {
       enable = true;
       # package = pkgs.zsh-abbr;

@@ -1,6 +1,8 @@
 {
   flake.aspects.ai.homeManager = { config, lib, pkgs, ... }:{ 
     config = lib.mkIf config._.claude-code {
+      _.allow-unfree = with pkgs; [ claude-code ];
+
       programs.claude-code = {
         enable  = true;
         package = pkgs.claude-code;

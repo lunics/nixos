@@ -7,6 +7,12 @@
   flake.aspects.browser.homeManager = { config, pkgs, ... }:{
     nixpkgs.overlays = [ inputs.nur.overlays.default ];
 
+    _.allow-unfree = with pkgs.nur.repos.rycee.firefox-addons; [ 
+      enhancer-for-youtube 
+      keepa
+      scroll_anywhere
+    ];
+
     programs.firefox.profiles.${config._.user}.extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
       # list available plugins: https://nur.nix-community.org/repos/rycee/
       tab-session-manager
