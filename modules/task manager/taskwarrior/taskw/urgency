@@ -3,12 +3,12 @@ urgency.user.project.My=Project.coefficient = 5.0   # assigned to project:"My Pr
 
 urgency.due.coefficient           = 10.0            # overdue or near due date
 urgency.scheduled.coefficient     = 3.0             # scheduled tasks
-urgency.active.coefficient        = 4.0             # already started tasks
+urgency.active.coefficient        = 0               # already started tasks (4.0)
 urgency.age.coefficient           = 2.0             # coefficient for age
-urgency.annotations.coefficient   = 1.0             # has annotations
+urgency.annotations.coefficient   = 0               # has annotations (defaul 1.0)
 urgency.tags.coefficient          = 0               # has tags
 urgency.project.coefficient       = 0               # assigned to any project
-urgency.waiting.coefficient       = -3.0            # waiting task
+urgency.waiting.coefficient       = -3.0            # waiting task (default -3.0)
 urgency.blocking.coefficient      = 0.2             # a blocking task is a bit more urgent
 urgency.blocked.coefficient       = 0               # a blocked task is not less urgent
 
