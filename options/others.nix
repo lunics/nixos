@@ -28,11 +28,6 @@
         default = "suspend";
       };
 
-      nix.trusted-users = mkOption {
-        type    = types.listOf types.str;
-        default = [];
-      };
-
       wsl = mkEnableOption "";
 
       headless = mkEnableOption "";

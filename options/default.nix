@@ -21,11 +21,6 @@
         default = "";
       };
 
-      flake_dir = mkOption {
-        type    = types.str;
-        default = "";
-      };
-
       splitkb   = mkEnableOption "";
 
       ansible   = mkEnableOption "";
