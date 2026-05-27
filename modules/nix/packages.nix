@@ -9,8 +9,8 @@
 
     nixpkgs = {
       config = {
-        allowUnfree = true;
-        # allowBroken = true;
+        allowUnfree = false;
+        allowBroken = false;
       };
       # overlays = null;
     };
