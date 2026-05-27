@@ -11,7 +11,7 @@
       link_cache=${config._.dot_cache}/mozilla/firefox/${config._.user}
       dest_cache=${config._.share}/browser/firefox/${config._.user}_cache
 
-      if [ -e $(dirname $link_cache) ] && [ -e $(dirname $dest_cache) ] && [ ! -L $link_cache ]; then
+      if [ -e $(dirname $link_cache) ] && [ -e $(dirname $dest_cache) ] && [ ! -d $link_cache ]; then
         ln -s $dest_cache $link_cache
       fi
 
