@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix.homeManager = { pkgs, ... }:{
+  flake.aspects.nix.homeManager = { config, lib, pkgs, ... }:{
     home.packages = with pkgs; [
       deploy-rs
       nixos-anywhere
@@ -10,6 +10,7 @@
     nixpkgs = {
       config = {
         allowUnfree = false;
+        allowUnfreePredicate = p: builtins.elem (lib.getName p) (map lib.getName config._.allow-unfree);
         allowBroken = false;
       };
       # overlays = null;
