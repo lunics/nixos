@@ -25,6 +25,9 @@
       "browser.translations.automaticallyPopup" = false;
       "browser.onboarding.enabled"              = false;    # disable welcome guide for new users
 
+      "layout.spellcheckDefault" = 0;  # 0 = disable spell check, 1 = multi-line only, 2 = multi-line + single-line
+      "extensions.spellcheck.inline.max-misspellings" = 0;
+
       "browser.cache.disk.enable"           = true;
       # "browser.cache.disk.parent_directory" = "/run/user/${toString config._.user_id}/${config._.browser}_cache";   # is now a read-only builtin parameter, not available in user.js anymore
       "browser.cache.memory.enable"         = true;
