@@ -5,13 +5,16 @@
 
     home.sessionVariables."STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
 
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "steamcmd"
+    ];
+
     home.packages = with pkgs; [
       appimage-run      # to run dofus app image
 
       ryubing           # nintendo switch emulator
 
       # steam-tui         ##  Permission denied ## TODO supprimer de system et le remettre ici, need /tmp noexec to be built
-      steamcmd
 
       protonup-ng       # Proton GE
       # protonup-qt     # GUI for managing versions of proton, dxvk, vkd3d
