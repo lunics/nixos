@@ -1,5 +1,5 @@
 {
-  flake.aspects.gaming.homeManager = { pkgs, ... }:{
+  flake.aspects.gaming.homeManager = { lib, pkgs, ... }:{
     ## run prontonup to download latest Proton GE
     ##    Steam > Compatibility > Select latest GE-Proton9-4
 
