@@ -9,7 +9,6 @@
       # files generated in /etc/systemd/network
       systemd.network = {
         enable = true;
-        links  = {};
         config = {
           addRouteTablesToIPRoute2 = true;
           networkConfig = {
@@ -19,6 +18,16 @@
           dhcpV6Config = {};
           dhcpV4Config = {};
         };
+        wait-online = {
+          enable       = true;
+          anyInterface = config.networking.useDHCP;
+          timeout      = 120;
+          extraArgs    = [];
+          ignoredInterfaces = [];
+        };
+        links    = {};
+        netdevs  = {};
+        networks = {};
       };
     };
   };
