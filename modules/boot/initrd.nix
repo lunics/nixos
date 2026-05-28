@@ -1,5 +1,5 @@
 {
-  flake.aspects.boot.nixos = {
+  flake.aspects.boot.nixos = { config, ... }:{
     boot.initrd = {
       systemd.enable = true;
       network.enable = false;
@@ -38,7 +38,7 @@
                                         # must be commented because not used by systemd stage 1
 
             header             = null;
-            keyFile            = null;  # disable passwordFile if you want to use keyFile
+            keyFile            = config._.disk.luks-key-file;
             keyFileTimeout     = null;
             keyFileSize        = null;
             keyFileOffset      = null;

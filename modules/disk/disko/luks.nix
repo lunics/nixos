@@ -12,8 +12,8 @@
             ## label can't be used in dual boot ?
             ## maybe the error comes from boot.initrd.luk.devices."luks".device
           content = {
-            type  = "luks";
-            name  = "luks";
+            type = "luks";
+            name = "luks";
           };
         };
       };
