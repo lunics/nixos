@@ -101,6 +101,7 @@
       home = {
         packages = with pkgs; [ 
           claude-monitor        # real-time claude code usage monitor
+          sox                   # for vocal instructions
           # claude-code-router  # to route claude code requests to different models and customize any request
           # claude-code-acp     # acp-compatible coding agent powered by the claude code sdk
           # open-interpreter    # KO build pygame
