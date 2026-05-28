@@ -1,5 +1,5 @@
 {
-  flake.aspects.microvm.nixos = { config, lib, ... }:{
+  flake.aspects.networkd.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       systemd.network.networks = {
         "10-microvm-tap" = {            # one network to match ALL mvm-* TAPs

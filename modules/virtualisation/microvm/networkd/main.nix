@@ -1,5 +1,5 @@
 {
-  flake.aspects.microvm.nixos = { config, lib, ... }:{
+  flake.aspects.networkd.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       networking = {
         useNetworkd = true;   # alias of systemd.network.enable = true
