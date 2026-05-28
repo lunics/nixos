@@ -56,6 +56,11 @@
         type    = types.str;
         default = "";
       };
+
+      udiskie-devices = mkOption {
+        type    = types.listOf (types.attrsOf types.str);
+        default = [];
+      };
     };
   };
 }
