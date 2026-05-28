@@ -502,11 +502,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779893451,
-        "narHash": "sha256-zUGA0rZRinRm69pZEHM1b6xLGrKu1GlyloZWc+otm0Y=",
-        "ref": "refs/heads/microvm",
-        "rev": "6d016462f4deb1b134b497f08c4afbd45fdb7cc9",
-        "revCount": 89,
+        "lastModified": 1779990659,
+        "narHash": "sha256-SUwiuHQuPZlvwKk8kWTPLbk4OCZ/ThimMSkHzlH2LNQ=",
+        "ref": "refs/heads/main",
+        "rev": "8212c75948171db7d6c618d1813ec97208d8fc99",
+        "revCount": 103,
         "type": "git",
         "url": "file:./hosts"
       },
