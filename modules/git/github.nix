@@ -15,6 +15,6 @@
     #   star-history    KO pending but never show chart on localhost:3000 or 8080
     # ];
 
-    home.sessionVariables."GITHUB_TOKEN" = config._.github_token; 
+    home.sessionVariables."GITHUB_TOKEN" = "$(cat ${config._.github_token} 2>/dev/null)";
   };
 }
