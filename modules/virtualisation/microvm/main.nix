@@ -1,7 +1,7 @@
-{ inputs, ... }:{
+{ inputs, self, ... }:{
   flake-file.inputs.microvm = {
     url = "github:astro/microvm.nix";
-    inputs.nixpkgs.follows = "nixpkgs"; 
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   flake.aspects.microvm.nixos = { config, lib, ... }:{
@@ -15,7 +15,15 @@
       };
 
       microvm = {
-        vms      = config._.microvm.vms;
+        vms = lib.mapAttrs (name: vm:
+          vm // {
+            config = {
+              imports = (vm.config.imports or [])
+                ++ [ (removeAttrs (vm.config or {}) [ "imports" ]) self.modules.generic.options ]
+                ++ lib.optional (self.modules.nixos ? ${name}) self.modules.nixos.${name};
+            };
+          }
+        ) config._.microvm.vms;
         stateDir = "/var/lib/microvms";
 
         host = {
