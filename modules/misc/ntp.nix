@@ -1,8 +1,8 @@
 {
-  flake.aspects.ntp.nixos = {
+  flake.aspects.ntp.nixos = { lib, ... }:{
     services.chrony = {
       enable            = true;
-      enableNTS         = true;
+      enableNTS         = lib.mkDefault true;
       enableRTCTrimming = true;
       servers = [
         "0.nixos.pool.ntp.org"
