@@ -1,5 +1,5 @@
 {
-  flake.aspects.networkd.nixos = { config, lib, ... }:{
+  flake.aspects.networkd-dynamic-alloc.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       ## reopen the advanced network configuration from the guide before implement this file
       systemd.network = {
