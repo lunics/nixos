@@ -1,5 +1,5 @@
 {
-  flake.aspects.user-services.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.services.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.podman) {
       services.podman = {         # daemonless container engine
         enable      = true;

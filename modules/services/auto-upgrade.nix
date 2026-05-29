@@ -1,5 +1,5 @@
 {
-  flake.aspects.user-services.homeManager = { config, ... }: {
+  flake.aspects.services.homeManager = { config, ... }: {
     services.home-manager.autoUpgrade = {
       enable    = false;
       frequency = "Fri *-*-* 21:00:00";

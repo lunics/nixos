@@ -30,7 +30,7 @@
       task_manager
       terminal
       torrent
-      user-services
+      services
       xdg
       bluetooth
     ];
