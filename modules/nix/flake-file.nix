@@ -1,10 +1,11 @@
 { inputs, ... }:{
   flake-file = {
     inputs = {
-      nixpkgs.url       = "github:nixos/nixpkgs/nixos-unstable";
-      # nixpkgs.url     = "github:nixos/nixpkgs/nixpkgs-unstable";  ?
-      flake-file.url    = "github:vic/flake-file";
-      import-tree.url   = "github:vic/import-tree";
+      nixpkgs.url     = "github:nixos/nixpkgs/nixos-unstable";
+      # nixpkgs.url   = "github:nixos/nixpkgs/nixpkgs-unstable";  ?
+      flake-file.url  = "github:vic/flake-file";
+      import-tree.url = "github:vic/import-tree";
+      jail-nix.url    = "sourcehut:~alexdavid/jail.nix";
       flake-parts = {
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
