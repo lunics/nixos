@@ -502,11 +502,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780142172,
-        "narHash": "sha256-A8ZwcoXL34JrvOq7IHX88FxW/CkgKPz1GgDBXyh1iwI=",
+        "lastModified": 1780182341,
+        "narHash": "sha256-wGwEHaIWz/hQLsnuG4ToMt69QLXXU8qZHjKDPPmV+VU=",
         "ref": "refs/heads/main",
-        "rev": "5c191383b3026af76cf5e0c7f67768b3f59dd0b0",
-        "revCount": 118,
+        "rev": "797688cd261ed29c83d8a5b526d9125108d71af4",
+        "revCount": 128,
         "type": "git",
         "url": "file:./hosts"
       },
@@ -899,6 +899,21 @@
         "type": "github"
       }
     },
+    "jail-nix": {
+      "locked": {
+        "lastModified": 1772137954,
+        "narHash": "sha256-h4MGNbOo7L3RHi4uNFmsg5g17/DHXEfnv/xiG6BrNFQ=",
+        "owner": "~alexdavid",
+        "repo": "jail.nix",
+        "rev": "42b355c38ca63dab4904acc5c0d95f17954a8c9b",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~alexdavid",
+        "repo": "jail.nix",
+        "type": "sourcehut"
+      }
+    },
     "k0s": {
       "inputs": {
         "nixpkgs": [
@@ -1191,6 +1206,7 @@
         "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
+        "jail-nix": "jail-nix",
         "k0s": "k0s",
         "lanzaboote": "lanzaboote",
         "microvm": "microvm",
