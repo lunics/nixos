@@ -61,6 +61,7 @@
       curl
       yq
       dig
+      openssl
     ];
   };
 }
