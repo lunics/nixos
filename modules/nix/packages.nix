@@ -6,7 +6,7 @@
       vim
       # nix-init          # generate Nix packages from URLs
       # comma             # to runs nix software without installing it
-    ];
+    ] ++ config._.allow-unfree;
 
     nixpkgs = {
       config = {
