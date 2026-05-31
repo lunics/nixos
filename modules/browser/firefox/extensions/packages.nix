@@ -31,14 +31,11 @@
       gesturefy
       # gopass-bridge
       hover-zoom-plus
-      enhancer-for-youtube
       multi-account-containers
       open-url-in-container
       istilldontcareaboutcookies
-      keepa
       refined-github
       return-youtube-dislikes
-      scroll_anywhere
       simple-translate
       skip-redirect
       # temporary-containers-plus
