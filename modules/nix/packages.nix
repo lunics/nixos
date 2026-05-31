@@ -10,11 +10,10 @@
 
     nixpkgs = {
       config = {
-        allowUnfreePredicate = p: let 
-          name = lib.getName p; 
+        allowUnfreePredicate = p: let
+          name = lib.getName p;
         in
-          builtins.elem name (map lib.getName config._.allow-unfree) ||
-          builtins.elem name config._.allow-unfree-jailed;
+          builtins.elem name (map lib.getName (config._.allow-unfree ++ config._.allow-unfree-jailed));
         allowUnfree = false;
         allowBroken = false;
       };
