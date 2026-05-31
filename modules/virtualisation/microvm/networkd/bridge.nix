@@ -1,5 +1,7 @@
+# simple network setup: bridge on real eth0 + TAP interfaces
+# https://microvm-nix.github.io/microvm.nix/simple-network.html
 {
-  flake.aspects.networkd-bridge-real.nixos = { config, lib, ... }:{
+  flake.aspects.networkd-bridge.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       systemd.network = {
         networks."10-lan" = {

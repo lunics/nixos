@@ -1,5 +1,7 @@
+# advanced network setup: bridge on virtual veth0 + NAT + TAP interfaces
+# https://microvm-nix.github.io/microvm.nix/advanced-network.html
 {
-  flake.aspects.networkd-bridge-virt.nixos = { config, lib, ... }:{
+  flake.aspects.networkd-bridge-nat.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       systemd.network = {
         netdevs."10-microvm".netdevConfig = {
@@ -36,9 +38,9 @@
           enableIPv6 = true;
         
           # Change this to the interface with upstream Internet access
-          externalInterface = " enp10s0";
+          externalInterface = "enp10s0";
           # The bridge where you want to provide Internet access
-          internalInterfaces = [ "microvm" ];
+          internalInterfaces = ["microvm"];
 
           ## TODO to make your MicroVM’s services available to networks outside your host!
           # forwardPorts = [{
