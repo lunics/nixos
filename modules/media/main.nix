@@ -6,5 +6,9 @@
       mpv
       vlc
     ];
+
+    _.allow-unfree = with pkgs; [
+      spotify
+    ];
   };
 }
