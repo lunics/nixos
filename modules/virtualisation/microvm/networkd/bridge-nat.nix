@@ -40,7 +40,7 @@
         enableIPv6 = true;
       
         # Change this to the interface with upstream Internet access
-        externalInterface = "enp10s0";
+        externalInterface = config._.microvm.ext-interface;
         # The bridge where you want to provide Internet access
         internalInterfaces = ["microvm"];
 

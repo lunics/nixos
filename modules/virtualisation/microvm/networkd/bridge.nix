@@ -5,7 +5,7 @@
     config = lib.mkIf config._.microvm.enable {
       systemd.network = {
         networks."10-lan" = {
-          matchConfig.Name = ["enp10s0" "mvm-*"];
+          matchConfig.Name = ["${config._.microvm.ext-interface}" "mvm-*"];
           networkConfig = {
             Bridge = "br0";
           };

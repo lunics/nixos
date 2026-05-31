@@ -4,7 +4,7 @@
       networking.nat = {
         enable             = true;                    # nat ipv4
         enableIPv6         = config._.microvm.ipv6;   # nat ipv6
-        externalInterface  = "wlan0";                 # interface connected to the router
+        externalInterface  = config._.microvm.ext-interface; # interface connected to the router
         internalInterfaces = [ "mvm-kube" ];          # interface connected to the machines
         # internalIPs        = [ "10.0.0.0/24" ];
         # forwardPorts = [
