@@ -28,32 +28,32 @@
           # Attach to the bridge that was configured above
           networkConfig.Bridge = "microvm";
         };        
-        # allow inbound traffic for the DHCP server
-        networking.firewall.allowedUDPPorts = [ 67 ];
+      };
 
-        networking.nat = {
-          enable = true;
-          # NAT66 exists and works. But if you have a proper subnet in
-          # 2000::/3 you should route that and remove this setting:
-          enableIPv6 = true;
-        
-          # Change this to the interface with upstream Internet access
-          externalInterface = "enp10s0";
-          # The bridge where you want to provide Internet access
-          internalInterfaces = ["microvm"];
+      # allow inbound traffic for the DHCP server
+      networking.firewall.allowedUDPPorts = [ 67 ];
 
-          ## TODO to make your MicroVM’s services available to networks outside your host!
-          # forwardPorts = [{
-          #   proto       = "tcp";
-          #   sourcePort  = 80;
-          #   destination = my-addresses.http-reverse-proxy.ip4;
-          # }{
-          #   proto       = "tcp";
-          #   sourcePort  = 443;
-          #   destination = my-addresses.https-reverse-proxy.ip4;
-          # }];
-        };
+      networking.nat = {
+        enable = true;
+        # NAT66 exists and works. But if you have a proper subnet in
+        # 2000::/3 you should route that and remove this setting:
+        enableIPv6 = true;
+      
+        # Change this to the interface with upstream Internet access
+        externalInterface = "enp10s0";
+        # The bridge where you want to provide Internet access
+        internalInterfaces = ["microvm"];
 
+        ## TODO to make your MicroVM’s services available to networks outside your host!
+        # forwardPorts = [{
+        #   proto       = "tcp";
+        #   sourcePort  = 80;
+        #   destination = my-addresses.http-reverse-proxy.ip4;
+        # }{
+        #   proto       = "tcp";
+        #   sourcePort  = 443;
+        #   destination = my-addresses.https-reverse-proxy.ip4;
+        # }];
       };
     };
   };
