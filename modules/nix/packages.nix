@@ -10,8 +10,11 @@
 
     nixpkgs = {
       config = {
+        allowUnfreePredicate = p:
+          let name = lib.getName p; in
+          builtins.elem name (map lib.getName config._.allow-unfree)
+          || builtins.elem name config._.allow-unfree-jailed;
         allowUnfree = false;
-        allowUnfreePredicate = p: builtins.elem (lib.getName p) (map lib.getName config._.allow-unfree);
         allowBroken = false;
       };
       # overlays = null;
