@@ -15,11 +15,6 @@
         type    = types.listOf types.package;
         default = [];
       };
-
-      allow-unfree-jailed = mkOption {
-        type    = types.listOf types.str;
-        default = [];
-      };
     };
   };
 }
