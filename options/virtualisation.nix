@@ -13,11 +13,6 @@
           type    = types.attrs;
           default = {};
         };
-        ipv6 = mkEnableOption "";
-        ext-interface = mkOption {
-          type    = types.str;
-          default = "";
-        };
       };
     };
   };
