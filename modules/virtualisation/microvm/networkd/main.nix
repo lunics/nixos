@@ -12,7 +12,7 @@
         config = {
           addRouteTablesToIPRoute2 = true;
           networkConfig = {
-            IPv6PrivacyExtensions = config._.microvm.ipv6;
+            IPv6PrivacyExtensions = config._.net.ipv6;
           };
           routeTables  = {};
           dhcpV6Config = {};
