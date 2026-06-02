@@ -18,6 +18,6 @@
       
     _.nix.trusted-users = ["admin"];
 
-    services.openssh.authorizedKeysFiles = ["/run/secrets/user/admin/ssh/servers"];
+    services.openssh.authorizedKeysFiles = ["/run/secrets/user-admin-ssh-servers"];
   };
 }
