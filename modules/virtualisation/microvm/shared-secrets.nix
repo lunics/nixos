@@ -3,7 +3,7 @@
   let
     mkVmSecretsService = vm:    # creates a ${vm}-secrets.service for each microvm
       let
-        # vmSecrets is an attrset: { "microvms/myvm/mysecret" = { path = "/run/secrets/microvms/myvm/mysecret"; } ... }
+        # vmSecrets is an attrset: { "microvms/myvm/..." = { path = "/run/secrets/microvms/myvm/..."; }; ... }
         vmSecrets = filterAttrs
           (name: _: hasPrefix "microvms/${vm}/" name) config.sops.secrets;
       in {
@@ -15,15 +15,16 @@
           before   = ["microvm@${vm}.service"];
           serviceConfig.Type = "oneshot";
           script = ''
-            mkdir -p /var/lib/microvms/${vm}/secrets
-            ${concatStringsSep "\n" (mapAttrsToList (name: secret: ''
-              install -m 0400 ${secret.path} \
-                /var/lib/microvms/${vm}/secrets/${removePrefix "microvms/${vm}/" name}
+            ${concatStringsSep "\n" (mapAttrsToList (name: secret: let
+              no-prefix-path = removePrefix "microvms/${vm}/" name;
+              dest-path      = "/var/lib/microvms/${vm}/secrets/${no-prefix-path}";
+            in ''
+              install -D -m 0400 ${secret.path} ${dest-path}
             '') vmSecrets)}
           '';
         };
       };
-  in
+  in {
     config = mkIf config._.microvm.sops {
       systemd.services = mkMerge (map mkVmSecretsService (attrNames config.microvm.vms));
     };
