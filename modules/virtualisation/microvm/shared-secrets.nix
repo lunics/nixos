@@ -1,7 +1,7 @@
 {
   flake.aspects.microvm.nixos = { config, lib, ... }: with lib;
   let
-    mkVmSecretsService = vm:    # creates a ${vm}-secrets.service for each microvm
+    mkVmSecretsService = vm:    # creates a secrets-${vm}.service for each microvm
       let
         # vmSecrets is an attrset: { "microvms/myvm/..." = { path = "/run/secrets/microvms/myvm/..."; }; ... }
         vmSecrets = filterAttrs
@@ -9,10 +9,10 @@
       in {
         # mapAttrsToList iterates over vmSecrets to produce a list of: 
         #   [ "install -m 0400 /run/secrets/microvms/myvm/mysecret /var/lib/microvms/myvm/secrets/mysecret" ]
-        "${vm}-secrets" = {
-          description = "Shared sops secrets for MicroVM ${vm}";
-          wantedBy = ["microvm@${vm}.service"];
-          before   = ["microvm@${vm}.service"];
+        "secrets-${vm}" = {
+          description = "Shared sops secrets between host ${config._.hostname} and ${vm}";
+          wantedBy    = ["microvm@${vm}.service"];
+          before      = ["microvm@${vm}.service"];
           serviceConfig.Type = "oneshot";
           script = ''
             ${concatStringsSep "\n" (mapAttrsToList (name: secret: let
