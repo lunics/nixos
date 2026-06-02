@@ -1,7 +1,7 @@
 { self, ... }:{
   flake.aspects.network.nixos = { config, lib, ... }:{
     networking = {
-      hostName = config._.hostName;
+      hostName = config._.hostname;
 
       useDHCP = lib.mkDefault true;
 

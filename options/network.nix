@@ -1,7 +1,7 @@
 {
   flake.aspects.options.generic = { lib, ... }: with lib; {
     options._ = {
-      hostName = mkOption {
+      hostname = mkOption {
         type    = types.str;
         default = "nixos";
       };

@@ -30,7 +30,7 @@
         network = {
           generateHosts      = true;  # generate /etc/hosts
           generateResolvConf = true;  # generate /etc/resolv.conf
-          hostname           = config.networking.hostName;
+          hostname           = config._.hostname;
         };
         user.default = "root";
       };

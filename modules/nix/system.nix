@@ -4,10 +4,10 @@
       switch.enable = true;
       activatable   = true;           # to add the activation script to the system profile
       stateVersion  = config.system.nixos.release;    # Not respected by the unstable branch
-      name = if config.networking.hostName == "" then 
-          "unnamed"
-        else 
-          config.networking.hostName;
+      name = if config._.hostname == "" then 
+        "unnamed" 
+      else  
+        config._.hostname;
       includeBuildDependencies     = false;
       forbiddenDependenciesRegexes = [];    # POSIX Extended Regular Expressions that match store paths that should not appear in the system closure
       extraDependencies            = [];    # paths that should be included in the system closure but generally not visible to users

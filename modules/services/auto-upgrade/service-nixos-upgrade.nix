@@ -14,7 +14,7 @@
         lower = "01:00";
         upper = "05:00";
       };
-      flake                = "${config._.flake_dir}#${config.networking.hostName}";      # Flake URI, Disables the option system.autoUpgrade.channel
+      flake                = "${config._.flake_dir}#${config._.hostname}";      # Flake URI, Disables the option system.autoUpgrade.channel
       channel              = null;      # URI of the NixOS channel
       flags                = [
         # "--recreate-lock-file"

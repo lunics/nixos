@@ -10,7 +10,7 @@
         extraFlags   = toString ([
           "--data-dir=/var/lib/rancher/k3s"
           "--write-kubeconfig-mode \"0600\""  # /etc/rancher/k3s/k3s.yaml
-          "--tls-san ${config._.hostName}"    # required to use the API server by its hostname
+          "--tls-san ${config._.hostname}"    # required to use the API server by its hostname
           "--disable traefik"
           "--cluster-cidr 10.42.0.0/16"       # IPv4/IPv6 network CIDRs to use for pod IPs
           "--service-cidr 10.43.0.0/24"       # IPv4/IPv6 network CIDRs to use for services
