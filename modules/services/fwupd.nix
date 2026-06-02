@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, pkgs, ... }:{
+  flake.aspects.fwupd.nixos = { config, pkgs, ... }:{
     services.fwupd = {
       enable  = false;
       package = pkgs.fwupd;

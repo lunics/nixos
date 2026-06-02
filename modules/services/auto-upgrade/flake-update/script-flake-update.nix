@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, pkgs, ... }:{
+  flake.aspects.auto-upgrade.nixos = { config, pkgs, ... }:{
     nixpkgs.overlays = [
       (final: prev: {
         flake-update = prev.writeShellApplication {

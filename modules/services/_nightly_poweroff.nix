@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { config, ... }:{
+  flake.aspects.nightly_poweroff.homeManager = { config, ... }:{
     systemd.user = {
       timers."nightly_poweroff" = {
         Unit.Description = "poweroff laptop every night at 23:00 pm";

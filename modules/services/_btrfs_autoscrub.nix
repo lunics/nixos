@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = {
+  flake.aspects.btrfs.nixos = {
     services.btrfs.autoScrub = {
       enable      = true;
       interval    = "monthly";  # systemd calendar timer

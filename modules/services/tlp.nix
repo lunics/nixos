@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { lib, ... }:{
+  flake.aspects.tlp.nixos = { lib, ... }:{
     services.tlp = {
       enable   = true;
       settings = {

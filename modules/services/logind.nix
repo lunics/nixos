@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, ... }:{
+  flake.aspects.logind.nixos = { config, ... }:{
     services.logind.settings.Login = {
       RuntimeDirectorySize   = "4G";
         # Change runtime directory size. automatically systemd managed per-user directory more secure than /tmp

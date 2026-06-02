@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.pomodoro.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.pomodoro){
       nixpkgs.overlays = [
         (self: super: {

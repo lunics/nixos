@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { pkgs, ... }: {
+  flake.aspects.ssh-tpm-agent.homeManager = { pkgs, ... }: {
     systemd.user.services.ssh-tpm-agent = {
       Unit = {
         Description = "SSH TPM agent service";

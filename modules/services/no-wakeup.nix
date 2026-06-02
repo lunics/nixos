@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { pkgs, ... }:{
+  flake.aspects.no-wakeup.nixos = { pkgs, ... }:{
     systemd.services."no-wakeup" = {
       description = "disable XHCI to prevent the system from waking up";
       after       = [ "multi-user.target" ];

@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = {
+  flake.aspects.avahi.nixos = {
     services.avahi = {
       enable   = false;
       nssmdns4 = true;

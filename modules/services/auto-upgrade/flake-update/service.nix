@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, pkgs, ... }:{
+  flake.aspects.auto-upgrade.nixos = { config, pkgs, ... }:{
     systemd.services."flake-update" = {
       description = "update all flake inputs";
       serviceConfig = {

@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, pkgs, ... }: let
+  flake.aspects.auto-upgrade.nixos = { config, pkgs, ... }: let
     _ = config._;
   in {
     systemd.services."home-manager-upgrade" = {

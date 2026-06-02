@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = {
+  flake.aspects.upower.nixos = {
     # needed for battery level on hyprpanel
     services.upower = {
       enable                 = true;

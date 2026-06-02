@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, ... }:{
+  flake.aspects.auto-upgrade.nixos = { config, ... }:{
     # systemctl status nixos-upgrade.timer
     # systemctl status nixos-upgrade.service
     system.autoUpgrade = {

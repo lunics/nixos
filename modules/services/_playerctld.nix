@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { pkgs, ... }:{
+  flake.aspects.playerctld.homeManager = { pkgs, ... }:{
     systemd.user = {
       services."playerctld" = {
         Unit.Description = "keep track of media player activity";

@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.nixos = { config, lib, pkgs, ... }:{
+  flake.aspects.auto-upgrade.nixos = { config, lib, pkgs, ... }:{
     system.autoUpgrade = {              # Enable the nixos-update script and service
       enable               = true;      # run nixos-rebuild switch --upgrade once a day
       dates                = "Fri *-*-* 20:00:00";  # run every friday at 20h

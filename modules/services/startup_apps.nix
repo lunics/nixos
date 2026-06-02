@@ -1,5 +1,5 @@
 {
-  flake.aspects.services.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.startup_apps.homeManager = { config, lib, pkgs, ... }:{
     systemd.user.services."startup_apps" = {
       Unit = {
         Description    = "Launch desktop applications at Hyprland startup";
