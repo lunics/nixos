@@ -1,9 +1,12 @@
 {
   flake.aspects.messaging.homeManager = { config, pkgs, lib, ... }:{ 
     config = lib.mkIf config._.discord {
-      home.packages = with pkgs; [
-        discordo              # tui
+      _.allow-unfree = with pkgs; [
         discord
+      ];
+
+      home.packages = with pkgs; [
+        # discordo              # tui
         # (discord.override {
         #   # remove any overrides that you don't want
         #   withOpenASAR = true;
