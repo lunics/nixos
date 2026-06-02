@@ -1,5 +1,5 @@
 {
-  flake.aspects.user-admin.nixos = { config, pkgs, ... }:{
+  flake.aspects.user-admin.nixos = { config, lib, pkgs, ... }:{
     users.users.admin = {
       uid          = 10001;
       description  = "admin";
@@ -8,7 +8,7 @@
       shell        = pkgs.bash;
       createHome   = true;
       packages     = with pkgs; [];
-      hashedPasswordFile = "/run/secrets/user/admin/passwd";
+      hashedPasswordFile = lib.mkDefault config.sops.secrets."user/admin/passwd".path;
     };
 
     _.nix.trusted-users = ["admin"];
