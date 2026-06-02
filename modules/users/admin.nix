@@ -1,7 +1,7 @@
 {
   flake.aspects.user-admin.nixos = { config, pkgs, ... }:{
     users.users.admin = {
-      uid          = 1111;
+      uid          = 10001;
       description  = "admin";
       isNormalUser = true;
       extraGroups  = ["wheel" "sops"];
@@ -13,6 +13,6 @@
 
     _.nix.trusted-users = ["admin"];
 
-    services.openssh.authorizedKeysFiles = ["/run/secrets/user-%u-ssh-servers"];
+    services.openssh.authorizedKeysFiles = ["/run/secrets/user/admin/ssh/servers"];
   };
 }
