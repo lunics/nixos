@@ -8,7 +8,7 @@
       shell        = pkgs.bash;
       createHome   = true;
       packages     = with pkgs; [];
-      hashedPasswordFile = config.sops.secrets."user/admin/passwd".path;
+      hashedPasswordFile = "/run/secrets/user/admin/passwd";
     };
 
     _.nix.trusted-users = ["admin"];
