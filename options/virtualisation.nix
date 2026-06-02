@@ -15,6 +15,12 @@
         };
       };
 
+      # should be modified only from a flake.aspects.MVM-NAME.nixos._.from
+      from = mkOption {       
+        type    = types.str;
+        default = "host";
+      };
+
       microvm  = {
         enable = mkEnableOption "";
         sops   = mkEnableOption "";
