@@ -1,6 +1,6 @@
 {
   flake.aspects.k3s.nixos = { config, lib, pkgs, ... }:{
-    config = lib.mkIf config._.k3s {
+    config = lib.mkIf config._.k3s.enable {
       services.k3s = {
         enable       = true;
         package      = pkgs.k3s;
@@ -60,7 +60,7 @@
 
       systemd.services.k3s.postStart = ''
         if [ -f /etc/rancher/k3s/k3s.yaml ]; then
-          chown lunics:users /etc/rancher/k3s/k3s.yaml
+          chown ${config._.k3s.user} /etc/rancher/k3s/k3s.yaml
         fi
       '';
 

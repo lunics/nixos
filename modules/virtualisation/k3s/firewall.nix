@@ -1,6 +1,6 @@
 {
   flake.aspects.k3s.nixos = { config, lib, ... }:{
-    config = lib.mkIf config._.k3s {
+    config = lib.mkIf config._.k3s.enable {
       networking.firewall = {
         enable = true;
         allowedTCPPorts = [

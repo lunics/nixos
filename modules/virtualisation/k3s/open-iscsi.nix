@@ -1,6 +1,6 @@
 {
   flake.aspects.k3s.nixos = { config, lib, pkgs, ... }:{
-    config = lib.mkIf config._.k3s {
+    config = lib.mkIf config._.k3s.enable {
       services.openiscsi = {    # required by longhorn
         enable             = true;
         package            = pkgs.openiscsi;
