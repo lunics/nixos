@@ -1,22 +1,24 @@
 {
-  flake.aspects.k3s.nixos = { config, lib, pkgs, ... }: let
+  flake.aspects.k3s.nixos = { config, lib, pkgs, ... }: with lib; let
     k3s = config._.k3s;
   in {
-    config = lib.mkIf k3s.enable {
-      users.users.${k3s.user} = {
-        uid          = 10002;
-        description  = k3s.user;
-        isNormalUser = true;
-        shell        = pkgs.bash;
-        createHome   = true;
-        packages     = with pkgs; [];
-        hashedPasswordFile = "/run/secrets/user/${k3s.user}/passwd";
-      };
-
-      ## IF config._.from == "guest"
-      systemd.tmpfiles.rules = [
-        "z /run/secrets/user/${k3s.user}/ssh/servers 0400 kube kube -"
-      ];
-    };
+    config = mkMerge [
+      (mkIf k3s.enable {
+        users.users.${k3s.user} = {
+          uid          = 10002;
+          description  = k3s.user;
+          isNormalUser = true;
+          shell        = pkgs.bash;
+          createHome   = true;
+          packages     = with pkgs; [];
+          hashedPasswordFile = "/run/secrets/user/${k3s.user}/passwd";
+        };
+      })
+      (mkIf (k3s.enable && config._.from == "guest") {
+        systemd.tmpfiles.rules = [
+          "z /run/secrets/user/${k3s.user}/ssh/servers 0400 ${k3s.user} -"
+        ];
+      })
+    ];
   };
 }
