@@ -18,6 +18,9 @@
       
     _.nix.trusted-users = ["admin"];
 
-    services.openssh.authorizedKeysFiles = ["/run/secrets/user-admin-ssh-servers"];
+    ## IF config._.from == "guest"
+    systemd.tmpfiles.rules = [
+      "z /run/secrets/user/admin/ssh/servers 0400 admin admin -"
+    ];
   };
 }

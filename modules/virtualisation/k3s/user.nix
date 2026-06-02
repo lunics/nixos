@@ -14,6 +14,11 @@
       };
 
       services.openssh.authorizedKeysFiles = ["/run/secrets/user/${k3s.user}/ssh/servers"];
+
+      ## IF config._.from == "guest"
+      systemd.tmpfiles.rules = [
+        "z /run/secrets/user/${k3s.user}/ssh/servers 0400 kube kube -"
+      ];
     };
   };
 }
