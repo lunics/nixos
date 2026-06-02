@@ -9,6 +9,7 @@
       waydroid = mkEnableOption "";
       microvm  = {
         enable = mkEnableOption "";
+        sops   = mkEnableOption "";
         vms = mkOption {
           type    = types.attrs;
           default = {};
