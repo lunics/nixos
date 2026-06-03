@@ -1,4 +1,4 @@
-# advanced network setup: bridge on virtual veth0 + NAT + TAP interfaces
+# advanced network setup: bridge on virtual veth0 + NAT + TAP interfaces + DHCP
 # https://microvm-nix.github.io/microvm.nix/advanced-network.html
 {
   flake.aspects.networkd-bridge-nat.nixos = { config, lib, ... }:{
