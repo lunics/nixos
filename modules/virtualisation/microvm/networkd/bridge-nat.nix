@@ -16,14 +16,12 @@
           };
           addresses = [{
             addressConfig.Address = "10.0.0.1/24";
-          }
-          lib.optional config._.net.ipv6 {
+          }] ++ lib.optional config._.net.ipv6 {
             addressConfig.Address = "fd12:3456:789a::1/64";
-          }];
-          ipv6Prefixes = [
-            lib.optional config._.net.ipv6 {
-              ipv6PrefixConfig.Prefix = "fd12:3456:789a::/64";
-          }];
+          };
+          ipv6Prefixes = [] ++ lib.optional config._.net.ipv6 {
+            ipv6PrefixConfig.Prefix = "fd12:3456:789a::/64";
+          };
         };
         networks."11-microvm" = {
           matchConfig.Name = "mvm-*";
