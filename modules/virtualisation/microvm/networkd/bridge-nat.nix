@@ -42,7 +42,7 @@
         enableIPv6 = true;
       
         # Change this to the interface with upstream Internet access
-        externalInterface = config._.microvm.ext-interface;
+        externalInterface = config._.net.ext-interface;
         # The bridge where you want to provide Internet access
         internalInterfaces = ["microvm"];
 
