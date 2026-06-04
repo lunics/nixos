@@ -10,6 +10,7 @@
   flake.aspects.desktop-nixos.nixos = { config, lib, pkgs, ... }:
   let
     _ = config._;
+    wayland-uid = toString config.users.users.${_.wayland_user}.uid;
   in {
     config = lib.mkIf (_.window_manager && _.wayland_user != "" && !_.headless) {
       nix.settings = {
@@ -47,7 +48,7 @@
         XDG_CURRENT_DESKTOP   = "Hyprland";
         XDG_SESSION_TYPE      = "wayland";
         XDG_SESSION_DESKTOP   = "Hyprland";
-        WAYLAND_DISPLAY       = "$(ls -l /run/user/${toString config.users.users.${_.wayland_user}.uid}/ | /run/current-system/sw/bin/grep -IoE 'wayland-[0-9]$')";
+        WAYLAND_DISPLAY       = "$(if [[ $UID == '${wayland-uid}' ]]; then ls -l /run/user/${wayland-uid}/ | /run/current-system/sw/bin/grep -IoE 'wayland-[0-9]$'; fi)";
       };
     };
   };
