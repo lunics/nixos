@@ -11,7 +11,12 @@
           shell        = pkgs.bash;
           createHome   = true;
           packages     = with pkgs; [];
-          hashedPasswordFile = "/run/secrets/user/${k3s.user}/passwd";
+          hashedPasswordFile = mkMerge [
+            (mkIf (config._.from == "host")
+              config.sops.secrets."user/${k3s.user}/passwd".path)
+            (mkIf (config._.from == "guest")
+              "/run/secrets/user/${k3s.user}/passwd")
+          ];
         };
       })
       (mkIf (k3s.enable && config._.from == "guest") {
