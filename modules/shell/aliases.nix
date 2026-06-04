@@ -35,6 +35,7 @@
       top   = "btm";
       vim   = "nvim";
       pwd   = "command pwd | tee /dev/tty | wl-copy";   ## TODO convertir en function pour gérer la sortie quand le chemin n'existe plus
+      unl   = "unlink";
       calc  = "numbat";
       # wget  = "echo Use http/https instead        #";
       # curl  = "echo Use http/https instead        #";
