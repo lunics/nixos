@@ -4,7 +4,7 @@
     has-sops-passwd = (options ? sops) && (config.sops.secrets ? "user/${k3s.user}/passwd");
   in {
     config = mkMerge [
-      (mkIf k3s.enable && has-sops-passwd {
+      (mkIf (k3s.enable && has-sops-passwd) {
         users.users.${k3s.user} = {
           uid          = 10002;
           description  = k3s.user;
