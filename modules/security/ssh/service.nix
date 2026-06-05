@@ -3,7 +3,10 @@
     services.openssh = {
       enable   = true;
       ports    = [ 22 ];
-      authorizedKeysFiles = ["/run/secrets/user/%u/ssh/*"];  ## retry in microvm, seem working in microvm, ko in host
+      authorizedKeysFiles = [
+        "/run/secrets/ssh-%u"
+        # "/run/secrets/user/%u/ssh/*"      ## retry in microvm, seems working in microvm only
+      ];
       settings = {
         PermitRootLogin      = "yes";
         PubkeyAuthentication = true;
