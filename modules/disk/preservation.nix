@@ -6,7 +6,7 @@
 
     preservation = {
       enable = config._.preservation;
-      preserveAt."/persistent" = {
+      preserveAt.${config._.persistent.dest} = {
         files = [
           { file = "/etc/machine-id"; inInitrd = true; }
         ];

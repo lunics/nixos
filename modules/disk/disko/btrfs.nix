@@ -34,7 +34,7 @@
         }
         (mkIf _.btrfs_vol.persistent {
           "/persistent" = {
-            mountpoint   = "/persistent";
+            mountpoint   = config._.persistent.dest;
             mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
           };
         })

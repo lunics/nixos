@@ -5,6 +5,10 @@
       preservation = mkEnableOption "";
 
       persistent = {
+        dest = mkOption {
+          type    = types.str;
+          default = "/persistent";
+        };
         dirs = mkOption {
           type    = types.listOf types.path;
           default = [];   # don't add paths here, they will be overwritten
