@@ -1,9 +1,10 @@
 {
-  flake.aspects.k3s.nixos = { config, lib, pkgs, ... }: with lib; let
+  flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; let
     k3s = config._.k3s;
+    has-sops-passwd = (options ? sops) && (config.sops.secrets ? "user/${k3s.user}/passwd");
   in {
     config = mkMerge [
-      (mkIf k3s.enable {
+      (mkIf k3s.enable && has-sops-passwd {
         users.users.${k3s.user} = {
           uid          = 10002;
           description  = k3s.user;
