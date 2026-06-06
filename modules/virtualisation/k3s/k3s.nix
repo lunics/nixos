@@ -25,7 +25,6 @@
           # "--disable local-storage"
         ]);
         manifests = {
-          argo-cd.source = ./argo-cd.yml;
           # NAME = {
           #   enable  = true;
           #   content = {};
