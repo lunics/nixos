@@ -1,5 +1,5 @@
 {
-  flake.aspects.devops.homeManager = { config, lib, ... }: with lib; let
+  flake.aspects.devops.homeManager = { config, lib, options, ... }: with lib; let
     certs = [
       "certificate-authority-data"
       "client-certificate-data"
