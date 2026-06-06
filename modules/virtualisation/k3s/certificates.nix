@@ -12,7 +12,7 @@
 
     generate-ca-certs = pkgs.fetchurl {
       url    = "https://raw.githubusercontent.com/k3s-io/k3s/v1.31.0+k3s1/contrib/util/generate-custom-ca-certs.sh";
-      sha256 = "sha256-11s8jna9k02s31kid84hs8y7zkxvadvlihqxv3dmzq0yi6awpjqd";
+      sha256 = "11s8jna9k02s31kid84hs8y7zkxvadvlihqxv3dmzq0yi6awpjqd";
     };
   in {
     config = mkIf (config._.k3s.enable && sops-certs) {

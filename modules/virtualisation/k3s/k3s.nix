@@ -58,11 +58,12 @@
         # serverAddr = "https://10.0.0.10:6443";
       };
 
-      systemd.services.k3s.postStart = ''
-        if [ -f /etc/rancher/k3s/k3s.yaml ]; then
-          chown ${config._.k3s.user} /etc/rancher/k3s/k3s.yaml
-        fi
-      '';
+      ## delete later if we can generate the k3s.yaml
+      # systemd.services.k3s.postStart = ''
+      #   if [ -f /etc/rancher/k3s/k3s.yaml ]; then
+      #     chown ${config._.k3s.user} /etc/rancher/k3s/k3s.yaml
+      #   fi
+      # '';
 
       _.persistent.dirs = lib.mkIf config._.impermanence [ "/kube" ];
 
