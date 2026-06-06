@@ -5,7 +5,7 @@
       "client-certificate-data"
       "client-key-data"
     ];
-    sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "/kube/k3s.yaml/${target}") certs);
+    sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "kube/k3s.yaml/${target}") certs);
   in {
     config = mkMerge [
       (mkIf (config._.kube && !sops-certs) {
