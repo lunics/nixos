@@ -9,7 +9,7 @@
       "request-header-ca.crt"
       "request-header-ca.key"
     ];
-    sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "/kube/${target}") certs);
+    sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "kube/${target}") certs);
   in {
     config = mkIf (config._.k3s.enable && sops-certs) {
       systemd.tmpfiles.rules =
