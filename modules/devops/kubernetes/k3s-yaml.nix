@@ -1,11 +1,11 @@
 {
   flake.aspects.devops.homeManager = { config, lib, options, ... }: with lib; let
     certs = [
-      "certificate-authority-data"
-      "client-certificate-data"
-      "client-key-data"
+      "server-ca.crt"
+      "client-ca.crt"
+      "client-ca.key"
     ];
-    sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "kube/k3s.yaml/${target}") certs);
+    sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "kube/${target}") certs);
   in {
     config = mkMerge [
       (mkIf (config._.kube && !sops-certs) {
@@ -22,7 +22,7 @@
           apiVersion: v1
           clusters:
           - cluster:
-              certificate-authority-data: ${config.sops.secrets."kube/k3s.yaml/certificate-authority-data".path}
+              certificate-authority: ${config.sops.secrets."kube/server-ca.crt".path}
               server: https://${config._.k3s.master-node-ip}:6443
             name: default
           contexts:
@@ -35,8 +35,8 @@
           users:
           - name: default
             user:
-              client-certificate-data: ${config.sops.secrets."kube/k3s.yaml/client-certificate-data".path}
-              client-key-data: ${config.sops.secrets."kube/k3s.yaml/client-key-data".path}
+              client-certificate: ${config.sops.secrets."kube/client-ca.crt".path}
+              client-key: ${config.sops.secrets."kube/client-ca.key".path}
         '';
       })
       {
