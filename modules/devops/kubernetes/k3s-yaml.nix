@@ -2,8 +2,8 @@
   flake.aspects.devops.homeManager = { config, lib, options, ... }: with lib; let
     certs = [
       "server-ca.crt"
-      "client-ca.crt"
-      "client-ca.key"
+      "client-admin.crt"
+      "client-admin.key"
     ];
     sops-certs = (options ? sops) && (all (target: config.sops.secrets ? "kube/${target}") certs);
   in {
@@ -35,8 +35,8 @@
           users:
           - name: default
             user:
-              client-certificate: ${config.sops.secrets."kube/client-ca.crt".path}
-              client-key: ${config.sops.secrets."kube/client-ca.key".path}
+              client-certificate: ${config.sops.secrets."kube/client-admin.crt".path}
+              client-key: ${config.sops.secrets."kube/client-admin.key".path}
         '';
       })
       {
