@@ -22,7 +22,7 @@
           apiVersion: v1
           clusters:
           - cluster:
-              certificate-authority-data: ${config.sops.secrets."/kube/k3s.yaml/certificate-authority-data".path}
+              certificate-authority-data: ${config.sops.secrets."kube/k3s.yaml/certificate-authority-data".path}
               server: https://127.0.0.1:6443
             name: default
           contexts:
@@ -35,8 +35,8 @@
           users:
           - name: default
             user:
-              client-certificate-data: ${config.sops.secrets."/kube/k3s.yaml/client-certificate-data".path}
-              client-key-data: ${config.sops.secrets."/kube/k3s.yaml/client-key-data".path}
+              client-certificate-data: ${config.sops.secrets."kube/k3s.yaml/client-certificate-data".path}
+              client-key-data: ${config.sops.secrets."kube/k3s.yaml/client-key-data".path}
         '';
       })
       {
