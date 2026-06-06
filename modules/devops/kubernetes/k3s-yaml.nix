@@ -23,7 +23,7 @@
           clusters:
           - cluster:
               certificate-authority-data: ${config.sops.secrets."kube/k3s.yaml/certificate-authority-data".path}
-              server: https://127.0.0.1:6443
+              server: https://${config._.k3s.master-node-ip}:6443
             name: default
           contexts:
           - context:
