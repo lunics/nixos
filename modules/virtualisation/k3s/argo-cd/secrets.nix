@@ -20,6 +20,8 @@
           done
 
           if ! ${kubectl} get secret argocd-secret -n argo-cd >/dev/null 2>&1; then
+            ${kubectl} create namespace argo-cd   # required, happens earlier than the argo-cd chart deployment
+
             ${kubectl} create secret generic argocd-secret \
               --namespace argo-cd \
               --from-literal=admin.password="$(cat ${config.sops.secrets."argo-cd/admin-password".path})" \
