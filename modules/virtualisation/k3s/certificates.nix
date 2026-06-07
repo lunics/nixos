@@ -1,9 +1,9 @@
 {
   flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; let
     secrets = [
-      "root-ca.pem"
+      "root-ca.crt"
       "intermediate-ca.key"
-      "intermediate-ca.pem"
+      "intermediate-ca.crt"
     ];
     has-secrets = (options ? sops) && (all (cert: config.sops.secrets ? "kube/${cert}") secrets);
 
@@ -18,9 +18,9 @@
       systemd.services.k3s = {
         path = with pkgs; [ openssl bash coreutils ];
         preStart = ''
-          install -m 0644 ${config.sops.secrets."kube/root-ca.pem".path}         ${tls-dir}/root-ca.pem
+          install -m 0644 ${config.sops.secrets."kube/root-ca.crt".path}         ${tls-dir}/root-ca.crt
           install -m 0600 ${config.sops.secrets."kube/intermediate-ca.key".path} ${tls-dir}/intermediate-ca.key
-          install -m 0644 ${config.sops.secrets."kube/intermediate-ca.pem".path} ${tls-dir}/intermediate-ca.pem
+          install -m 0644 ${config.sops.secrets."kube/intermediate-ca.crt".path} ${tls-dir}/intermediate-ca.crt
 
           if [ ! -f ${tls-dir}/server-ca.crt ]; then
             bash ${generate-ca-certs}
