@@ -19,8 +19,8 @@
         path = with pkgs; [ openssl bash coreutils ];
         preStart = ''
           install -m 0644 ${config.sops.secrets."kube/root-ca.pem".path}         ${tls-dir}/root-ca.pem
-          install -m 0644 ${config.sops.secrets."kube/intermediate-ca.pem".path} ${tls-dir}/intermediate-ca.pem
           install -m 0600 ${config.sops.secrets."kube/intermediate-ca.key".path} ${tls-dir}/intermediate-ca.key
+          install -m 0644 ${config.sops.secrets."kube/intermediate-ca.pem".path} ${tls-dir}/intermediate-ca.pem
 
           if [ ! -f ${tls-dir}/server-ca.crt ]; then
             bash ${generate-ca-certs}
