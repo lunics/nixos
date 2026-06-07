@@ -28,7 +28,7 @@
             name:      argo-cd
             project:   default
             type:      git
-            url:       ssh://git@${config._.argo-cd-repo-url}
+            url:       git@${config._.argo-cd-repo-url}
             insecure:  "true"
             enableLfs: "false"
           data:
