@@ -25,11 +25,11 @@
               argocd.argoproj.io/secret-type: repository
           type: Opaque
           stringData:
-            name: kubernetes
-            project: default
-            type: git
-            url: ssh://git@github.com/lunics/kubernetes
-            insecure: "true"
+            name:      argo-cd
+            project:   default
+            type:      git
+            url:       ssh://git@${config._.argo-cd-repo-url}
+            insecure:  "true"
             enableLfs: "false"
           data:
             sshPrivateKey: $(base64 -w0 ${config.sops.secrets."argo-cd/ssh-kube-repo".path})

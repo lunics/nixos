@@ -12,6 +12,11 @@
           default = "127.0.0.1";
         };
       };
+
+      argo-cd-repo-url = mkOption {
+        type    = types.str;
+        default = "";
+      };
     };
   };
 }
