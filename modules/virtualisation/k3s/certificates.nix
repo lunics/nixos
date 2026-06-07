@@ -18,6 +18,8 @@
       systemd.services.k3s = {
         path = with pkgs; [ openssl bash coreutils ];
         preStart = ''
+          mkdir -p ${tls-dir}
+
           install -m 0644 ${config.sops.secrets."kube/root-ca.crt".path}         ${tls-dir}/root-ca.crt
           install -m 0600 ${config.sops.secrets."kube/intermediate-ca.key".path} ${tls-dir}/intermediate-ca.key
           install -m 0644 ${config.sops.secrets."kube/intermediate-ca.crt".path} ${tls-dir}/intermediate-ca.crt
