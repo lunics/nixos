@@ -9,7 +9,6 @@
         wantedBy    = [ "multi-user.target" ];
         after       = [ "argo-cd-secrets.service" ];
         requires    = [ "argo-cd-secrets.service" ];
-        path        = with pkgs; [ coreutils ];
         serviceConfig = {
           Type            = "oneshot";
           RemainAfterExit = true;
