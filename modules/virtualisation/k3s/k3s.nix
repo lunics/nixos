@@ -5,8 +5,8 @@
         enable       = true;
         package      = pkgs.k3s;
         role         = "server";              # server, agent
-        disableAgent = false;                 # when role server
-        clusterInit  = false;                 # for HA cluster with an embedded etcd
+        disableAgent = false;                 # false = the master node will also also schedules workloads (when rol = server); true = in worker node mode, needs role = agent too
+        clusterInit  = false;                 # true = for HA cluster with an embedded etcd
         extraFlags   = toString ([
           "--data-dir=/var/lib/rancher/k3s"
           "--write-kubeconfig-mode \"0600\""  # /etc/rancher/k3s/k3s.yaml
