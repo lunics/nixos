@@ -1,5 +1,7 @@
 {
-  flake.aspects.k3s.nixos = { config, lib, ... }:{
+  flake.aspects.k3s.nixos = { config, lib, ... }: let
+    kubectl = "${pkgs.kubectl}/bin/kubectl --kubeconfig=/etc/rancher/k3s/k3s.yaml";
+  in {
     config = lib.mkIf config._.k3s.enable {
       systemd.services.argo-cd-root-app = {
         description = "Provision Argo CD root application";
@@ -11,7 +13,7 @@
           RemainAfterExit = true;
         };
         script = ''
-          kubectl apply -f - <<EOF
+          ${kubectl} apply -f - <<EOF
           apiVersion: argoproj.io/v1alpha1
           kind: Application
           metadata:
