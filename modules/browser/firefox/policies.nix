@@ -1,6 +1,11 @@
 {
-  flake.aspects.browser.homeManager = { 
+  flake.aspects.browser.homeManager = { config, ... }: {
     programs.firefox.policies = {
+      Certificates = {
+        ImportEnterpriseRoots = true;
+        Install = config._.firefox.certificates;
+      };
+
       DisablePocket               = true;
       DisableTelemetry            = true;
       DisableProfileImport        = true;   # purity enforcement: Only allow nix-defined profiles
