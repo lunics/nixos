@@ -32,7 +32,8 @@
             insecure:  "true"
             enableLfs: "false"
           data:
-            sshPrivateKey: $(base64 -w0 ${config.sops.secrets."argo-cd/ssh-kube-repo".path})
+            # printf '%s' to remove the \n at the end of the secret file
+            sshPrivateKey: $(printf '%s' "$(cat ${config.sops.secrets."argo-cd/ssh-kube-repo".path})" | base64 -w0)
           EOF
         '';
       };
