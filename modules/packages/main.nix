@@ -62,6 +62,7 @@
       yq
       dig
       openssl
+      kicad
     ];
   };
 }
