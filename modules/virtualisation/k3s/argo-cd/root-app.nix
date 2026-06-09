@@ -1,5 +1,5 @@
 {
-  flake.aspects.k3s.nixos = { config, lib, ... }: let
+  flake.aspects.k3s.nixos = { config, lib, pkgs, ... }: let
     kubectl = "${pkgs.kubectl}/bin/kubectl --kubeconfig=/etc/rancher/k3s/k3s.yaml";
   in {
     config = lib.mkIf config._.k3s.enable {
