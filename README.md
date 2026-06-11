@@ -1,18 +1,18 @@
 ## Features
 
-- ✅ flake-parts
-- ✅ flake-aspects
-- ✅ flake-file
-- ✅ import-tree
-- ✅ disko
-- ✅ dual boot
-- ✅ lanzaboote
-- ✅ impermanence
-- ✅ microvm
-- ✅ sops-nix
-- ✅ nixvim
-- ✅ hosts kept private
-- ✅ shared options between nixos and home-manager
+- flake-parts
+- flake-aspects
+- flake-file
+- import-tree
+- disko
+- dual boot
+- lanzaboote
+- impermanence
+- microvm
+- sops-nix
+- nixvim
+- hosts kept private
+- shared options between nixos and home-manager
 
 ## Structure
 
