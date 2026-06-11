@@ -27,7 +27,8 @@
               directory:
                 recurse: true
             destination:
-              server:    https://kubernetes.default.svc
+              name:      in-cluster
+              # server:  https://kubernetes.default.svc
               namespace: argo-cd
             project: default
             syncPolicy:
