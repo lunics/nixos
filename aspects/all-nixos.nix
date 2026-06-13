@@ -1,6 +1,6 @@
 { self, ... }:{
   flake.aspects = { aspects, ... }:{
-    all-system.includes = with aspects; [
+    all-nixos.includes = with aspects; [
       options
       disk
       boot
