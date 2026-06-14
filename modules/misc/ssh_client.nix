@@ -8,8 +8,7 @@
         UserKnownHostsFile = "${config._.share}/ssh/known_hosts";
       };
       includes             = [];      # File globs of ssh config files
-      matchBlocks          = config._.ssh_config;
-
+      settings             = config._.ssh_config;
       enableDefaultConfig  = false;   ## if true see below
       ## MOVE IN matchBlocks
       #   addKeysToAgent       = "no";
