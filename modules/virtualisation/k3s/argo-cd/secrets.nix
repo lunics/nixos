@@ -24,7 +24,7 @@
             sleep 1
           done
 
-          ${kubectl} create namespace argo-cd
+          ${kubectl} create namespace argo-cd --dry-run=client -o yaml | ${kubectl} apply -f -
 
           ${kubectl} apply -f - <<EOF
           apiVersion: v1
@@ -37,8 +37,8 @@
             admin.password: "$(cat ${config.sops.secrets."argo-cd/admin-password".path})"
             admin.passwordMtime: "2026-01-01T00:00:00Z"
           data:
-            tls.crt: $(base64 -w0 ${config.sops.secrets."argo-cd/tls.crt".path})
-            tls.key: $(base64 -w0 ${config.sops.secrets."argo-cd/tls.key".path})
+            tls.key: $(base64 -w0 ${config.sops.secrets."kube/cluster-cert.key".path})
+            tls.crt: $(base64 -w0 ${config.sops.secrets."kube/cluster-cert.crt".path})
           EOF
         '';
       };
