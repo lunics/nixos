@@ -18,7 +18,7 @@
       tab-session-manager
       # simple-tab-groups (tab-session-manager alternative)
       vimium
-      tabliss
+      tablissng
       videospeed
       # video-downloadhelper
       leechblock-ng
