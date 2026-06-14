@@ -3,9 +3,9 @@
     secrets = [
       "root-ca.crt"
       "intermediate-ca.key"
+      "intermediate-ca.crt"
       "server-ca.key"
       "server-ca.crt"
-      "intermediate-ca.crt"
       "client-admin.key"
       "client-admin.crt"
     ];
@@ -32,9 +32,7 @@
           install -m 0600 ${config.sops.secrets."kube/client-admin.key".path}    ${tls-dir}/client-admin.key
           install -m 0644 ${config.sops.secrets."kube/client-admin.crt".path}    ${tls-dir}/client-admin.crt
 
-          if [ ! -f ${tls-dir}/server-ca.crt ]; then
-            bash ${generate-ca-certs}
-          fi
+          bash ${generate-ca-certs}
         '';
       };
     };
