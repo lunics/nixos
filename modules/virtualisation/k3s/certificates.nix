@@ -32,7 +32,7 @@
           install -m 0600 ${config.sops.secrets."kube/client-admin.key".path}    ${tls-dir}/client-admin.key
           install -m 0644 ${config.sops.secrets."kube/client-admin.crt".path}    ${tls-dir}/client-admin.crt
 
-          bash ${generate-ca-certs}
+          # bash ${generate-ca-certs}
         '';
       };
     };
