@@ -23,12 +23,9 @@
             source:
               repoURL:        git@${config._.argo-cd-repo-url}
               targetRevision: HEAD
-              path:           root-app
-              directory:
-                recurse: true
+              path:           root-app/
             destination:
               name:      in-cluster
-              # server:  https://kubernetes.default.svc
               namespace: argo-cd
             project: default
             syncPolicy:
