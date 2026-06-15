@@ -26,7 +26,7 @@
       };
       nil_ls.enable        = true;
       nushell.enable       = true;
-      systemd_ls.enabe     = true;
+      systemd_ls.enable    = true;
       terraformls.enable   = true;  # hashiCorp
       terraform_lsp.enable = false; # community (less active)
       yamlls = {
