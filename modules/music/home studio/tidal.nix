@@ -13,5 +13,6 @@
         supercolliderPlugins.sc3-plugins
         ghc
       ];
+    };
   };
 }
