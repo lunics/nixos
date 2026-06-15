@@ -18,7 +18,11 @@
       sha256 = "11s8jna9k02s31kid84hs8y7zkxvadvlihqxv3dmzq0yi6awpjqd";
     };
   in {
-    config = mkIf (config._.k3s.enable && has-secrets) {
+    config = mkMerge [
+      (mkIf (config._.k3s.enable && !has-secrets) {
+        warnings = [ "k3s: missing certificate secrets, custom CA certificates will not be installed" ];
+      })
+      (mkIf (config._.k3s.enable && has-secrets) {
       systemd.services.k3s = {
         path = with pkgs; [ openssl bash coreutils ];
         preStart = ''
@@ -28,13 +32,14 @@
           install -m 0600 ${config.sops.secrets."kube/intermediate-ca.key".path} ${tls-dir}/intermediate-ca.key
           install -m 0644 ${config.sops.secrets."kube/intermediate-ca.crt".path} ${tls-dir}/intermediate-ca.crt
           install -m 0600 ${config.sops.secrets."kube/server-ca.key".path}       ${tls-dir}/server-ca.key
-          install -m 0600 ${config.sops.secrets."kube/server-ca.crt".path}       ${tls-dir}/server-ca.crt
+          install -m 0644 ${config.sops.secrets."kube/server-ca.crt".path}       ${tls-dir}/server-ca.crt
           install -m 0600 ${config.sops.secrets."kube/client-admin.key".path}    ${tls-dir}/client-admin.key
           install -m 0644 ${config.sops.secrets."kube/client-admin.crt".path}    ${tls-dir}/client-admin.crt
 
           # bash ${generate-ca-certs}
         '';
       };
-    };
+      })
+    ];
   };
 }
