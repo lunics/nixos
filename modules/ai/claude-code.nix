@@ -105,6 +105,12 @@
           # claude-code-router  # to route claude code requests to different models and customize any request
           # claude-code-acp     # acp-compatible coding agent powered by the claude code sdk
           # open-interpreter    # KO build pygame
+
+          # sandbox dependencies
+          libseccomp
+          ripgrep
+          bubblewrap
+          socat
         ];
 
         sessionVariables."CLAUDE_CONFIG_DIR" = "${config._.share}/claude";
