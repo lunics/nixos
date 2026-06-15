@@ -8,7 +8,7 @@
       home.packages = with pkgs; [
         jack2
         qjackctl
-        # cabal-install 
+        cabal-install 
         supercollider
         supercolliderPlugins.sc3-plugins
       ];
