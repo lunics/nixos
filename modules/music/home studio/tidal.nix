@@ -1,6 +1,6 @@
 {
   flake.aspects.tidal = {
-    nixos = {
+    nixos = { config, ... }:{
       users.users.${config._.user}.extraGroups = [ "audio" ];
     };
 
