@@ -1,7 +1,7 @@
 {
   flake.aspects.tidal = {
     nixos = {
-      sudo usermod -a -G audio $USER
+      users.users.${config._.user}.extraGroups = [ "audio" ];
     };
 
     homeManager = { pkgs, ... }:{
@@ -13,7 +13,7 @@
         supercolliderPlugins.sc3-plugins
       ];
 
-      git ls-remote https://codeberg.org/musikinformatik/SuperDirt.git | grep tags | tail -n1 | awk -F/ '{print $NF}'
+      # git ls-remote https://codeberg.org/musikinformatik/SuperDirt.git | grep tags | tail -n1 | awk -F/ '{print $NF}'
     };
   };
 }
