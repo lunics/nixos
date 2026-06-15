@@ -11,6 +11,7 @@
         cabal-install 
         supercollider
         supercolliderPlugins.sc3-plugins
+        ghc
       ];
 
       # get superdirt latest version: v1.7.4
