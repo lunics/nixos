@@ -41,6 +41,6 @@
     ./lsp.nix
     # ./opencode.nix          # build KO
     # ./snacks.nix
-    ./vim-tidal.nix
+    # ./vim-tidal.nix
   ];
 }
