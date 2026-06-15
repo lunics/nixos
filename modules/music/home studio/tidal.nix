@@ -13,9 +13,5 @@
         supercolliderPlugins.sc3-plugins
         ghc
       ];
-
-      # get superdirt latest version: v1.7.4
-      # git ls-remote https://codeberg.org/musikinformatik/SuperDirt.git | grep tags | tail -n1 | awk -F/ '{print $NF}'
-    };
   };
 }
