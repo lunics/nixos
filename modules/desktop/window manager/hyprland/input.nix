@@ -1,6 +1,6 @@
 {
   flake.aspects.window_manager.homeManager = { config, ... }:{
-    wayland.windowManager.hyprland.extraConfig = ''
+    wayland.windowManager.hyprland.extraLuaFiles.input.content = ''
       input {
         kb_layout     = ${config._.hyprland.kb_layout}
         kb_variant    =                 # altgr-intl = us layout with european accent

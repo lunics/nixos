@@ -7,7 +7,7 @@
       xwayland.enable = true;
       sourceFirst     = true;    # enable putting source entries at the top of the configuration
 
-      extraConfig = ''
+      extraLuaFiles.main.content = ''
         ${builtins.readFile ./config.d/animations}
         ${builtins.readFile ./config.d/decoration}
         ${builtins.readFile ./config.d/dwindle}

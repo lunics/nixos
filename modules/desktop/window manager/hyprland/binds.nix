@@ -3,7 +3,7 @@
   let
     _hypr = config._.hyprland;
   in {
-    wayland.windowManager.hyprland.extraConfig = ''
+    wayland.windowManager.hyprland.extraLuaFiles.binds.content = ''
       binds {
         allow_workspace_cycles = true
       }

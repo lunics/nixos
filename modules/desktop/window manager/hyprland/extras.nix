@@ -1,6 +1,6 @@
 {
   flake.aspects.window_manager.homeManager = { config, ... }:{
-    wayland.windowManager.hyprland.extraConfig = ''
+    wayland.windowManager.hyprland.extraLuaFiles.extras.content = ''
       exec-once = /etc/polkit-kde-authentication-agent-1
 
     '' + 
