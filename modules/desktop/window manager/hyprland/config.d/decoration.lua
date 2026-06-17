@@ -1,0 +1,34 @@
+hl.config({
+  decoration = {
+    rounding = 8,
+  
+    -- blurls = gtk-layer-shell
+    -- blurls = waybar
+    -- blurls = lockscreen
+    blur = {
+      enabled           = true,
+      size              = 5,         -- blur distance
+      passes            = 1,
+      xray              = false,     -- true = floating windows will ignore tiled windows and display background wallpaper in their blur
+      ignore_opacity    = false,     -- make the blur layer ignore the opacity of the window
+      new_optimizations = true,      -- massively improve performance
+      noise             = 0.0117,    -- 0.0 - 1.0
+      contrast          = 0.8916,    -- 0.0 - 2.0
+      brightness        = 0.8172,    -- 0.0 - 2.0
+    },
+  
+    active_opacity   = 1.0,
+    inactive_opacity = 1.0,
+  
+    shadow = {
+      enabled       = true,
+      range         = 4,
+      render_power  = 3,
+      sharp         = false,
+      color         = "rgba(1a1a1aee)",
+      offset        = 0 0,
+      scale         = 1.0,
+      -- drop_shadow = true,
+    },
+  },
+})

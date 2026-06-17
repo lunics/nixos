@@ -1,0 +1,4 @@
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace", })
+-- gesture = 3, down, mod: SUPER, close
+-- gesture = 3, up, mod: SUPER, scale: 1.5, fullscreen
+-- gesture = 4, down, dispatcher, exec, ghostty

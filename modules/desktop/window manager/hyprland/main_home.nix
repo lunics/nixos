@@ -8,16 +8,16 @@
       sourceFirst     = true;    # enable putting source entries at the top of the configuration
 
       extraLuaFiles.main.content = ''
-        ${builtins.readFile ./config.d/animations}
-        ${builtins.readFile ./config.d/decoration}
-        ${builtins.readFile ./config.d/dwindle}
-        ${builtins.readFile ./config.d/general}
-        ${builtins.readFile ./config.d/gestures}
-        ${builtins.readFile ./config.d/master}
-        ${builtins.readFile ./config.d/misc}
-        ${builtins.readFile ./config.d/monitors}
-        ${builtins.readFile ./config.d/plugins}
-        ${builtins.readFile ./config.d/window_rules}
+        ${builtins.readFile ./config.d/animations.lua}
+        ${builtins.readFile ./config.d/decoration.lua}
+        ${builtins.readFile ./config.d/dwindle.lua}
+        ${builtins.readFile ./config.d/general.lua}
+        ${builtins.readFile ./config.d/gestures.lua}
+        ${builtins.readFile ./config.d/master.lua}
+        ${builtins.readFile ./config.d/misc.lua}
+        ${builtins.readFile ./config.d/monitors.lua}
+        -- ${builtins.readFile ./config.d/plugins.lua}
+        ${builtins.readFile ./config.d/window_rules.lua}
       '';
 
       # settings = {

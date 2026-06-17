@@ -1,0 +1,13 @@
+hl.config({
+  misc = {
+    disable_autoreload        = true,     -- reload automatically when config changes, if false needs manual "hyprctl reload"
+    disable_hyprland_logo     = false,
+    disable_splash_rendering  = false,
+    mouse_move_enables_dpms   = false,    -- If DPMS is set to off, wake up the monitors if the mouse moves
+    key_press_enables_dpms    = true,     -- If DPMS is set to off, wake up the monitors if a key is pressed
+    layers_hog_keyboard_focus = true,     -- make keyboard-interactive layers keep their focus on mouse move (e.g. wofi, bemenu)
+    # vfr                     = true,     -- lower the amount of sent frames when nothing is happening on-screen
+    enable_swallow            = true,
+    swallow_regex             = "^(alacritty)$",
+  },
+})
