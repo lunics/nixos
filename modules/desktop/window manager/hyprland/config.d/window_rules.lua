@@ -24,7 +24,7 @@ local message   = "discord|org.gajim.Gajim|Element|Session|org.telegram.dekstop|
 local streaming = "spotify|FreeTube|streamlink-twitch-gui|mpv"
 local music     = "org.musescore.MuseScore"
 local libvirt   = "virt-viewer"
-local all       = "$terminal|$browser|$message|$streaming|$gaming|$music|$libvirt"
+local all       = terminal.."|"..browser.."|"..message.."|"..streaming.."|"..gaming.."|"..music.."|"..libvirt
 
 hl.window_rule({
   name      = "default-workspace-terminal",

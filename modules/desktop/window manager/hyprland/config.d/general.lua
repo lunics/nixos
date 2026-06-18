@@ -1,5 +1,5 @@
 hl.config({
-  general {
+  general = {
     gaps_in             = 4,           -- gaps between windows
     gaps_out            = 4,           -- gaps between monitor edges
     border_size         = 2,

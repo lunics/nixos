@@ -1,5 +1,5 @@
 hl.config({
-  dwindle {
+  dwindle = {
     use_active_for_splits        = true,   -- true = split from the active window or cursor position
     force_split                  = 1,      -- 0 = split follows mouse, 1 = always split to the left or top, 2 = always split to the right or bottom
     preserve_split               = true,   -- the split (side/top) will not change regardless of what happens to the container

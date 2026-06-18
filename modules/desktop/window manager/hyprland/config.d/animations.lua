@@ -1,5 +1,5 @@
 hl.config({
-  animations {
+  animations = {
     enabled = false,
   },
 })
@@ -12,10 +12,6 @@ local curve = {
   quick          = { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } },
   easy           = { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 }, -- Default springs
 }
-
-for _, cfg in ipairs(curve) do
-  hl.curve(cfg)
-end
 
 local animation = {
   { leaf = "global",           enabled = true, speed = 10,   bezier = "default" },
@@ -37,6 +33,10 @@ local animation = {
   { leaf = "specialWorkspace", enabled = true, speed = 4,    bezier = "specialWorkSwitch", style = "slidefadevert 15%" },
   { leaf = "zoomFactor",       enabled = true, speed = 7,    bezier = "quick" },
 }
+
+for _, cfg in ipairs(curve) do
+  hl.curve(cfg)
+end
 
 for _, cfg in ipairs(animation) do
   hl.animation(cfg)

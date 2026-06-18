@@ -3,12 +3,12 @@
     options._.hyprland = {
       toggle_bt = mkOption {
         type    = types.str;
-        default = "$SUPER, B";
+        default = "SUPER + B";
       };
 
       toggle_bar = mkOption {
         type    = types.str;
-        default = "$SSHIFT, B";
+        default = "SUPER + SHIFT + B";
       };
 
       prev_workspace = mkOption {

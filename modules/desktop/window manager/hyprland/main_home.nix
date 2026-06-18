@@ -16,7 +16,6 @@
         ${builtins.readFile ./config.d/master.lua}
         ${builtins.readFile ./config.d/misc.lua}
         ${builtins.readFile ./config.d/monitors.lua}
-        -- ${builtins.readFile ./config.d/plugins.lua}
         ${builtins.readFile ./config.d/window_rules.lua}
       '';
 

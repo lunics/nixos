@@ -1,9 +1,9 @@
-plugin {
-  hyprbars {
-    bar_height = 15
+plugin = {
+  hyprbars = {
+    bar_height = 15,
 
-    buttons {
-      button_size = 12
-    }
-  }
+    buttons = {
+      button_size = 12,
+    },
+  },
 }
