@@ -1,6 +1,6 @@
 {
   flake.aspects.window_manager.homeManager = { config, ... }:{
-    wayland.windowManager.hyprland.extraLuaFiles.input.content = ''
+    wayland.windowManager.hyprland.extraConfig = ''
       hl.config({
         input {
           kb_layout     = "${config._.hyprland.kb_layout}",

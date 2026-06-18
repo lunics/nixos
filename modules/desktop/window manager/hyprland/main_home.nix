@@ -8,7 +8,7 @@
       configType      = "lua";  # lua, hyprlang
       sourceFirst     = true;   # enable putting source entries at the top of the configuration
 
-      extraLuaFiles.main.content = ''
+      extraConfig = ''
         ${builtins.readFile ./config.d/animations.lua}
         ${builtins.readFile ./config.d/decoration.lua}
         ${builtins.readFile ./config.d/dwindle.lua}
