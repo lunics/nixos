@@ -2,10 +2,11 @@
   flake.aspects.window_manager.homeManager = { pkgs, ... }:{
     wayland.windowManager.hyprland = {
       enable          = true;
-      package         = null;    # must be null to force using the pkg from nixos/system module
-      portalPackage   = null;    # //
+      package         = null;   # must be null to force using the pkg from nixos/system module
+      portalPackage   = null;   # //
       xwayland.enable = true;
-      sourceFirst     = true;    # enable putting source entries at the top of the configuration
+      configType      = "lua";  # lua, hyprlang
+      sourceFirst     = true;   # enable putting source entries at the top of the configuration
 
       extraLuaFiles.main.content = ''
         ${builtins.readFile ./config.d/animations.lua}
