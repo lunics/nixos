@@ -24,7 +24,7 @@
             natural_scroll          = false,
             clickfinger_behavior    = false,
             middle_button_emulation = false,
-            tap-to-click            = true,
+            -- tap-to-click         = true,
             drag_lock               = false,
           },
         },

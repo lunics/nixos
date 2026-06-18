@@ -25,8 +25,8 @@ hl.config({
       range         = 4,
       render_power  = 3,
       sharp         = false,
-      color         = "rgba(1a1a1aee)",
-      offset        = 0 0,
+      -- color         = "rgba(1a1a1aee)", TODO FIX
+      -- offset        = 0 0,   TODO FIX
       scale         = 1.0,
       -- drop_shadow = true,
     },
