@@ -41,5 +41,3 @@ end
 for _, cfg in ipairs(animation) do
   hl.animation(cfg)
 end
-
-})

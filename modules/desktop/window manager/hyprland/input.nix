@@ -2,7 +2,7 @@
   flake.aspects.window_manager.homeManager = { config, ... }:{
     wayland.windowManager.hyprland.extraConfig = ''
       hl.config({
-        input {
+        input = {
           kb_layout     = "${config._.hyprland.kb_layout}",
           kb_variant    = "",             -- altgr-intl = us layout with european accent
           kb_model      = "",             -- pc105
@@ -29,11 +29,8 @@
           },
         },
 
-        # Example per-device config
-        # https://wiki.hyprland.org/Configuring/Advanced-config/#per-device-input-configs
-        #device:name {
-        #
-        #}
+        -- Example per-device config
+        -- https://wiki.hyprland.org/Configuring/Advanced-config/#per-device-input-configs
       })
     '';
   };
