@@ -97,6 +97,10 @@
         { "XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true }, },
       }
 
+      for _, cfg in ipairs(bind) do
+        hl.bind(cfg)
+      end
+
       -- bind = $SUPER,    P,      pseudo,            # dwindle  KO
       -- bind = $SUPER,    P,      pin, active        # pin the current window across all workspaces
       -- bind = $SSHIFT,     BACKSPACE, movetoworkspace, special       # move active window to the special workspace
