@@ -5,11 +5,11 @@ hl.config({
 })
 
 local curve = {
-  easeOutQuint   = { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } },
-  easeInOutCubic = { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } },
-  linear         = { type = "bezier", points = { {0, 0},       {1, 1}       } },
-  almostLinear   = { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } },
-  quick          = { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } },
+  easeOutQuint   = { type = "bezier", points = { {0.23, 1},    {0.32, 1} } },
+  easeInOutCubic = { type = "bezier", points = { {0.65, 0.05}, {0.36, 1} } },
+  linear         = { type = "bezier", points = { {0, 0},       {1, 1}    } },
+  almostLinear   = { type = "bezier", points = { {0.5, 0.5},   {0.75, 1} } },
+  quick          = { type = "bezier", points = { {0.15, 0},    {0.1, 1}  } },
   easy           = { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 }, -- Default springs
 }
 
