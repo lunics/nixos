@@ -21,7 +21,7 @@
       };
     };
     homeManager.xdg.portal = { pkgs, ... }:{
-      enable = false;
+      enable = true;
       # config = {
       #   common = {
       #     default = [
