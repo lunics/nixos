@@ -5,7 +5,7 @@
       activatable   = true;    # to add the activation script to the system profile
       stateVersion  = config._.state-version; # not respected by the unstable branch
       name = if config._.hostname == "" then 
-        "unnamed" 
+        "nixos" 
       else  
         config._.hostname;
       includeBuildDependencies     = false;
