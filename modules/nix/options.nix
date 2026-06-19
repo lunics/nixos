@@ -15,7 +15,7 @@
       };
       state-version = mkOption {
         type    = types.str;
-        default = "26.05";
+        default = "26.11";
       };
     };
   };
