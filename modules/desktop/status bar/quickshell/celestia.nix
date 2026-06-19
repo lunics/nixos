@@ -1,10 +1,12 @@
-{
+{ inputs, ... }:{
   flake-file.inputs.caelestia-shell = {
     url = "github:caelestia-dots/shell";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
   flake.aspects.status_bar.homeManager = { config, lib, pkgs, ... }:{
+    imports = [ inputs.caelestia-shell.homeManagerModules.default ];
+
     config = lib.mkIf (config._.status_bar == "quickshell") {
       programs.caelestia = {
         enable = true;
