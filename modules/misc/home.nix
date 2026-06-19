@@ -3,7 +3,7 @@
     home = {
       username                  = "${config._.user}";
       homeDirectory             = "/home/${config._.user}";
-      stateVersion              = "26.05";
+      stateVersion              = config._.state-version;
       enableDebugInfo           = false;
       preferXdgDirectories      = true;     # make programs use XDG directories whenever supported
       enableNixpkgsReleaseCheck = true;
