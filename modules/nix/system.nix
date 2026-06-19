@@ -3,7 +3,11 @@
     system = {
       switch.enable = true;
       activatable   = true;    # to add the activation script to the system profile
-      stateVersion  = config._.state-version; # not respected by the unstable branch
+      stateVersion  = config._.state-version;  # default = config.system.nixos.release;
+        # defines the first version of NixOS you have installed on this machine, and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions
+        # this value does not affect the Nixpkgs version
+        # not respected by the unstable branch
+        # never change this value, unless you have manually inspected all the changes it would make and migrated your data accordingly
       name = if config._.hostname == "" then 
         "nixos" 
       else  
