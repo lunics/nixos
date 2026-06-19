@@ -12,6 +12,7 @@
       startup_apps
       tlp
       udiskie
+      upower
     ];
   };
 }

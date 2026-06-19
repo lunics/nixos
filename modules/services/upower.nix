@@ -1,9 +1,8 @@
 {
-  flake.aspects.upower.nixos = {
-    # needed for battery level on hyprpanel
+  flake.aspects.upower.nixos = { config, pkgs, ... }:{
     services.upower = {
       enable                 = true;
-      # package              = pkgs.upower;
+      package                = pkgs.upower;
       noPollBatteries        = false;           # don't poll the kernel for battery level changes
       ignoreLid              = false;           # ignore the lid state
       usePercentageForPolicy = true;            # enable policy for warnings and action based on battery levels
