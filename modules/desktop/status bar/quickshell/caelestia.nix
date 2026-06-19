@@ -28,6 +28,12 @@
           };
         };
       }; 
+
+      xdg.desktopEntries."org.quickshell" = {
+        name = "Quickshell";
+        exec = "qs";
+        type = "Application";
+      };
     };
   };
 }
