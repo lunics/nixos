@@ -11,7 +11,7 @@
           RemainAfterExit = true;
         };
         script = ''
-          cat > argo-cd-helm-chart.yaml << EOF
+          cat > /var/lib/rancher/k3s/server/manifests/argo-cd-helm-chart.yaml << EOF
           apiVersion: helm.cattle.io/v1
           kind: HelmChart
           metadata:
