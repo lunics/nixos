@@ -18,11 +18,12 @@
       sha256 = "11s8jna9k02s31kid84hs8y7zkxvadvlihqxv3dmzq0yi6awpjqd";
     };
   in {
-    config = mkMerge [
-      (mkIf (config._.k3s.enable && !has-secrets) {
-        warnings = [ "k3s: missing certificate secrets, custom CA certificates will not be installed" ];
-      })
-      (mkIf (config._.k3s.enable && has-secrets) {
+    config = mkIf (config._.k3s.enable) {
+      assertions = [{
+        assertion = has-secrets;
+        message   = "k3s: missing certificate secrets to install custom CA";
+      }];
+
       systemd.services.k3s = {
         path = with pkgs; [ openssl bash coreutils ];
         preStart = ''
@@ -39,7 +40,6 @@
           # bash ${generate-ca-certs}
         '';
       };
-      })
-    ];
+    };
   };
 }
