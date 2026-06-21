@@ -1,7 +1,6 @@
 {
   flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; let
     has-secret = (options ? sops) && (config.sops.secrets ? "argo-cd/ssh-kube-repo");
-    kubectl    = "${pkgs.kubectl}/bin/kubectl --kubeconfig=/etc/rancher/k3s/k3s.yaml";
   in {
     config = mkIf (config._.k3s.enable && has-secret) {
       systemd.services.argo-cd-git-repo = {
@@ -14,7 +13,7 @@
           RemainAfterExit = true;
         };
         script = ''
-          ${kubectl} apply -f - <<EOF
+          ${pkgs.kubectl}/bin/kubectl apply -f - <<EOF
           apiVersion: v1
           kind: Secret
           metadata:

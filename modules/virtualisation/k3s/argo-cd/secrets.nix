@@ -6,7 +6,6 @@
       "argo-cd/admin-password"
     ];
     has-secrets = (options ? sops) && (all (name: config.sops.secrets ? ${name}) secrets);
-    kubectl = "${pkgs.kubectl}/bin/kubectl --kubeconfig=/etc/rancher/k3s/k3s.yaml";
   in {
     config = mkIf (config._.k3s.enable) {
       assertions = [{
@@ -25,11 +24,11 @@
           RemainAfterExit = true;
         };
         script = ''
-          until ${kubectl} get namespace argo-cd >/dev/null 2>&1; do
+          until ${pkgs.kubectl}/bin/kubectl get namespace argo-cd >/dev/null 2>&1; do
             sleep 1
           done
 
-          ${kubectl} apply -f - <<EOF
+          ${pkgs.kubectl}/bin/kubectl apply -f - <<EOF
           apiVersion: v1
           kind: Secret
           metadata:
