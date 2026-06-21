@@ -12,19 +12,17 @@
       systemd.services.argo-cd-secrets = {
         description = "Provision Argo CD certificate and admin password";
         wantedBy    = [ "multi-user.target" ];
-        after       = [ "k3s.service" ];
-        requires    = [ "k3s.service" ];
+        after       = [ "argo-cd-helm-chart.service" ];
+        requires    = [ "argo-cd-helm-chart.service" ];
         path        = with pkgs; [ coreutils ];
         serviceConfig = {
           Type            = "oneshot";
           RemainAfterExit = true;
         };
         script = ''
-          until ${kubectl} get --raw=/readyz >/dev/null 2>&1; do
+          until ${kubectl} get namespace argo-cd >/dev/null 2>&1; do
             sleep 1
           done
-
-          ${kubectl} create namespace argo-cd --dry-run=client -o yaml | ${kubectl} apply -f -
 
           ${kubectl} apply -f - <<EOF
           apiVersion: v1
