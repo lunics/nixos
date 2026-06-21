@@ -37,8 +37,8 @@
             admin.password: "$(cat ${config.sops.secrets."argo-cd/admin-password".path})"
             admin.passwordMtime: "2026-01-01T00:00:00Z"
           data:
-            tls.key: $(base64 -w0 ${config.sops.secrets."kube/cluster-cert.key".path})
-            tls.crt: $(base64 -w0 ${config.sops.secrets."kube/cluster-cert.crt".path})
+            tls.key: $(base64 -w0 ${config.sops.secrets."kube/tls.key".path})
+            tls.crt: $(base64 -w0 ${config.sops.secrets."kube/tls.crt".path})
           EOF
         '';
       };
