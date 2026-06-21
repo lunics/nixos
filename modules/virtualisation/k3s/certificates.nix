@@ -6,6 +6,8 @@
       "intermediate-ca.crt"
       "server-ca.key"
       "server-ca.crt"
+      "client-ca.key"
+      "client-ca.crt"
       "client-admin-persistent.key"
       "client-admin-persistent.crt"
     ];
@@ -34,6 +36,8 @@
           install -m 0644 ${config.sops.secrets."kube/intermediate-ca.crt".path} ${tls-dir}/intermediate-ca.crt
           install -m 0600 ${config.sops.secrets."kube/server-ca.key".path}       ${tls-dir}/server-ca.key
           install -m 0644 ${config.sops.secrets."kube/server-ca.crt".path}       ${tls-dir}/server-ca.crt
+          install -m 0600 ${config.sops.secrets."kube/client-ca.key".path}       ${tls-dir}/client-ca.key
+          install -m 0644 ${config.sops.secrets."kube/client-ca.crt".path}       ${tls-dir}/client-ca.crt
           install -m 0600 ${config.sops.secrets."kube/client-admin-persistent.key".path} ${tls-dir}/client-admin-persistent.key
           install -m 0644 ${config.sops.secrets."kube/client-admin-persistent.crt".path} ${tls-dir}/client-admin-persistent.crt
 
