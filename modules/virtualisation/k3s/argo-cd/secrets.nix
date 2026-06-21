@@ -1,14 +1,19 @@
 {
   flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; let
     secrets = [
-      "tls.crt"
-      "tls.key"
-      "admin-password"
+      "kube/tls.crt"
+      "kube/tls.key"
+      "argo-cd/admin-password"
     ];
-    has-secrets = (options ? sops) && (all (name: config.sops.secrets ? "argo-cd/${name}") secrets);
+    has-secrets = (options ? sops) && (all (name: config.sops.secrets ? ${name}) secrets);
     kubectl = "${pkgs.kubectl}/bin/kubectl --kubeconfig=/etc/rancher/k3s/k3s.yaml";
   in {
-    config = mkIf (config._.k3s.enable && has-secrets) {
+    config = mkIf (config._.k3s.enable) {
+      assertions = [{
+        assertion = has-secrets;
+        message   = "argo-cd: missing secrets to complete Helm Chart installation";
+      }];
+
       systemd.services.argo-cd-secrets = {
         description = "Provision Argo CD certificate and admin password";
         wantedBy    = [ "multi-user.target" ];
