@@ -6,8 +6,8 @@
       "intermediate-ca.crt"
       "server-ca.key"
       "server-ca.crt"
-      "client-admin.key"
-      "client-admin.crt"
+      "client-admin-persistent.key"
+      "client-admin-persistent.crt"
     ];
     has-secrets = (options ? sops) && (all (cert: config.sops.secrets ? "kube/${cert}") secrets);
 
@@ -34,8 +34,8 @@
           install -m 0644 ${config.sops.secrets."kube/intermediate-ca.crt".path} ${tls-dir}/intermediate-ca.crt
           install -m 0600 ${config.sops.secrets."kube/server-ca.key".path}       ${tls-dir}/server-ca.key
           install -m 0644 ${config.sops.secrets."kube/server-ca.crt".path}       ${tls-dir}/server-ca.crt
-          install -m 0600 ${config.sops.secrets."kube/client-admin.key".path}    ${tls-dir}/client-admin.key
-          install -m 0644 ${config.sops.secrets."kube/client-admin.crt".path}    ${tls-dir}/client-admin.crt
+          install -m 0600 ${config.sops.secrets."kube/client-admin-persistent.key".path} ${tls-dir}/client-admin-persistent.key
+          install -m 0644 ${config.sops.secrets."kube/client-admin-persistent.crt".path} ${tls-dir}/client-admin-persistent.crt
 
           # bash ${generate-ca-certs}
         '';
