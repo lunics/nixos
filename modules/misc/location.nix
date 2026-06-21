@@ -1,8 +1,8 @@
 {
   flake.aspects.location.nixos = {
     time = {
-      timeZone = "Europe/Paris";
-      hardwareClockInLocalTime = false;   # keep the hardware clock in local time instead of UTC
+      timeZone = "Europe/Paris";          # Europe/Paris = logs at the right time from Paris, UTC = logs at -2h from Paris
+      hardwareClockInLocalTime = false;   # true = keep the hardware clock in local time instead of UTC
     };
 
     i18n = {

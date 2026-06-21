@@ -17,7 +17,11 @@
         # "2.fr.pool.ntp.org"
         # "3.fr.pool.ntp.org"
       ];
-      # extraConfig = '';
+      # allow chrony to step the clock immediately on large offsets,
+      # instead of slowly slewing (which can take a long time for a 2h gap)
+      extraConfig = lib.mkDefault ''
+        makestep 1.0 3
+      '';
     };
   };
 }
