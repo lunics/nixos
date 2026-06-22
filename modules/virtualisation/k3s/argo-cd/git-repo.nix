@@ -11,6 +11,7 @@
         wantedBy    = [ "multi-user.target" ];
         after       = [ "argo-cd-secrets.service" ];
         requires    = [ "argo-cd-secrets.service" ];
+        path        = with pkgs; [ coreutils ];   # required by base64
         serviceConfig = {
           Type            = "oneshot";
           RemainAfterExit = true;
