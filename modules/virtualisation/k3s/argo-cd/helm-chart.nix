@@ -6,7 +6,6 @@
         wantedBy    = [ "multi-user.target" ];
         after       = [ "k3s.service" ];
         requires    = [ "k3s.service" ];
-        environment.KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
         serviceConfig = {
           Type            = "oneshot";
           RemainAfterExit = true;
@@ -14,7 +13,7 @@
         script = ''
           # cat > /var/lib/rancher/k3s/server/manifests/argo-cd-helm-chart.yaml << EOF
 
-          ${pkgs.kubectl}/bin/kubectl apply -f - << EOF
+          ${pkgs.kubectl}/bin/kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml apply -f - << EOF
           apiVersion: helm.cattle.io/v1
           kind: HelmChart
           metadata:
