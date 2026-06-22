@@ -11,9 +11,7 @@
           RemainAfterExit = true;
         };
         script = ''
-          # cat > /var/lib/rancher/k3s/server/manifests/argo-cd-helm-chart.yaml << EOF
-
-          ${pkgs.kubectl}/bin/kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml apply -f - << EOF
+          ${config._.k3s.kubectl} apply -f - << EOF
           apiVersion: helm.cattle.io/v1
           kind: HelmChart
           metadata:

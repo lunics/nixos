@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { lib, pkgs, ... }: with lib; {
     options._ = {
       k3s = {
         enable = mkEnableOption "";
@@ -10,6 +10,10 @@
         master-node-ip = mkOption {
           type    = types.str;
           default = "127.0.0.1";
+        };
+        kubectl = mkOption {
+          type    = types.str;
+          default = "${pkgs.kubectl}/bin/kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml";
         };
       };
 
