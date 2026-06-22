@@ -11,7 +11,7 @@
           RemainAfterExit = true;
         };
         script = ''
-          ${pkgs.kubectl}/bin/kubectl apply -f - <<EOF
+          ${config._.k3s.kubectl} apply -f - <<EOF
           apiVersion: argoproj.io/v1alpha1
           kind: Application
           metadata:
