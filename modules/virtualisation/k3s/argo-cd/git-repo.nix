@@ -1,8 +1,11 @@
 {
-  flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; let
-    has-secret = (options ? sops) && (config.sops.secrets ? "argo-cd/ssh-kube-repo");
-  in {
-    config = mkIf (config._.k3s.enable && has-secret) {
+  flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; {
+    config = mkIf (config._.k3s.enable) {
+      assertions = [{
+        assertion = config.sops.secrets ? "argo-cd/ssh-kube-repo";
+        message   = "argo-cd: missing secrets ssh private key";
+      }];
+
       systemd.services.argo-cd-git-repo = {
         description = "Provision Argo CD git repository";
         wantedBy    = [ "multi-user.target" ];
