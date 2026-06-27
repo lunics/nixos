@@ -13,7 +13,7 @@
 
       prev_workspace = mkOption {
         type    = types.str;
-        default = "49";       # keycode for ²
+        default = "twosuperior";       # 49 = keycode for ²
       };
 
       workspace = {
