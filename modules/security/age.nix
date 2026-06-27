@@ -6,7 +6,7 @@
         # age
       ];
 
-      file.".config/age/identities".source = config.sops.secrets.age-identities.path;
+      file.".config/age/identities".source = config.lib.file.mkOutOfStoreSymlink config.sops.secrets.age-identities.path;
     };
 
     assertions = [{
