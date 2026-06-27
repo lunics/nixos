@@ -45,7 +45,7 @@
         -- WORKSPACES --
         
       -- hl.bind(SUPER  .. " + ${_hypr.prev_workspace}", hl.dsp.focus({ last }))
-      -- hl.bind(SUPER  .. " + space",                   hl.dsp.focus({ last }))
+      hl.bind(SUPER  .. " + space", hl.dsp.focus({  workspace = "previous" }))
         -- bind = , ${_hypr.prev_workspace}, workspace, previous
         -- bind = SUPER, space, workspace, previous
         -- bindr = SUPER, SUPER_L, workspace, previous
