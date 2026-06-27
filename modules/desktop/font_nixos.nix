@@ -12,7 +12,7 @@
       packages = with pkgs; [
         ubuntu-classic
         liberation_ttf
-        vazir-fonts
+        vazirmatn
         dejavu_fonts                 # for bottom graphics
         nerd-fonts.fira-code    
         nerd-fonts.droid-sans-mono
