@@ -15,6 +15,11 @@
     #   star-history    KO pending but never show chart on localhost:3000 or 8080
     # ];
 
+    assertions = [{
+      assertion = config.sops.secrets ? github-token;
+      message   = "sops: missing github-token secret";
+    }];
+
     home.sessionVariables."GITHUB_TOKEN" = "$(cat ${config._.github_token} 2>/dev/null)";
   };
 }
