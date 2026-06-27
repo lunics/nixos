@@ -8,7 +8,6 @@
         yubico-pam
         pam_u2f
         age-plugin-yubikey
-        rage                  # age in rust
         pcsclite
         yubikey-personalization
         # yubikey-full-disk-encryption
