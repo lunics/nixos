@@ -5,6 +5,8 @@
         type    = types.str;
         default = "nvim";
       };
+
+      libreoffice = mkEnableOption "";
     };
   };
 }

@@ -54,8 +54,6 @@
       bluetui       # tui bluetooth manager
       wipe
       entr          # run arbitrary commands when files change
-      libreoffice
-
       tigervnc
 
       curl
