@@ -18,15 +18,9 @@
 
       splitkb   = mkEnableOption "";
 
-      ansible   = mkEnableOption "";
-
-      terraform = mkEnableOption "";
-
       winboat   = mkEnableOption "";
 
       devbox    = mkEnableOption "";
-
-      kube      = mkEnableOption "";
 
       keyring = mkOption {
         type    = types.str;
