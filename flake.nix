@@ -35,7 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts = {
-      url = "git+file:./hosts";
+      url = "git+file:/home/lunics/usb_copy/homelab/nixos-hosts";
       inputs = {
         flake-parts.follows = "flake-parts";
         import-tree.follows = "import-tree";
