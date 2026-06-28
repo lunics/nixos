@@ -34,8 +34,8 @@ local animation = {
   { leaf = "zoomFactor",       enabled = true, speed = 7,    bezier = "quick" },
 }
 
-for _, cfg in ipairs(curve) do
-  hl.curve(cfg)
+for name, cfg in pairs(curve) do
+  hl.curve(name, cfg)
 end
 
 for _, cfg in ipairs(animation) do
