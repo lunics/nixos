@@ -6,6 +6,10 @@
 
       kernel.sysctl."net.ipv4.ip_forward" = 1;
 
+      kernelParams = [
+        "mem_sleep_default=deep"
+      ];
+
       # kernelParams = [
       #   "quiet"
       #   "fbcon=nodefer"
