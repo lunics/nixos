@@ -16,7 +16,7 @@ local curve = {
 local animation = {
   { leaf = "global",           enabled = true, speed = 10,   bezier = "default" },
   { leaf = "border",           enabled = true, speed = 5.39, bezier = "easeOutQuint" },
-  { leaf = "windows",          enabled = true, speed = 4.79, spring = "slide" },   -- # 0 = OFF; 1 = ON
+  { leaf = "windows",          enabled = true, speed = 4.79, spring = "easy" },
   { leaf = "windowsIn",        enabled = true, speed = 4.1,  spring = "easy",         style = "popin 87%" },
   { leaf = "windowsOut",       enabled = true, speed = 1.49, bezier = "linear",       style = "popin 87%" },
   { leaf = "fadeIn",           enabled = true, speed = 1.73, bezier = "almostLinear" },
@@ -30,7 +30,6 @@ local animation = {
   { leaf = "workspaces",       enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" },
   { leaf = "workspacesIn",     enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" },
   { leaf = "workspacesOut",    enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" },
-  { leaf = "specialWorkspace", enabled = true, speed = 4,    bezier = "specialWorkSwitch", style = "slidefadevert 15%" },
   { leaf = "zoomFactor",       enabled = true, speed = 7,    bezier = "quick" },
 }
 
