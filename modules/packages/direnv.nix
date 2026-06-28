@@ -1,17 +1,14 @@
 {
-  flake.aspects.packages.homeManager = { pkgs, ... }:{ 
+  flake.aspects.packages.homeManager = { config, ... }:{ 
     programs.direnv = {   # required by clan
       enable  = true;
-      package = pkgs.direnv;
       enableZshIntegration = true;
 
       mise = {
-        enable  = true;
-        package = pkgs.mise;
+        enable  = config._.mise;
       };
       nix-direnv = {
         enable  = false;
-        package = pkgs.nix-direnv;
       };
 
       enableNushellIntegration = false;
