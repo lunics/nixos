@@ -9,7 +9,9 @@
     programs.nixvim = {
       enable = true;
 
-      _module.args._config = config;    # config already used by nixvim
+      _module.args._options = config._;  # only the `_` namespace: passing the
+                                          # whole `config` makes nixvim's nixpkgs
+                                          # module force the host config -> inf rec
       _module.args._pkgs = pkgs;
 
       imports = [

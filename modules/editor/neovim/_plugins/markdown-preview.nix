@@ -1,4 +1,4 @@
-{ _config, ... }:{
+{ _options, ... }:{
   # https://github.com/iamcco/markdown-preview.nvim/
 
   plugins."markdown-preview.nvim".enable = true;
@@ -31,7 +31,7 @@
     let g:mkdp_open_ip = ""
     
     " browser to open preview page
-    let g:mkdp_browser = '${_config._.browser}'
+    let g:mkdp_browser = '${_options.browser}'
     
     " set to 1, echo preview page URL in command line when opening preview page
     " default is 0
@@ -87,7 +87,7 @@
     let g:mkdp_page_title = '「''\${name}」'
     
     " use a custom location for images
-    " let g:mkdp_images_path = ${_config._.share}/neovim/markdown-preview_images
+    " let g:mkdp_images_path = ${_options.share}/neovim/markdown-preview_images
     
     " recognized filetypes
     " these filetypes will have MarkdownPreview... commands

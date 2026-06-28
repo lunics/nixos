@@ -1,5 +1,5 @@
-{ _config, ... }:let
-  _map = _config._.neovim.keymap;
+{ _options, ... }:let
+  _map = _options.neovim.keymap;
 in {
   extraConfigLua = ''
     local map   = vim.keymap.set

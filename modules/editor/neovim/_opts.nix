@@ -1,10 +1,10 @@
-{ _config, ... }:{
+{ _options, ... }:{
   opts = {
     backup              = false;    # creates a backup file
     writebackup         = false;    # write to a backup file
     swapfile            = false;    # create a swapfile, useless when files are autosaved
     undofile            = true;     # enable persistent undo
-    undodir             = "${_config._.local_state}/nvim/undo";
+    undodir             = "${_options.local_state}/nvim/undo";
     title               = true;
     background          = "dark";
     termguicolors       = true;
