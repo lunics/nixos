@@ -7,8 +7,6 @@
       # qt
       # gtk
       font_home
-      window_manager
-      wallpaper
       status_bar
       screen_locker
       launcher
