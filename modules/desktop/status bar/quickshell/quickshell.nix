@@ -1,6 +1,6 @@
 {
   flake.aspects.status_bar.homeManager = { config, lib, pkgs, ... }:{
-    # config = lib.mkIf (config._.status_bar == "quickshell") {
+    config = lib.mkIf (config._.status_bar == "quickshell") {
       programs.quickshell = {
         enable       = true;
         package      = pkgs.quickshell;
@@ -12,6 +12,6 @@
           target = "hyprland-session.target";     # default = config.wayland.systemd.target
         };
       };
-    # };
+    };
   };
 }
