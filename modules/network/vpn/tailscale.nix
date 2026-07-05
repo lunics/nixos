@@ -11,9 +11,9 @@
     };
 
     homeManager = { pkgs, lib, osConfig, ... }:{
-      home.packages = with pkgs; [
-        (lib.mkIf osConfig.services.desktopManager.plasma6.enable tail-tray)
-      ];
+      home.packages = lib.optional
+        (osConfig != null && osConfig.services.desktopManager.plasma6.enable)
+          pkgs.tail-tray;
 
       xdg.configFile."autostart/tail-tray.desktop".text = ''
         [Desktop Entry]
@@ -33,4 +33,3 @@
     };
   };
 }
-
