@@ -2,7 +2,6 @@
   flake.aspects.nix.homeManager = { config, lib, pkgs, ... }:{
     home.packages = with pkgs; [
       deploy-rs
-      nixos-anywhere
       vim
       # nix-init          # generate Nix packages from URLs
       # comma             # to runs nix software without installing it
