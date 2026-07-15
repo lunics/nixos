@@ -1,8 +1,8 @@
-{
+{ inputs, ... }:{
   flake-file.inputs.claude-desktop.url = "github:aaddrick/claude-desktop-debian";
 
   flake.aspects.ai.homeManager = { pkgs, ... }:{ 
-    nixpkgs.overlays = [ claude-desktop.overlays.default ];
-    # environment.systemPackages = [ pkgs.claude-desktop ];
+    nixpkgs.overlays = [ inputs.claude-desktop.overlays.default ];
+    home.packages = [ pkgs.claude-desktop ];
   };
 }
