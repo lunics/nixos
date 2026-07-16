@@ -3,6 +3,6 @@
 
   flake.aspects.ai.homeManager = { pkgs, ... }:{ 
     nixpkgs.overlays = [ inputs.claude-desktop.overlays.default ];
-    home.packages = [ pkgs.claude-desktop ];
+    _.allow-unfree = with pkgs; [ claude-desktop ];
   };
 }
