@@ -1,6 +1,6 @@
 {
   flake.aspects.multiplexer.homeManager = {
-    programs.screen = {   ## error programs.screen does not exist
+    programs.screen = {
       enable   = false;
       screenrc = ''
         termcapinfo xterm* ti@:te@
