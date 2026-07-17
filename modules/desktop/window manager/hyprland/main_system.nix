@@ -49,6 +49,7 @@
         XDG_SESSION_TYPE      = "wayland";
         XDG_SESSION_DESKTOP   = "Hyprland";
         WAYLAND_DISPLAY       = "$(if [[ $UID == \"${wayland-uid}\" ]]; then ls -l /run/user/${wayland-uid}/ | /run/current-system/sw/bin/grep -IoE 'wayland-[0-9]$'; fi)";
+        GTK_IM_MODULE         = "simple";           # required by ghostty to reactive dead key from gtk
       };
     };
   };
