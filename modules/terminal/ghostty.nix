@@ -1,10 +1,22 @@
 {
   flake.aspects.terminal.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.terminal == "ghostty") {
-      home.sessionVariables.GTK_IM_MODULE = "simple";
+      home.sessionVariables = {
+        # GTK_IM_MODULE = "simple";   KO, required maybe a nixos gtk module
+        GTK_IM_MODULE = "fcitx";
+        QT_IM_MODULE  = "fcitx";
+        XMODIFIERS    = "@im=fcitx";
+      };
 
       home.packages = with pkgs; [
         ghostty
+
+        # requried pkgs to fix dead keys like: ^¨
+        fcitx5
+        fcitx5-gtk
+        qt6Packages.fcitx5-qt
+        qt6Packages.fcitx5-configtool
+
         # ghostty-bin     KO only on darwin system ?
 
         # (pkgs.ghostty.overrideAttrs (oldAttrs: rec {
