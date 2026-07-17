@@ -1,6 +1,8 @@
 {
   flake.aspects.terminal.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.terminal == "ghostty") {
+      home.sessionVariables.GTK_IM_MODULE = "simple";
+
       home.packages = with pkgs; [
         ghostty
         # ghostty-bin     KO only on darwin system ?
