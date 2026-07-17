@@ -1,9 +1,13 @@
 {
   flake.aspects.multiplexer.homeManager = {
     programs.zellij = {
-      enable = false;
-      # attachExistingSession = true;       # require enableZshIntegration = true
-      # enableZshIntegration  = true;
+      enable = true;
+      # attachExistingSession = true;       
+        # attach to the default session after being autostarted if a Zellij session already exists
+        # requires shell integration to be enabled to have effect.
+
+      enableZshIntegration  = true;
+
       # settings = {
       #   on_force_close "quit"
       #   theme = "custom";
