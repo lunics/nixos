@@ -5,7 +5,7 @@
       notifier
       wallpaper
       # qt
-      # gtk
+      gtk
       font_home
       status_bar
       screen_locker
