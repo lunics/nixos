@@ -1,11 +1,21 @@
 {
   flake.aspects.bluetooth = {
-    nixos = { config, lib, ... }:{
+    nixos = { config, lib, pkgs, ... }:{
       hardware.bluetooth = {
         enable      = true;
         powerOnBoot = true;
         settings = {
           General.Experimental = true;
+        };
+      };
+
+      systemd.services.bluetooth = {
+        serviceConfig = {
+          ExecStartPre = [
+            "${pkgs.bluez}/bin/hciconfig hci0 down"
+            "${pkgs.bluez}/bin/btmgmt --index 0 public-addr FE:ED:BA:BE:30:0${toString config._.machine-index}"
+            "${pkgs.bluez}/bin/hciconfig hci0 up"
+          ];
         };
       };
 
