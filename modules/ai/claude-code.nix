@@ -113,7 +113,7 @@
           socat
         ];
 
-        sessionVariables."CLAUDE_CONFIG_DIR" = "${config._.share}/claude";
+        sessionVariables."CLAUDE_CONFIG_DIR" = "${config._.share}/claude-code";
       };
     };
   };
