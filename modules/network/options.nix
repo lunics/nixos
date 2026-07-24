@@ -6,6 +6,11 @@
         default = "nixos";
       };
 
+      bluetooth-devices = mkOption {
+        type    = types.listOf types.str;
+        default = [];
+      };
+
       net = {
         ipv6 = mkEnableOption "";   # toggle globally ipv6
 
