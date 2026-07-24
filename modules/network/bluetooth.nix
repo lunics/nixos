@@ -22,6 +22,12 @@
         };
       };
 
+      assertions = map (mac-device: {
+        assertion = (config.sops.secrets ? "${mac-device}/info")
+                 && (config.sops.secrets ? "${mac-device}/attributes");
+        message   = "sops: missing bluetooth secrets for device ${mac-device}";
+      }) config._.bluetooth-devices;
+
       sops.secrets = lib.mkMerge (map (mac-device: {
         "${mac-device}/info" = {
           path         = "/var/lib/bluetooth/${mac-controller}/${mac-device}/info";
