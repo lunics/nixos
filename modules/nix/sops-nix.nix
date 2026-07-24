@@ -14,6 +14,12 @@
         "/var/lib/sops-nix" 
       ];
     };
-    homeManager.imports = [ inputs.sops-nix.homeManagerModules.sops ];
+    homeManager = { pkgs, ... }:{
+      imports = [ inputs.sops-nix.homeManagerModules.sops ];
+
+      home.packages = with pkgs; [
+        sops
+      ];
+    };
   };
 }
