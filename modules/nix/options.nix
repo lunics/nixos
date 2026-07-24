@@ -17,6 +17,10 @@
         type    = types.str;
         default = "26.11";
       };
+      machine-index = mkOption {
+        type    = types.int;
+        default = "";
+      };
     };
   };
 }
