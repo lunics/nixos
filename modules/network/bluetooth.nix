@@ -1,6 +1,9 @@
 {
   flake.aspects.bluetooth = {
-    nixos = { config, lib, pkgs, ... }:{
+    nixos = { config, lib, pkgs, ... }:
+    let
+      mac-controller = "FE:ED:BA:BE:30:0${toString config._.machine-index}";
+    in {
       hardware.bluetooth = {
         enable      = true;
         powerOnBoot = true;
@@ -13,11 +16,24 @@
         serviceConfig = {
           ExecStartPre = [
             "${pkgs.bluez}/bin/hciconfig hci0 down"
-            "${pkgs.bluez}/bin/btmgmt --index 0 public-addr FE:ED:BA:BE:30:0${toString config._.machine-index}"
+            "${pkgs.bluez}/bin/btmgmt --index 0 public-addr ${mac-controller}"
             "${pkgs.bluez}/bin/hciconfig hci0 up"
           ];
         };
       };
+
+      sops.secrets = lib.mkMerge (map (mac-device: {
+        "${mac-device}/info" = {
+          path         = "/var/lib/bluetooth/${mac-controller}/${mac-device}/info";
+          mode         = "0600";
+          restartUnits = [ "bluetooth.service" ];
+        };
+        "${mac-device}/attributes" = {
+          path         = "/var/lib/bluetooth/${mac-controller}/${mac-device}/attributes";
+          mode         = "0600";
+          restartUnits = [ "bluetooth.service" ];
+        };
+      }) config._.bluetooth-devices);
 
       services.blueman.enable = true;   # GTK+ bluetooth manager
 
