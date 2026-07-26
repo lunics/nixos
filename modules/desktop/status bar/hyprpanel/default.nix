@@ -1,4 +1,11 @@
-{
+{ inputs, ... }:{
+  # repo was archived in 2026-04 and removed from nixpkgs. Pin the last commit
+  # (d563cdb, 2025-06-20) that still BUILDS from source via ags.lib.bundle — the
+  # next commit (346294f "migrate to downstream infra") gutted the flake to just
+  # re-export pkgs.hyprpanel, which now throws "archived". No nixpkgs.follows on
+  # purpose: use the flake's own locked nixpkgs that the ags bundle built against.
+  flake-file.inputs.hyprpanel.url = "github:Jas-SinghFSU/HyprPanel/d563cdb1f6499d981901336bd0f86303ab95c4a5";
+
   flake.aspects.status_bar.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.status_bar == "hyprpanel") {
       # home.packages = with pkgs; [
@@ -17,7 +24,7 @@
 
       programs.hyprpanel = {
         enable          = true;
-        # package         = pkgs.hyprpanel;
+        package         = inputs.hyprpanel.packages.${pkgs.system}.default;
         systemd.enable  = true;
 
         settings = {
