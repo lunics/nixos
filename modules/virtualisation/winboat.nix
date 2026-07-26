@@ -6,9 +6,6 @@
         # (unstable.winboat.override {nodejs_24 = pkgs.nodejs_24;})
         freerdp
       ];
-      _.allow-unfree = with pkgs; [ 
-        electron-40.10.5 
-      ];
     };
   };
 }
