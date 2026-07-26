@@ -3,7 +3,7 @@
     ## dynamc input & bind
     programs = {
       wayprompt = {
-        enable   = true;
+        enable   = false;   ## build failed
         # package  = pkgs.wayprompt;
         # settings = {
         #   general = {
