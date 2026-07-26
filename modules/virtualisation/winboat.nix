@@ -6,6 +6,9 @@
         # (unstable.winboat.override {nodejs_24 = pkgs.nodejs_24;})
         freerdp
       ];
+      permittedInsecurePackages = [
+        "electron-40.10.5"
+      ];
     };
   };
 }
