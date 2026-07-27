@@ -18,8 +18,6 @@
 
       splitkb   = mkEnableOption "";
 
-      winboat   = mkEnableOption "";
-
       devbox    = mkEnableOption "";
 
       keyring = mkOption {
