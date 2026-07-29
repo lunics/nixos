@@ -36,7 +36,5 @@
     nixpkgs.overlays = [ scriptOverlay ];
 
     home.packages = [ pkgs.update-wallpaper ];
-
-    _.add_to_startup = [ "awww-daemon" ];
   };
 }
