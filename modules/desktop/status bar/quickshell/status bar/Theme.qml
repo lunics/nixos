@@ -9,8 +9,8 @@ Singleton {
   // Theme colors
   property color colBg:       "#1a1b26"
   property color colPanel:    "#aa24283b"
-  property color colBorder:   "#9ece6a"
-  property int   borderWidth: 3
+  property color colBorder:   "#00cd00"
+  property int   borderWidth: 2
   property color colFg:       "#a9b1d6"
   property color colMuted:    "#444b6a"
   property color colCyan:     "#0db9d7"
