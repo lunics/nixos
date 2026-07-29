@@ -4,36 +4,34 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.status_bar.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.caelestia.homeManager = { config, lib, pkgs, ... }:{
     imports = [ inputs.caelestia-shell.homeManagerModules.default ];
 
-    config = lib.mkIf (config._.status_bar == "caelestia") {
-      programs.caelestia = {
-        enable  = true;
-        systemd = {
-          enable      = true;
-          target      = "graphical-session.target";
-          environment = [];
-        };
-        settings = {
-          bar.status = {
-            showBattery = true;
-          };
-          paths.wallpaperDir = "${config._.share}/wallpapers";
-        };
-        cli = {
-          enable = true;    # add caelestia-cli to path
-          settings = {
-            theme.enableGtk = false;
-          };
-        };
-      }; 
-
-      xdg.desktopEntries."org.quickshell" = {
-        name = "Quickshell";
-        exec = "qs";
-        type = "Application";
+    programs.caelestia = {
+      enable  = true;
+      systemd = {
+        enable      = true;
+        target      = "graphical-session.target";
+        environment = [];
       };
+      settings = {
+        bar.status = {
+          showBattery = true;
+        };
+        paths.wallpaperDir = "${config._.share}/wallpapers";
+      };
+      cli = {
+        enable = true;    # add caelestia-cli to path
+        settings = {
+          theme.enableGtk = false;
+        };
+      };
+    }; 
+
+    xdg.desktopEntries."org.quickshell" = {
+      name = "Quickshell";
+      exec = "qs";
+      type = "Application";
     };
   };
 }
