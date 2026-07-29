@@ -12,8 +12,6 @@
       };
     };
 
-    home.activation.quickshell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p ${config._.dot_config}/quickshell
-    '';
+    xdg.configFile."quickshell/shell.qml".source = ./shell.qml;
   };
 }
