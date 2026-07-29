@@ -30,6 +30,7 @@ Singleton {
   property bool showWindow:     false
   property bool showKernel:     false
   property bool showCpu:        true
+  property bool showTemp:       true
   property bool showMem:        false
   property bool showDisk:       false
   property bool showNetwork:    true

@@ -7,7 +7,7 @@ ShellRoot {
   id: root
 
   // IPC control, e.g. `qs ipc call bar toggle cpu`
-  // modules: logo, workspaces, layout, window, kernel, network, cpu, mem, disk, vol, battery, clock
+  // modules: logo, workspaces, layout, window, kernel, network, cpu, temperature, mem, disk, vol, battery, clock
   IpcHandler {
     target: "bar"
 
@@ -67,16 +67,17 @@ ShellRoot {
         anchors.rightMargin: 6
         spacing: 6
 
+        Modules.Vol {}
+        Modules.Battery {}
+        Modules.Network {}
+        Modules.Temperature {}
+        Modules.Cpu {}
+        Modules.Mem {}
+        Modules.Disk {}
         Modules.Logo {}
         Modules.Layout {}
         Modules.Window {}
         Modules.Kernel {}
-        Modules.Network {}
-        Modules.Vol {}
-        Modules.Battery {}
-        Modules.Cpu {}
-        Modules.Mem {}
-        Modules.Disk {}
       }
     }
   }

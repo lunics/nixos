@@ -4,6 +4,7 @@ Layout layout.qml
 Window window.qml
 Kernel kernel.qml
 Cpu cpu.qml
+Temperature temperature.qml
 Mem mem.qml
 Disk disk.qml
 Network network.qml
