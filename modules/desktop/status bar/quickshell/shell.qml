@@ -35,10 +35,10 @@ ShellRoot {
   property string currentLayout: "Tile"
 
   // Module visibility toggles
-  property bool showLogo: true
+  property bool showLogo: false
   property bool showWorkspaces: true
   property bool showLayout: true
-  property bool showWindow: true
+  property bool showWindow: false
   property bool showKernel: false
   property bool showCpu: true
   property bool showMem: true
@@ -175,12 +175,12 @@ ShellRoot {
   IpcHandler {
     target: "bar"
 
-    function propFor(name) {
+    function propFor(name: string): string {
       return "show" + name.charAt(0).toUpperCase() + name.slice(1)
     }
-    function toggle(name) { var p = propFor(name); root[p] = !root[p] }
-    function show(name) { root[propFor(name)] = true }
-    function hide(name) { root[propFor(name)] = false }
+    function toggle(name: string) { var p = propFor(name); root[p] = !root[p] }
+    function show(name: string) { root[propFor(name)] = true }
+    function hide(name: string) { root[propFor(name)] = false }
   }
 
   // Slow timer for system stats
@@ -275,7 +275,7 @@ ShellRoot {
           Image {
             width: 18
             height: 18
-            source: "file:///home/tony/.config/quickshell/icons/tonybtw.png"
+            source: "file:///home/USER/.config/quickshell/icons/nixos.png"
             fillMode: Image.PreserveAspectFit
           }
         }
