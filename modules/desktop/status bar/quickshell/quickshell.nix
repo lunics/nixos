@@ -12,6 +12,6 @@
       };
     };
 
-    xdg.configFile."quickshell/status bar/shell.qml".source = ./shell.qml;
+    xdg.configFile."quickshell/status bar".source = ./status-bar;
   };
 }

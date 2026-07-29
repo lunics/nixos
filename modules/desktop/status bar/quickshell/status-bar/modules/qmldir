@@ -1,0 +1,10 @@
+Logo logo.qml
+Workspaces workspaces.qml
+Layout layout.qml
+Window window.qml
+Kernel kernel.qml
+Cpu cpu.qml
+Mem mem.qml
+Disk disk.qml
+Vol vol.qml
+Clock clock.qml
