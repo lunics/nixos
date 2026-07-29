@@ -7,7 +7,12 @@
       # qt
       gtk
       font_home
-      status_bar
+
+      # STATUS BAR
+      # hyprpanel
+      quickshell
+      # caelestia
+
       screen_locker
       launcher
       # idle_manager
