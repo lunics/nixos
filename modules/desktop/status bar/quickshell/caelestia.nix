@@ -7,9 +7,9 @@
   flake.aspects.status_bar.homeManager = { config, lib, pkgs, ... }:{
     imports = [ inputs.caelestia-shell.homeManagerModules.default ];
 
-    config = lib.mkIf (config._.status_bar == "quickshell") {
+    config = lib.mkIf (config._.status_bar == "caelestia") {
       programs.caelestia = {
-        enable = true;
+        enable  = true;
         systemd = {
           enable      = true;
           target      = "graphical-session.target";
