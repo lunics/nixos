@@ -7,4 +7,5 @@ Cpu cpu.qml
 Mem mem.qml
 Disk disk.qml
 Vol vol.qml
+Battery battery.qml
 Clock clock.qml

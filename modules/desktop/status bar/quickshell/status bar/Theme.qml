@@ -33,5 +33,6 @@ Singleton {
   property bool showMem:        false
   property bool showDisk:       false
   property bool showVol:        true
+  property bool showBattery:    true
   property bool showClock:      true
 }
