@@ -28,15 +28,6 @@ Pill {
         anchors.centerIn: parent
       }
 
-      Rectangle {
-        width: 16
-        height: 3
-        radius: 1.5
-        color: parent.isActive ? Theme.colPurple : "transparent"
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-      }
-
       MouseArea {
         anchors.fill: parent
         onClicked: Hyprland.dispatch("workspace " + modelData.id)
