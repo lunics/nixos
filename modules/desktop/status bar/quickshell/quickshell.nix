@@ -12,6 +12,6 @@
       };
     };
 
-    xdg.configFile."quickshell/status bar".source = ./status-bar;
+    xdg.configFile."quickshell/status bar".source = ./. + "/status bar";
   };
 }
