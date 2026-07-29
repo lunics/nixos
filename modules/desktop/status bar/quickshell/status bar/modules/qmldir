@@ -8,6 +8,7 @@ Temperature temperature.qml
 Mem mem.qml
 Disk disk.qml
 Network network.qml
+Systray systray.qml
 Vol vol.qml
 Battery battery.qml
 Clock clock.qml

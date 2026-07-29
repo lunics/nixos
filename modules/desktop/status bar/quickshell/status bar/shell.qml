@@ -1,3 +1,4 @@
+//@ pragma UseQApplication
 import Quickshell
 import Quickshell.Io
 import QtQuick
@@ -7,7 +8,7 @@ ShellRoot {
   id: root
 
   // IPC control, e.g. `qs ipc call bar toggle cpu`
-  // modules: logo, workspaces, layout, window, kernel, network, cpu, temperature, mem, disk, vol, battery, clock
+  // modules: logo, workspaces, layout, window, kernel, network, systray, cpu, temperature, mem, disk, vol, battery, clock
   IpcHandler {
     target: "bar"
 
@@ -78,6 +79,7 @@ ShellRoot {
         Modules.Layout {}
         Modules.Window {}
         Modules.Kernel {}
+        Modules.Systray {}
       }
     }
   }
