@@ -32,7 +32,16 @@ ShellRoot {
   property string currentLayout: "Tile"
 
   // Module visibility toggles
+  property bool showLogo: true
+  property bool showWorkspaces: true
+  property bool showLayout: true
+  property bool showWindow: true
   property bool showKernel: false
+  property bool showCpu: true
+  property bool showMem: true
+  property bool showDisk: true
+  property bool showVol: true
+  property bool showClock: true
 
   // CPU tracking
   property var lastCpuIdle: 0
@@ -158,12 +167,17 @@ ShellRoot {
     Component.onCompleted: running = true
   }
 
-  // IPC control (e.g. `qs ipc call kernel toggle`)
+  // IPC control, e.g. `qs ipc call bar toggle cpu`
+  // modules: logo, workspaces, layout, window, kernel, cpu, mem, disk, vol, clock
   IpcHandler {
-    target: "kernel"
-    function toggle() { root.showKernel = !root.showKernel }
-    function show() { root.showKernel = true }
-    function hide() { root.showKernel = false }
+    target: "bar"
+
+    function propFor(name) {
+      return "show" + name.charAt(0).toUpperCase() + name.slice(1)
+    }
+    function toggle(name) { var p = propFor(name); root[p] = !root[p] }
+    function show(name) { root[propFor(name)] = true }
+    function hide(name) { root[propFor(name)] = false }
   }
 
   // Slow timer for system stats
@@ -233,6 +247,7 @@ ShellRoot {
           Item { width: 8 }
 
           Rectangle {
+            visible: root.showLogo
             Layout.preferredWidth: 24
             Layout.preferredHeight: 24
             color: "transparent"
@@ -250,6 +265,7 @@ ShellRoot {
             model: 9
 
             Rectangle {
+              visible: root.showWorkspaces
               Layout.preferredWidth: 20
               Layout.preferredHeight: parent.height
               color: "transparent"
@@ -283,6 +299,7 @@ ShellRoot {
           }
 
           Rectangle {
+            visible: root.showWorkspaces
             Layout.preferredWidth: 1
             Layout.preferredHeight: 16
             Layout.alignment: Qt.AlignVCenter
@@ -292,6 +309,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showLayout
             text: currentLayout
             color: root.colFg
             font.pixelSize: root.fontSize
@@ -302,6 +320,7 @@ ShellRoot {
           }
 
           Rectangle {
+            visible: root.showLayout
             Layout.preferredWidth: 1
             Layout.preferredHeight: 16
             Layout.alignment: Qt.AlignVCenter
@@ -311,6 +330,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showWindow
             text: activeWindow
             color: root.colPurple
             font.pixelSize: root.fontSize
@@ -343,6 +363,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showCpu
             text: "CPU: " + cpuUsage + "%"
             color: root.colYellow
             font.pixelSize: root.fontSize
@@ -352,6 +373,7 @@ ShellRoot {
           }
 
           Rectangle {
+            visible: root.showCpu
             Layout.preferredWidth: 1
             Layout.preferredHeight: 16
             Layout.alignment: Qt.AlignVCenter
@@ -361,6 +383,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showMem
             text: "Mem: " + memUsage + "%"
             color: root.colCyan
             font.pixelSize: root.fontSize
@@ -370,6 +393,7 @@ ShellRoot {
           }
 
           Rectangle {
+            visible: root.showMem
             Layout.preferredWidth: 1
             Layout.preferredHeight: 16
             Layout.alignment: Qt.AlignVCenter
@@ -379,6 +403,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showDisk
             text: "Disk: " + diskUsage + "%"
             color: root.colBlue
             font.pixelSize: root.fontSize
@@ -388,6 +413,7 @@ ShellRoot {
           }
 
           Rectangle {
+            visible: root.showDisk
             Layout.preferredWidth: 1
             Layout.preferredHeight: 16
             Layout.alignment: Qt.AlignVCenter
@@ -397,6 +423,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showVol
             text: "Vol: " + volumeLevel + "%"
             color: root.colPurple
             font.pixelSize: root.fontSize
@@ -406,6 +433,7 @@ ShellRoot {
           }
 
           Rectangle {
+            visible: root.showVol
             Layout.preferredWidth: 1
             Layout.preferredHeight: 16
             Layout.alignment: Qt.AlignVCenter
@@ -415,6 +443,7 @@ ShellRoot {
           }
 
           Text {
+            visible: root.showClock
             id: clockText
             text: Qt.formatDateTime(new Date(), "ddd, MMM dd - HH:mm")
             color: root.colCyan
