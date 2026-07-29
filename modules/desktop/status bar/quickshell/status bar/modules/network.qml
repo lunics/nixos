@@ -19,9 +19,13 @@ Pill {
   }
 
   function iconColor(k) {
-    if (k === "wifi") return Theme.colCyan
     if (k === "lan")  return Theme.colBlue
-    return Theme.colMuted
+    if (k !== "wifi") return Theme.colMuted
+    // wifi: tint the icon by signal strength
+    if (root.signal >= 70) return Theme.colGreen
+    if (root.signal >= 50) return Theme.colBlue
+    if (root.signal >= 25) return Theme.colYellow
+    return Theme.colRed
   }
 
   Text {
@@ -36,16 +40,6 @@ Pill {
     visible: root.label !== ""
     text: root.label
     color: Theme.colFg
-    font.pixelSize: Theme.fontSize
-    font.family: Theme.fontFamily
-    font.bold: true
-  }
-
-  // Only surfaced when the wifi signal is weak (< 50%).
-  Text {
-    visible: root.kind === "wifi" && root.signal < 50
-    text: root.signal + "%"
-    color: root.signal < 25 ? Theme.colRed : Theme.colYellow
     font.pixelSize: Theme.fontSize
     font.family: Theme.fontFamily
     font.bold: true

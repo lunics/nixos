@@ -18,6 +18,7 @@ Singleton {
   property color colRed:      "#f7768e"
   property color colYellow:   "#e0af68"
   property color colBlue:     "#7aa2f7"
+  property color colGreen:    "#9ece6a"
 
   // Font
   property string fontFamily: "Ubuntu Mono:style=Regular"
