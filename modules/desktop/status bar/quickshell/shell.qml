@@ -10,6 +10,9 @@ ShellRoot {
 
   // Theme colors
   property color colBg: "#1a1b26"
+  property color colPanel: "#aa24283b"
+  property color colBorder: "#9ece6a"
+  property int borderWidth: 1
   property color colFg: "#a9b1d6"
   property color colMuted: "#444b6a"
   property color colCyan: "#0db9d7"
@@ -213,6 +216,27 @@ ShellRoot {
     }
   }
 
+  // Rounded frame wrapping a single module's content.
+  // Children are laid out horizontally inside the frame.
+  component Pill: Rectangle {
+    default property alias content: pillRow.data
+    property int hpad: 10
+
+    Layout.alignment: Qt.AlignVCenter
+    implicitHeight: 22
+    implicitWidth: pillRow.implicitWidth + hpad * 2
+    radius: 8
+    color: root.colPanel
+    border.color: root.colBorder
+    border.width: root.borderWidth
+
+    Row {
+      id: pillRow
+      anchors.centerIn: parent
+      spacing: 6
+    }
+  }
+
   Variants {
     model: Quickshell.screens
 
@@ -227,7 +251,8 @@ ShellRoot {
       }
 
       implicitHeight: 30
-      color: root.colBg
+      // Transparent bar: only the module frames are painted
+      color: "transparent"
 
       margins {
         top: 0
@@ -236,38 +261,36 @@ ShellRoot {
         right: 0
       }
 
-      Rectangle {
+      RowLayout {
         anchors.fill: parent
-        color: root.colBg
+        anchors.leftMargin: 6
+        anchors.rightMargin: 6
+        spacing: 6
 
-        RowLayout {
-          anchors.fill: parent
-          spacing: 0
+        // Logo
+        Pill {
+          visible: root.showLogo
+          hpad: 6
 
-          Item { width: 8 }
-
-          Rectangle {
-            visible: root.showLogo
-            Layout.preferredWidth: 24
-            Layout.preferredHeight: 24
-            color: "transparent"
-
-            Image {
-              anchors.fill: parent
-              source: "file:///home/tony/.config/quickshell/icons/tonybtw.png"
-              fillMode: Image.PreserveAspectFit
-            }
+          Image {
+            width: 18
+            height: 18
+            source: "file:///home/tony/.config/quickshell/icons/tonybtw.png"
+            fillMode: Image.PreserveAspectFit
           }
+        }
 
-          Item { width: 8 }
+        // Workspaces
+        Pill {
+          visible: root.showWorkspaces
+          hpad: 6
 
           Repeater {
             model: 9
 
             Rectangle {
-              visible: root.showWorkspaces
-              Layout.preferredWidth: 20
-              Layout.preferredHeight: parent.height
+              width: 20
+              height: 22
               color: "transparent"
 
               property var workspace: Hyprland.workspaces.values.find(ws => ws.id === index + 1) ?? null
@@ -284,9 +307,10 @@ ShellRoot {
               }
 
               Rectangle {
-                width: 20
+                width: 16
                 height: 3
-                color: parent.isActive ? root.colPurple : root.colBg
+                radius: 1.5
+                color: parent.isActive ? root.colPurple : "transparent"
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
               }
@@ -297,160 +321,123 @@ ShellRoot {
               }
             }
           }
+        }
 
-          Rectangle {
-            visible: root.showWorkspaces
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 8
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // Layout
+        Pill {
+          visible: root.showLayout
 
           Text {
-            visible: root.showLayout
             text: currentLayout
             color: root.colFg
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.leftMargin: 5
-            Layout.rightMargin: 5
           }
+        }
 
-          Rectangle {
-            visible: root.showLayout
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 2
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // Active window title: stretches to fill the gap between the left and right clusters
+        Rectangle {
+          visible: root.showWindow
+          Layout.fillWidth: true
+          Layout.alignment: Qt.AlignVCenter
+          implicitHeight: 22
+          radius: 8
+          color: root.colPanel
+          border.color: root.colBorder
+          border.width: root.borderWidth
 
           Text {
-            visible: root.showWindow
+            anchors.fill: parent
+            anchors.leftMargin: 10
+            anchors.rightMargin: 10
+            verticalAlignment: Text.AlignVCenter
             text: activeWindow
             color: root.colPurple
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.fillWidth: true
-            Layout.leftMargin: 8
             elide: Text.ElideRight
             maximumLineCount: 1
           }
+        }
+
+        // Kernel
+        Pill {
+          visible: root.showKernel
 
           Text {
-            visible: root.showKernel
             text: kernelVersion
             color: root.colRed
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.rightMargin: 8
           }
+        }
 
-          Rectangle {
-            visible: root.showKernel
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 0
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // CPU
+        Pill {
+          visible: root.showCpu
 
           Text {
-            visible: root.showCpu
             text: "CPU: " + cpuUsage + "%"
             color: root.colYellow
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.rightMargin: 8
           }
+        }
 
-          Rectangle {
-            visible: root.showCpu
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 0
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // Memory
+        Pill {
+          visible: root.showMem
 
           Text {
-            visible: root.showMem
             text: "Mem: " + memUsage + "%"
             color: root.colCyan
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.rightMargin: 8
           }
+        }
 
-          Rectangle {
-            visible: root.showMem
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 0
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // Disk
+        Pill {
+          visible: root.showDisk
 
           Text {
-            visible: root.showDisk
             text: "Disk: " + diskUsage + "%"
             color: root.colBlue
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.rightMargin: 8
           }
+        }
 
-          Rectangle {
-            visible: root.showDisk
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 0
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // Volume
+        Pill {
+          visible: root.showVol
 
           Text {
-            visible: root.showVol
             text: "Vol: " + volumeLevel + "%"
             color: root.colPurple
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.rightMargin: 8
           }
+        }
 
-          Rectangle {
-            visible: root.showVol
-            Layout.preferredWidth: 1
-            Layout.preferredHeight: 16
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 0
-            Layout.rightMargin: 8
-            color: root.colMuted
-          }
+        // Clock
+        Pill {
+          visible: root.showClock
 
           Text {
-            visible: root.showClock
             id: clockText
             text: Qt.formatDateTime(new Date(), "ddd, MMM dd - HH:mm")
             color: root.colCyan
             font.pixelSize: root.fontSize
             font.family: root.fontFamily
             font.bold: true
-            Layout.rightMargin: 8
 
             Timer {
               interval: 1000
@@ -459,8 +446,6 @@ ShellRoot {
               onTriggered: clockText.text = Qt.formatDateTime(new Date(), "ddd, MMM dd - HH:mm")
             }
           }
-
-          Item { width: 8 }
         }
       }
     }
