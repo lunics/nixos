@@ -30,8 +30,8 @@ Singleton {
   property bool showWindow:     false
   property bool showKernel:     false
   property bool showCpu:        true
-  property bool showMem:        true
-  property bool showDisk:       true
+  property bool showMem:        false
+  property bool showDisk:       false
   property bool showVol:        true
   property bool showClock:      true
 }
