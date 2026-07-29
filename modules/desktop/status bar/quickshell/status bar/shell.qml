@@ -53,6 +53,14 @@ ShellRoot {
         Modules.Workspaces {}
       }
 
+      // Clock centered horizontally, aligned with the other modules
+      Row {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
+        Modules.Clock {}
+      }
+
       Row {
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
@@ -67,7 +75,6 @@ ShellRoot {
         Modules.Mem {}
         Modules.Disk {}
         Modules.Vol {}
-        Modules.Clock {}
       }
     }
   }

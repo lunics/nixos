@@ -7,7 +7,7 @@ Pill {
 
   Text {
     id: clockText
-    text: Qt.formatDateTime(new Date(), "ddd, MMM dd - HH:mm")
+    text: Qt.formatDateTime(new Date(), "HH:mm")
     color: Theme.colCyan
     font.pixelSize: Theme.fontSize
     font.family: Theme.fontFamily
@@ -17,7 +17,7 @@ Pill {
       interval: 1000
       running: true
       repeat: true
-      onTriggered: clockText.text = Qt.formatDateTime(new Date(), "ddd, MMM dd - HH:mm")
+      onTriggered: clockText.text = Qt.formatDateTime(new Date(), "HH:mm")
     }
   }
 }
