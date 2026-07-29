@@ -4,14 +4,13 @@
       enable       = true;
       package      = pkgs.quickshell;
       configs      = {};
-      activeConfig = "status bar";    # name of the config to use
-                                      # null = try to use config located at $XDG_CONFIG_HOME/quickshell
+      activeConfig = null;              # null = load the config at $XDG_CONFIG_HOME/quickshell
       systemd = {
         enable = true;
         target = "hyprland-session.target";     # default = config.wayland.systemd.target
       };
     };
 
-    xdg.configFile."quickshell/status bar".source = ./. + "/status bar";
+    xdg.configFile."quickshell".source = ./config;
   };
 }

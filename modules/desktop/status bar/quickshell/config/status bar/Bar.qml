@@ -1,10 +1,10 @@
-//@ pragma UseQApplication
 import Quickshell
 import Quickshell.Io
 import QtQuick
 import "modules" as Modules
 
-ShellRoot {
+// Reusable status-bar component, mounted by the umbrella root shell.qml.
+Scope {
   id: root
 
   // IPC control, e.g. `qs ipc call bar toggle cpu`
