@@ -12,7 +12,7 @@
     home.activation.link-claude-desktop-share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       link=${config._.dot_config}/Claude
 
-      if [ -e $(dirnam $link) ] && [ ! -L $link ] && [ -d ${config._.share}/claude-desktop ]; then
+      if [ -e $(dirname $link) ] && [ ! -L $link ] && [ -d ${config._.share}/claude-desktop ]; then
         ln -s ${config._.share}/claude-desktop $link &> /dev/null || true
       fi
     '';
