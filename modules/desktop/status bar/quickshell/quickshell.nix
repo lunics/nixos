@@ -12,6 +12,10 @@
           target = "hyprland-session.target";     # default = config.wayland.systemd.target
         };
       };
+
+      home.activation.quickshell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        mkdir -p ${config._.dot_config}/quickshell
+      '';
     };
   };
 }
