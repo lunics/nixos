@@ -1,7 +1,6 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
-import QtQuick.Layouts
 import "modules" as Modules
 
 ShellRoot {
@@ -44,14 +43,23 @@ ShellRoot {
         right: 0
       }
 
-      RowLayout {
-        anchors.fill: parent
+      // Workspaces stay on the left; every other module is stuck to the right
+      Row {
+        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
         anchors.leftMargin: 6
+        spacing: 6
+
+        Modules.Workspaces {}
+      }
+
+      Row {
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: 6
         spacing: 6
 
         Modules.Logo {}
-        Modules.Workspaces {}
         Modules.Layout {}
         Modules.Window {}
         Modules.Kernel {}
