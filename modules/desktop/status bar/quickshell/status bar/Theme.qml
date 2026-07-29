@@ -26,7 +26,7 @@ Singleton {
   // Module visibility toggles (see IpcHandler in shell.qml)
   property bool showLogo: false
   property bool showWorkspaces: true
-  property bool showLayout: true
+  property bool showLayout: false
   property bool showWindow: false
   property bool showKernel: false
   property bool showCpu: true
