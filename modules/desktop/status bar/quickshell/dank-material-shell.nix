@@ -12,14 +12,13 @@
       quickshell.package = pkgs.quickshell;
 
       settings = {
-        theme = "dark";
+        theme = "light";
         dynamicTheming = true;
         # Add any other settings here
       };
 
       session = {
-        isLightMode = false;
-        # Add any other session state settings here
+        isLightMode = true;
       }; 
 
       clipboardSettings = {
