@@ -10,7 +10,6 @@
 
       # STATUS BAR
       # hyprpanel
-      quickshell
       dank-material-shell
       # caelestia
 
