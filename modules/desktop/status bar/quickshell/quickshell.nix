@@ -10,7 +10,5 @@
         target = "hyprland-session.target";     # default = config.wayland.systemd.target
       };
     };
-
-    xdg.configFile."quickshell".source = ./config;
   };
 }
