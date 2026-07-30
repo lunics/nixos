@@ -12,14 +12,16 @@
       quickshell.package = pkgs.quickshell;
 
       settings = {
-        theme = "light";
+        theme = "dynamic";       # purple (default), dynamic (based on wallpaper), blue, green, orange, red, cyan, pink, coral, amber
         dynamicTheming = true;
-        # Add any other settings here
+        screenPreferences = {
+          wallpaper = [];       # disable wallpaper manager
+        };
       };
 
-      session = {
-        isLightMode = true;
-      }; 
+      # session = {
+      #   isLightMode = true;
+      # }; 
 
       clipboardSettings = {
         maxHistory = 25;
