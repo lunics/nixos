@@ -11,6 +11,7 @@
       # STATUS BAR
       # hyprpanel
       quickshell
+      dank-material-shell
       # caelestia
 
       screen_locker

@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
+    dank-material-shell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,10 +53,7 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel/1961ba86ad5ab880beb639e5454054b2b5037e0d";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel/d563cdb1f6499d981901336bd0f86303ab95c4a5";
     impermanence.url = "github:nix-community/impermanence";
     import-tree.url = "github:vic/import-tree";
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
