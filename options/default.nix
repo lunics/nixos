@@ -48,6 +48,11 @@
         type    = types.listOf (types.attrsOf types.str);
         default = [];
       };
+
+      gps-coordinates = mkOption {
+        type    = types.str;
+        default = "";
+      };
     };
   };
 }

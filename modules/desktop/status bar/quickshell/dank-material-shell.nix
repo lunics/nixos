@@ -21,11 +21,13 @@
         screenPreferences = {
           wallpaper = [];       # disable wallpaper manager
         };
+        useAutoLocation = false; # use the manual weather location below (session.weatherCoordinates)
       };
 
-      # session = {
-      #   isLightMode = true;
-      # }; 
+      session = {
+        weatherLocation    = "Paris, France";
+        weatherCoordinates = config._.gps-coordinates;
+      };
 
       clipboardSettings = {
         maxHistory     = 25;
