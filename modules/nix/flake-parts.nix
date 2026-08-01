@@ -74,5 +74,18 @@
         ];
       };
     };
+
+    make_raspberry-pi = system: name: {
+      ${name} = inputs.nixos-raspberrypi.lib.nixosSystem {
+        specialArgs = inputs;
+        modules = [
+          self.modules.generic.options
+          self.modules.nixos-raspberrypi.${name}
+          { 
+            nixpkgs.hostPlatform = lib.mkDefault system; 
+          }
+        ];
+      };
+    };
   };
 }
