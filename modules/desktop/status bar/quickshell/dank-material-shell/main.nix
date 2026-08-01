@@ -34,7 +34,7 @@
           screenPreferences = [ "all" ];
           showOnLastDisplay = true;
           # widgets: launcherButton, focusedWindow, clipboard
-          leftWidgets = [ "workspaceSwitcher" "pomodoro" ];     
+          leftWidgets = [ "workspaceSwitcher" ] ++ config._.dms_left_widgets;
           centerWidgets = [ "clock" ];
           rightWidgets = [ "music" "weather" "cpuUsage" "memUsage" "notificationButton" "battery" "controlCenterButton" "systemTray" ];
           spacing = 4;

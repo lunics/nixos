@@ -21,6 +21,11 @@
         default = {};
       };
 
+      dms_left_widgets = mkOption {
+        type    = types.listOf types.str;
+        default = [];
+      };
+
       screen_locker = mkOption {
         type    = types.str;
         default = "hyprlock";
