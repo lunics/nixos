@@ -48,8 +48,9 @@ PluginComponent {
 
     horizontalBarPill: Component {
         StyledRect {
-            width: label.implicitWidth + Theme.spacingM * 2
-            height: parent.widgetThickness
+            // The bar sizes widgets by implicitWidth (not width); hug the text exactly.
+            implicitWidth: label.implicitWidth
+            implicitHeight: parent.widgetThickness
             radius: Theme.cornerRadius
             color: root.onBreak ? Theme.primary : Theme.surfaceContainerHigh
 
@@ -65,8 +66,8 @@ PluginComponent {
 
     verticalBarPill: Component {
         StyledRect {
-            width: parent.widgetThickness
-            height: label.implicitHeight + Theme.spacingM * 2
+            implicitWidth: parent.widgetThickness
+            implicitHeight: label.implicitHeight + Theme.spacingM * 2
             radius: Theme.cornerRadius
             color: root.onBreak ? Theme.primary : Theme.surfaceContainerHigh
 
