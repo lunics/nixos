@@ -33,9 +33,10 @@
           position = 0;
           screenPreferences = [ "all" ];
           showOnLastDisplay = true;
-          leftWidgets = [ "workspaceSwitcher" ];     # launcherButton, focusedWindow 
-          centerWidgets = [ "music" "clock" "weather" "pomodoro" ];
-          rightWidgets = [ "systemTray" "clipboard" "cpuUsage" "memUsage" "notificationButton" "battery" "controlCenterButton" ];
+          # widgets: launcherButton, focusedWindow, clipboard
+          leftWidgets = [ "workspaceSwitcher" "pomodoro" ];     
+          centerWidgets = [ "clock" ];
+          rightWidgets = [ "music" "weather" "cpuUsage" "memUsage" "notificationButton" "battery" "controlCenterButton" "systemTray" ];
           spacing = 4;
           innerPadding = 4;
           bottomGap = 0;
