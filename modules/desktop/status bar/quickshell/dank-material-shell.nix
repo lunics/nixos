@@ -11,6 +11,8 @@
   flake.aspects.dank-material-shell.homeManager = { config, pkgs, ... }:{
     imports = [ inputs.dank-material-shell.homeModules.dank-material-shell ];
 
+    _.status_bar = "dms";
+
     programs.dank-material-shell = {
       enable = true;
       quickshell.package = pkgs.quickshell;
