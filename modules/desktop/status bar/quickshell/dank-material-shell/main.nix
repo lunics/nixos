@@ -32,7 +32,7 @@
           position = 0;
           screenPreferences = [ "all" ];
           showOnLastDisplay = true;
-          leftWidgets = [ "launcherButton" "workspaceSwitcher" "focusedWindow" ];
+          leftWidgets = [ "workspaceSwitcher" ];     # launcherButton, focusedWindow 
           centerWidgets = [ "music" "clock" "weather" "pomodoro" ];
           rightWidgets = [ "systemTray" "clipboard" "cpuUsage" "memUsage" "notificationButton" "battery" "controlCenterButton" ];
           spacing = 4;
