@@ -24,6 +24,7 @@
           wallpaper = [];       # disable wallpaper manager
         };
         useAutoLocation = false; # use the manual weather location below (session.weatherCoordinates)
+        showWorkspaceIndex = true;
 
         barConfigs = [{
           id = "default";
