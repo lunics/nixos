@@ -663,11 +663,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785339037,
-        "narHash": "sha256-06gO6aqH3eQg8EO9NSEQQmdAjR+PZS/o09p16vJqRvs=",
+        "lastModified": 1785590265,
+        "narHash": "sha256-2xZAlt2JfVU7/FQh0gYfLYxbHvU+i59jG7A1yDqX6J8=",
         "ref": "refs/heads/main",
-        "rev": "ac9eaef49a70d699cba67d46b6a863876f2c8bcc",
-        "revCount": 382,
+        "rev": "7cc1bb6944ffaac6049086f4c85172a6e782f415",
+        "revCount": 383,
         "type": "git",
         "url": "file:/home/lunics/usb_copy/homelab/nixos-hosts"
       },
