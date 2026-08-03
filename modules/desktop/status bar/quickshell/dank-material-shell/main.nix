@@ -90,12 +90,21 @@
 
       session = {
         isLightMode          = true;
+
+        # gamma filter (colour temperature) 
         nightModeEnabled     = false;
         nightModeAutoEnabled = true;
         nightModeAutoMode    = "time";
         nightModeStartHour   = 21;
         nightModeEndHour     = 6;
-        themeModeAutoEnabled = true;
+
+        # light/dark theme, on its own schedule instead of reusing the gamma hours
+        themeModeAutoEnabled        = true;
+        themeModeAutoMode           = "time";
+        themeModeShareGammaSettings = false;
+        themeModeStartHour          = 22;
+        themeModeEndHour            = 7;
+
         weatherLocation      = "Paris, France";
         weatherCoordinates   = config._.gps-coordinates;
       };
