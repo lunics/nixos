@@ -4,10 +4,6 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  # ## on nixos
-  # # required by the evdev to read devices from /dev/input/event*
-  # user.users.lunics.extraGroups = [ "input" ];
-
   flake.aspects.dank-material-shell.homeManager = { config, pkgs, ... }:{
     imports = [ inputs.dank-material-shell.homeModules.dank-material-shell ];
 
@@ -33,14 +29,22 @@
           position = 0;
           screenPreferences = [ "all" ];
           showOnLastDisplay = true;
-          # widgets: launcherButton, focusedWindow, clipboard
           leftWidgets = [ "workspaceSwitcher" ] ++ config._.dms_left_widgets;
           centerWidgets = [ "clock" ];
-          rightWidgets = [ "music" "weather" "cpuUsage" "memUsage" "notificationButton" "battery" "controlCenterButton" "systemTray" ];
+          rightWidgets = [ 
+            "music" 
+            "weather" 
+            "cpuUsage" 
+            "memUsage" 
+            "notificationButton" 
+            "battery" 
+            "controlCenterButton" 
+            "systemTray" 
+          ];
           spacing = 4;
           innerPadding = 4;
           bottomGap = 0;
-          widgetTransparency = 1.0;
+          widgetTransparency = 8.0;
           transparency = 0.0;
           squareCorners = false;
           noBackground = false;
@@ -85,8 +89,14 @@
       };
 
       session = {
-        weatherLocation    = "Paris, France";
-        weatherCoordinates = config._.gps-coordinates;
+        isLightMode          = true;
+        nightModeEnabled     = true;
+        nightModeAutoEnabled = true;
+        nightModeStartHour   = 21;
+        nightModeEndHour     = 6;
+        themeModeAutoEnabled = true;
+        weatherLocation      = "Paris, France";
+        weatherCoordinates   = config._.gps-coordinates;
       };
 
       clipboardSettings = {
@@ -111,8 +121,6 @@
       enableAudioWavelength  = true;  # Audio visualizer (cava)
       enableCalendarEvents   = true;  # Calendar integration (khal)
       enableClipboardPaste   = false;
-
-      plugins = {};
     };
   };
 }
