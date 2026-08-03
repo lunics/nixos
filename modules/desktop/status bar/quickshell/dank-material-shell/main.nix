@@ -90,8 +90,9 @@
 
       session = {
         isLightMode          = true;
-        nightModeEnabled     = true;
+        nightModeEnabled     = false;
         nightModeAutoEnabled = true;
+        nightModeAutoMode    = "time";
         nightModeStartHour   = 21;
         nightModeEndHour     = 6;
         themeModeAutoEnabled = true;
