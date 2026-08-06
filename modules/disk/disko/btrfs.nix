@@ -39,9 +39,9 @@
           };
         })
         (mkIf _.btrfs_vol.kube {
-          "/kube" = {
-            mountpoint   = "/kube";
-            mountOptions = ["subvol=kube"] ++ _.btrfs_opts;
+          "/kubernetes" = {
+            mountpoint   = "/var/lib/kubernetes";
+            mountOptions = ["subvol=kubernetes"] ++ _.btrfs_opts;
           };
         })
       ];
