@@ -7,7 +7,7 @@
       availableKernelModules = ["xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
 
       luks = {
-        cryptoModules      = ["aes" "xts" "sha512"];
+        cryptoModules      = ["aes" "aesni_intel" "xts" "sha512"];
         mitigateDMAAttacks = true;      # blacklists FireWire drivers to avoid encryption keys stollen from a physical access via FireWire port, manually load the drivers if you need it.
 
         # must be commented because not used by systemd stage 1
