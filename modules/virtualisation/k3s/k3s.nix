@@ -65,7 +65,7 @@
       # '';
 
       _.persistent.dirs = lib.mkIf config._.impermanence [
-        "/var/lib/kubernetes"
+        config._.k3s.btrfs-subvol
       ];
 
       # systemd.tmpfiles.rules = [

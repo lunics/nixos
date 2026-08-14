@@ -15,6 +15,10 @@
           type    = types.str;
           default = "${pkgs.kubectl}/bin/kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml";
         };
+        btrfs-subvol = mkOption {
+          type    = types.str;
+          default = "/var/lib/kubernetes";
+        };
       };
 
       argo-cd-repo-url = mkOption {
