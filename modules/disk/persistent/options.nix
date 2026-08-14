@@ -7,7 +7,7 @@
       persistent = {
         dest = mkOption {
           type    = types.str;
-          default = "/persistent";
+          default = "/nix/persistent";
         };
         dirs = mkOption {
           type    = types.listOf types.path;
