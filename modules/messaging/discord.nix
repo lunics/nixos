@@ -2,7 +2,7 @@
   flake.aspects.messaging.homeManager = { config, pkgs, lib, ... }:{ 
     config = lib.mkIf config._.discord {
       _.allow-unfree = with pkgs; [
-        discord
+        (discord.override { useFHSEnv = false; })
       ];
 
       home.packages = with pkgs; [
