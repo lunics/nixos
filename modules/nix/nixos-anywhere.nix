@@ -11,7 +11,7 @@
 
   flake.aspects.nix.homeManager = { pkgs, ... }:{
     home.packages = [
-      inputs.nixos-anywhere.packages.${pkgs.system}.default
+      inputs.nixos-anywhere.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
