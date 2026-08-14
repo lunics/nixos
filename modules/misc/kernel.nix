@@ -1,8 +1,7 @@
 {
   flake.aspects.kernel.nixos = { pkgs, ... }:{
     boot = {
-      # kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-      kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+      kernelPackages = pkgs.linuxPackages_zen;
 
       kernel.sysctl."net.ipv4.ip_forward" = 1;
 
