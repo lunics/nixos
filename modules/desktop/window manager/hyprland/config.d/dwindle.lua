@@ -6,7 +6,6 @@ hl.config({
     smart_split                  = false,
     smart_resizing               = true,
     permanent_direction_override = false,
-    special_scale_factor         = 0.8,
     split_width_multiplier       = 1.0,
     default_split_ratio          = 1.0,    -- 1 means even 50/50 split. 0.1 - 1.9
   },
