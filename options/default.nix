@@ -48,6 +48,11 @@
         type    = types.str;
         default = "";
       };
+
+      cpu-max-temp = mkOption {
+        type    = types.nullOr (types.ints.between 0 100);
+        default = null;
+      };
     };
   };
 }

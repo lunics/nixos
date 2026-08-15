@@ -10,6 +10,7 @@
       podman
       ssh
       startup_apps
+      thermald
       tlp
       udiskie
       upower
