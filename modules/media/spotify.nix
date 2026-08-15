@@ -14,7 +14,7 @@
         core.clock_delta=0
         storage.last-location="/home/${config._.user}/.cache/spotify/Storage"
         autologin.username="${config._.spotify.username}"
-        app.last-launched-version="1.2.92.147.g5b8f9367"
+        app.last-launched-version="${pkgs.spotify.version}"
       '';
     })];
   };
