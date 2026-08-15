@@ -30,11 +30,6 @@
         default = "";
       };
 
-      instaloader_login = lib.mkOption {
-        type    = types.nullOr types.path;
-        default = null;
-      };
-
       pomodoro = mkEnableOption "";
 
       alarm-clock = mkEnableOption "";
