@@ -5,8 +5,8 @@
         instaloader       # dl insta videos/pictures with metadatas
       ];
 
-    }(lib.mkIf (config._.instaloader_login != null) {
-      xdg.configFile."instaloader/session-user".source = config._.instaloader_login;
+    }(lib.mkIf (config._.instaloader-login != null) {
+      xdg.configFile."instaloader/session-user".source = config._.instaloader-login;
     })];
   };
 }
