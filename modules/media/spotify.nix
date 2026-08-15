@@ -30,5 +30,13 @@
     _.allow-unfree = [
       (if cfg.token == null then pkgs.spotify else spotify)
     ];
+
+    programs.spotify-player = {
+      enable   = true;
+      settings = {};
+      actions  = [];
+      keymaps  = [];
+      themes   = [];
+    };
   };
 }
