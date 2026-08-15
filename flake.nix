@@ -16,6 +16,7 @@
     };
 
   inputs = {
+    ableton-linux.url = "github:realitymolder/ableton-linux/flake";
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
