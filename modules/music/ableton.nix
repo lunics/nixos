@@ -18,5 +18,13 @@
         wireplumber.enable = true;   # session manager, links PipeASIO to the hardware
       };
     };
+
+    homeManager = {
+      xdg.mimeApps = {
+        enable = true;
+        defaultApplications."x-scheme-handler/ableton" =
+          [ "wine-protocol-ableton.desktop" ];   # ableton:// authorisation callback from ableton.com back into Live
+      };
+    };
   };
 }
