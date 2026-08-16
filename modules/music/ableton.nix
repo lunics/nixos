@@ -20,6 +20,17 @@
     };
 
     homeManager = {
+      xdg.configFile."pipeasio/config.ini".text  = ''
+        [pipeasio]
+        inputs            = 2
+        outputs           = 2
+        buffer_size       = 256
+        fixed_buffer_size = true
+        auto_connect      = true
+        sample_rate       = 48000;
+        # output_device   = "Scarlett 18i20";
+      '';
+
       xdg.mimeApps = {
         enable = true;
         defaultApplications."x-scheme-handler/ableton" =
