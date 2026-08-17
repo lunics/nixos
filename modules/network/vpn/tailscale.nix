@@ -6,12 +6,8 @@
         useRoutingFeatures = "client";
         extraDaemonFlags   = [ "--no-logs-no-support" ];
         extraUpFlags       = [ "--accept-dns=false" ];
+        # authKeyFile      = config.age.secrets.tailscaleAuthKey.path;
       };
-
-      environment.systemPackages = [ pkgs.tailscale ];
-
-      _.persistent.dirs = lib.mkIf config._.impermanence [ "/var/lib/tailscale" ];
-
       # seed the node identity on first boot only, tailscaled owns the file afterwards
       systemd.services.tailscaled.preStart = lib.optionalString
         ((options ? sops) && (config.sops.secrets ? "tailscaled-state")) ''
@@ -19,6 +15,15 @@
             install -m 0600 -o root -g root ${config.sops.secrets."tailscaled-state".path} /var/lib/tailscale/tailscaled.state
           fi
         '';
+
+      environment.systemPackages = [ pkgs.tailscale ];
+
+      _.persistent.dirs = lib.mkIf config._.impermanence [ "/var/lib/tailscale" ];
+
+      # networking.firewall = {
+      #   allowedUDPPorts   = [ config.services.tailscale.port ];
+      #   trustedInterfaces = [ "tailscale0" ];
+      # };
     };
 
     homeManager = { pkgs, lib, osConfig, ... }:{
