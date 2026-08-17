@@ -42,6 +42,9 @@
             "credentials=${config.sops.secrets."${cifs.secret}".path}"
             "uid=${toString config._.user_id}"
             "gid=100"                       # users
+            "forceuid"                      # ignore the ownership sent by the server
+            "forcegid"                      # //
+            "nounix"                        # don't negotiate unix extensions, they override uid/gid/modes
             "file_mode=0644"                # must change if its a group-writable share
             "dir_mode=0755"                 # //
             "vers=3.1.1"
