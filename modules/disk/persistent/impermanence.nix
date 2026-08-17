@@ -4,6 +4,8 @@
   flake.aspects.impermanence.nixos = { config, lib, ... }: with lib; {
     imports = [ inputs.impermanence.nixosModules.impermanence ];
 
+    fileSystems."${config._.persistent.dest}".neededForBoot = true;
+
     environment.persistence.${config._.persistent.dest} = {
       enable      = config._.impermanence;
       hideMounts  = true;    # hide the bind mounts from showing up as mounted drives in the file manager
