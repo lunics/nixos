@@ -27,9 +27,10 @@ local libvirt   = "virt-viewer"
 local all       = terminal.."|"..browser.."|"..message.."|"..streaming.."|"..music.."|"..libvirt
 
 hl.window_rule({
-  name      = "default-workspace-terminal",
-  match     = { class = terminal },
-  workspace = 1,
+  name       = "default-workspace-terminal",
+  match      = { class = terminal },
+  workspace  = 1,
+  fullscreen = true,
 })
 
 hl.window_rule({
