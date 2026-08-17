@@ -22,6 +22,10 @@
         useAutoLocation = false; # use the manual weather location below (session.weatherCoordinates)
         showWorkspaceIndex = true;
 
+        # 0 = none, 1 = short (200ms, default), 2 = medium (400ms), 3 = long (600ms), 4 = custom
+        notificationAnimationSpeed = 3;   
+        notificationCustomAnimationDuration = 500;   # in ms 100-800, only used when speed = 4
+
         barConfigs = [{
           id = "default";
           name = "Main Bar";
