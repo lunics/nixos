@@ -45,6 +45,13 @@ hl.window_rule({
   border_size = 0,
 })
 
+-- only the dms bar instead of every layer, see fadeLayersIn/fadeLayersOut in animations.lua
+-- hl.layer_rule({
+--   name    = "no-anim-dms-bar",
+--   match   = { namespace = "^dms:bar$" },
+--   no_anim = true,
+-- })
+
 -- windowrule = maximize on, match:class $all
 -- windowrule = move 6 52, class:.*
 -- windowrule = size 99.4% 95%, class:.*
