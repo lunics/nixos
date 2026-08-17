@@ -48,6 +48,8 @@
             "file_mode=0644"                # must change if its a group-writable share
             "dir_mode=0755"                 # //
             "vers=3.1.1"
+            "rsize=65536"                   # 65536 = 64KB, 32768 = 32KB, 1MB max SBM3 but without tailscale
+            "wsize=65536"
             "iocharset=utf8"
             "nofail"                        # never block boot when the share is unreachable
             "_netdev"
