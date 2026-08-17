@@ -6,7 +6,7 @@
         "/var/log".neededForBoot    = true;
       };
     }(mkIf config._.impermanence {
-      fileSystems."/persistent".neededForBoot = true;
+      fileSystems."${config._.persistent.dest}".neededForBoot = true;
     })];
   };
 }
