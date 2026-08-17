@@ -1,13 +1,16 @@
 {
   flake.aspects.tailscale = {
-    nixos = { pkgs, ... }:{
+    nixos = { config, options, lib, pkgs, ... }:{
       services.tailscale = {
         enable             = true;
         useRoutingFeatures = "client";
         extraDaemonFlags   = [ "--no-logs-no-support" ];
         extraUpFlags       = [ "--accept-dns=false" ];
       };
+
       environment.systemPackages = [ pkgs.tailscale ];
+
+      _.persistent.dirs = lib.mkIf config._.impermanence [ "/var/lib/tailscale" ];
     };
 
     homeManager = { pkgs, lib, osConfig, ... }:{
