@@ -63,7 +63,6 @@
             "x-systemd.requires=sops-install-secrets.service"
           ] ++ optionals config.services.tailscale.enable [
             "x-systemd.after=tailscaled.service"        # mount cifs after tailscale is ready
-            "x-systemd.requires=tailscaled.service"
           ];
         }) cifs.shares);
     };
