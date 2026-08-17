@@ -57,8 +57,10 @@
             "x-systemd.automount"
             "x-systemd.idle-timeout=600"
             "x-systemd.mount-timeout=10s"
-            "x-systemd.after=sops-nix.service"
-            "x-systemd.requires=sops-nix.service"
+          ] ++ optionals config.sops.useSystemdActivation [
+            # only exists in systemd activation mode, otherwise secrets come from an activation script
+            "x-systemd.after=sops-install-secrets.service"
+            "x-systemd.requires=sops-install-secrets.service"
           ] ++ optionals config.services.tailscale.enable [
             "x-systemd.after=tailscaled.service"        # mount cifs after tailscale is ready
             "x-systemd.requires=tailscaled.service"
