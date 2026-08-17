@@ -39,6 +39,8 @@
         mouse-hide-while-typing        = false
         shell-integration              = zsh
         window-new-tab-position        = current
+        window-padding-x               = 6
+        window-padding-y               = 6
         focus-follows-mouse            = false
         copy-on-select                 = true
         linux-cgroup                   = always
