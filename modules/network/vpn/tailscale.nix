@@ -11,6 +11,14 @@
       environment.systemPackages = [ pkgs.tailscale ];
 
       _.persistent.dirs = lib.mkIf config._.impermanence [ "/var/lib/tailscale" ];
+
+      # seed the node identity on first boot only, tailscaled owns the file afterwards
+      systemd.services.tailscaled.preStart = lib.optionalString
+        ((options ? sops) && (config.sops.secrets ? "tailscaled-state")) ''
+          if [ ! -e /var/lib/tailscale/tailscaled.state ]; then
+            install -m 0600 -o root -g root ${config.sops.secrets."tailscaled-state".path} /var/lib/tailscale/tailscaled.state
+          fi
+        '';
     };
 
     homeManager = { pkgs, lib, osConfig, ... }:{
