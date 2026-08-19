@@ -9,7 +9,9 @@
             def pomodoro [
               --work:      int    = 40
               --1st_break: int    = 3
-              --unit:      string = "min"  # min, sec
+              --unit:      string = "min"   # min, sec
+              --mode:      string = "soft"  # soft:   only notify then count the break time up
+                                            # strict: pause/dim/lock everything during the break
             ] {
               $env.cache_file = "/tmp/pomodoro.json"    # $env instead of let to be accessible in any def
               mkdir ($env.cache_file | path dirname)
@@ -88,6 +90,28 @@
                 ${config._.screen_locker} o+e> /dev/null
               }
 
+              # soft break: only notify the end of the work time then count the break time up
+              # indefinitely, nothing is paused, dimmed or locked
+              def soft_break [time_unit: duration, unit: string, _data: record] {
+                mut data = $_data
+
+                $data.break_time   = 0
+                $data.cycle        = $data.cycle + 1
+                $data.current_work = 0
+
+                $data | save -f $env.cache_file
+
+                notify-send -t 10000 -u critical "🍅 Pomodoro" "Work done, breath and rest your eyes"
+
+                # stopwatch, only stopped by stopping the service (toggle_pomodoro)
+                loop {
+                  print $"(ansi yellow)🍅 Cycle #($data.cycle) - Resting for ($data.break_time)($unit)(ansi reset)"
+                  sleep (1 * $time_unit)
+                  $data.break_time = $data.break_time + 1
+                  $data | save -f $env.cache_file     # persistent save after each minute
+                }
+              }
+
               # if /tmp/pomodoro.json presents then use it else reset the variable
               mut data = if ($env.cache_file | path exists) {
                 open $env.cache_file
@@ -115,7 +139,11 @@
                 $data | save -f $env.cache_file       # persistent save after each minute
               }
 
-              break $1st_break $time_unit $unit $data
+              if $mode == "strict" {
+                break $1st_break $time_unit $unit $data
+              } else if $mode == "soft" {
+                soft_break $time_unit $unit $data
+              }
             }
 
             pomodoro
