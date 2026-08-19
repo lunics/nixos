@@ -5,7 +5,7 @@
         Description = "endless pomodoro";
         # Requires    = [ "pomodoro.timer" ];
         # After       = [ "default.target" "suspend.target" ];
-        X-SwitchMethod = "keep-old";
+        X-SwitchMethod = "restart";   # restart on h-m switch everytime _.pomodoro-mode changes
       };
       Service = {
         Type        = "simple";
