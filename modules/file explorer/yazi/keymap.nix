@@ -61,8 +61,8 @@
         { on = ["a"], run = "create", desc = "Create a file or directory (ends with / for directories)" },
         { on = ["A"], run = "create --dir", desc = "Create only a directory" },
         { on = ["${_yazi.rename}"], run = "rename --cursor=before_ext", desc = "Rename a file or directory" },
-        { on = [";"], run = "shell", desc = "Run a shell command" },
-        { on = [":"], run = "shell --block", desc = "Run a shell command (block the UI until the command finishes)" },
+        { on = [";"], run = "shell --interactive", desc = "Run a shell command" },
+        { on = [":"], run = "shell --block --interactive", desc = "Run a shell command (block the UI until the command finishes)" },
         { on = ["."], run = "hidden toggle", desc = "Toggle the visibility of hidden files" },
 
         # { on = ["s"], run = "search fd", desc = "Search files by name using fd" },
@@ -70,8 +70,8 @@
         { on = ["<C-s>"], run = "search none", desc = "Cancel the ongoing search" },
 
         # { on = [ "z" ],         run = "jump zoxide",                                          desc = "Jump to a directory using zoxide" },
-        { on = ["z", "u"], run = "shell --confirm 'ouch decompress $@'", desc = "Decompress" },
-        { on = ["z", "d"], run = "shell --confirm 'ouch compress $@'", desc = "Compress" },
+        { on = ["z", "u"], run = "shell 'ouch decompress %s'", desc = "Decompress" },
+        { on = ["z", "d"], run = "shell 'ouch compress %s'", desc = "Compress" },
         # { on = ["<Tab>"], run = "plugin fzf --args='fzf'", desc = "Jump to a directory, or reveal a file using fzf" },
         # { on = ["<Tab>"], run = "plugin fg --args='rg'", desc = "find file by content (ripgrep match)" },
 
@@ -107,7 +107,7 @@
 
       [[mgr.prepend_keymap]]      # copy selected files to the system clipboard while yanking
       on  = "y"
-      run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
+      run = [ 'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
 
       [[input.prepend_keymap]]    # Close input by once Esc press
       on   = "<Esc>"

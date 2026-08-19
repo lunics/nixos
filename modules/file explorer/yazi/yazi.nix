@@ -6,7 +6,6 @@
       mouse_events    = ["click", "scroll"]
       ratio           = [2, 3, 6]
       scrolloff       = 5
-      title_format    = ""
       show_hidden     = false
       show_symlink    = true
       # symlink         = { fg = "cyan", modifiers = ["bold"] } KO
@@ -35,24 +34,22 @@
 
       [opener]
       edit = [
-        { run = '[ -n "$EDITOR" ] && $EDITOR "$@"', desc = "$EDITOR", block = true },
+        { run = '[ -n "$EDITOR" ] && $EDITOR %s', desc = "$EDITOR", block = true, for = "unix" },
       ]
       open = [
-        { run = 'setsid xdg-open "$@"' },
+        { run = 'setsid xdg-open %s1', desc = "Open", for = "linux" },
       ]
       reveal = [
-        { run = "exiftool \"$1\"; echo \"Press enter to exit\"; read", block = true, desc = "Show EXIF" },
+        { run = 'exiftool %s1; echo "Press enter to exit"; read _', block = true, desc = "Show EXIF", for = "unix" },
       ]
       extract = [
-        { run = 'ouch decompress "$1"', desc = "Extract here" },
+        { run = 'ouch decompress %s1', desc = "Extract here" },
       ]
       play = [
-        { run = 'mpv "$@"', orphan = true },
+        { run = 'mpv %s', orphan = true },
       ]
 
       [tasks]
-      micro_workers    = 10
-      macro_workers    = 25
       bizarre_retry    = 5
       image_alloc      = 536870912
       image_bound      = [0, 0]
