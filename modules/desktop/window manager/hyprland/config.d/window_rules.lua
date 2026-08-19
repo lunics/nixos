@@ -40,6 +40,12 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name      = "default-workspace-claude",
+  match     = { class = browser, title = ".*Claude.*" },
+  workspace = 3,
+})
+
+hl.window_rule({
   name        = "no-broders-for-brower",
   match       = { class = browser },
   border_size = 0,
