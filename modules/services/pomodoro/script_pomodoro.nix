@@ -1,4 +1,13 @@
 {
+  flake.aspects.options.generic = { lib, ... }: with lib; {
+    options._ = {
+      pomodoro-mode = mkOption {
+        type    = types.enum [ "soft" "strict" ];
+        default = "soft";
+      };
+    };
+  };
+
   flake.aspects.pomodoro.homeManager = { config, lib, pkgs, ... }:{
     nixpkgs.overlays = [
       (self: super: {
@@ -9,8 +18,8 @@
             --work:      int    = 40
             --1st_break: int    = 3
             --unit:      string = "min"   # min, sec
-            --mode:      string = "soft"  # soft:   only notify then count the break time up
-                                          # strict: pause/dim/lock everything during the break
+            --mode:      string = "${config._.pomodoro-mode}"  # soft:   only notify then count the break time up
+                                                               # strict: pause/dim/lock everything during the break
           ] {
             $env.cache_file = "/tmp/pomodoro.json"    # $env instead of let to be accessible in any def
             mkdir ($env.cache_file | path dirname)
