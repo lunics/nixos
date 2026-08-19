@@ -10,7 +10,7 @@
         ];
 
         text = ''
-          duf --hide special
+          duf --hide special,network
           echo
           dysk
         '';
