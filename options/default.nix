@@ -30,8 +30,6 @@
         default = "";
       };
 
-      pomodoro = mkEnableOption "";
-
       alarm-clock = mkEnableOption "";
 
       gpu-nvidia-uuid = mkOption {

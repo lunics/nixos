@@ -3,7 +3,6 @@
     services.includes = with aspects; [
       alarm-clock
       auto-upgrade
-      pomodoro
       fwupd
       logind
       no-wakeup

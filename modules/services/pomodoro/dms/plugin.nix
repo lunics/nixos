@@ -1,6 +1,6 @@
 {
   flake.aspects.pomodoro.homeManager = { config, lib, pkgs, ... }:{
-    config = lib.mkIf (config._.pomodoro && config._.status_bar == "dms"){
+    config = lib.mkIf (config._.status_bar == "dms"){
       _.dms_left_widgets = [ "pomodoro" ];
 
       programs.dank-material-shell = {
