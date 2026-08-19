@@ -17,6 +17,9 @@
       }{
         command      = "PreviousPage";
         key_sequence = "esc";
+      }{
+        command      = "Search";
+        key_sequence = "f";
       }];
       actions  = [];
       themes   = [];
