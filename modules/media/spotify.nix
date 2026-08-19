@@ -33,9 +33,23 @@
 
     programs.spotify-player = {
       enable   = true;
-      settings = {};
+      package = pkgs.spotify-player.override {
+        withFuzzy = true;
+      };
+      settings = {
+        enable_audio_visualization = false;
+        play_icon  = "▶";
+        pause_icon = "▌▌";
+        liked_icon = "♥";
+      };
+      keymaps  = [{
+        command      = "LyricsPage";
+        key_sequence = "L";
+      }{
+        command      = "PreviousPage";
+        key_sequence = "esc";
+      }];
       actions  = [];
-      keymaps  = [];
       themes   = [];
     };
   };
