@@ -5,12 +5,13 @@
       package = pkgs.spotify-player.override {
         withFuzzy = true;
       };
-      # settings = {
-      #   enable_audio_visualization = false;
-      #   play_icon  = "▶";
-      #   pause_icon = "▌▌";
-      #   liked_icon = "♥";
-      # };
+      settings = {
+        enable_notify = false;
+        # enable_audio_visualization = false;
+        # play_icon  = "▶";
+        # pause_icon = "▌▌";
+        # liked_icon = "♥";
+      };
       keymaps  = [{
         command      = "LyricsPage";
         key_sequence = "L";
