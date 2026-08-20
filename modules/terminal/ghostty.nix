@@ -45,6 +45,8 @@
         copy-on-select                 = true
         linux-cgroup                   = always
         desktop-notifications          = true
+        # to avoid tmux interpret it as alt+h
+        keybind                        = super+h=ignore
         keybind                        = alt+c=copy_to_clipboard
         keybind                        = alt+v=paste_from_clipboard
         clipboard-read                 = allow
