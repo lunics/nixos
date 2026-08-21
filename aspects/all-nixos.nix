@@ -8,6 +8,7 @@
       nix
       impermanence
       hardware
+      facter
       kernel
       etc
       network
