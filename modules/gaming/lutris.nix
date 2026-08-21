@@ -23,8 +23,7 @@
         #    runner.runner_executable = "$\{pkgs.pcsx2}/bin/pcsx2-qt";
       };
       winePackages = with pkgs; [ 
-        # wine64
-        # pkgs.wineWow64Packages.full
+        # wineWow64Packages.waylandFull
       ];
       # steamPackage = osConfig.programs.steam.package;
     };
