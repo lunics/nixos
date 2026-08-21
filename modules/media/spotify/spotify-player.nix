@@ -84,8 +84,14 @@
         key_sequence = "f";
         command      = "Search";
       }{
-        key_sequence = "/";       # unbind / for Search
-        command      = "None";
+        key_sequence = "/";
+        command      = "None";    # unbind / for Search
+      }{
+        key_sequence = "l";
+        command      = "FocusNextWindow";
+      }{
+        key_sequence = "h";
+        command      = "FocusPreviousWindow";
       }];
       actions  = [];
       themes   = [];
