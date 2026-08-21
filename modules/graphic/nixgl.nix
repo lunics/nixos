@@ -1,5 +1,5 @@
 {
-  flake.aspects.gaming.homeManager = {
+  flake.aspects.nixgl.homeManager = {
     targets.genericLinux.nixGL = {      # wrapper tool for nix OpenGL 
       defaultWrapper = "mesaPrime";     # mesa, mesaPrime, nvidia, nvidiaPrime
       offloadWrapper = "mesaPrime";     # mesa, mesaPrime, nvidia, nvidiaPrime
