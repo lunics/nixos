@@ -7,7 +7,7 @@
       notify    = true;
       tray      = "auto";   # auto, always, never
       settings = {
-        icon_names.media = [ "media-optical" ];
+        icon_names.media = [ "media-optical" "drive-removable-media" "drive-harddisk" ];
         device_config    = config._.udiskie-devices;
       };
     };
