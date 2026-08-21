@@ -75,14 +75,17 @@
         };
       };
       keymaps  = [{
-        command      = "LyricsPage";
         key_sequence = "L";
+        command      = "LyricsPage";
       }{
-        command      = "PreviousPage";
         key_sequence = "esc";
+        command      = "PreviousPage";
       }{
-        command      = "Search";
         key_sequence = "f";
+        command      = "Search";
+      }{
+        key_sequence = "/";       # unbind / for Search
+        command      = "None";
       }];
       actions  = [];
       themes   = [];
