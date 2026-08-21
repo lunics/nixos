@@ -11,5 +11,9 @@
         device_config    = config._.udiskie-devices;
       };
     };
+    gtk.iconTheme = {       # required by the systray to resolve device icon names
+      name    = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
   };
 }
