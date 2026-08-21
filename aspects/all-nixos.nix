@@ -14,7 +14,6 @@
       desktop_nixos
       desktop-nixos
       audio
-      gaming-nixos
       steam
       graphic
       location
