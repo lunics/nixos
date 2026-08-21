@@ -42,8 +42,6 @@
         cover_img_width = 5;
         enable_media_control = true;
         enable_streaming = "Always";
-        enable_audio_visualization = false;
-        enable_notify = true;
         enable_cover_image_cache = true;
         notify_streaming_only = false;
         seek_duration_secs = 5;
