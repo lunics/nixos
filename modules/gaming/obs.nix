@@ -1,5 +1,5 @@
 {
-  flake.aspects.gaming.homeManager = { pkgs, ... }:{
+  flake.aspects.obs.homeManager = { pkgs, ... }:{
     programs.obs-studio = {
       enable  = false;
       plugins = with pkgs.obs-studio-plugins; [
