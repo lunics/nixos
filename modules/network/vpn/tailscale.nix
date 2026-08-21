@@ -6,6 +6,7 @@
         useRoutingFeatures = "client";
         extraDaemonFlags   = [ "--no-logs-no-support" ];
         extraUpFlags       = [ "--accept-dns=false" ];
+        extraSetFlags      = [ "--operator=${config._.user}" ];   # let the tray manage tailscaled without root
         # authKeyFile      = config.age.secrets.tailscaleAuthKey.path;
       };
       # seed the node identity on first boot only, tailscaled owns the file afterwards
