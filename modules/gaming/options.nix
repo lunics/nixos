@@ -1,21 +1,19 @@
 {
   flake.aspects.options.generic = { config, lib, ... }: with lib; {
     options._ = {
-      gaming = mkEnableOption "";
-
       steam = mkOption {
         type    = types.bool;
-        default = config._.gaming;
+        default = true;
       };
 
       gamemode = mkOption {
         type    = types.bool;
-        default = config._.gaming;
+        default = true;
       };
 
       gamescope = mkOption {
         type    = types.bool;
-        default = config._.gaming;
+        default = true;
       };
     };
   };
