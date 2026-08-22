@@ -21,6 +21,13 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    clan-core = {
+      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
     dank-material-shell = {
       url = "github:AvengeMedia/DankMaterialShell";
