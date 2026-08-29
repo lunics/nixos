@@ -1,5 +1,5 @@
 { inputs, ... }:{
-  flake-file.inputs.ableton-linux.url = "github:realitymolder/ableton-linux/flake";
+  flake-file.inputs.ableton-linux.url = "github:shibco/ableton-linux";
 
   flake.aspects.ableton = {
     nixos = { pkgs, ... }:{
