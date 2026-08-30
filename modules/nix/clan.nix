@@ -7,6 +7,12 @@
 
   imports = [ inputs.clan-core.flakeModules.default ];
 
+  flake.aspects.nix.homeManager = { pkgs, ... }:{
+    home.packages = [
+      inputs.clan-core.packages.${pkgs.stdenv.hostPlatform.system}.clan-cli
+    ];
+  };
+
   clan = {
     meta.name   = "clan-test";
     meta.domain = "clan-test.lol";
