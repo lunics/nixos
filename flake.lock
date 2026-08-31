@@ -808,11 +808,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787341334,
-        "narHash": "sha256-fSwGTdJOxn71NBWDkBQ/0w/JvBUcJUDdmzDMGNBFcSI=",
+        "lastModified": 1788197334,
+        "narHash": "sha256-3m4Ok0S60QneXSlNFWD0r65P8svCun1tJkpw+gu/V5I=",
         "ref": "refs/heads/main",
-        "rev": "d6ba8f86cc80c1f18d34a98b2658f22fe81a7168",
-        "revCount": 421,
+        "rev": "056ca2af69f67fe63df2c4b01ffef943daaaeee2",
+        "revCount": 427,
         "type": "git",
         "url": "file:/home/lunics/usb_copy/homelab/nixos-hosts"
       },
