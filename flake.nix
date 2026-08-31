@@ -27,6 +27,7 @@
         disko.follows = "disko";
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
+        sops-nix.follows = "sops-nix";
       };
     };
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
