@@ -3,6 +3,7 @@
     url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.flake-parts.follows = "flake-parts";
+    inputs.disko.follows = "disko";
   };
 
   imports = [ inputs.clan-core.flakeModules.default ];
