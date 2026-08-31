@@ -261,7 +261,9 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "sops-nix": "sops-nix",
+        "sops-nix": [
+          "sops-nix"
+        ],
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
       },
@@ -1832,7 +1834,7 @@
         "nixvirt": "nixvirt",
         "nur": "nur",
         "preservation": "preservation",
-        "sops-nix": "sops-nix_2",
+        "sops-nix": "sops-nix",
         "stylix": "stylix",
         "wsl": "wsl",
         "yt-x": "yt-x",
@@ -1861,27 +1863,6 @@
       }
     },
     "sops-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "clan-core",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786629091,
-        "narHash": "sha256-gkig4nPi1CWc4Z50GBsjE4ygSE7hMpl/TwID2an2Cck=",
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "rev": "a8627b21b9107c5711c96b84f32a9a4b3d45295f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "sops-nix_2": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
