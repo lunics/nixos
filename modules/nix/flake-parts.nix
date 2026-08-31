@@ -37,6 +37,8 @@
 
       nixpkgs.hostPlatform = lib.mkDefault system;
 
+      clan.core.networking.targetHost = lib.mkDefault "root@${name}";
+
       _.machine-index = lib.mkDefault (
         let last = lib.substring (builtins.stringLength name - 1) 1 name;
         in if builtins.match "[0-9]" last != null then lib.toInt last else 0
