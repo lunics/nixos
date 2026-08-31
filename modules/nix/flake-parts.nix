@@ -28,6 +28,20 @@
       };
     };
 
+    make_clan_machines = system: names: lib.genAttrs names (name: {
+      imports = [
+        self.modules.generic.options
+        self.modules.nixos.${name}
+      ];
+
+      nixpkgs.hostPlatform = lib.mkDefault system;
+
+      _.machine-index = lib.mkDefault (
+        let last = lib.substring (builtins.stringLength name - 1) 1 name;
+        in if builtins.match "[0-9]" last != null then lib.toInt last else 0
+      );
+    });
+
     make_darwin = system: name: {
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
