@@ -19,6 +19,7 @@
           self.modules.nixos.${name}
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
+
             _.machine-index = lib.mkDefault (
               let last = lib.substring (builtins.stringLength name - 1) 1 name;
               in if builtins.match "[0-9]" last != null then lib.toInt last else 0
@@ -47,7 +48,9 @@
         modules = [
           self.modules.generic.options
           self.modules.darwin.${name}
-          { nixpkgs.hostPlatform = lib.mkDefault system; }
+          { 
+            nixpkgs.hostPlatform = lib.mkDefault system; 
+          }
         ];
       };
     };
@@ -61,6 +64,7 @@
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
+
             home-manager.sharedModules = [ 
               self.modules.generic.options 
               inputs.sops-nix.homeManagerModules.sops
