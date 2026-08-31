@@ -1,9 +1,12 @@
 { inputs, ... }:{
   flake-file.inputs.clan-core = {
     url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
-    inputs.nixpkgs.follows = "nixpkgs";
-    inputs.flake-parts.follows = "flake-parts";
-    inputs.disko.follows = "disko";
+    inputs = {
+      nixpkgs.follows     = "nixpkgs";
+      flake-parts.follows = "flake-parts";
+      disko.follows       = "disko";
+      sops-nix.follows    = "sops-nix";
+    };
   };
 
   imports = [ inputs.clan-core.flakeModules.default ];
