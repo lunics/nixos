@@ -24,6 +24,7 @@
     clan-core = {
       url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
       inputs = {
+        disko.follows = "disko";
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
       };
