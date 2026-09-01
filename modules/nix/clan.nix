@@ -16,10 +16,4 @@
       inputs.clan-core.packages.${pkgs.stdenv.hostPlatform.system}.clan-cli
     ];
   };
-
-  clan = {
-    meta.name   = "clan-test";
-    meta.domain = "clan-test.lol";
-    machines    = {};
-  };
 }
