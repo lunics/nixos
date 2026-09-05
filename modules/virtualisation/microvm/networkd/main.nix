@@ -18,12 +18,14 @@
           dhcpV6Config = {};
           dhcpV4Config = {};
         };
+        # the microvm bridge has no carrier while no VM runs, so --any never sees a link
+        # online and stalls the switch; NetworkManager already owns the real links
         wait-online = {
-          enable       = true;
+          enable       = false;
           anyInterface = config.networking.useDHCP;
-          timeout      = 120;
+          timeout      = 30;
           extraArgs    = [];
-          ignoredInterfaces = [];
+          ignoredInterfaces = [ "mvm-*" ];
         };
         links    = {};
         netdevs  = {};
