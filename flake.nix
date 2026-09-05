@@ -72,7 +72,7 @@
     import-tree.url = "github:vic/import-tree";
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
     k0s = {
-      url = "github:johbo/k0s-nix";
+      url = "github:nix-community/k0s-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {

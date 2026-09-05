@@ -791,11 +791,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788197803,
-        "narHash": "sha256-NJSQSs1885SlXZ6LLUMElDnxaaaDbuJDmfoDQz6Fj+8=",
+        "lastModified": 1788604764,
+        "narHash": "sha256-ZRgy6BSIfjf4/m0oWZ0vFGQtt1i/zj9tnC/mRkXThVI=",
         "ref": "refs/heads/main",
-        "rev": "e4479e4c22038adb44f53cb63ee235c7ab94dae6",
-        "revCount": 428,
+        "rev": "dfc8fa87f369e04fc911e37979a80c43c1e318dc",
+        "revCount": 433,
         "type": "git",
         "url": "file:/home/lunics/usb_copy/homelab/nixos-hosts"
       },
@@ -1224,16 +1224,21 @@
       }
     },
     "k0s": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1787406975,
-        "narHash": "sha256-lzhYbwzXUBIt947ZvlX7s6Q8nezMWW8eiuKkNvTqcrg=",
-        "owner": "johbo",
+        "lastModified": 1788563502,
+        "narHash": "sha256-MD1mgcYLBSKP/PzIs/5til/kRlX5Sga/VqpueWkJzms=",
+        "owner": "nix-community",
         "repo": "k0s-nix",
-        "rev": "0fd1c2ebb0339bb7be1e3d51e3a7d5916f24bb71",
+        "rev": "aa2fb390a122f1ee5bfc6eda75c4ff2e87903795",
         "type": "github"
       },
       "original": {
-        "owner": "johbo",
+        "owner": "nix-community",
         "repo": "k0s-nix",
         "type": "github"
       }
