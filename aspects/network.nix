@@ -5,7 +5,6 @@
       firewall
       wifi
       bluetooth
-      vpn
       dns
     ];
   };

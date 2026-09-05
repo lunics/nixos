@@ -39,8 +39,6 @@
           default = "";
         };
       };
-
-      mullvad = mkEnableOption "";
     };
   };
 }

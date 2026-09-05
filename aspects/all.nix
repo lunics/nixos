@@ -30,6 +30,7 @@
       virtualisation
       secrets
       tailscale
+      mullvad
       facter
 
       # home manager
