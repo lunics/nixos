@@ -12,6 +12,7 @@
           matchConfig.Name = "microvm";
           networkConfig = {
             DHCPServer = true;
+            ConfigureWithoutCarrier = true;  # keep 10.0.0.1/24 and the DHCP server up while no VM is attached
             IPv6SendRA = true;
           };
           addresses = [{
@@ -19,6 +20,7 @@
           }] ++ lib.optional config._.net.ipv6 {
             Address = "fd12:3456:789a::1/64";
           };
+          linkConfig.RequiredForOnline = "no";  # host-only bridge, never routable
           ipv6Prefixes = [] ++ lib.optional config._.net.ipv6 {
             ipv6PrefixConfig.Prefix = "fd12:3456:789a::/64";
           };
@@ -27,6 +29,7 @@
           matchConfig.Name = "mvm-*";
           # Attach to the bridge that was configured above
           networkConfig.Bridge = "microvm";
+          linkConfig.RequiredForOnline = "no";  # TAPs come and go with the VMs
         };        
       };
 
