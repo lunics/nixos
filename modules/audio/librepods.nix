@@ -4,6 +4,8 @@
       librepods
     ];
 
+    _.add_to_startup = [ "librepods --hide" ];
+
     xdg.configFile."wireplumber/wireplumber.conf.d/51-bluez-avrcp.conf".text = ''
       monitor.bluez.properties = {
         # Enable dummy AVRCP player for proper media control support
