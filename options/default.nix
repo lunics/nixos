@@ -25,11 +25,6 @@
         default = "";
       };
 
-      external_vpn = mkOption {
-        type    = types.str;
-        default = "";
-      };
-
       alarm-clock = mkEnableOption "";
 
       gpu-nvidia-uuid = mkOption {
