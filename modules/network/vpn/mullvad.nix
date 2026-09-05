@@ -13,7 +13,7 @@
       ];
     };
 
-    homeManager = { pkgs, ... }:{
+    homeManager = { config, pkgs, ... }:{
       programs.mullvad-vpn = {
         enable  = true;
         package = pkgs.mullvad-vpn;
@@ -30,6 +30,8 @@
           browsedForSplitTunnelingApplications = [];
         };
       };
+
+      home.file."${config.xdg.configHome}/Mullvad VPN/gui_settings.json".force = true;
 
       home.packages = with pkgs; [
         mullvad-compass    # find Mullvad servers with the lowest latency at your location
