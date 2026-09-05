@@ -2,7 +2,7 @@
   flake.aspects.browser.homeManager = { config, lib, pkgs, ... }:{
     programs.firefox = {
       enable        = config._.browser == "firefox";
-      package       = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {}); # Screen Sharing under Wayland
+      package       = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { withPipewire = true;}) {}); # Screen Sharing under Wayland
       configPath    = config._.firefox.path;
       languagePacks = [ "fr" "en-US" ];
     };
