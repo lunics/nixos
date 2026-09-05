@@ -1,16 +1,16 @@
 {
-  flake.aspects.audio.nixos = { config, lib, ... }: with lib;
-  let
-    fix = config._.audio-mixer-fix;
-  in {
-    options = {
-      audio-mixer-fix = mkOption {
+  flake.aspects = {
+    options.generic = { lib, ... }: with lib; {
+      options._.audio-mixer-fix = mkOption {
         type    = types.str;
         default = "";      # ignore-db, soft
       };
     };
 
-    config = mkIf (fix != "") {
+    audio.nixos = { config, lib, ... }: with lib;
+    let
+      fix = config._.audio-mixer-fix;
+    in mkIf (fix != "") {
       services.pipewire.wireplumber.extraConfig."51-alsa-mixer-fix" = {
         "monitor.alsa.rules" = [
           {
