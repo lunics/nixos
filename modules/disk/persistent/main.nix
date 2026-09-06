@@ -7,5 +7,9 @@
       "/var/lib/systemd/coredump"
       "/snapshots"
     ];
+
+    _.persistent-system.files = [
+      { file = "/etc/machine-id"; inInitrd = true; }
+    ];
   };
 }

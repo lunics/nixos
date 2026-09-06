@@ -7,9 +7,7 @@
     preservation = {
       enable = config._.persistent;
       preserveAt.${config._.persistent-system.dest} = {
-        files = [
-          { file = "/etc/machine-id"; inInitrd = true; }
-        ];
+        files       = config._.persistent-system.files;
         directories = config._.persistent-system.dirs;
       };
     };

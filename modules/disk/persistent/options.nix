@@ -13,7 +13,7 @@
           default = [];   # don't add paths here, they will be overwritten
         };
         files = mkOption {
-          type    = types.listOf types.path;
+          type    = types.listOf (types.either types.path types.attrs);    # attrs: preservation file submodule, eg. { file = ...; inInitrd = true; }
           default = [];
         };
       };
