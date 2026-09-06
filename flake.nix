@@ -87,6 +87,10 @@
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-auto-follow = {
+      url = "github:fzakaria/nix-auto-follow";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-anywhere = {
       url = "github:nix-community/nixos-anywhere";
       inputs = {
