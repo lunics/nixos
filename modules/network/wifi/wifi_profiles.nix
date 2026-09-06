@@ -21,7 +21,7 @@
       };
     }) config._.wifi;
 
-    _.persistent-system.dirs = mkIf config._.persistent [
+    _.persistent-system.dirs = [
       "/etc/NetworkManager/system-connections"
     ];
   };
