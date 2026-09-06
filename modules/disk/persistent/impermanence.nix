@@ -1,16 +1,21 @@
 { inputs, ... }:{
   flake-file.inputs.impermanence.url  = "github:nix-community/impermanence";
 
-  flake.aspects.persistent.nixos = { config, lib, ... }: with lib; {
-    imports = [ inputs.impermanence.nixosModules.impermanence ];
+  flake.aspects.persistent = {
+    # the nixos module stays mandatory: it injects the home-manager one and owns the bind mounts
+    nixos = { config, ... }:{
+      imports = [ inputs.impermanence.nixosModules.impermanence ];
 
-    fileSystems."${config._.persistent.dest}".neededForBoot = true;
+      fileSystems."${config._.persistent.dest}".neededForBoot = true;
+    };
 
-    environment.persistence.${config._.persistent.dest} = {
-      enable      = config._.impermanence;
-      hideMounts  = true;    # hide the bind mounts from showing up as mounted drives in the file manager
-      directories = config._.persistent.dirs;
-      files       = config._.persistent.files;
+    homeManager = { config, ... }:{
+      home.persistence.${config._.persistent.dest} = {
+        enable      = config._.impermanence;
+        hideMounts  = true;    # hide the bind mounts from showing up as mounted drives in the file manager
+        directories = config._.persistent.dirs;
+        files       = config._.persistent.files;
+      };
     };
   };
 }
