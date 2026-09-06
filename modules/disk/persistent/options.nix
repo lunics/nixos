@@ -5,6 +5,8 @@
       preservation = mkEnableOption "";
 
       persistent = {
+        home = mkEnableOption "";   # home-manager layer, handled by impermanence
+
         dest = mkOption {
           type    = types.str;
           default = "/nix/persistent";
