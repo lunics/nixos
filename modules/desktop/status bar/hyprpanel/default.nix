@@ -1,6 +1,10 @@
 { inputs, ... }:{
-  # repo was archived in 2026-04 and removed from nixpkgs. Pin the last commit
-  flake-file.inputs.hyprpanel.url = "github:Jas-SinghFSU/HyprPanel/d563cdb1f6499d981901336bd0f86303ab95c4a5";
+  flake-file.inputs = {
+    # repo was archived in 2026-04 and removed from nixpkgs. Pin the last commit
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel/d563cdb1f6499d981901336bd0f86303ab95c4a5";
+    # top-level input so ags and hyprpanel share a single astal (auto-follow)
+    astal.url = "github:aylur/astal";
+  };
 
   flake.aspects.hyprpanel.homeManager = { config, lib, pkgs, ... }:{
     # home.packages = with pkgs; [

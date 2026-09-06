@@ -17,6 +17,7 @@
 
   inputs = {
     ableton-linux.url = "github:shibco/ableton-linux";
+    astal.url = "github:aylur/astal";
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
