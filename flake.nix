@@ -45,6 +45,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-aspects.url = "github:vic/flake-aspects";
+    flake-compat.url = "github:NixOS/flake-compat";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

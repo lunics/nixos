@@ -5,6 +5,7 @@
       flake-file.url  = "github:vic/flake-file";
       import-tree.url = "github:vic/import-tree";
       systems.url     = "github:nix-systems/default";
+      flake-compat.url = "github:NixOS/flake-compat";
       flake-parts = {
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
