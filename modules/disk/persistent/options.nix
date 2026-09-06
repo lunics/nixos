@@ -4,19 +4,31 @@
       impermanence = mkEnableOption "";
       preservation = mkEnableOption "";
 
-      persistent = {
-        home = mkEnableOption "";   # home-manager layer, handled by impermanence
-
+      persistent-system = {
         dest = mkOption {
           type    = types.str;
           default = "/nix/persistent";
         };
         dirs = mkOption {
-          type    = types.listOf types.str;    # str: home paths are relative to $HOME
+          type    = types.listOf types.path;
           default = [];   # don't add paths here, they will be overwritten
         };
         files = mkOption {
-          type    = types.listOf types.str;    # str: home paths are relative to $HOME
+          type    = types.listOf types.path;
+          default = [];
+        };
+
+      persistent-home = {
+        dest = mkOption {
+          type    = types.str;
+          default = "/nix/persistent";   # impermanence appends /home/<user> itself
+        };
+        dirs = mkOption {
+          type    = types.listOf types.str;    # str: paths are relative to $HOME
+          default = [];
+        };
+        files = mkOption {
+          type    = types.listOf types.str;
           default = [];
         };
       };

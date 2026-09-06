@@ -10,11 +10,11 @@
     };
 
     homeManager = { config, ... }:{
-      home.persistence.${config._.persistent.dest} = {
-        enable      = config._.persistent.home;
+      home.persistence.${config._.persistent.home.dest} = {
+        enable      = config._.impermanence;
         hideMounts  = true;    # hide the bind mounts from showing up as mounted drives in the file manager
-        directories = config._.persistent.dirs;
-        files       = config._.persistent.files;
+        directories = config._.persistent.home.dirs;
+        files       = config._.persistent.home.files;
       };
     };
   };
