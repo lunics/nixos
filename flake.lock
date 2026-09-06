@@ -1329,6 +1329,26 @@
         "type": "github"
       }
     },
+    "nix-auto-follow": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787959246,
+        "narHash": "sha256-BlHRSxL3VXZsYrnkSURfmxEwGOnH9pZJgnwv5twrGQ4=",
+        "owner": "fzakaria",
+        "repo": "nix-auto-follow",
+        "rev": "c223b752ce083e4597feeb3de4390728c03634c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fzakaria",
+        "repo": "nix-auto-follow",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -1832,6 +1852,7 @@
         "lanzaboote": "lanzaboote",
         "microvm": "microvm",
         "musnix": "musnix",
+        "nix-auto-follow": "nix-auto-follow",
         "nixos-anywhere": "nixos-anywhere",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_7",
