@@ -2,11 +2,9 @@
   flake.aspects = { aspects, ... }:{
     all-nixos.includes = with aspects; [
       options
-      default-values
       disk
       boot
       nix
-      impermanence
       hardware
       facter
       kernel

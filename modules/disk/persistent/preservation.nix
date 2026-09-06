@@ -1,7 +1,7 @@
 { inputs, ... }:{
   flake-file.inputs.preservation.url  = "github:nix-community/preservation";
 
-  flake.aspects.preservation.nixos = { config, lib, ... }: with lib; {
+  flake.aspects.persistent.nixos = { config, lib, ... }: with lib; {
     imports = [ inputs.preservation.nixosModules.default ];
 
     preservation = {

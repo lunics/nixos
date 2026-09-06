@@ -3,13 +3,11 @@
     all.includes = with aspects; [
       # generic
       options
-      default-values
 
       # nixos
       disk
       boot
       nix
-      impermanence
       hardware
       facter
       kernel

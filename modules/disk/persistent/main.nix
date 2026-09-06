@@ -1,5 +1,5 @@
 {
-  flake.aspects.default-values.nixos = { config, lib, ... }:{
+  flake.aspects.persistent.nixos = { config, lib, ... }:{
     _.persistent.dirs = lib.mkIf config._.impermanence [
       "/persistent"
       "/var/log"
