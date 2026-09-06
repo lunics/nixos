@@ -4,6 +4,7 @@
       nixpkgs.url     = "github:nixos/nixpkgs/nixpkgs-unstable";
       flake-file.url  = "github:vic/flake-file";
       import-tree.url = "github:vic/import-tree";
+      systems.url     = "github:nix-systems/default";
       flake-parts = {
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
