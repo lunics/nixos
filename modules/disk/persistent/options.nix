@@ -1,8 +1,7 @@
 {
   flake.aspects.options.generic = { lib, ... }: with lib; {
     options._ = {
-      impermanence = mkEnableOption "";
-      preservation = mkEnableOption "";
+      persistent = mkEnableOption "";   # nixos: preservation, home-manager: impermanence
 
       persistent-system = {
         dest = mkOption {

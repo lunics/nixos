@@ -5,7 +5,7 @@
     imports = [ inputs.preservation.nixosModules.default ];
 
     preservation = {
-      enable = config._.preservation;
+      enable = config._.persistent;
       preserveAt.${config._.persistent-system.dest} = {
         files = [
           { file = "/etc/machine-id"; inInitrd = true; }

@@ -10,7 +10,7 @@
 
       users.groups.sops.name = config._.sops-group;
 
-      _.persistent-system.dirs = lib.mkIf config._.impermanence [ 
+      _.persistent-system.dirs = lib.mkIf config._.persistent [ 
         "/var/lib/sops-nix" 
       ];
 

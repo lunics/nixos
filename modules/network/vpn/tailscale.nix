@@ -22,7 +22,7 @@
 
       environment.systemPackages = [ pkgs.tailscale ];
 
-      _.persistent-system.dirs = lib.mkIf config._.impermanence [ "/var/lib/tailscale" ];
+      _.persistent-system.dirs = lib.mkIf config._.persistent [ "/var/lib/tailscale" ];
 
       # networking.firewall = {
       #   allowedUDPPorts   = [ config.services.tailscale.port ];

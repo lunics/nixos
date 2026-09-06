@@ -28,7 +28,7 @@
         };
       };
 
-      _.persistent-system.dirs = mkIf config._.impermanence [
+      _.persistent-system.dirs = mkIf config._.persistent [
         "/var/lib/secure_boot"
       ];
     };

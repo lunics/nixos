@@ -23,7 +23,7 @@
       };
     };
 
-    _.persistent-system.dirs = lib.mkIf config._.impermanence [
+    _.persistent-system.dirs = lib.mkIf config._.persistent [
       "/var/lib/iwd"
     ];
   };
