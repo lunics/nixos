@@ -43,7 +43,7 @@
 
       services.blueman.enable = true;   # GTK+ bluetooth manager
 
-      _.persistent.dirs = lib.mkIf config._.impermanence [
+      _.persistent-system.dirs = lib.mkIf config._.impermanence [
         "/var/lib/bluetooth"
       ];
     };

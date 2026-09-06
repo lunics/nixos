@@ -6,15 +6,15 @@
     nixos = { config, ... }:{
       imports = [ inputs.impermanence.nixosModules.impermanence ];
 
-      fileSystems."${config._.persistent.dest}".neededForBoot = true;
+      fileSystems."${config._.persistent-system.dest}".neededForBoot = true;
     };
 
     homeManager = { config, ... }:{
-      home.persistence.${config._.persistent.home.dest} = {
+      home.persistence.${config._.persistent-home.dest} = {
         enable      = config._.impermanence;
         hideMounts  = true;    # hide the bind mounts from showing up as mounted drives in the file manager
-        directories = config._.persistent.home.dirs;
-        files       = config._.persistent.home.files;
+        directories = config._.persistent-home.dirs;
+        files       = config._.persistent-home.files;
       };
     };
   };

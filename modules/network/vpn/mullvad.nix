@@ -8,7 +8,7 @@
         enableExcludeWrapper = true;    # activates the wrapper that allows the use of mullvad-exclude
       };
 
-      _.persistent.dirs = mkIf config._.impermanence [
+      _.persistent-system.dirs = mkIf config._.impermanence [
         "/var/cache/mullvad-vpn"
       ];
     };

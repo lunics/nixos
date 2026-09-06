@@ -6,15 +6,15 @@
 
     preservation = {
       enable = config._.preservation;
-      preserveAt.${config._.persistent.dest} = {
+      preserveAt.${config._.persistent-system.dest} = {
         files = [
           { file = "/etc/machine-id"; inInitrd = true; }
         ];
-        directories = config._.persistent.dirs;
+        directories = config._.persistent-system.dirs;
       };
     };
 
-    fileSystems."${config._.persistent.dest}".neededForBoot = true;
+    fileSystems."${config._.persistent-system.dest}".neededForBoot = true;
 
     systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
   };

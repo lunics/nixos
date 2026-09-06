@@ -64,7 +64,7 @@
       #   fi
       # '';
 
-      _.persistent.dirs = lib.mkIf config._.impermanence [
+      _.persistent-system.dirs = lib.mkIf config._.impermanence [
         config._.k3s.btrfs-subvol
       ];
 

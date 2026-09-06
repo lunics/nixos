@@ -17,6 +17,7 @@
           type    = types.listOf types.path;
           default = [];
         };
+      };
 
       persistent-home = {
         dest = mkOption {
