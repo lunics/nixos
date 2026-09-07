@@ -3,6 +3,12 @@
 {
   flake.aspects.networkd-bridge.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
+      # networkd owns br0 and its uplink here, keep NetworkManager away from both
+      networking.networkmanager.unmanaged = [
+        "interface-name:br0"
+        "interface-name:${config._.net.ext-interface}"
+      ];
+
       systemd.network = {
         # br0 carries the host address here, so waiting for it is meaningful
         wait-online = {
