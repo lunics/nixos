@@ -1358,6 +1358,21 @@
         "type": "github"
       }
     },
+    "multiverse": {
+      "locked": {
+        "lastModified": 1788808865,
+        "narHash": "sha256-3ZW7AnhyGEj673TFCKdGA9js1a75CBx4FKG5M3udaRU=",
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "rev": "e9e468e423c3afb93a69312a603e6712ffa9f5d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "type": "github"
+      }
+    },
     "musnix": {
       "inputs": {
         "nixpkgs": [
@@ -1933,6 +1948,7 @@
         "k0s": "k0s",
         "lanzaboote": "lanzaboote",
         "microvm": "microvm",
+        "multiverse": "multiverse",
         "musnix": "musnix",
         "nix-auto-follow": "nix-auto-follow",
         "nixos-anywhere": "nixos-anywhere",
