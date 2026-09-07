@@ -55,9 +55,6 @@
       image_bound      = [0, 0]
       suppress_preload = false
 
-      [log]
-      enabled = false
-
       "$schema"       = "https://yazi-rs.github.io/schemas/yazi.json"
     '';
   };
