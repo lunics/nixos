@@ -85,6 +85,7 @@
       url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     musnix = {
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
