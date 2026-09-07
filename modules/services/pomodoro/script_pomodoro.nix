@@ -51,7 +51,7 @@
             }
 
             # run many system commands to pause everthing before the break
-            def break [1st_break: int, time_unit: duration, unit: string, _data: record] {
+            def strict_break [1st_break: int, time_unit: duration, unit: string, _data: record] {
               mut data = $_data
 
               $data.break_time   = $1st_break * $data.cycle
@@ -148,7 +148,7 @@
             }
 
             if $mode == "strict" {
-              break $1st_break $time_unit $unit $data
+              strict_break $1st_break $time_unit $unit $data
             } else if $mode == "soft" {
               soft_break $time_unit $unit $data
             }
