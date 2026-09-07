@@ -32,11 +32,15 @@
         
         networks."10-lan-bridge" = {
           matchConfig.Name = "br0";
+          # gateway/DNS stay optional so a DHCP or RA-configured LAN needs no value
           networkConfig = {
-            Address      = ["${config._.net.addr.ipv4}/24" "2001:db8::a/64"];
-            Gateway      = "192.168.1.1";
-            DNS          = ["192.168.1.1"];
-            IPv6AcceptRA = true;
+            Address      = [ "${config._.net.addr.ipv4}/24" ]
+                           ++ lib.optional config._.net.ipv6 "${config._.net.addr.ipv6}/64";
+            IPv6AcceptRA = config._.net.ipv6;
+          } // lib.optionalAttrs (config._.net.gateway != "") {
+            Gateway      = config._.net.gateway;
+          } // lib.optionalAttrs (config._.net.nameservers != []) {
+            DNS          = config._.net.nameservers;
           };
           linkConfig.RequiredForOnline = "routable";
         };
