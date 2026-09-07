@@ -55,7 +55,6 @@
               mut data = $_data
 
               $data.break_time   = $1st_break * $data.cycle
-              $data.cycle        = $data.cycle + 1  # increase cycle after breat_time but before sleep to save value
               $data.current_work = 0
 
               $data | save -f $env.cache_file       # last persistent save
@@ -104,7 +103,6 @@
               mut data = $_data
 
               $data.break_time   = 0
-              $data.cycle        = $data.cycle + 1
               $data.current_work = 0
 
               $data | save -f $env.cache_file
@@ -121,19 +119,19 @@
             }
 
             # if /tmp/pomodoro.json presents then use it else reset the variable
-            mut data = if ($env.cache_file | path exists) {
+            let restarted = ($env.cache_file | path exists)
+            mut data = if $restarted {
               open $env.cache_file
             } else {
               { cycle: 1, break_time: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
             }
 
-            # reset everything if we start a new day
+            # reset everything if we start a new day, else a restart moves to the next cycle
             if $data.last_run != (date now | format date "%Y-%m-%d") {
               $data = { cycle: 1, break_time: 0, current_work: 0, last_run: (date now | format date "%Y-%m-%d"), brightness: 0 }
-            }
-
-            if $data.current_work >= 30 {
-              $data.cycle = $data.cycle + 1
+            } else if $restarted {
+              $data.cycle        = $data.cycle + 1     # a manual restart starts the next cycle
+              $data.break_time   = 0
               $data.current_work = 0
             }
 
