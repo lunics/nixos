@@ -4,6 +4,12 @@
   flake.aspects.networkd-bridge.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
       systemd.network = {
+        # br0 carries the host address here, so waiting for it is meaningful
+        wait-online = {
+          enable       = true;
+          anyInterface = false;
+        };
+
         networks."10-lan" = {
           matchConfig.Name = ["${config._.net.ext-interface}" "mvm-*"];
           networkConfig = {

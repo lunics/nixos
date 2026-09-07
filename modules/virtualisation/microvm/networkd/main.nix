@@ -18,11 +18,11 @@
           dhcpV6Config = {};
           dhcpV4Config = {};
         };
-        # the microvm bridge has no carrier while no VM runs, so --any never sees a link
-        # online and stalls the switch; NetworkManager already owns the real links
+        # off by default: with bridge-nat the microvm bridge has no carrier while no VM
+        # runs, so --any stalls the switch; aspects owning a real link re-enable it
         wait-online = {
-          enable       = false;
-          anyInterface = config.networking.useDHCP;
+          enable       = lib.mkDefault false;
+          anyInterface = lib.mkDefault config.networking.useDHCP;
           timeout      = 30;
           extraArgs    = [];
           ignoredInterfaces = [ "mvm-*" ];
