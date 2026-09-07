@@ -42,12 +42,14 @@
         # 2000::/3 you should route that and remove this setting:
         enableIPv6 = true;
       
-        # Change this to the interface with upstream Internet access
-        externalInterface = config._.net.ext-interface;
+        # null: masquerade on whichever uplink holds the default route (wifi or ethernet),
+        # instead of pinning ex: wlan0, which cuts the VMs off as soon as the host switches to eth0
+        externalInterface = null;
         # The bridge where you want to provide Internet access
         internalInterfaces = ["microvm"];
 
         ## TODO to make your MicroVM’s services available to networks outside your host!
+        ## note: forwardPorts asserts externalInterface != null, so name the uplink back if used
         # forwardPorts = [{
         #   proto       = "tcp";
         #   sourcePort  = 80;
