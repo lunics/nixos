@@ -19,6 +19,16 @@
           default = "";
         };
 
+        gateway = mkOption {
+          type    = types.str;
+          default = "";
+        };
+
+        nameservers = mkOption {
+          type    = types.listOf types.str;
+          default = [];
+        };
+
         addr = {                    # used in static allocation
           ipv4 = mkOption {
             type    = types.str;
