@@ -9,8 +9,8 @@ urgency.annotations.coefficient   = 0               # has annotations (defaul 1.
 urgency.tags.coefficient          = 0               # has tags
 urgency.project.coefficient       = 0               # assigned to any project
 urgency.waiting.coefficient       = -3.0            # waiting task (default -3.0)
-urgency.blocking.coefficient      = 0.2             # a blocking task is a bit more urgent
-urgency.blocked.coefficient       = 0               # a blocked task is not less urgent
+urgency.blocking.coefficient      = 0               # a blocking task is not more urgent (default 8.0)
+urgency.blocked.coefficient       = 0               # a blocked task is not less urgent (default -5.0)
 
 uda.priority.label  = Priority
 uda.priority.type   = string
