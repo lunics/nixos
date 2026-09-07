@@ -111,6 +111,15 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    omniflake = {
+      url = "github:fzakaria/omniflake";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
     preservation.url = "github:nix-community/preservation";
     sops-nix = {
       url = "github:Mic92/sops-nix";
