@@ -106,7 +106,7 @@
         themeModeAutoEnabled        = true;
         themeModeAutoMode           = "time";
         themeModeShareGammaSettings = false;
-        themeModeStartHour          = 22;
+        themeModeStartHour          = 21;
         themeModeEndHour            = 7;
 
         weatherLocation      = "Paris, France";
