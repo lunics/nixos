@@ -67,6 +67,7 @@
       ableton
       pomodoro
       lutris
+      zmk
     ];
   };
 }
