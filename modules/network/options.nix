@@ -7,7 +7,18 @@
       };
 
       bluetooth-devices = mkOption {
-        type    = types.listOf types.str;
+        type = types.listOf (types.submodule {
+          options = {
+            name = mkOption {
+              type    = types.str;
+              default = "";
+            };
+            mac = mkOption {
+              type    = types.str;
+              default = "";
+            };
+          };
+        });
         default = [];
       };
 

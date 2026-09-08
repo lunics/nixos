@@ -22,20 +22,20 @@
         };
       };
 
-      assertions = map (mac-device: {
-        assertion = (config.sops.secrets ? "${mac-device}/info")
-                 && (config.sops.secrets ? "${mac-device}/attributes");
-        message   = "sops: missing bluetooth secrets for device ${mac-device}";
+      assertions = map (device: {
+        assertion = (config.sops.secrets ? "${device.mac}/info")
+                 && (config.sops.secrets ? "${device.mac}/attributes");
+        message   = "sops: missing bluetooth secrets for device ${device.name} (${device.mac})";
       }) config._.bluetooth-devices;
 
-      sops.secrets = lib.mkMerge (map (mac-device: {
-        "${mac-device}/info" = {
-          path         = "/var/lib/bluetooth/${mac-controller}/${mac-device}/info";
+      sops.secrets = lib.mkMerge (map (device: {
+        "${device.mac}/info" = {
+          path         = "/var/lib/bluetooth/${mac-controller}/${device.mac}/info";
           mode         = "0600";
           restartUnits = [ "bluetooth.service" ];
         };
-        "${mac-device}/attributes" = {
-          path         = "/var/lib/bluetooth/${mac-controller}/${mac-device}/attributes";
+        "${device.mac}/attributes" = {
+          path         = "/var/lib/bluetooth/${mac-controller}/${device.mac}/attributes";
           mode         = "0600";
           restartUnits = [ "bluetooth.service" ];
         };
