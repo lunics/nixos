@@ -4,8 +4,6 @@
       librepods
     ];
 
-    _.add_to_startup = [ "librepods --hide" ];
-
     xdg.configFile."wireplumber/wireplumber.conf.d/51-bluez-avrcp.conf" = {
       force = true;    # take over the plain file already present in ~/.config
       text  = ''
