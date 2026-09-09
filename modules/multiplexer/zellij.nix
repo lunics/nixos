@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = {
+  flake.aspects.zellij.homeManager = {
     programs.zellij = {
       enable = false;
       # attachExistingSession = true;       

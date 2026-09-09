@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = {
+  flake.aspects.tmux.homeManager = {
     programs.tmux.extraConfig = ''
       set -g pane-border-lines heavy
       set -g pane-active-border-style fg=green

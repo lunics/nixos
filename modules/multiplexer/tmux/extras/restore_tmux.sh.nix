@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = { config, pkgs, ... }:{
+  flake.aspects.tmux.homeManager = { config, pkgs, ... }:{
     home.packages = with pkgs; [
       (pkgs.writeShellApplication {
         name = "restore_tmux";                   # restore all sessions then switch to home session

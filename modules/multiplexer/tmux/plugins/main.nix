@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = { pkgs, ... }:{
+  flake.aspects.tmux.homeManager = { pkgs, ... }:{
     programs.tmux.plugins = with pkgs.tmuxPlugins; [
       sensible
       copycat

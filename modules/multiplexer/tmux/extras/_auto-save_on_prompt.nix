@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = { pkgs, ... }:{
+  flake.aspects.tmux.homeManager = { pkgs, ... }:{
    # save tmux sessions every time the prompt is updated
     programs.zsh.initContent = ''
       precmd() {

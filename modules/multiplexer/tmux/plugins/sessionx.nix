@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = { config, pkgs, ... }:{
+  flake.aspects.tmux.homeManager = { config, pkgs, ... }:{
     programs.tmux.plugins = with pkgs.tmuxPlugins; [ {
       plugin = tmux-sessionx;
       extraConfig = ''

@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = {
+  flake.aspects.herdr.homeManager = {
     programs.herdr = {
       enable = true;
 

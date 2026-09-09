@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = {
+  flake.aspects.screen.homeManager = {
     programs.screen = {
       enable   = false;
       screenrc = ''

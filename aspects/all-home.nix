@@ -19,7 +19,11 @@
         home
         ssh_client
         stylix
-      multiplexer
+      # multiplexer
+        tmux
+        herdr
+        screen
+        zellij
       music
       nix
       packages

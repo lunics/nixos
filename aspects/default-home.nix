@@ -13,7 +13,11 @@
         home
         ssh_client
         stylix
-      multiplexer
+      # multiplexer
+        tmux
+        herdr
+        screen
+        zellij
       nix
       packages
       pass_manager

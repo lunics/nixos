@@ -1,5 +1,5 @@
 {
-  flake.aspects.multiplexer.homeManager = { pkgs, ... }: let
+  flake.aspects.tmux.homeManager = { pkgs, ... }: let
     # override the file window.sh from the tmux-fzf plugin
     custom-tmux-fzf = pkgs.tmuxPlugins.tmux-fzf.overrideAttrs (old: {
       postInstall = (old.postInstall or "") + ''
