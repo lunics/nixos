@@ -30,6 +30,8 @@
       '';
     };
   in mkIf (splitkb != null) {
+    home.packages = [ pkgs.zmkbatx ];   # battery monitoring
+
     systemd.user.services = {
       "zmkbatx" = {
         Unit = {
