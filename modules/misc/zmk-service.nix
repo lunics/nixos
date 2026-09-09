@@ -1,6 +1,7 @@
 {
   flake.aspects.zmk.homeManager = { config, lib, pkgs, ... }: with lib;
   let
+    # the name casing is free-form in bluetooth-devices ("Splitkb"), so compare it lowercased
     splitkb = findFirst (device: toLower device.name == "splitkb") null config._.bluetooth-devices;
     dev     = "dev_" + toUpper (replaceStrings [ ":" ] [ "_" ] (if splitkb == null then "" else splitkb.mac));
 
