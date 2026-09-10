@@ -7,9 +7,9 @@
         # tmpfs is limited to half of your ram by default, but each tmpfs mounting can be customized
 
       # ignore, poweroff, reboot, halt, kexec, suspend, hibernate, hybrid-sleep, suspend-then-hibernate, sleep, lock
-      # LidSwitch              = config._.laptop_lid;      
-      # LidSwitchDocked        = "ignore";            # when the laptop lid is closed and another screen is added
-      # LidSwitchExternalPower = config._.laptop_lid; # when the laptop lid is closed and the system is on external power
+      HandleLidSwitch              = config._.laptop_lid; # nothing happens on lid close, the compositor only turns the panel off
+      HandleLidSwitchDocked        = "ignore";            # when the laptop lid is closed and another screen is added
+      HandleLidSwitchExternalPower = config._.laptop_lid; # when the laptop lid is closed and the system is on external power
       # HibernateKey           = "hibernate";
       # HibernateKeyLongPress  = "ignore";
       # KillUserProcesses      = false;               # kill users processes when the they logs out

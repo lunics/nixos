@@ -25,7 +25,7 @@
 
       laptop_lid = mkOption {
         type    = types.str;
-        default = "suspend";
+        default = "ignore";           # ignore, suspend, poweroff, hibernate, lock
       };
 
       wsl = mkEnableOption "";
