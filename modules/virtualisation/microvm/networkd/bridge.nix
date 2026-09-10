@@ -3,6 +3,12 @@
 {
   flake.aspects.networkd-bridge.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
+      # bridge-nat builds its own host-only bridge, bridging the uplink here would steal it
+      assertions = [{
+        assertion = !(config.systemd.network.netdevs ? "10-microvm");
+        message   = "networkd-bridge and networkd-bridge-nat are mutually exclusive, keep only one.";
+      }];
+
       # networkd owns br0 and its uplink here, keep NetworkManager away from both
       networking.networkmanager.unmanaged = [
         "interface-name:br0"
