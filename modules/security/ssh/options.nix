@@ -9,7 +9,7 @@
           };
 
           identityFile = mkOption {
-            type    = types.oneOf [ (types.listOf types.str) types.str types.null ];
+            type    = types.nullOr (types.either types.str (types.listOf types.str));
             default = [];
           };
 
@@ -25,6 +25,11 @@
 
           checkHostIP = mkOption {
             type    = types.nullOr types.bool;
+            default = null;
+          };
+
+          userKnownHostsFile = mkOption {
+            type    = types.nullOr (types.either types.str (types.listOf types.str));
             default = null;
           };
         };
