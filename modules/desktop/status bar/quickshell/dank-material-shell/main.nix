@@ -93,7 +93,9 @@
       };
 
       session = {
-        isLightMode          = true;
+        # boot value only: the dms daemon always starts dark, and a true here loses
+        # the race against the theme schedule below and pins dark for the whole day
+        isLightMode          = false;
 
         # gamma filter (colour temperature) 
         nightModeEnabled     = false;
