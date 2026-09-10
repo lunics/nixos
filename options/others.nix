@@ -23,11 +23,6 @@
 
       graphic = mkEnableOption "";
 
-      laptop_lid = mkOption {
-        type    = types.str;
-        default = "ignore";           # ignore, suspend, poweroff, hibernate, lock
-      };
-
       wsl = mkEnableOption "";
 
       headless = mkEnableOption "";

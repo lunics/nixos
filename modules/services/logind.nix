@@ -1,4 +1,13 @@
 {
+  flake.aspects.options.generic = { lib, ... }: with lib; {
+    options._ = {
+      laptop_lid = mkOption {
+        type    = types.str;
+        default = "ignore";     # ignore, suspend, poweroff, hibernate, lock
+      };
+    };
+  };
+
   flake.aspects.logind.nixos = { config, ... }:{
     services.logind.settings.Login = {
       RuntimeDirectorySize   = "4G";
