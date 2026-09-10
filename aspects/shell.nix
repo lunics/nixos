@@ -9,6 +9,7 @@
       bash
       exports
       history
+      navi
       prompt
     ];
   };
