@@ -3,7 +3,8 @@
     config = lib.mkIf config._.microvm.enable {
       networking = {
         useNetworkd = true;   # alias of systemd.network.enable = true
-        networkmanager.unmanaged = [ "interface-name:mvm-*" ]; # force NetworkManager to ignore the TAP interfaces to avoid conflicts
+        # networkd owns the microvm bridge and its TAPs, NetworkManager must not touch them
+        networkmanager.unmanaged = [ "interface-name:microvm" "interface-name:mvm-*" ];
       };
 
       # files generated in /etc/systemd/network
