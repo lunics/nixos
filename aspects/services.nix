@@ -7,7 +7,7 @@
       logind
       no-wakeup
       podman
-      ssh                   # nixos service + home client
+      # ssh                 # listed directly in the aspect lists
       startup_apps
       thermald
       tlp
