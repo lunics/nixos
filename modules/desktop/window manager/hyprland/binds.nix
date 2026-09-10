@@ -96,6 +96,10 @@
       hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
       hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
+        -- lid: logind ignores it, so only the internal panel is switched off
+      hl.bind("switch:on:Lid Switch",  hl.dsp.exec_cmd("hyprctl dispatch dpms off eDP-1"), { locked = true })
+      hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("hyprctl dispatch dpms on eDP-1"),  { locked = true })
+
       -- bind = $SUPER,    P,      pseudo,            # dwindle  KO
       -- bind = $SUPER,    P,      pin, active        # pin the current window across all workspaces
       -- bind = $SSHIFT,     BACKSPACE, movetoworkspace, special       # move active window to the special workspace
