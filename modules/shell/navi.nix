@@ -1,8 +1,7 @@
 {
-  flake.aspects.navi.homeManager = { config, pkgs, ... }:{
+  flake.aspects.navi.homeManager = { config, ... }:{
     programs.navi = {
-      enable  = true;
-      package = pkgs.navi;
+      enable = true;
       enableZshIntegration = true;
       settings = {
         cheats.paths     = [ "${config._.dot_config}/navi/cheats" ];
