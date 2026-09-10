@@ -13,6 +13,7 @@
       -- keys: SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
       local SUPER  = "SUPER"
       local SSHIFT = "SUPER + SHIFT"
+      local SCTRL  = "SUPER + CTRL"
 
       hl.bind("${_hypr.toggle_bt}",  hl.dsp.exec_cmd("toggle_bt_device 90:5F:7A:BC:93:87"))
       hl.bind("${_hypr.toggle_bar}", hl.dsp.exec_cmd("hyprpanel toggleWindow bar-0"))
@@ -39,6 +40,11 @@
       hl.bind(SUPER  .. " + right", hl.dsp.focus({ direction = "right" }))
       hl.bind(SUPER  .. " + up",    hl.dsp.focus({ direction = "up"    }))
       hl.bind(SUPER  .. " + down",  hl.dsp.focus({ direction = "down"  }))
+        -- move the focused window with vim keys
+      hl.bind(SCTRL  .. " + h", hl.dsp.window.move({ direction = "left"  }))
+      hl.bind(SCTRL  .. " + j", hl.dsp.window.move({ direction = "down"  }))
+      hl.bind(SCTRL  .. " + k", hl.dsp.window.move({ direction = "up"    }))
+      hl.bind(SCTRL  .. " + l", hl.dsp.window.move({ direction = "right" }))
       hl.bind(SUPER  .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true }) -- super + left click  = move window
       hl.bind(SUPER  .. " + mouse:273", hl.dsp.window.resize(), { mouse = true }) -- super + right click = resize window
 
