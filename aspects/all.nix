@@ -25,6 +25,7 @@
       wsl
       security
       services
+      ssh
       virtualisation
       secrets
       tailscale
@@ -48,7 +49,7 @@
       # misc
       # gpg
       home
-      ssh
+      # ssh
       stylix
       # multiplexer
         tmux
@@ -64,7 +65,7 @@
       task_manager
       terminal
       torrent
-      services
+      # services
       xdg
       bluetooth
       librepods

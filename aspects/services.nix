@@ -7,7 +7,7 @@
       logind
       no-wakeup
       podman
-      ssh
+      ssh                   # nixos service + home client
       startup_apps
       thermald
       tlp
