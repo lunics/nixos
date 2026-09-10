@@ -11,7 +11,7 @@
       messaging
       # misc
         home
-        ssh_client
+        ssh
         stylix
       # multiplexer
         tmux

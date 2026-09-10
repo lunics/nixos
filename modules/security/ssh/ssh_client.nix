@@ -1,5 +1,5 @@
 {
-  flake.aspects.ssh_client.homeManager = { config, ... }:{
+  flake.aspects.ssh.homeManager = { config, ... }:{
     programs.ssh = {
       enable               = true;
       package              = null;

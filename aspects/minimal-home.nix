@@ -5,7 +5,7 @@
       file_explorer
       git
       home
-      ssh_client
+      ssh
       nix
       packages
       shell
