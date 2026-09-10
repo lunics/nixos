@@ -1,8 +1,17 @@
 {
   flake.aspects.bluetooth = {
-    nixos = { config, lib, pkgs, ... }:
+    nixos = { config, options, lib, pkgs, ... }:
     let
       mac-controller = "FE:ED:BA:BE:30:0${toString config._.machine-index}";
+
+      # sops keeps its yaml keys in clear text, so the file tells which devices are stored
+      sops-file = if (options ? sops) && options.sops.defaultSopsFile.isDefined
+                  then builtins.readFile config.sops.defaultSopsFile
+                  else "";
+
+      stored   = device: lib.hasInfix device.mac sops-file;
+      paired   = lib.filter stored config._.bluetooth-devices;
+      unpaired = lib.filter (device: !(stored device)) config._.bluetooth-devices;
     in {
       hardware.bluetooth = {
         enable      = true;
@@ -22,11 +31,9 @@
         };
       };
 
-      assertions = map (device: {
-        assertion = (config.sops.secrets ? "${device.mac}/info")
-                 && (config.sops.secrets ? "${device.mac}/attributes");
-        message   = "sops: missing bluetooth secrets for device ${device.name} (${device.mac})";
-      }) config._.bluetooth-devices;
+      warnings = map (device:
+        "sops: no bluetooth secrets for device ${device.name} (${device.mac}), it will have to be paired by hand"
+      ) unpaired;
 
       sops.secrets = lib.mkMerge (map (device: {
         "${device.mac}/info" = {
@@ -39,7 +46,7 @@
           mode         = "0600";
           restartUnits = [ "bluetooth.service" ];
         };
-      }) config._.bluetooth-devices);
+      }) paired);
 
       services.blueman.enable = true;   # GTK+ bluetooth manager
 
