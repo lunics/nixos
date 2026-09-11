@@ -19,8 +19,8 @@
           interactive = false; # true waits for ENTER before probing the key, only useful without a tactile trigger
           # prompt    = "Insert your Yubikey, then press ENTER";   # interactive mode only
           debug       = false;
-          appid       = "pam://$HOSTNAME";
-          origin      = "pam://$HOSTNAME";
+          appid       = "pam://${config._.hostname}";
+          origin      = "pam://${config._.hostname}";
           authfile    = u2f-authfile;
           # authpending_file = "";
           # pinverification = 1;
