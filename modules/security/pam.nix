@@ -10,7 +10,9 @@
         control = "sufficient"; # required, requisite, sufficient, optional
         settings = {
           cue         = true;  # display a reminder message to touch the yubikey
+          cue_prompt  = "Waiting for the Yubikey touch";
           interactive = true;  # prompt before testing presence of U2F device, recommended if no tactile trigger
+          prompt      = "Insert your Yubikey, then press ENTER";
           debug       = false;
           appid       = "pam://$HOSTNAME";
           origin      = "pam://$HOSTNAME";
