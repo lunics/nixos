@@ -1,6 +1,7 @@
 { self, ... }:{
   flake.aspects = { aspects, ... }:{
-    network.includes = with aspects; [
+    all-network.includes = with aspects; [
+      network
       network-manager
       firewall
       wifi
