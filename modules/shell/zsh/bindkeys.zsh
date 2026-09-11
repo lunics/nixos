@@ -4,6 +4,9 @@ bindkey '^E' _expand_aliases        # ctrl e = expand alias
 zle -N _open_all
 bindkey "^F" _open_all              # ctrl f = fd + yazi
 
+eval "$(navi widget zsh)"           # defines _navi_widget, and grabs ctrl g on its own
+bindkey "^N" _navi_widget           # ctrl n = navi
+
 zle -N _run_lazygit
 bindkey "^G" _run_lazygit           # ctrl g = lazygit
 
