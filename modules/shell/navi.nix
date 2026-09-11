@@ -2,7 +2,7 @@
   flake.aspects.navi.homeManager = { config, ... }:{
     programs.navi = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false;   # the widget is loaded by bindkeys.zsh, to rebind it afterwards
       settings = {
         cheats.paths     = [ "${config._.dot_config}/navi/cheats" ];
         client.tealdeer  = true;    # use tldr pages as an extra cheatsheet source
