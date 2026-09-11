@@ -3,11 +3,6 @@
     options._ = {
       yubikey = mkEnableOption "";
 
-      u2f_keys = mkOption {
-        type    = types.nullOr types.path;
-        default = null;
-      };
-
       pass_manager = mkOption {
         type    = types.str;
         default = "gopass";
