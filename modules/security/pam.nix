@@ -1,9 +1,9 @@
 {
-  flake.aspects.pam.nixos = { config, lib, options, ... }: with lib; let
-    # null makes pam_u2f fall back to $XDG_CONFIG_HOME/Yubico/u2f_keys
+  flake.aspects.pam.nixos = { config, lib, options, ... }: with lib;
+  let
     u2f-authfile = if (options ? sops) && (config.sops.secrets ? u2f_keys)
                    then config.sops.secrets.u2f_keys.path
-                   else null;
+                   else null;     # null makes pam_u2f fall back to $XDG_CONFIG_HOME/Yubico/u2f_keys
   in {
     security.pam = {
       # FIXME: create an authorization mapping file for your user (https://nixos.wiki/wiki/Yubikey#pam_u2f)
@@ -38,7 +38,7 @@
       };
     };
 
-    assertions = optionals config._.yubikey [{
+    assertions = optionals config.security.pam.u2f.enable [{
       assertion = u2f-authfile != null;
       message   = "sops: missing u2f_keys secret, pam_u2f would silently fall back to the per-user authfile";
     }];
