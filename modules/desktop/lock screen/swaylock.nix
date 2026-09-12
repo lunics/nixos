@@ -1,6 +1,6 @@
 {
   flake.aspects.swaylock.homeManager = { config, pkgs, ... }:{
-    _.lock-screen == "swaylock";
+    _.lock-screen = "swaylock";
 
     programs.swaylock = {
       enable   = true;
