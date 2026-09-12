@@ -1,8 +1,6 @@
 {
   flake.aspects.options.generic = { lib, ... }: with lib; {
     options._ = {
-      yubikey = mkEnableOption "";
-
       pass_manager = mkOption {
         type    = types.str;
         default = "gopass";
