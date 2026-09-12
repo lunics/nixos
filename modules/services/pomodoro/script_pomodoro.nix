@@ -93,9 +93,9 @@
                 time_unit: $time_unit
               } | job send $job_id            # the job send signature only takes <id>, the value is piped in, not passed as an argument
 
-              ${lib.optionalString (config._.lock-screen != "") ''
+              ${lib.optionalString (config._.lock-cmd != "") ''
                 print "Lock screen"
-                ${config._.lock-screen} o+e> /dev/null
+                ${config._.lock-cmd} o+e> /dev/null
               ''}
             }
 
