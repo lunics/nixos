@@ -1,0 +1,37 @@
+{
+  flake.aspects.hypridle.homeManager = { config, pkgs, ... }:{
+    services.hypridle = {
+      enable            = true;
+      package           = pkgs.hypridle;
+      importantPrefixes = [ "$" ];
+
+      settings = {
+        "$lock_cmd"    = config._.lock-cmd;
+        "$suspend_cmd" = "systemctl suspend || loginctl suspend";
+
+        general = {
+          lock_cmd         = "$lock_cmd";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd  = "hyprctl dispatch global quickshell:lockFocus";
+          inhibit_sleep    = 3;
+        };
+
+        listener = [
+          {
+            timeout    = 300;                        # 5mins
+            on-timeout = "loginctl lock-session";
+          }
+          {
+            timeout    = 600;                        # 10mins
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume  = "hyprctl dispatch dpms on";
+          }
+          {
+            timeout    = 900;                        # 15mins
+            on-timeout = "$suspend_cmd";
+          }
+        ];
+      };
+    };
+  };
+}

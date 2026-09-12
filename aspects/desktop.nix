@@ -15,7 +15,7 @@
 
       hyprlock
       launcher
-      # idle_manager
+      hypridle
       # desktop_manager
     ];
   };
