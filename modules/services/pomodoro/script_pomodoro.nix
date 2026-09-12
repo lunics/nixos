@@ -94,7 +94,7 @@
               } | job send $job_id            # the job send signature only takes <id>, the value is piped in, not passed as an argument
 
               print "Lock screen"
-              ${config._.screen_locker} o+e> /dev/null
+              ${config._.lock-screen} o+e> /dev/null
             }
 
             # soft break: only notify the end of the work time then count the break time up
