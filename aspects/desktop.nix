@@ -13,7 +13,7 @@
       dank-material-shell
       # caelestia
 
-      screen_locker
+      hyprlock
       launcher
       # idle_manager
       # desktop_manager

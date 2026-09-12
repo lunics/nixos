@@ -26,9 +26,9 @@
         default = [];
       };
 
-      screen_locker = mkOption {
+      lock-screen = mkOption {
         type    = types.str;
-        default = "hyprlock";
+        default = "";
       };
     };
   };
