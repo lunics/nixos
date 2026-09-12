@@ -30,6 +30,12 @@
         type    = types.str;
         default = "";
       };
+
+      # command run to lock the screen, set by the lock screen aspect itself
+      lock-cmd = mkOption {
+        type    = types.str;
+        default = "";
+      };
     };
   };
 }

@@ -1,6 +1,7 @@
 {
   flake.aspects.dms-lock.homeManager = { ... }:{
-    _.lock-screen = "dms ipc call lock lock";
+    _.lock-screen = "dms";
+    _.lock-cmd    = "dms ipc call lock lock";
 
     programs.dank-material-shell.settings = {
       lockScreenShowTime          = true;
