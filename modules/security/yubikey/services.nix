@@ -5,6 +5,7 @@
       yubikey-agent.enable = true;  # install the service in user space, every session requires PIN, every login requires touch
     };
 
+    # generates yubikey-touch-detector.service in user space
     programs.yubikey-touch-detector = {
       enable     = true;
       libnotify  = true;   # send a desktop notification on touch request
