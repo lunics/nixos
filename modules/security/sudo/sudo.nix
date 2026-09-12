@@ -6,7 +6,8 @@
       wheelNeedsPassword = lib.mkDefault true;
       defaultOptions     = [ "SETENV" ];
       configFile         = "";    # contents of the sudoers file
-      extraConfig        = "";
+      # if yubikey = true: never persist the password, re-authenticate on every sudo call
+      extraConfig        = lib.optionalString config._.yubikey "Defaults timestamp_timeout=0";
       extraRules = [
         {
           users    = [ config._.user ];
