@@ -42,7 +42,6 @@
       pcscd.enable         = true;
       udev.packages        = [ pkgs.yubikey-personalization ];
       yubikey-agent.enable = true;  # install the service in user space, every session requires PIN, every login requires touch
-      yubikey-touch-detector.enable = true;
 
       # lock every session when the key is unplugged
       udev.extraRules = ''
@@ -53,6 +52,13 @@
           ENV{ID_VENDOR}=="${key.id_vendor}",\
           RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
       '';
+    };
+
+    programs.yubikey-touch-detector = {
+      enable     = true;
+      libnotify  = true;   # send a desktop notification on touch request
+      unixSocket = true;   # expose the notifications on a unix socket
+      verbose    = false;
     };
 
     # programs = {
