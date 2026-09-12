@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.dank-material-shell.homeManager = { config, pkgs, ... }:{
+  flake.aspects.dank-material-shell.homeManager = { config, lib, pkgs, ... }:{
     imports = [ inputs.dank-material-shell.homeModules.dank-material-shell ];
 
     _.status_bar = "dms";
@@ -25,6 +25,10 @@
         # 0 = none, 1 = short (200ms, default), 2 = medium (400ms), 3 = long (600ms), 4 = custom
         notificationAnimationSpeed = 3;   
         notificationCustomAnimationDuration = 500;   # in ms 100-800, only used when speed = 4
+
+        # dms never locks on its own here, the dms-lock aspect overrides these
+        lockAtStartup     = lib.mkDefault false;
+        lockBeforeSuspend = lib.mkDefault false;
 
         barConfigs = [{
           id = "default";
