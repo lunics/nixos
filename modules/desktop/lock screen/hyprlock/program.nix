@@ -1,6 +1,6 @@
 {
   flake.aspects.hyprlock.homeManager = { config, pkgs, ... }:{
-    _.lock-screen == "hyprlock";
+    _.lock-screen = "hyprlock";
 
     programs.hyprlock = {
       enable            = true;
