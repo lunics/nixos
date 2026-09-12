@@ -20,7 +20,8 @@
     };
   };
 
-  flake.aspects.yubikey.nixos = { config, pkgs, ... }: let
+  flake.aspects.yubikey.nixos = { config, pkgs, ... }:
+  let
     key = config._.udev.yubikey;
   in {
     _.yubikey = true;
@@ -38,9 +39,10 @@
     ];
 
     services = {
-      pcscd.enable                 = true;
-      udev.packages                = [ pkgs.yubikey-personalization ];
-      yubikey-agent.enable         = true;  # install the service in user space, every session requires PIN, every login requires touch
+      pcscd.enable         = true;
+      udev.packages        = [ pkgs.yubikey-personalization ];
+      yubikey-agent.enable = true;  # install the service in user space, every session requires PIN, every login requires touch
+      yubikey-touch-detector.enable = true;
 
       # lock every session when the key is unplugged
       udev.extraRules = ''
