@@ -1,5 +1,24 @@
 {
-  flake.aspects.yubikey.nixos = { config, lib, pkgs, ... }:{
+  flake.aspects.options.generic = { lib, ... }: with lib; {
+    options._.udev.yubikey = {
+      id_model_id = mkOption {
+        type    = types.str;
+        default = "0407";
+      };
+      id_vendor_id = mkOption {
+        type    = types.str;
+        default = "1050";
+      };
+      id_vendor = mkOption {
+        type    = types.str;
+        default = "Yubico";
+      };
+    };
+  };
+
+  flake.aspects.yubikey.nixos = { config, lib, pkgs, ... }: let
+    key = config._.udev.yubikey;
+  in {
     config = lib.mkIf config._.yubikey {
       environment.systemPackages = with pkgs; [
         yubikey-manager
@@ -17,6 +36,16 @@
         pcscd.enable                 = true;
         udev.packages                = [ pkgs.yubikey-personalization ];
         yubikey-agent.enable         = true;  # install the service in user space, every session requires PIN, every login requires touch
+
+        # lock every session when the key is unplugged
+        udev.extraRules = ''
+          ACTION=="remove",\
+            ENV{ID_BUS}=="usb",\
+            ENV{ID_MODEL_ID}=="${key.id_model_id}",\
+            ENV{ID_VENDOR_ID}=="${key.id_vendor_id}",\
+            ENV{ID_VENDOR}=="${key.id_vendor}",\
+            RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+        '';
       };
 
       # programs = {
