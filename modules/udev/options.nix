@@ -11,6 +11,20 @@
           default = "";
         };
       };
+      yubikey = {
+        id_model_id = mkOption {
+          type    = types.str;
+          default = "0406";
+        };
+        id_vendor_id = mkOption {
+          type    = types.str;
+          default = "1050";
+        };
+        id_vendor = mkOption {
+          type    = types.str;
+          default = "Yubico";
+        };
+      };
     };
   };
 }
