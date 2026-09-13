@@ -19,7 +19,7 @@
       hl.bind("${_hypr.toggle_bar}", hl.dsp.exec_cmd("hyprpanel toggleWindow bar-0"))
         -- bindr = $SUPER, SUPER_L, exec, ulauncher-toggle
       hl.bind(SUPER  .. " + F",     hl.dsp.window.float({ action = "toggle" }))
-      hl.bind(SSHIFT .. " + L",     hl.dsp.exec_cmd("swaylock"))
+      hl.bind(SSHIFT .. " + L",     hl.dsp.exec_cmd("loginctl lock-sessions"))
       hl.bind(SUPER  .. " + M",     hl.dsp.exec_cmd("hyprctl dispatch dpms toggle eDP-1"))
       hl.bind(SUPER  .. " + P",     hl.dsp.exec_cmd("toggle_pomodoro"))
       hl.bind(SUPER  .. " + Q",     hl.dsp.window.close())
