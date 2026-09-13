@@ -23,9 +23,9 @@
             git add flake.lock
       
             if [[ $module -eq 0 ]]; then
-              git commit -m "update all inputs"
+              git commit -m "update all inputs (chore)"
             else
-              git commit -m "update $module, $module_branch"
+              git commit -m "update $module, $module_branch (chore)"
             fi
       
             git checkout main
