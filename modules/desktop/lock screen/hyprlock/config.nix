@@ -81,15 +81,15 @@
       }
       
       
-      label {                     # TIME
-        monitor     =
-        text        = $TIME # ref. https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/#variable-substitution
-        font_size   = 90
-        font_family = $font
-        position    = -30, 0
-        halign      = right
-        valign      = top
-      }
+      #label {                     # TIME
+      #  monitor     =
+      #  text        = $TIME # ref. https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/#variable-substitution
+      #  font_size   = 90
+      #  font_family = $font
+      #  position    = -30, 0
+      #  halign      = right
+      #  valign      = top
+      #}
       
       
       label {                   # DATE
