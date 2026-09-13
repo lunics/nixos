@@ -27,7 +27,7 @@
             on-resume  = "hyprctl dispatch dpms on";
           }
           {
-            timeout    = 900;                        # 15mins
+            timeout    = 3600;                        # 1h
             on-timeout = "$suspend_cmd";
           }
         ];
