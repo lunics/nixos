@@ -7,7 +7,7 @@
 
     # generates yubikey-touch-detector.service in user space
     programs.yubikey-touch-detector = {
-      enable     = true;
+      enable     = false;
       libnotify  = true;   # send a desktop notification on touch request
       unixSocket = true;   # expose the notifications on a unix socket
       verbose    = false;
