@@ -3,7 +3,7 @@
   let
     mouse = config._.mouse-usb-id;
   in {
-    config = lib.mkIf (device.id_vendor != "") {
+    config = lib.mkIf (mouse.id_vendor != "") {
       services.udev.extraRules = ''
         ACTION=="add", \
           SUBSYSTEM=="usb", \
