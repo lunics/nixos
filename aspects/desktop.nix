@@ -1,7 +1,7 @@
 { self, ... }:{
   flake.aspects = { aspects, ... }:{
     desktop.includes = with aspects; [
-      window_manager
+      hyprland
       notifier
       wallpaper
       # qt

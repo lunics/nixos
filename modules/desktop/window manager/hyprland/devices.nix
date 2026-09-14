@@ -1,5 +1,5 @@
 {
-  flake.aspects.window_manager.homeManager = { config, lib, ... }:
+  flake.aspects.hyprland.homeManager = { config, lib, ... }:
   let
     keyboard = config._.hyprland.kb-device;
   in {

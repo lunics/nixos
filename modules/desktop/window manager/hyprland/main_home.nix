@@ -1,5 +1,7 @@
 {
-  flake.aspects.window_manager.homeManager = { pkgs, ... }:{
+  flake.aspects.hyprland.homeManager = { pkgs, ... }:{
+    _.window_manager = "hyprland";
+
     wayland.windowManager.hyprland = {
       enable          = true;
       package         = null;   # must be null to force using the pkg from nixos/system module

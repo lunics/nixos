@@ -1,5 +1,5 @@
 {
-  flake.aspects.window_manager.homeManager = { lib, ... }:{
+  flake.aspects.hyprland.homeManager = { lib, ... }:{
     wayland.windowManager.hyprland.systemd = {
       enable    = true;     # enable hyprland-session.target on hyprland startup to import env var list below 
       variables = [         # env var to be imported in the systemd & D-Bus user environment

@@ -11,7 +11,7 @@
       etc
       network
       desktop_nixos
-      desktop-nixos
+      hyprland
       audio
       steam
       graphic

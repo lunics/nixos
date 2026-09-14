@@ -14,7 +14,6 @@
       etc
       network
       desktop_nixos
-      desktop-nixos
       audio
       steam
       graphic

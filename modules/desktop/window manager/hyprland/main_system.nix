@@ -7,12 +7,14 @@
     };
   };
 
-  flake.aspects.desktop-nixos.nixos = { config, lib, pkgs, ... }:
+  flake.aspects.hyprland.nixos = { config, lib, pkgs, ... }:
   let
     _ = config._;
     wayland-uid = toString config.users.users.${_.wayland_user}.uid;
   in {
-    config = lib.mkIf (_.window_manager && _.wayland_user != "" && !_.headless) {
+    config = lib.mkIf (_.wayland_user != "" && !_.headless) {
+      _.window_manager = "hyprland";
+
       nix.settings = {
         substituters         = ["https://hyprland.cachix.org"];
         trusted-substituters = ["https://hyprland.cachix.org"];

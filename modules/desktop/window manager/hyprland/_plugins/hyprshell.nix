@@ -1,5 +1,5 @@
 {
-  flake.aspects.window_manager.homeManager = { config, pkgs, ... }:{
+  flake.aspects.hyprland.homeManager = { config, pkgs, ... }:{
     services.hyprshell = {
       enable  = true;
       package = pkgs.hyprshell;
