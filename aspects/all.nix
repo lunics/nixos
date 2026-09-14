@@ -21,7 +21,6 @@
       location
       ntp
       programs
-      udev
       wsl
       security
       services
