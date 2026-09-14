@@ -1,10 +1,16 @@
 {
-  flake.aspects.udev.nixos = { config, lib, ... }: let
-    device = config._.udev.disable_mouse_wakeup;
+  flake.aspects.hid.nixos = { config, lib, ... }:
+  let
+    mouse = config._.mouse-usb-id;
   in {
     config = lib.mkIf (device.id_vendor != "") {
       services.udev.extraRules = ''
-        SUBSYSTEM=="usb", ACTION=="add", DRIVERS=="usb", ATTRS{idVendor}=="${device.id_vendor}", ATTRS{idProduct}=="${device.id_product}", ATTR{power/wakeup}="disabled"
+        ACTION=="add", \
+          SUBSYSTEM=="usb", \
+          DRIVERS=="usb", \
+          ATTRS{idVendor}=="${mouse.id_vendor}", \
+          ATTRS{idProduct}=="${mouse.id_product}", \
+          ATTR{power/wakeup}="disabled"
       '';
     };
   };

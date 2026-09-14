@@ -1,7 +1,7 @@
 {
   flake.aspects.options.generic = { lib, ... }: with lib; {
-    options._.udev = {
-      disable_mouse_wakeup = {
+    options._ = {
+      mouse-usb-id = {
         id_vendor = mkOption {
           type    = types.str;
           default = "";
