@@ -10,8 +10,7 @@
       kernel
       etc
       network
-      desktop_nixos
-      hyprland
+      desktop
       audio
       steam
       graphic

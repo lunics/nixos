@@ -13,7 +13,6 @@
       kernel
       etc
       network
-      desktop_nixos
       audio
       steam
       graphic

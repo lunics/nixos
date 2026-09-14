@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop_nixos.nixos = {
+  flake.aspects.xserver.nixos = {
     services.xserver = {
       enable                      = true;
       # displayManager.gdm.enable   = true;

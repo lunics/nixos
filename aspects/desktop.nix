@@ -1,7 +1,13 @@
 { self, ... }:{
   flake.aspects = { aspects, ... }:{
     desktop.includes = with aspects; [
-      hyprland
+      # nixos
+      xserver
+      font
+      login-manager
+      hyprland            # nixos + home manager
+
+      # home manager
       notifier
       wallpaper
       # qt
