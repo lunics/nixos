@@ -64,6 +64,21 @@
         type    = types.str;
         default = "fr";
       };
+
+      kb-device = {
+        name = mkOption {
+          type    = types.str;
+          default = "";
+        };
+        kb_layout = mkOption {
+          type    = types.str;
+          default = "";
+        };
+        kb_variant = mkOption {
+          type    = types.str;
+          default = "";
+        };
+      };
     };
   };
 }
