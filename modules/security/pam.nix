@@ -6,10 +6,6 @@
                    else null;     # null makes pam_u2f fall back to $XDG_CONFIG_HOME/Yubico/u2f_keys
   in {
     security.pam = {
-      # FIXME: create an authorization mapping file for your user (https://nixos.wiki/wiki/Yubikey#pam_u2f)
-      # src
-      #   https://developers.yubico.com/pam-u2f/
-      #   https://developers.yubico.com/pam-u2f/Manuals/pam_u2f.8.html
       u2f = {
         enable  = true;
         control = "sufficient"; # required, requisite, sufficient, optional
@@ -23,7 +19,7 @@
           origin      = "pam://${config._.hostname}";
           authfile    = u2f-authfile;
           # authpending_file = "";
-          # pinverification = 1;
+          pinverification = 0;
           userpresence = 1;
         };
       };
@@ -32,9 +28,10 @@
           # u2fAuth    = true;
           enableGnomeKeyring = true;    ## can be toggle if add option keyring = false
         };
-        sudo.u2fAuth     = true;
-        swaylock.u2fAuth = true;
-        hyprlock.u2fAuth = true;
+        # u2fAuth is redundant, security.pam.u2f.enable already applies to every service
+        # sudo.u2fAuth     = true;
+        # swaylock.u2fAuth = true;
+        # hyprlock.u2fAuth = true;
       };
     };
 
