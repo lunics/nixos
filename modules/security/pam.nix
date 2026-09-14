@@ -1,9 +1,12 @@
 {
   flake.aspects.pam.nixos = { config, lib, options, ... }: with lib;
   let
-    u2f-authfile = if (options ? sops) && (config.sops.secrets ? u2f_keys)
-                   then config.sops.secrets.u2f_keys.path
-                   else null;     # null makes pam_u2f fall back to $XDG_CONFIG_HOME/Yubico/u2f_keys
+    has-u2f-keys = (options ? sops) && (config.sops.secrets ? u2f_keys);
+    u2f-keys     = config.sops.secrets.u2f_keys;    # lazy, only forced when has-u2f-keys
+    u2f-authfile = if has-u2f-keys then u2f-keys.path else null;   # null makes pam_u2f fall back to $XDG_CONFIG_HOME/Yubico/u2f_keys
+    # hyprlock reads the authfile unprivileged, a root only secret fails silently
+    u2f-readable = !has-u2f-keys || (u2f-keys.group == config._.sops-group
+                                     && elem (substring 2 1 u2f-keys.mode) [ "4" "5" "6" "7" ]);
   in {
     security.pam = {
       u2f = {
@@ -35,9 +38,15 @@
       };
     };
 
-    assertions = optionals config.security.pam.u2f.enable [{
-      assertion = u2f-authfile != null;
-      message   = "sops: missing u2f_keys secret, pam_u2f would silently fall back to the per-user authfile";
-    }];
+    assertions = optionals config.security.pam.u2f.enable [
+      {
+        assertion = u2f-authfile != null;
+        message   = "sops: missing u2f_keys secret, pam_u2f would silently fall back to the per-user authfile";
+      }
+      {
+        assertion = u2f-readable;
+        message   = "sops: u2f_keys is ${u2f-keys.group} ${u2f-keys.mode}, it must be group ${config._.sops-group} and group readable";
+      }
+    ];
   };
 }
