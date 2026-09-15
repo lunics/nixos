@@ -331,28 +331,6 @@
         "type": "github"
       }
     },
-    "dank-material-shell": {
-      "inputs": {
-        "dank-qml-common": "dank-qml-common",
-        "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789138093,
-        "narHash": "sha256-Mv4tDT6d1IO44XQXySHIsXlk8Gg1ZywUKTeVSYtC5rM=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "rev": "f864dc22338e3f5c81f14478f4566f6a1717f982",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "type": "github"
-      }
-    },
     "dank-qml-common": {
       "flake": false,
       "locked": {
@@ -470,6 +448,28 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "dms": {
+      "inputs": {
+        "dank-qml-common": "dank-qml-common",
+        "flake-compat": "flake-compat_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789410700,
+        "narHash": "sha256-WE50/Jsa9shfm+uAXi7SF+v7qQ3oc6ZtAOhocoery3Q=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "05c807b7cd87f29dc8c26f8a33cabcaa07d9c823",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
         "type": "github"
       }
     },
@@ -840,7 +840,7 @@
     },
     "git-hooks-nix": {
       "inputs": {
-        "flake-compat": "flake-compat_2",
+        "flake-compat": "flake-compat",
         "nixpkgs": [
           "determinate",
           "nix",
@@ -958,11 +958,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789220774,
-        "narHash": "sha256-y0Sy/RujQKlriDmYV5jIjBtSoPxhAfzvUvhOr5PrF+s=",
+        "lastModified": 1789471568,
+        "narHash": "sha256-D14TBors87GSNPbHnxRHU12dThfXORO1HmGGovY2GKA=",
         "ref": "refs/heads/main",
-        "rev": "4b8842f34138edf6880ca955d77eb1b12ec0972b",
-        "revCount": 456,
+        "rev": "5e8b2cf06568f4e47556fec07c7f7ca3406d3001",
+        "revCount": 461,
         "type": "git",
         "url": "file:/home/lunics/usb_copy/homelab/nixos-hosts"
       },
@@ -1046,16 +1046,17 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1789046904,
-        "narHash": "sha256-wWPN/kmzwp4kHBtC6JmVUJHg2Np2VtyfS53mFrI90us=",
+        "lastModified": 1788628107,
+        "narHash": "sha256-6zXqpXjzyczwICKsmKSuzxqCm/8h3D8863UpSXmGmB0=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "f05d73f35795ded80d7e1264a37e41b461625f9f",
+        "rev": "ab136393c2eb9e106846a704da1a1b3d6af415b4",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
         "repo": "Hyprland",
+        "rev": "ab136393c2eb9e106846a704da1a1b3d6af415b4",
         "type": "github"
       }
     },
@@ -2144,9 +2145,9 @@
         "caelestia-shell": "caelestia-shell",
         "clan-core": "clan-core",
         "claude-desktop": "claude-desktop",
-        "dank-material-shell": "dank-material-shell",
         "determinate": "determinate",
         "disko": "disko",
+        "dms": "dms",
         "dms-plugin-registry": "dms-plugin-registry",
         "flake-aspects": "flake-aspects",
         "flake-compat": "flake-compat_3",
