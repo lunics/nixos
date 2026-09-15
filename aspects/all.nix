@@ -48,11 +48,10 @@
       home
       # ssh
       stylix
-      # multiplexer
-        tmux
-        herdr
-        screen
-        zellij
+      tmux
+      herdr
+      screen
+      zellij
       music
       nix
       packages
@@ -70,6 +69,7 @@
       pomodoro
       lutris
       zmk
+      claude-code
     ];
   };
 }
