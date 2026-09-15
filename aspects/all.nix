@@ -70,6 +70,7 @@
       lutris
       zmk
       claude-code
+      opencode
     ];
   };
 }
