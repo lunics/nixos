@@ -1,11 +1,11 @@
 { inputs, ... }:{
-  flake-file.inputs.dank-material-shell = {
+  flake-file.inputs.dms = {
     url = "github:AvengeMedia/DankMaterialShell";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.dank-material-shell.homeManager = { config, lib, pkgs, ... }:{
-    imports = [ inputs.dank-material-shell.homeModules.dank-material-shell ];
+  flake.aspects.dms.homeManager = { config, lib, pkgs, ... }:{
+    imports = [ inputs.dms.homeModules.dank-material-shell ];
 
     _.status_bar = "dms";
 

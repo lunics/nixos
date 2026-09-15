@@ -16,7 +16,7 @@
 
       # STATUS BAR
       # hyprpanel
-      dank-material-shell
+      dms
       # caelestia
 
       hyprlock

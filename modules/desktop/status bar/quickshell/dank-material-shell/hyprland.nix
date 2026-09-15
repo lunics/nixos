@@ -1,5 +1,5 @@
 {
-  flake.aspects.dank-material-shell.homeManager = { config, lib, ... }: {
+  flake.aspects.dms.homeManager = { config, lib, ... }: {
     config = lib.mkIf (config._.window_manager == "hyprland") {
       # dms writes these at runtime, so each require is protected: a missing file must not abort the config
       wayland.windowManager.hyprland.extraLuaFiles."dms-includes" = ''

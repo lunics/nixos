@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.dank-material-shell.homeManager = { config, pkgs, ... }:{
+  flake.aspects.dms.homeManager = { config, pkgs, ... }:{
     imports = [ inputs.dms-plugin-registry.nixosModules.default ];
 
     programs.dank-material-shell = {
