@@ -1,6 +1,7 @@
 { inputs, ... }:{
   flake-file.inputs = {
-    hyprland.url     = "github:hyprwm/Hyprland";
+    # pinned before #16140, which dropped workspace ids from the IPC and broke the dms workspace widget
+    hyprland.url     = "github:hyprwm/Hyprland/ab136393c2eb9e106846a704da1a1b3d6af415b4";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland"; 

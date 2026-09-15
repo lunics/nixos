@@ -65,7 +65,7 @@
         sops-nix.follows = "sops-nix";
       };
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/ab136393c2eb9e106846a704da1a1b3d6af415b4";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
