@@ -38,6 +38,17 @@
             mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
           };
         })
+        (mkIf config._.swap.enable {
+          "/swap" = {
+            # no compression, the swapfile stays nocow and must never be snapshotted
+            mountpoint   = "/.swapvol";
+            mountOptions = ["subvol=swap" "rw" "nodev" "nosuid" "noexec" "noatime"];
+            swap.swapfile = {
+              size     = config._.swap.size;
+              priority = config._.swap.priority;
+            };
+          };
+        })
         (mkIf _.btrfs_vol.kube {
           "/kubernetes" = {
             mountpoint   = config._.k3s.btrfs-subvol;
