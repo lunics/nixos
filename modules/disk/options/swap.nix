@@ -34,7 +34,7 @@
 
         resume_offset = mkOption {
           type    = types.nullOr types.int;
-          # btrfs inspect-internal map-swapfile -r /.swapvol/swapfile
+          # btrfs inspect-internal map-swapfile -r /swap/swapfile
           default = null;
         };
       };

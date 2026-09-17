@@ -41,7 +41,7 @@
         (mkIf config._.swap.enable {
           "/swap" = {
             # no compression, the swapfile stays nocow and must never be snapshotted
-            mountpoint   = "/.swapvol";
+            mountpoint   = "/swap";
             mountOptions = ["subvol=swap" "rw" "nodev" "nosuid" "noexec" "noatime"];
             swap.swapfile = {
               size     = config._.swap.size;
