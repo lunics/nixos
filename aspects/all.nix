@@ -27,7 +27,6 @@
       secrets
       tailscale
       mullvad
-      facter
 
       # home manager
       ai
@@ -39,7 +38,6 @@
       neovim
       file_explorer
       gaming
-      steam
       git
       media
       messaging
@@ -53,10 +51,8 @@
       screen
       zellij
       music
-      nix
       packages
       pass_manager
-      secrets
       shell
       task_manager
       terminal
