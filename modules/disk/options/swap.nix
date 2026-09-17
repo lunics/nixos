@@ -1,5 +1,9 @@
 {
-  flake.aspects.options.generic = { config, lib, ... }: with lib; {
+  flake.aspects.options.generic = { config, lib, ... }: with lib; let
+    # installed RAM in GiB, smbios reports each module size in KiB
+    _ram = foldl' add 0 (filter isInt (map (_dev: _dev.size or 0)
+      (config.hardware.facter.report.smbios.memory_device or []))) / 1048576;
+  in {
     options._ = {
       zramSwap = {
         enable = mkEnableOption "";
@@ -20,7 +24,7 @@
 
         size = mkOption {
           type    = types.str;
-          default = "8G";   # at least the RAM size to hold the hibernation image
+          default = if _ram > 0 then "${toString _ram}G" else "8G";  # the image needs to hold the whole RAM
         };
 
         priority = mkOption {
