@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { config, lib, ... }: with lib; {
     options._ = {
       zramSwap = {
         enable = mkEnableOption "";
@@ -7,6 +7,11 @@
         memoryPercent = mkOption {
           type    = types.int;
           default = 50;  # 50% of ZRAM
+        };
+
+        priority = mkOption {
+          type    = types.int;
+          default = 5;
         };
       };
 
@@ -20,7 +25,7 @@
 
         priority = mkOption {
           type    = types.int;
-          default = 3;      # lower than zramSwap, used once zram is full
+          default = config._.zramSwap.priority - 2;  # lower than zram, used once zram is full
         };
 
         resume_offset = mkOption {
