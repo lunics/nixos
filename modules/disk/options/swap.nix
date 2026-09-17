@@ -5,8 +5,8 @@
         enable = mkEnableOption "";
 
         memoryPercent = mkOption {
-          default = 50;  # 50% of ZRAM
           type    = types.int;
+          default = 50;  # 50% of ZRAM
         };
       };
 
@@ -14,19 +14,19 @@
         enable = mkEnableOption "";   # btrfs swapfile subvolume, required to hibernate
 
         size = mkOption {
-          default = "8G";   # at least the RAM size to hold the hibernation image
           type    = types.str;
+          default = "8G";   # at least the RAM size to hold the hibernation image
         };
 
         priority = mkOption {
-          default = 3;      # lower than zramSwap, used once zram is full
           type    = types.int;
+          default = 3;      # lower than zramSwap, used once zram is full
         };
 
         resume_offset = mkOption {
+          type    = types.nullOr types.int;
           # btrfs inspect-internal map-swapfile -r /.swapvol/swapfile
           default = null;
-          type    = types.nullOr types.int;
         };
       };
     };
