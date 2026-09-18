@@ -43,20 +43,6 @@
             # no compression, the swapfiles stay nocow and must never be snapshotted
             mountpoint   = "/var/lib/swap";
             mountOptions = ["subvol=swap" "rw" "nodev" "nosuid" "noexec" "noatime"];
-            swap = mkMerge [
-              (mkIf config._.swapfile-zram.enable {
-                swapfile = {
-                  size     = config._.swapfile-zram.size;
-                  priority = config._.zram-swap.priority - 2;  # below zram, used once it is full
-                };
-              })
-              (mkIf config._.swapfile-hibernation.enable {
-                hibernate = {
-                  size     = config._.swapfile-hibernation.size;
-                  priority = config._.zram-swap.priority - 4;  # last resort, stays free for the image
-                };
-              })
-            ];
           };
         })
         (mkIf _.btrfs_vol.kube {
