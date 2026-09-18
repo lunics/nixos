@@ -17,21 +17,24 @@
 
         format = ''
           [╭](bold green)$directory$shell$sudo$git_branch$git_commit$git_metrics$git_state$package$shlvl$jobs$fill$status$cmd_duration
-          [╰](bold green)$username@$hostname  '';
+          [╰](bold green)$username@$hostname  
+        '';
 
         fill.symbol = " ";
 
         username = {
           format            = "[$user]($style)";
           show_always       = true;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         hostname = {
           format            = "[$hostname](bold blue)[$ssh_symbol](bold magenta)";
           ssh_symbol        = "(ssh)";
           # trim_at         = ".local"; ?
           ssh_only          = false;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         directory = {
           format            = "[$path]($style)[$read_only]($read_only_style) ";
@@ -39,66 +42,77 @@
           read_only_style   = "red";
           truncation_length = 2;
           truncate_to_repo  = true;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         cmd_duration = {
           format            = "[$duration]($style)";
           style             = "bold yellow";
           min_time          = "2_000";
           show_milliseconds = true;
-          disabled          = true; };
+          disabled          = true;
+        };
 
         git_branch = {
           format            = "[$branch(:$remote_branch)]($style) ";
           symbol            = "branch";
           style 	          = "bold purple";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         git_commit = {
           format              = "[\($hash$tag\)]($style) ";
           commit_hash_length  = 7;
           tag_symbol          = "";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         git_state = {
           format            = "\([$state( $progress_current/$progress_total)]($style)\) ";
           cherry_pick       = "[🍒 PICKING](bold red)";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         git_metrics = {
           added_style       = "bold blue";
           format            = "[+$added]($added_style)/[-$deleted]($deleted_style) ";
-          disabled          = true; };
+          disabled          = true;
+        };
 
         git_status = {
           format            = "([\[$all_status$ahead_behind\]]($style) ) ";
           ignore_submodules = false;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         container = {       # displays a symbol and container name inside a container
           format            = "[$symbol \[$name\]]($style) ";
           symbol            = "⬢";
           style             = "bold red dimmed";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         sudo = {
           format            = "[$symbol]($style) ";
           symbol            = "sudo";
           style             = "bold green";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         package = {         # shown when the current dir is a pkg repo
           format            = "[$symbol$version]($style) ";
           symbol            = "📦";
           version_format    = "v\${raw}";
           display_private   = true;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         character = {       # shows a character (usually an arrow) beside where the text is entered in your terminal.
           success_symbol    = "[->](bold green)";
           error_symbol      = "[x](bold red)";
           vimcmd_symbol     = "[vim](bold green)";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         status = {
           format            = "[$symbol$common_meaning$signal_name $status$maybe_int]($style) ";
@@ -110,13 +124,15 @@
           sigint_symbol 	  = "";          # 🧱
           signal_symbol 	  = "";          # ⚡
           map_symbol        = true;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         shlvl = {
           format            = "[$shlvl]($style)";
           style 	          = "bold yellow";
           threshold         = 2;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         shell = {
           format            = "[$indicator](white) ";
@@ -124,7 +140,8 @@
           fish_indicator    = "fish";
           powershell_indicator = "psh";
           zsh_indicator     = "";       # don't show when zsh is the default
-          disabled          = true; };
+          disabled          = true;
+        };
 
         jobs = {
           format            = "[$symbol$number]($style) ";
@@ -132,7 +149,8 @@
           symbol            = "+";
           number_threshold  = 1;
           symbol_threshold  = 1;
-          disabled          = false; };
+          disabled          = false;
+        };
 
         kubernetes = {
           symbol	          = "☸ ";
@@ -140,7 +158,8 @@
           style	            = "cyan bold";
           detect_folders    = [];    # Which folders should trigger this modules
           detect_env_vars   = [];    # Which environmental variables should trigger this module
-          disabled          = true; };
+          disabled          = true;
+        };
 
         helm = {
           format	          = "via [$symbol($version )]($style)";
@@ -150,7 +169,8 @@
           detect_files	    = [ "helmfile.yaml" "Chart.yaml" ];
           symbol	          = "⎈ ";
           style	            = "bold white";
-          disabled          = false; };
+          disabled          = false;
+        };
 
         # go = {
         #   format	          = "via [$symbol($version )]($style)";
