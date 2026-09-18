@@ -5,6 +5,11 @@
       (config.hardware.facter.report.smbios.memory_device or []))) / 1024;
   in {
     options._ = {
+      swap-dir = mkOption {
+        type    = types.str;
+        default = "/var/lib/swap";    # btrfs subvolume holding the swapfiles
+      };
+
       zram-swap = {
         enable = mkEnableOption "";
 
@@ -38,7 +43,7 @@
 
         resume_offset = mkOption {
           type    = types.nullOr types.int;
-          default = null;             # btrfs inspect-internal map-swapfile -r /var/lib/swap/hibernate
+          default = null;             # btrfs inspect-internal map-swapfile -r <swap-dir>/hibernate
         };
       };
     };
