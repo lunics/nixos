@@ -11,10 +11,13 @@
 
     swapDevices = [];   # the btrfs swapfiles are appended by disko
 
-    boot = mkIf _.enable {
-      # hibernation target, resume_offset is mandatory for a swapfile
+    # hibernation target, resume_offset is mandatory for a swapfile
+    boot = mkIf (_.enable && _.resume_offset != null) {
       resumeDevice = "/dev/disk/by-label/NIXOS";
-      kernelParams = optional (_.resume_offset != null) "resume_offset=${toString _.resume_offset}";
+      kernelParams = [ "resume_offset=${toString _.resume_offset}" ];
     };
+
+    # until the offset is measured, systemd would fall back on the paging swapfile
+    systemd.sleep.extraConfig = mkIf (_.enable && _.resume_offset == null) "AllowHibernation=no";
   };
 }
