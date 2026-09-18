@@ -38,15 +38,25 @@
             mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
           };
         })
-        (mkIf config._.swap.enable {
+        (mkIf (config._.swap.enable || config._.swap.hibernation.enable) {
           "/swap" = {
-            # no compression, the swapfile stays nocow and must never be snapshotted
+            # no compression, the swapfiles stay nocow and must never be snapshotted
             mountpoint   = "/swap";
             mountOptions = ["subvol=swap" "rw" "nodev" "nosuid" "noexec" "noatime"];
-            swap.swapfile = {
-              size     = config._.swap.size;
-              priority = config._.swap.priority;
-            };
+            swap = mkMerge [
+              (mkIf config._.swap.enable {
+                swapfile = {
+                  size     = config._.swap.size;
+                  priority = config._.swap.priority;
+                };
+              })
+              (mkIf config._.swap.hibernation.enable {
+                hibernate = {
+                  size     = config._.swap.hibernation.size;
+                  priority = config._.swap.hibernation.priority;
+                };
+              })
+            ];
           };
         })
         (mkIf _.btrfs_vol.kube {
