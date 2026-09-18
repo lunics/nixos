@@ -1,6 +1,6 @@
 {
   flake.aspects.disk.nixos = { config, lib, ... }: with lib; let
-    _ = config._.swap;
+    _ = config._.swap.hibernation;
   in {
     zramSwap = {
       enable        = config._.zramSwap.enable;
@@ -9,7 +9,7 @@
       algorithm     = "zstd";
     };
 
-    swapDevices = [];   # the btrfs swapfile is appended by disko
+    swapDevices = [];   # the btrfs swapfiles are appended by disko
 
     boot = mkIf _.enable {
       # hibernation target, resume_offset is mandatory for a swapfile
