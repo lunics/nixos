@@ -48,7 +48,7 @@
 
         resume_offset = mkOption {
           type    = types.nullOr types.int;
-          # btrfs inspect-internal map-swapfile -r /swap/hibernate
+          # btrfs inspect-internal map-swapfile -r /var/lib/swap/hibernate
           default = null;
         };
       };

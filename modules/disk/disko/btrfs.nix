@@ -41,7 +41,7 @@
         (mkIf (config._.swapfile-zram.enable || config._.swapfile-hibernation.enable) {
           "/swap" = {
             # no compression, the swapfiles stay nocow and must never be snapshotted
-            mountpoint   = "/swap";
+            mountpoint   = "/var/lib/swap";
             mountOptions = ["subvol=swap" "rw" "nodev" "nosuid" "noexec" "noatime"];
             swap = mkMerge [
               (mkIf config._.swapfile-zram.enable {
