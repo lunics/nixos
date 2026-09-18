@@ -19,7 +19,7 @@
         };
       };
 
-      swap = {
+      swapfile-zram = {
         enable = mkEnableOption "";   # paging swapfile, takes over once zram is full
 
         size = mkOption {
@@ -31,25 +31,25 @@
           type    = types.int;
           default = config._.zramSwap.priority - 2;  # lower than zram, used once zram is full
         };
+      };
 
-        hibernation = {
-          enable = mkEnableOption "";   # second swapfile, kept free to hold the hibernation image
+      swapfile-hibernation = {
+        enable = mkEnableOption "";   # second swapfile, kept free to hold the hibernation image
 
-          size = mkOption {
-            type    = types.str;
-            default = if _ram > 0 then "${toString _ram}G" else "8G";  # the image holds the whole RAM
-          };
+        size = mkOption {
+          type    = types.str;
+          default = if _ram > 0 then "${toString _ram}G" else "8G";  # the image holds the whole RAM
+        };
 
-          priority = mkOption {
-            type    = types.int;
-            default = config._.swap.priority - 2;  # last resort, stays free for the image
-          };
+        priority = mkOption {
+          type    = types.int;
+          default = config._.swapfile-zram.priority - 2;  # last resort, stays free for the image
+        };
 
-          resume_offset = mkOption {
-            type    = types.nullOr types.int;
-            # btrfs inspect-internal map-swapfile -r /swap/hibernate
-            default = null;
-          };
+        resume_offset = mkOption {
+          type    = types.nullOr types.int;
+          # btrfs inspect-internal map-swapfile -r /swap/hibernate
+          default = null;
         };
       };
     };
