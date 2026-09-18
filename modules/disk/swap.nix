@@ -3,9 +3,9 @@
     _ = config._.swapfile-hibernation;
   in {
     zramSwap = {
-      enable        = config._.zramSwap.enable;
-      memoryPercent = config._.zramSwap.memoryPercent;
-      priority      = config._.zramSwap.priority;
+      enable        = config._.zram-swap.enable;
+      memoryPercent = config._.zram-swap.memoryPercent;
+      priority      = config._.zram-swap.priority;
       algorithm     = "zstd";
     };
 

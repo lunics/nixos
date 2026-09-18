@@ -5,7 +5,7 @@
       (config.hardware.facter.report.smbios.memory_device or []))) / 1048576;
   in {
     options._ = {
-      zramSwap = {
+      zram-swap = {
         enable = mkEnableOption "";
 
         memoryPercent = mkOption {
@@ -29,7 +29,7 @@
 
         priority = mkOption {
           type    = types.int;
-          default = config._.zramSwap.priority - 2;  # lower than zram, used once zram is full
+          default = config._.zram-swap.priority - 2;  # lower than zram, used once zram is full
         };
       };
 
