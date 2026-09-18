@@ -26,11 +26,6 @@
           type    = types.str;
           default = "8G";   # overflow buffer, not meant to hold an hibernation image
         };
-
-        priority = mkOption {
-          type    = types.int;
-          default = config._.zram-swap.priority - 2;  # lower than zram, used once zram is full
-        };
       };
 
       swapfile-hibernation = {
@@ -39,11 +34,6 @@
         size = mkOption {
           type    = types.str;
           default = if _ram > 0 then "${toString _ram}G" else "8G";  # the image holds the whole RAM
-        };
-
-        priority = mkOption {
-          type    = types.int;
-          default = config._.swapfile-zram.priority - 2;  # last resort, stays free for the image
         };
 
         resume_offset = mkOption {
