@@ -21,8 +21,9 @@
             export TIMEWARRIORDB=${config._.share}/taskwarrior/timewarrior    # the on-modify hook runs timew against it
 
             if task +ACTIVE &> /dev/null; then
-              # hooks.location is expanded from $CONFIG, only exported to zsh, so it must be given here
-              task rc.hooks.location=${config._.dot_config}/taskwarrior/hooks +ACTIVE stop &> /dev/null
+              # hooks.location is expanded from $CONFIG, only exported to zsh, and bulk=0 drops the
+              # confirmation asked from 3 tasks on, which no tty can answer here
+              task rc.hooks.location=${config._.dot_config}/taskwarrior/hooks rc.bulk=0 +ACTIVE stop &> /dev/null
               echo -e "\e[1;32mTaskw stopped\e[0m"
             fi
           fi
