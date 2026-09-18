@@ -4,6 +4,8 @@
       (pkgs.writeShellApplication {
         name = "save_env";
 
+        runtimeInputs = [ pkgs.taskwarrior3 pkgs.timewarrior ];    # timew is spawned by the taskwarrior on-modify hook
+
         text = ''
           ## status can return Stopped even if something is playing
           # if (playerctl status 2>/dev/null) || echo "No player" ; then 
@@ -13,12 +15,14 @@
           #   # playerctl status | rg "Playing" && playerctl pause
           # fi
 
-          if which task &> /dev/null; then
-            export TASKDATA=$HOME/usb_copy/homelab/share/taskwarrior
-            export TASKRC=$HOME/.config/taskwarrior/taskw/taskrc
+          if command -v task &> /dev/null; then
+            export TASKDATA=${config._.share}/taskwarrior
+            export TASKRC=${config._.dot_config}/taskwarrior/taskw/taskrc
+            export TIMEWARRIORDB=${config._.share}/taskwarrior/timewarrior    # the on-modify hook runs timew against it
 
             if task +ACTIVE &> /dev/null; then
-              task +ACTIVE stop &> /dev/null
+              # hooks.location is expanded from $CONFIG, only exported to zsh, so it must be given here
+              task rc.hooks.location=${config._.dot_config}/taskwarrior/hooks +ACTIVE stop &> /dev/null
               echo -e "\e[1;32mTaskw stopped\e[0m"
             fi
           fi
