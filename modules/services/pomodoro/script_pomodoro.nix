@@ -68,11 +68,14 @@
               $data.brightness = reduce_brightness $data 20sec
 
               with-env {
-                TASKDATA: ${config._.share}/taskwarrior
-                TASKRC:   ${config._.dot_config}/taskwarrior/taskw/taskrc
+                TASKDATA:      ${config._.share}/taskwarrior
+                TASKRC:        ${config._.dot_config}/taskwarrior/taskw/taskrc
+                TIMEWARRIORDB: ${config._.share}/taskwarrior/timewarrior    # the on-modify hook runs timew against it
               } {
                 if (which task | is-not-empty) and (task +ACTIVE _ids | str trim | is-not-empty) {
-                  task +ACTIVE stop
+                  # hooks.location is expanded from $CONFIG, only exported to zsh, and bulk=0 drops the
+                  # confirmation asked from 3 tasks on, which no tty can answer here
+                  task rc.hooks.location=${config._.dot_config}/taskwarrior/hooks rc.bulk=0 +ACTIVE stop
                 }
               }
 
