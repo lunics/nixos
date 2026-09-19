@@ -4,6 +4,8 @@
   };
   
   flake.aspects.raspberry-pi.nixos = {
+    _.raspberry-pi = true;    # gates the board bits carried by the shared aspects
+
     nixConfig = {
       extra-substituters = [
         "https://nixos-raspberrypi.cachix.org"
@@ -18,6 +20,14 @@
   let
     boot-loader = config.boot.loader.raspberry-pi;
   in {
+    boot.tmp.useTmpfs = true;
+    boot.loader.raspberry-pi = {
+      bootloader   = "kernel";            # kernelboot, uboot, kernel
+      firmwarePath = "/boot/firmware";
+    };
+
+    # hardware.raspberry-pi.config = {};  # already managed by the flake
+
     # board, bootloader and kernel readable from the generation label
     system.nixos.tags = [
       "raspberry-pi-${boot-loader.variant}"
