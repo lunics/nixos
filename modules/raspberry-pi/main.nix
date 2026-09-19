@@ -4,7 +4,7 @@
   };
 
   # trusted by the machine building the board, or it compiles the kernel itself
-  nixConfig = {
+  flake-file.nixConfig = {
     extra-substituters = [
       "https://nixos-raspberrypi.cachix.org"
     ];
