@@ -5,6 +5,7 @@
       network-manager
       firewall
       wifi
+      iwd
       bluetooth
       dns
     ];

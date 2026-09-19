@@ -1,5 +1,5 @@
 {
-  flake.aspects.wifi.nixos = { config, lib, ... }:{
+  flake.aspects.iwd.nixos = { config, lib, ... }:{
     networking.wireless.iwd = {
       enable = true;
       settings = {
