@@ -17,6 +17,10 @@
         type    = types.str;
         default = "1G";
       };
+      image-size = mkOption {    # only read when building a disko image, never when installing
+        type    = types.nullOr types.str;
+        default = null;
+      };
       luks = mkOption {
         type    = types.bool;
         default = true;
