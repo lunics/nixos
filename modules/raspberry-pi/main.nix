@@ -3,16 +3,6 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
   };
 
-  # trusted by the machine building the board, or it compiles the kernel itself
-  flake-file.nixConfig = {
-    extra-substituters = [
-      "https://nixos-raspberrypi.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-    ];
-  };
-
   flake.aspects.raspberry-pi.nixos = {
     _.raspberry-pi = true;    # gates the board bits carried by the shared aspects
 
