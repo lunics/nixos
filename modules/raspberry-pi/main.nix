@@ -14,7 +14,8 @@
     };
   };
 
-  flake.aspects.raspberry-pi.nixos-raspberrypi = { config, ... }: let
+  flake.aspects.raspberry-pi.nixos-raspberrypi = { config, ... }:
+  let
     boot-loader = config.boot.loader.raspberry-pi;
   in {
     # board, bootloader and kernel readable from the generation label
