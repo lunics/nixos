@@ -100,7 +100,8 @@
         specialArgs = inputs;
         modules = [
           self.modules.generic.options
-          self.modules.nixos-raspberrypi.${name}
+          self.modules.nixos.${name}                  # shared aspects, resolved as any other host
+          self.modules.nixos-raspberrypi.${name}      # board specific additions only
           { 
             nixpkgs.hostPlatform = lib.mkDefault system; 
           }
