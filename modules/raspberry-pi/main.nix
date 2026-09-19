@@ -3,6 +3,10 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
   };
 
+  flake.aspects.options.generic = { lib, ... }: with lib; {
+    options._.raspberry-pi = mkEnableOption "";
+  };
+
   flake.aspects.raspberry-pi.nixos = { config, lib, ... }:
   let
     boot-loader = config.boot.loader.raspberry-pi;
