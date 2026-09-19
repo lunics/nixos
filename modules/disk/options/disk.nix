@@ -13,6 +13,10 @@
         type    = types.nullOr types.str;
         default = null;
       };
+      firmware-size = mkOption {    # holds every generation with the kernel bootloader
+        type    = types.str;
+        default = "1G";
+      };
       luks = mkOption {
         type    = types.bool;
         default = true;
