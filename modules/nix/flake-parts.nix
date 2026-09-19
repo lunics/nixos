@@ -100,8 +100,8 @@
         specialArgs = inputs;
         modules = [
           self.modules.generic.options
-          self.modules.nixos.${name}                  # shared aspects, resolved as any other host
-          self.modules.nixos-raspberrypi.${name}      # board specific additions only
+          # flake-parts stamps _class on every other modules class, and nixosSystem rejects it
+          self.modules.nixos.${name}
           { 
             nixpkgs.hostPlatform = lib.mkDefault system; 
           }
