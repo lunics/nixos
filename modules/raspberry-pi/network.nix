@@ -1,5 +1,5 @@
 {
-  flake.aspects.raspberry-pi.nixos-raspberrypi = { config, ... }:{
+  flake.aspects.raspberry-pi.nixos = { config, ... }:{
     networking.useNetworkd = true;   # alias of systemd.network.enable, drops dhcpcd and the scripted setup
 
     # the default 120s hang on a link that never comes up is too long headless

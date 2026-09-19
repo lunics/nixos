@@ -1,5 +1,5 @@
 {
-  flake.aspects.raspberry-pi.nixos-raspberrypi = { lib, pkgs, ... }:{
+  flake.aspects.raspberry-pi.nixos = { lib, pkgs, ... }:{
     console = {
       earlySetup = true;                                                            # font up before stage-2
       font       = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u16n.psf.gz";
