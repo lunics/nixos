@@ -11,6 +11,14 @@
   let
     boot-loader = config.boot.loader.raspberry-pi;
     x86         = import inputs.nixpkgs { system = "x86_64-linux"; };
+
+    # vmTools gives the vm a single vcpu, and the core count is the builder's, not the board's
+    # -cpu max stalls edk2 under tcg, the board's own core boots through
+    qemu-smp = x86.writeShellScript "qemu-system-aarch64-smp" ''
+      exec ${x86.qemu}/bin/qemu-system-aarch64 \
+        -machine virt,gic-version=max,accel=tcg -cpu cortex-a72 -nic none \
+        -smp "$(${x86.coreutils}/bin/nproc)" "$@"
+    '';
   in {
     _ = {
       raspberry-pi     = true;                    # gates the board bits carried by the shared aspects
@@ -29,7 +37,7 @@
     };
 
     # native emulator for the image vm
-    disko.imageBuilder.qemu = "${x86.qemu}/bin/qemu-system-aarch64 -machine virt,gic-version=max,accel=tcg -cpu max";
+    disko.imageBuilder.qemu = "${qemu-smp}";
 
     boot.tmp.useTmpfs = true;
     boot.loader.raspberry-pi = {
