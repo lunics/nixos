@@ -1,4 +1,4 @@
-{
+{ inputs, ... }:{
   flake-file.inputs = {
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
   };
@@ -6,6 +6,7 @@
   flake.aspects.raspberry-pi.nixos = { config, lib, ... }:
   let
     boot-loader = config.boot.loader.raspberry-pi;
+    x86         = import inputs.nixpkgs { system = "x86_64-linux"; };
   in {
     _ = {
       raspberry-pi     = true;                  # gates the board bits carried by the shared aspects
@@ -20,6 +21,13 @@
       substituters         = [ "https://nixos-raspberrypi.cachix.org" ];
       trusted-substituters = [ "https://nixos-raspberrypi.cachix.org" ];
       trusted-public-keys  = [ "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" ];
+    };
+
+    # the image vm boots native on the builder, only the guest binaries are emulated
+    disko.imageBuilder = {
+      enableBinfmt   = true;
+      pkgs           = x86;
+      kernelPackages = x86.linuxPackages;
     };
 
     boot.tmp.useTmpfs = true;
