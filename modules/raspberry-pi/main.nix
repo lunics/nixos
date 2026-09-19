@@ -13,11 +13,12 @@
     x86         = import inputs.nixpkgs { system = "x86_64-linux"; };
   in {
     _ = {
-      raspberry-pi     = true;                  # gates the board bits carried by the shared aspects
+      raspberry-pi     = true;                    # gates the board bits carried by the shared aspects
       disk.device      = "mmcblk0";
       disk.luks        = false;
       zram-swap.enable = true;
-      disk.image-size  = lib.mkDefault "30500M";   # 29.8 GiB card, qemu-img reads G as GiB
+      state-version    = "26.05";                 # the fork pins nixpkgs 26.05
+      disk.image-size  = lib.mkDefault "30500M";  # 29.8 GiB card, qemu-img reads G as GiB
     };
 
     # the board resolves the cache itself, for the rebuilds it runs on its own
