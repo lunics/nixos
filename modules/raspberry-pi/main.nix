@@ -28,8 +28,8 @@
       trusted-public-keys  = [ "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" ];
     };
 
-    # native emulator for the image vm, overriding pkgs would re-evaluate the board on x86
-    disko.imageBuilder.qemu = "${x86.qemu}/bin/qemu-system-aarch64";
+    # native emulator for the image vm
+    disko.imageBuilder.qemu = "${x86.qemu}/bin/qemu-system-aarch64 -machine virt,gic-version=max,accel=tcg -cpu max";
 
     boot.tmp.useTmpfs = true;
     boot.loader.raspberry-pi = {
