@@ -7,11 +7,13 @@
   let
     boot-loader = config.boot.loader.raspberry-pi;
   in {
-    _.raspberry-pi = true;    # gates the board bits carried by the shared aspects
-
-    _.zram-swap.enable = true;    # the only swap on the boards, no swapfile
-
-    _.disk.image-size = lib.mkDefault "32G";    # card size, only read when building an image
+    _ = {
+      raspberry-pi     = true;                  # gates the board bits carried by the shared aspects
+      disk.device      = "mmcblk0";
+      disk.luks        = false;
+      zram-swap.enable = true;
+      disk.image-size  = lib.mkDefault "30500M";   # 29.8 GiB card, qemu-img reads G as GiB
+    };
 
     # the board resolves the cache itself, for the rebuilds it runs on its own
     nix.settings = {
