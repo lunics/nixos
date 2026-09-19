@@ -6,6 +6,8 @@
   flake.aspects.raspberry-pi.nixos = {
     _.raspberry-pi = true;    # gates the board bits carried by the shared aspects
 
+    _.zram-swap.enable = true;    # the only swap on the boards, no swapfile
+
     nixConfig = {
       extra-substituters = [
         "https://nixos-raspberrypi.cachix.org"
