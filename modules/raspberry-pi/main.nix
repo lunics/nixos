@@ -26,10 +26,12 @@
     };
   };
 
-  flake.aspects.raspberry-pi.nixos-raspberrypi = { config, ... }:
+  flake.aspects.raspberry-pi.nixos-raspberrypi = { config, lib, ... }:
   let
     boot-loader = config.boot.loader.raspberry-pi;
   in {
+    _.disk.image-size = lib.mkDefault "32G";    # card size, only read when building an image
+
     boot.tmp.useTmpfs = true;
     boot.loader.raspberry-pi = {
       bootloader   = "kernel";            # kernelboot, uboot, kernel
