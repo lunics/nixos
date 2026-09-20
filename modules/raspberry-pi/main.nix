@@ -7,7 +7,7 @@
     options._.raspberry-pi = mkEnableOption "";
   };
 
-  flake.aspects.raspberry-pi.nixos = { config, lib, ... }:
+  flake.aspects.raspberry-pi.nixos = { config, lib, pkgs, ... }:
   let
     boot-loader = config.boot.loader.raspberry-pi;
     x86         = import inputs.nixpkgs { system = "x86_64-linux"; };
@@ -38,6 +38,9 @@
 
     # native emulator for the image vm
     disko.imageBuilder.qemu = "${qemu-smp}";
+
+    # the board kernel is built for bcm2711 and spins forever on the qemu virt machine
+    disko.imageBuilder.kernelPackages = pkgs.linuxPackages;
 
     boot.tmp.useTmpfs = true;
     boot.loader.raspberry-pi = {
