@@ -37,6 +37,10 @@
         type    = types.nullOr types.path;
         default = null;
       };
+      btrfs-partuuid = mkOption {
+        type    = types.nullOr types.str;
+        default = null;
+      };
       btrfs_opts = mkOption {
         type    = types.listOf types.str;
         default = ["compress=zstd" "noatime" "lazytime" "space_cache=v2" "ssd"];

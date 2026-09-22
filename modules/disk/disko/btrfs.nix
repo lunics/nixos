@@ -62,6 +62,7 @@
         disko.devices.disk.${_.device}.content.partitions.btrfs = {
           size    = "100%";
           type    = mkIf config._.raspberry-pi "8305";   # linux arm64 root
+          uuid    = _.btrfs-partuuid;
           content = _subvolumes;
         };
       })
