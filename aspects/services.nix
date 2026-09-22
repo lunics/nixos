@@ -4,6 +4,7 @@
       alarm-clock
       auto-upgrade
       fwupd
+      getty
       logind
       no-wakeup
       podman
