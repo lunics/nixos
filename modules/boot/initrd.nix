@@ -1,5 +1,5 @@
 {
-  flake.aspects.boot.nixos = { config, ... }:{
+  flake.aspects.boot.nixos = { config, lib, ... }:{
     boot.initrd = {
       systemd.enable = true;
       network.enable = false;
@@ -16,7 +16,7 @@
         yubikeySupport     = false;     # OLD: to support the non‑FIDO2 YubiKey LUKS integration based on ykchalresp (challenge–response)
         gpgSupport         = false;
 
-        devices = {
+        devices = lib.mkIf config._.disk.luks {
           "luks" = {
             # device           = config._.disk.luks_device;  # refers to the existing encrypted block device, conflic with disko.luks.label
             allowDiscards      = false; # required for discard=async for continuous TRIM
