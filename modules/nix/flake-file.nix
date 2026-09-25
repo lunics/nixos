@@ -9,28 +9,23 @@
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
       };
-      hosts = {
-        url = "git+file:/home/lunics/usb_copy/homelab/nixos-hosts";
-        inputs = {
-          nixpkgs.follows     = "nixpkgs";
-          flake-parts.follows = "flake-parts";
-          import-tree.follows = "import-tree";
-          sops-nix.follows    = "sops-nix";
-        };
-      };
     };
 
     outputs = ''
-      inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      inputs:
+      let
+        tree = inputs.import-tree [
+          ./modules
+          ./options
+          ./aspects
+        ];
+      in inputs.flake-parts.lib.mkFlake { inherit inputs; } {
         imports = [
           inputs.flake-aspects.flakeModule
-          inputs.hosts.flakeModules.default
-          (inputs.import-tree [ 
-            ./modules 
-            ./options 
-            ./aspects
-          ])
+          tree
         ];
+
+        flake.flakeModules.default = tree;
       }
     '';
   };

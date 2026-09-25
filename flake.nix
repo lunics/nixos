@@ -3,16 +3,20 @@
 {
   outputs =
     inputs:
+    let
+      tree = inputs.import-tree [
+        ./modules
+        ./options
+        ./aspects
+      ];
+    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.flake-aspects.flakeModule
-        inputs.hosts.flakeModules.default
-        (inputs.import-tree [
-          ./modules
-          ./options
-          ./aspects
-        ])
+        tree
       ];
+
+      flake.flakeModules.default = tree;
     };
 
   inputs = {
@@ -55,15 +59,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hosts = {
-      url = "git+file:/home/lunics/usb_copy/homelab/nixos-hosts";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        import-tree.follows = "import-tree";
-        nixpkgs.follows = "nixpkgs";
-        sops-nix.follows = "sops-nix";
-      };
     };
     hyprland.url = "github:hyprwm/Hyprland/ab136393c2eb9e106846a704da1a1b3d6af415b4";
     hyprland-plugins = {
