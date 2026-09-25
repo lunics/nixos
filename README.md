@@ -4,33 +4,35 @@
 - flake-aspects
 - flake-file
 - import-tree
+- nixpkgs-multiverse
 - disko
 - dual boot
 - lanzaboote
-- impermanence
+- preservation (nixos)
+- impermanence (home-manager)
 - microvm
 - sops-nix
 - nixvim
 - hosts kept private
-- shared options between nixos and home-manager
+- raspberry-pi
 
-## Structure
+## Integrate nixos to your flake
+
+### Structure example
 
 ```
 nixos
-├─ aspects/
-├─ modules/
-├─ options/
+├─ host-1.nix
+├─ host-2/
+├─── main.nix
+├─ host-3/
+├─── darwin.nix
+├─── home-manager.nix
 └─ flake.nix
 ```
 
-## How to integrate nixos as an external flake
-
-This repo exposes `flakeModules.default`. The build entry point is the consumer flake:
-`nixos-rebuild switch` and `home-manager switch` run from there, not from here.
-
 <details>
-  <summary>flake.nix — minimal</summary>
+  <summary>flake.nix (minimal)</summary>
 
 ```nix
 {
@@ -50,7 +52,7 @@ flake, so declaring the inputs they use is left to the consumer.
 </details>
 
 <details>
-  <summary>flake.nix — inputs followed from nixos</summary>
+  <summary>flake.nix (fully following lunics/nixos)</summary>
 
 Declaring them as `follows` keeps nixos as the single source of truth: its own `flake.lock`
 drives every version and no url is ever duplicated.
@@ -58,12 +60,10 @@ drives every version and no url is ever duplicated.
 ```nix
 {
   inputs = {
-    nixos.url = "github:lunics/nixos";
-
+    nixos.url           = "github:lunics/nixos";
     nixpkgs.follows     = "nixos/nixpkgs";
     flake-parts.follows = "nixos/flake-parts";
     import-tree.follows = "nixos/import-tree";
-    # one line per input used by nixos
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
@@ -74,12 +74,10 @@ drives every version and no url is ever duplicated.
   };
 }
 ```
-
-Bumping a version means committing it in nixos, then `nix flake update nixos` here.
 </details>
 
 <details>
-  <summary>host-A/system.nix</summary>
+  <summary>host-A/main.nix</summary>
 
 ```nix
 { config, ... }:{
@@ -89,13 +87,17 @@ Bumping a version means committing it in nixos, then `nix flake update nixos` he
     host-A = {
       includes = with aspects; [   # aspects provided by nixos
         options
+        disk
         boot
         nix
+        ...
       ];
 
       nixos = {
-        _.hostname  = "host-A";
-        _.flake_dir = "/path/to/this/repo";
+        _ = {       # parent root option
+          hostname  = "host-A";
+          flake_dir = "/path/to/this/repo";
+        };
       };
     };
   };
@@ -109,4 +111,3 @@ Caveats:
   input set must cover every `inputs.<name>` used by nixos.
 - the consumer flake is written by hand: `write-flake` would regenerate it with every url
   duplicated, so override `flake-file.outputs` with `lib.mkForce` only if that is wanted.
-- clan state (`inventory.json`, `vars/`) is read relative to the consumer flake root.
