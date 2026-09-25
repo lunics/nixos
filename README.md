@@ -30,30 +30,40 @@ This repo exposes `flakeModules.default`. The build entry point is the consumer 
 `nixos-rebuild switch` and `home-manager switch` run from there, not from here.
 
 <details>
-  <summary>flake.nix</summary>
+  <summary>flake.nix — minimal</summary>
+
+```nix
+{
+  inputs.nixos.url = "github:lunics/nixos";
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    imports = [
+      inputs.nixos.flakeModules.default
+      ((inputs.import-tree.matchNot ".*flake\\.nix") ./.)
+    ];
+  };
+}
+```
+
+Only the entry point is provided here. nixos modules resolve `inputs.<name>` against this
+flake, so declaring the inputs they use is left to the consumer.
+</details>
+
+<details>
+  <summary>flake.nix — inputs followed from nixos</summary>
+
+Declaring them as `follows` keeps nixos as the single source of truth: its own `flake.lock`
+drives every version and no url is ever duplicated.
 
 ```nix
 {
   inputs = {
-    nixos = {
-      url = "github:lunics/nixos";
-      inputs = {
-        nixpkgs.follows     = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        import-tree.follows = "import-tree";
-        # one follows per input shared with nixos
-      };
-    };
+    nixos.url = "github:lunics/nixos";
 
-    # nixos stays the source of truth: every input it declares is redeclared here
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    import-tree.url = "github:vic/import-tree";
+    nixpkgs.follows     = "nixos/nixpkgs";
+    flake-parts.follows = "nixos/flake-parts";
+    import-tree.follows = "nixos/import-tree";
+    # one line per input used by nixos
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
@@ -64,6 +74,8 @@ This repo exposes `flakeModules.default`. The build entry point is the consumer 
   };
 }
 ```
+
+Bumping a version means committing it in nixos, then `nix flake update nixos` here.
 </details>
 
 <details>
@@ -95,6 +107,6 @@ Caveats:
 
 - `self` and `inputs` inside nixos modules resolve against the consumer flake, so its
   input set must cover every `inputs.<name>` used by nixos.
-- `flake-file.outputs` comes from `modules/nix/flake-file.nix` and is imported along with
-  the tree; override it with `lib.mkForce` to have `write-flake` generate this flake.
+- the consumer flake is written by hand: `write-flake` would regenerate it with every url
+  duplicated, so override `flake-file.outputs` with `lib.mkForce` only if that is wanted.
 - clan state (`inventory.json`, `vars/`) is read relative to the consumer flake root.
