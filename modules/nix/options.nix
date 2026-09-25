@@ -6,8 +6,7 @@
         default = [];
       };
       flake_dir = mkOption {
-        type    = types.str;
-        default = "";
+        type = types.strMatching ".+";    # mandatory, an empty value is refused
       };
       allow-unfree = mkOption {
         type    = types.listOf types.package;
