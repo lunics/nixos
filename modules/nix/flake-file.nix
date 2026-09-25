@@ -4,7 +4,6 @@
       nixpkgs.url     = "github:nixos/nixpkgs/nixpkgs-unstable";
       flake-file.url  = "github:vic/flake-file";
       import-tree.url = "github:vic/import-tree";
-      systems.url     = "github:nix-systems/default";
       flake-compat.url = "github:NixOS/flake-compat";
       flake-parts = {
         url = "github:hercules-ci/flake-parts";
@@ -37,6 +36,4 @@
   };
 
   imports = [ inputs.flake-file.flakeModules.default ];
-
-  systems = [ "x86_64-linux" ];
 }

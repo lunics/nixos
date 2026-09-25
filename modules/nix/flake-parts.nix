@@ -7,10 +7,6 @@
     default = { };
   };
 
-  config.systems = [
-    "x86_64-linux"
-  ];
-
   config.flake.lib = {
     make_nixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
