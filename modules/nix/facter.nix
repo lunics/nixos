@@ -7,10 +7,12 @@
       };
     };
 
-    facter.nixos = { config, pkgs, ... }:{
+    facter.nixos = { config, lib, pkgs, ... }:{
       hardware.facter = {
         enable = config.hardware.facter.report != {};   # auto-activation only if a report is set
-        reportPath = config._.facter-report;            # JSON file
+
+        # left null, clan keeps its own machines/<name>/facter.json
+        reportPath = lib.mkIf (config._.facter-report != null) (lib.mkForce config._.facter-report);
         # report = {};                                  # JSON inline variant
       };
 
