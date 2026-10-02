@@ -1,5 +1,5 @@
 {
-  flake.aspects.ssh.nixos = {
+  flake.aspects.sshd.nixos = {
     services.openssh = {
       enable   = true;
       ports    = [ 22 ];
