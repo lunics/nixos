@@ -3,6 +3,8 @@
     security.includes = with aspects; [
       pam
       polkit
+      ssh
+      sshd
       sudo
       yubikey
     ];

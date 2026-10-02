@@ -22,7 +22,6 @@
       wsl
       security
       services
-      ssh
       virtualisation
       secrets
       tailscale
@@ -44,7 +43,6 @@
       # misc
       # gpg
       home
-      # ssh
       stylix
       tmux
       herdr
@@ -67,6 +65,14 @@
       zmk
       claude-code
       opencode
+
+      # security
+      pam
+      polkit
+      ssh
+      sshd
+      sudo
+      yubikey
     ];
   };
 }
