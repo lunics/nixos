@@ -89,7 +89,7 @@ def switch-nixos [] {
 }
 
 # Pick a home-manager or NixOS generation with fzf and switch to it.
-def main [profile: string@"nu-complete profiles"] {
+def main [profile: string@"nu-complete profiles" = "hm"] {
   match $profile {
     "hm" => (switch-hm)
     "nixos" => (switch-nixos)
