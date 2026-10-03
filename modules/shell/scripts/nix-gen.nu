@@ -17,11 +17,11 @@ def hm-profile-dir [] {
   }
 }
 
-# Where a profile lives and whether touching it needs root.
+# Where a profile lives, whether touching it needs root and owns boot entries.
 def profile-info [profile: string] {
   match $profile {
-    "hm" => ({ dir: (hm-profile-dir), name: "home-manager", label: "home-manager", sudo: false })
-    "nixos" => ({ dir: "/nix/var/nix/profiles", name: "system", label: "NixOS", sudo: true })
+    "hm" => ({ dir: (hm-profile-dir), name: "home-manager", label: "home-manager", sudo: false, boot: false })
+    "nixos" => ({ dir: "/nix/var/nix/profiles", name: "system", label: "NixOS", sudo: true, boot: true })
     _ => (error make --unspanned { msg: $"unknown profile '($profile)': expected 'hm' or 'nixos'" })
   }
 }
@@ -84,6 +84,12 @@ def delete-gen [profile: string, id: int] {
     ^sudo nix-env --profile $target --delete-generations $"($id)"
   } else {
     ^nix-env --profile $target --delete-generations $"($id)"
+  }
+
+  # a deleted generation stays in the boot menu until the bootloader is rebuilt
+  if $p.boot {
+    print "rebuilding the boot entries"
+    ^sudo $"($target)/bin/switch-to-configuration" boot
   }
 }
 
