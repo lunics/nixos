@@ -2,40 +2,104 @@
 
 def "nu-complete profiles" [] { ["hm", "nixos"] }
 
-# List the "<prefix>-N-link" generations of a nix profile directory, newest first.
-def list-gens [dir: string, prefix: string] {
-  if not ($dir | path exists) {
-    error make --unspanned { msg: $"no profile directory: ($dir)" }
+# home-manager >= 22.11 keeps its profile under XDG_STATE_HOME, older ones in /nix/var
+def hm-profile-dir [] {
+  let state = if ($env.XDG_STATE_HOME? | is-not-empty) {
+    $env.XDG_STATE_HOME | path join "nix" "profiles"
+  } else {
+    $env.HOME | path join ".local" "state" "nix" "profiles"
+  }
+
+  if ($state | path join "home-manager" | path exists) {
+    $state
+  } else {
+    $"/nix/var/nix/profiles/per-user/($env.USER)"
+  }
+}
+
+# Where a profile lives and whether touching it needs root.
+def profile-info [profile: string] {
+  match $profile {
+    "hm" => ({ dir: (hm-profile-dir), name: "home-manager", label: "home-manager", sudo: false })
+    "nixos" => ({ dir: "/nix/var/nix/profiles", name: "system", label: "NixOS", sudo: true })
+    _ => (error make --unspanned { msg: $"unknown profile '($profile)': expected 'hm' or 'nixos'" })
+  }
+}
+
+# List the "<name>-N-link" generations of a profile directory, newest first.
+def list-gens [p: record] {
+  if not ($p.dir | path exists) {
+    error make --unspanned { msg: $"no profile directory: ($p.dir)" }
   }
 
   let gens = (
-    ls --long $dir
-    | where name =~ $'($prefix)-\d+-link$'
-    | insert id { $in.name | path basename | str replace $'($prefix)-' '' | str replace '-link' '' | into int }
+    ls --long $p.dir
+    | where name =~ $'($p.name)-\d+-link$'
+    | insert id { $in.name | path basename | str replace $'($p.name)-' '' | str replace '-link' '' | into int }
     | select id modified target
     | sort-by id --reverse
   )
 
   if ($gens | is-empty) {
-    error make --unspanned { msg: $"no ($prefix) generation found in ($dir)" }
+    error make --unspanned { msg: $"no ($p.label) generation found in ($p.dir)" }
   }
 
   $gens
 }
 
-# Show the generations in fzf, return the picked {id, target} or null if cancelled.
-def pick-gen [gens: table, current: string, header: string] {
-  let rows = (
-    $gens | each {|g|
+# One tab separated row per generation: id, current marker, date.
+def gen-rows [profile: string] {
+  let p = (profile-info $profile)
+  let current = ($p.dir | path join $p.name | path expand)
+
+  list-gens $p
+  | each {|g|
       let mark = if $g.target == $current { "*" } else { " " }
-      $"($mark) ($g.id)\t($g.modified | format date '%Y-%m-%d %H:%M')\t($g.id)\t($g.target)"
+      $"($g.id)\t($mark)\t($g.modified | format date '%Y-%m-%d %H:%M')"
     }
-  )
+  | str join "\n"
+}
+
+# Drop a generation, after confirmation. Called back from the fzf binding.
+def delete-gen [profile: string, id: int] {
+  let p = (profile-info $profile)
+  let current = ($p.dir | path join $p.name | path expand)
+  let gen = (list-gens $p | where id == $id)
+
+  if ($gen | is-empty) {
+    print $"generation ($id) not found"
+    return
+  }
+
+  if ($gen | first | get target) == $current {
+    print $"refusing to delete generation ($id): it is the current one"
+    return
+  }
+
+  let answer = (input $"delete ($p.label) generation ($id)? [y/N] ")
+  if ($answer | str lowercase | str trim) != "y" { return }
+
+  let target = ($p.dir | path join $p.name)
+  if $p.sudo {
+    ^sudo nix-env --profile $target --delete-generations $"($id)"
+  } else {
+    ^nix-env --profile $target --delete-generations $"($id)"
+  }
+}
+
+# Show the generations in fzf, return the picked id or null if cancelled.
+def pick-gen [profile: string] {
+  let p = (profile-info $profile)
+  let self = $"'($nu.current-exe)' '($env.CURRENT_FILE)'"
+
+  # D re-enters this script to delete the highlighted generation, then refreshes the list
+  let bind = ("D:execute(" + $self + " --delete {1} " + $profile
+    + ")+reload(" + $self + " --list " + $profile + ")")
 
   let sel = (
-    $rows
-    | str join "\n"
-    | ^fzf --height 40% --reverse --no-multi --delimiter "\t" --with-nth "1,2" --header $header
+    gen-rows $profile
+    | ^fzf --height 40% --reverse --no-multi --delimiter "\t" --bind $bind
+        --header $"($p.label) generations — enter: switch, D: delete, esc: quit \(* = current)"
     | complete
   )
 
@@ -43,56 +107,47 @@ def pick-gen [gens: table, current: string, header: string] {
     return null
   }
 
-  let fields = ($sel.stdout | str trim | split row "\t")
-  { id: ($fields | get 2 | into int), target: ($fields | get 3) }
+  $sel.stdout | str trim | split row "\t" | get 0 | into int
 }
 
-def switch-hm [] {
-  let state = if ($env.XDG_STATE_HOME? | is-not-empty) {
-    $env.XDG_STATE_HOME | path join "nix" "profiles"
-  } else {
-    $env.HOME | path join ".local" "state" "nix" "profiles"
-  }
-
-  # home-manager >= 22.11 keeps its profile under XDG_STATE_HOME, older ones in /nix/var
-  let dir = if ($state | path join "home-manager" | path exists) {
-    $state
-  } else {
-    $"/nix/var/nix/profiles/per-user/($env.USER)"
-  }
-
-  let current = ($dir | path join "home-manager" | path expand)
-  let gen = (pick-gen (list-gens $dir "home-manager") $current "home-manager generations (* = current)")
-
-  if $gen == null { return }
-
-  let activate = ($gen.target | path join "activate")
+def switch-hm [id: int, target: string] {
+  let activate = ($target | path join "activate")
   if not ($activate | path exists) {
-    error make --unspanned { msg: $"no activate script in ($gen.target)" }
+    error make --unspanned { msg: $"no activate script in ($target)" }
   }
 
-  print $"activating home-manager generation ($gen.id)"
+  print $"activating home-manager generation ($id)"
   ^$activate
 }
 
-def switch-nixos [] {
-  let dir = "/nix/var/nix/profiles"
-  let current = ($dir | path join "system" | path expand)
-  let gen = (pick-gen (list-gens $dir "system") $current "NixOS generations (* = current)")
-
-  if $gen == null { return }
-
+def switch-nixos [id: int] {
   # same two steps as nixos-rebuild --switch-generation: move the profile, then activate it
-  print $"switching to NixOS generation ($gen.id)"
-  ^sudo nix-env --profile $"($dir)/system" --switch-generation $"($gen.id)"
-  ^sudo $"($dir)/system/bin/switch-to-configuration" switch
+  print $"switching to NixOS generation ($id)"
+  ^sudo nix-env --profile /nix/var/nix/profiles/system --switch-generation $"($id)"
+  ^sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
 }
 
 # Pick a home-manager or NixOS generation with fzf and switch to it.
-def main [profile: string@"nu-complete profiles" = "hm"] {
+def main [
+  profile: string@"nu-complete profiles" = "hm"
+  --list                  # print the fzf rows and exit, used by the reload binding
+  --delete: int           # delete that generation and exit, used by the D binding
+] {
+  if $list {
+    print (gen-rows $profile)
+    return
+  }
+
+  if $delete != null {
+    delete-gen $profile $delete
+    return
+  }
+
+  let id = (pick-gen $profile)
+  if $id == null { return }
+
   match $profile {
-    "hm" => (switch-hm)
-    "nixos" => (switch-nixos)
-    _ => (error make --unspanned { msg: $"unknown profile '($profile)': expected 'hm' or 'nixos'" })
+    "hm" => (switch-hm $id (list-gens (profile-info $profile) | where id == $id | first | get target))
+    "nixos" => (switch-nixos $id)
   }
 }
