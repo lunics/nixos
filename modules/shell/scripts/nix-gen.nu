@@ -47,14 +47,29 @@ def list-gens [p: record] {
   $gens
 }
 
+# Current generation id, read from the profile symlink. Comparing store paths instead
+# would mark several rows, since a rollback points a new generation at an older path.
+def current-id [p: record] {
+  if not ($p.dir | path exists) { return null }
+
+  let link = (ls --long $p.dir | where {|r| ($r.name | path basename) == $p.name })
+  if ($link | is-empty) { return null }
+
+  let base = ($link | get 0.target | path basename)
+  if not ($base =~ $'^($p.name)-\d+-link$') { return null }
+
+  $base | str replace $'($p.name)-' '' | str replace '-link' '' | into int
+}
+
 # One tab separated row per generation: id, current marker, date.
 def gen-rows [profile: string] {
   let p = (profile-info $profile)
-  let current = ($p.dir | path join $p.name | path expand)
+  let gens = (list-gens $p)
+  let current = (current-id $p)
 
-  list-gens $p
+  $gens
   | each {|g|
-      let mark = if $g.target == $current { "*" } else { " " }
+      let mark = if $g.id == $current { "*" } else { " " }
       $"($g.id)\t($mark)\t($g.modified | format date '%Y-%m-%d %H:%M')"
     }
   | str join "\n"
@@ -63,7 +78,6 @@ def gen-rows [profile: string] {
 # Drop a generation, after confirmation. Called back from the fzf binding.
 def delete-gen [profile: string, id: int] {
   let p = (profile-info $profile)
-  let current = ($p.dir | path join $p.name | path expand)
   let gen = (list-gens $p | where id == $id)
 
   if ($gen | is-empty) {
@@ -71,7 +85,7 @@ def delete-gen [profile: string, id: int] {
     return
   }
 
-  if ($gen | first | get target) == $current {
+  if $id == (current-id $p) {
     print $"refusing to delete generation ($id): it is the current one"
     return
   }
