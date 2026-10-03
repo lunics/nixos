@@ -22,7 +22,6 @@
   in {
     _ = {
       raspberry-pi     = true;                    # gates the board bits carried by the shared aspects
-      disk.device      = "mmcblk0";
       disk.luks        = false;
       zram-swap.enable = true;
       state-version    = "26.05";                 # the fork pins nixpkgs 26.05
