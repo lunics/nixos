@@ -1,4 +1,4 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
   outputs =
@@ -60,12 +60,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland + hyprland-plugins moved to nixpkgs (pkgs.hyprland / pkgs.hyprlandPlugins)
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel/d563cdb1f6499d981901336bd0f86303ab95c4a5";
     impermanence.url = "github:nix-community/impermanence";
     import-tree.url = "github:vic/import-tree";
