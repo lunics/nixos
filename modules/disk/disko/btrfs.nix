@@ -61,7 +61,7 @@
       (mkIf (! _.luks) {
         disko.devices.disk.main.content.partitions.btrfs = {
           size    = "100%";
-          label   = "NIXOS";                             # the default label embeds the disk key name
+          label   = "NIXOS";
           type    = mkIf config._.raspberry-pi "8305";   # linux arm64 root
           uuid    = _.btrfs-partuuid;
           content = _subvolumes;

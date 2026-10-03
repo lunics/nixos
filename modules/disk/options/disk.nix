@@ -1,7 +1,8 @@
 {
   flake.aspects.options.generic = { lib, ... }: with lib; {
     options._.disk = {
-      device-by-id = mkOption {    # whole disk, e.g. /dev/disk/by-id/nvme-...
+      device-by-id = mkOption {
+        description = "/dev/disk/by-id/nvme-...";
         type = types.str;
       };
       boot_size = mkOption {
