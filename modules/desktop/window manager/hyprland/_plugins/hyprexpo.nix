@@ -1,7 +1,7 @@
 {
-  flake.aspects.hyprland.homeManager = { # workspace overview
-    wayland.windowManager.hyprland.plugins = [ 
-      hyprlandPlugins.hyprexpo
+  flake.aspects.hyprland.homeManager = { pkgs, ... }:{ # workspace overview
+    wayland.windowManager.hyprland.plugins = [
+      pkgs.hyprlandPlugins.hyprexpo
     ];
 
     # .config/hypr/hyprland.conf

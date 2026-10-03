@@ -1,11 +1,12 @@
-{ inputs, ... }:{
-  flake-file.inputs = {
-    hyprland.url     = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland"; 
-    };
-  };
+{ ... }:{
+  # Hyprland + plugins come from nixpkgs now (pkgs.*); re-enable only for the flake, never mixing ABIs.
+  # flake-file.inputs = {
+  #   hyprland.url = "github:hyprwm/Hyprland";
+  #   hyprland-plugins = {
+  #     url = "github:hyprwm/hyprland-plugins";
+  #     inputs.hyprland.follows = "hyprland";
+  #   };
+  # };
 
   flake.aspects.hyprland.nixos = { config, lib, pkgs, ... }:
   let
@@ -19,12 +20,13 @@
         substituters         = ["https://hyprland.cachix.org"];
         trusted-substituters = ["https://hyprland.cachix.org"];
         trusted-public-keys  = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+        trusted-users        = ["root" "@wheel"];
       };
 
       programs.hyprland = {
         enable          = true;
-        package         = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        portalPackage   = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        package         = pkgs.hyprland;
+        portalPackage   = pkgs.xdg-desktop-portal-hyprland;
         xwayland.enable = true;
         withUWSM        = true;             # run Hyprland with the UWSM (Universal Wayland Session Manager) session manager
         # systemd.setPath.enable = true;    # only for older version where opening links in applications do not work

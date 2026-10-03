@@ -1,7 +1,7 @@
 {
-  flake.aspects.hyprland.homeManager = { # any app as wallpaper
-    wayland.windowManager.hyprland.plugins = [ 
-      hyprlandPlugins.hyprwinwrap       
+  flake.aspects.hyprland.homeManager = { pkgs, ... }:{ # any app as wallpaper
+    wayland.windowManager.hyprland.plugins = [
+      pkgs.hyprlandPlugins.hyprwinwrap
     ];
   };
 }
