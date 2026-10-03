@@ -16,12 +16,13 @@
     config = lib.mkIf (_.wayland_user != "" && !_.headless) {
       _.window_manager = "hyprland";
 
-      nix.settings = {
-        substituters         = ["https://hyprland.cachix.org"];
-        trusted-substituters = ["https://hyprland.cachix.org"];
-        trusted-public-keys  = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-        trusted-users        = ["root" "@wheel"];
-      };
+      # nix.settings = {
+      #   hyprland.cachix.org no longer used: Hyprland comes from nixpkgs (cache.nixos.org)
+      #   substituters         = ["https://hyprland.cachix.org"];
+      #   trusted-substituters = ["https://hyprland.cachix.org"];
+      #   trusted-public-keys  = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      #   trusted-users        = ["root" "@wheel"];
+      # };
 
       programs.hyprland = {
         enable          = true;
