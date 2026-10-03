@@ -10,7 +10,7 @@
     config = mkMerge [
       # the kernel bootloader writes the generations to the firmware partition, /boot is unused
       (mkIf (! _.dual_boot && ! config._.raspberry-pi) {
-        disko.devices.disk.${_.device}.content.partitions = {
+        disko.devices.disk.main.content.partitions = {
           boot = {
             name  = "ESP";
             label = "BOOT";

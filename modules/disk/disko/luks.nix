@@ -3,7 +3,7 @@
     _ = config._.disk;
   in {
     config = lib.mkIf _.luks {
-      disko.devices.disk.${_.device}.content.partitions = {
+      disko.devices.disk.main.content.partitions = {
         luks = {
           size  = "100%";
           label = "LUKS";

@@ -5,7 +5,7 @@
   in {
     # vendor boot code, dtbs, and the generations themselves with the kernel bootloader
     config = mkIf config._.raspberry-pi {
-      disko.devices.disk.${_.device}.content.partitions.firmware = {
+      disko.devices.disk.main.content.partitions.firmware = {
         name       = "FIRMWARE";
         label      = "FIRMWARE";
         priority   = 1;          # disko orders by priority, the board boots off the first one
