@@ -27,8 +27,10 @@
         notificationCustomAnimationDuration = 500;   # in ms 100-800, only used when speed = 4
 
         # dms never locks on its own here, the dms-lock aspect overrides these
-        lockAtStartup     = lib.mkDefault false;
-        lockBeforeSuspend = lib.mkDefault false;
+        lockAtStartup           = lib.mkDefault false;
+        lockBeforeSuspend       = lib.mkDefault false;
+        loginctlLockIntegration = lib.mkDefault false;              # ignore the logind Lock signal, hypridle answers it
+        customPowerActionLock   = lib.mkDefault config._.lock-cmd;  # the dms lock actions spawn the real locker
 
         barConfigs = [{
           id = "default";
