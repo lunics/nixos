@@ -20,6 +20,9 @@
       # 0 = hidden, 1 = count only, 2 = full content
       lockScreenNotificationMode  = 0;
 
+      loginctlLockIntegration          = true;       # dms answers the logind Lock signal itself
+      customPowerActionLock            = "";         # dms shows its own lock surface
+
       lockAtStartup                    = false;
       lockBeforeSuspend                = true;
       lockScreenPowerOffMonitorsOnLock = false;
