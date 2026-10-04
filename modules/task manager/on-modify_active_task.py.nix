@@ -6,21 +6,39 @@
         text = ''
           #!/usr/bin/env python3
 
-          # Writes "project - description" to ${config._.current-taskw-dest} whenever a task is started.
+          # Writes "project - description" to one file per project, so concurrent active tasks keep their own
 
           import json
           import os
+          import re
           import sys
 
-          OUTPUT = os.path.expanduser("${config._.current-taskw-dest}")
+          DEST = os.path.expanduser("${config._.current-taskw-dest}")
+
+          def dest_of(task):
+            slug = re.sub(r"[^A-Za-z0-9._-]+", "-", task.get("project", "")).strip("-.")
+            if not slug:
+              return DEST
+
+            stem, ext = os.path.splitext(DEST)
+            return f"{stem}-{slug}{ext}"
 
           def main(old, new):
-            if "start" in new and "start" not in old:
+            old_dest = dest_of(old) if "start" in old else None
+            new_dest = dest_of(new) if "start" in new and "end" not in new else None
+
+            if old_dest and old_dest != new_dest:    # stopped, done, or moved to another project
+              try:
+                os.remove(old_dest)
+              except FileNotFoundError:
+                pass
+
+            if new_dest:
               project = new.get("project", "")
               description = new.get("description", "")
               line = f"{project} - {description}" if project else description
 
-              with open(OUTPUT, "w") as f:
+              with open(new_dest, "w") as f:
                 f.write(line + "\n")
 
           if __name__ == "__main__":
