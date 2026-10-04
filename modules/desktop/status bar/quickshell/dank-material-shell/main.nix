@@ -4,7 +4,10 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.dms.homeManager = { config, lib, pkgs, ... }:{
+  flake.aspects.dms.homeManager = { config, pkgs, ... }:
+  let
+    dms-is-locker = config._.lock-screen == "dms";
+  in {
     imports = [ inputs.dms.homeModules.dank-material-shell ];
 
     _.status_bar = "dms";
@@ -26,11 +29,12 @@
         notificationAnimationSpeed = 3;   
         notificationCustomAnimationDuration = 500;   # in ms 100-800, only used when speed = 4
 
-        # dms never locks on its own here, the dms-lock aspect overrides these
-        lockAtStartup           = lib.mkDefault false;
-        lockBeforeSuspend       = lib.mkDefault false;
-        loginctlLockIntegration = lib.mkDefault false;              # ignore the logind Lock signal, hypridle answers it
-        customPowerActionLock   = lib.mkDefault config._.lock-cmd;  # the dms lock actions spawn the real locker
+        # dms only acts as the locker when _.lock-screen says so, otherwise it
+        # ignores the logind Lock signal and hands its lock actions to _.lock-cmd
+        lockAtStartup           = false;
+        lockBeforeSuspend       = dms-is-locker;
+        loginctlLockIntegration = dms-is-locker;
+        customPowerActionLock   = if dms-is-locker then "" else config._.lock-cmd;
 
         barConfigs = [{
           id = "default";
