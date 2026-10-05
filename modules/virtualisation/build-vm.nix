@@ -57,7 +57,10 @@
       qemu = {
         # package          = pkgs.qemu_kvm;          # pkgs.qemu for another arch
         forceAccel         = false;                 # fail instead of falling back to tcg without kvm
-        options            = [];                    # [ "-device virtio-vga-gl" "-display gtk,gl=on" "-vnc :0" ]
+        options            = [
+          "-device virtio-vga-gl"                   # virtio gpu with virgl 3d acceleration
+          "-display gtk,gl=on"                      # local window, "-vnc :0" has no gl
+        ];
         # consoles         = [ "ttyS0,115200n8" "tty0" ];
         networkingOptions  = [];
         # drives           = [];
