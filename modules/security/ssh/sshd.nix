@@ -10,7 +10,7 @@
         # "/run/secrets/user/%u/ssh/*"      ## retry in microvm, seems working in microvm only
       ];
       settings = {
-        PermitRootLogin              = "prohibit-password";   # key only, still needed by nixos-anywhere and deploy-rs
+        PermitRootLogin              = "no";
         PubkeyAuthentication         = true;
         AuthenticationMethods        = "publickey";
         PasswordAuthentication       = false;
