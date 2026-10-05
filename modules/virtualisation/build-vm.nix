@@ -22,14 +22,17 @@
       };
     };
 
-    build-vm.nixos = {
+    build-vm.nixos = { config, lib, ... }:
+    let
+      cfg = config._.build-vm;
+    in {
       virtualisation.vmVariant.virtualisation = {
-        memorySize        = 1024;                     # MiB
-        cores             = 1;
+        memorySize        = cfg.memory;               # MiB
+        cores             = cfg.cpu;
         msize             = 16384;                    # 9p packet size
         graphics          = true;                     # false: serial console in the terminal
         resolution        = { x = 1024; y = 768; };   # only with grub
-        # diskImage        = "./HOST.qcow2";           # null: tmpfs root
+        diskImage         = lib.mkIf (cfg.qcow2-dest != null) cfg.qcow2-dest;   # default ./HOST.qcow2
         emptyDiskImages   = [];                       # [{ size = 1024; driveConfig = {}; }]
         # bootLoaderDevice = "/dev/disk/by-id/virtio-root";
         # bootPartition    = "/dev/disk/by-label/ESP";
@@ -75,7 +78,7 @@
 
         # shared folders and network
         sharedDirectories = {};                       # { data = { source = "/data"; target = "/mnt/data"; securityModel = "mapped-xattr"; }; }
-        forwardPorts      = [];                       # [{ from = "host"; host.port = 2222; guest.port = 22; }]
+        forwardPorts      = [{ from = "host"; host.port = cfg.port; guest.port = 22; }];
 
         qemu = {
           # package          = pkgs.qemu_kvm;          # pkgs.qemu for another arch
