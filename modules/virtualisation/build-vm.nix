@@ -21,7 +21,8 @@
 
       # nix store
       # mountHostNixStore  = true;                   # default: !useNixStoreImage && !useBootLoader
-      useNixStoreImage      = false;
+      useNixStoreImage      = false;                # false: host store over 9p, instant start but slow reads
+                                                    # true: store image rebuilt at each start, fast reads
       nixStore9pCache       = "loose";              # loose, none, fscache
       # writableStore      = true;                   # default: mountHostNixStore
       writableStoreUseTmpfs = true;
