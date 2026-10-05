@@ -1,18 +1,21 @@
 {
-  flake.aspects.boot.nixos = { config, lib, ... }: {
+  flake.aspects.boot.nixos = { config, lib, ... }:
+  let
+    boot-mode = config._.disk.boot-mode;
+  in {
     config = lib.mkIf (config._.boot_loader == "grub") {
       boot.loader.grub = {
-        enable            = true;
-        efiSupport        = true;
-        device            = "nodev";      # nodev = a GRUB boot menu will be generated, but GRUB itself will not actually be installed
-        devices           = [];
-        default           = "0";          # default menu item to be booted
-        fontSize          = 18;
-        fsIdentifier      = "uuid";       # uuid, label, provided; How GRUB will identify devices when generating the configuration file
-        storePath         = "/nix/store";
-        useOSProber       = false;
-        timeoutStyle      = "menu";       # menu (shows the menu), countdown (text-mode countdown), hidden
-        configurationName = "";
+        enable                = true;
+        efiSupport            = boot-mode != "bios";
+        efiInstallAsRemovable = boot-mode == "hybrid";                     # no nvram entry, any uefi firmware finds it
+        device                = lib.mkIf (boot-mode == "uefi") "nodev";    # nodev = menu only, otherwise disko fills devices from the EF02 disk
+        default               = "0";                                       # default menu item to be booted
+        fontSize              = 18;
+        fsIdentifier          = "uuid";                                    # uuid, label, provided; How GRUB will identify devices when generating the configuration file
+        storePath             = "/nix/store";
+        useOSProber           = false;
+        timeoutStyle          = "menu";                                    # menu (shows the menu), countdown (text-mode countdown), hidden
+        configurationName     = "";
 
         # mirroredBoots."NAME" = {
         #   path             = "/boot"; # boot directory where GRUB will be written
