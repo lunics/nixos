@@ -19,6 +19,10 @@
           type    = types.nullOr types.str;
           default = null;                             # null: ./HOST.qcow2 in the current directory
         };
+        persistent = mkOption {
+          type    = types.bool;
+          default = true;                             # false: tmpfs root, everything lost at shutdown
+        };
       };
     };
 
