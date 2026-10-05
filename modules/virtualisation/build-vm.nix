@@ -22,7 +22,7 @@
       };
     };
 
-    build-vm.nixos = { config, lib, ... }:
+    build-vm.nixos = { config, lib, pkgs, ... }:
     let
       cfg = config._.build-vm;
     in {
@@ -42,7 +42,7 @@
         restrictNetwork   = false;                    # no outbound network from the guest
         additionalPaths   = [];                       # store paths copied in the vm store
         useHostCerts      = false;
-        # host.pkgs        = pkgs;                     # pkgs running qemu, for cross arch vm
+        host.pkgs         = pkgs;                     # pkgs running qemu, for cross arch vm
 
         # nix store
         # mountHostNixStore  = true;                   # default: !useNixStoreImage && !useBootLoader
@@ -81,7 +81,7 @@
         forwardPorts      = [{ from = "host"; host.port = cfg.port; guest.port = 22; }];
 
         qemu = {
-          # package          = pkgs.qemu_kvm;          # pkgs.qemu for another arch
+          package            = pkgs.qemu_kvm;         # pkgs.qemu for another arch
           forceAccel         = false;                 # fail instead of falling back to tcg without kvm
           options            = [
             "-device virtio-vga-gl"                   # virtio gpu with virgl 3d acceleration
