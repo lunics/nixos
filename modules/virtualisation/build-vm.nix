@@ -1,7 +1,7 @@
 # options from nixos/modules/virtualisation/qemu-vm.nix, only applied by nixos-rebuild build-vm
 {
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
+    options.generic = { config, lib, ... }: with lib; {
       options._.build-vm = {
         memory = mkOption {
           type    = types.ints.positive;
@@ -16,8 +16,9 @@
           default = 2222;                             # host port forwarded to the guest ssh
         };
         qcow2-dest = mkOption {
-          type    = types.nullOr types.str;
-          default = null;                             # null: ./HOST.qcow2 in the current directory
+          type        = types.str;
+          default     = "./${config.system.name}.qcow2";   # relative to the directory running the vm
+          defaultText = literalExpression ''"./''${config.system.name}.qcow2"'';
         };
         persistent = mkOption {
           type    = types.bool;
