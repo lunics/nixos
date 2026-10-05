@@ -23,6 +23,7 @@
       security
       services
       virtualisation
+      build-vm
       secrets
       tailscale
       mullvad
