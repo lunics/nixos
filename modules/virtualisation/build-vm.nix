@@ -78,7 +78,11 @@
 
         # shared folders and network
         sharedDirectories = {};                       # { data = { source = "/data"; target = "/mnt/data"; securityModel = "mapped-xattr"; }; }
-        forwardPorts      = [{ from = "host"; host.port = cfg.port; guest.port = 22; }];
+        forwardPorts      = [{
+          from       = "host";
+          host.port  = cfg.port;                      # ssh -p 2222 user@localhost
+          guest.port = 22;
+        }];
 
         qemu = {
           package            = pkgs.qemu_kvm;         # pkgs.qemu for another arch
