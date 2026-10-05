@@ -5,6 +5,10 @@
         description = "/dev/disk/by-id/nvme-...";
         type = types.str;
       };
+      boot-mode = mkOption {    # hybrid boots the same disk from bios and uefi firmwares
+        type    = types.enum [ "uefi" "bios" "hybrid" ];
+        default = "uefi";
+      };
       boot_size = mkOption {
         type    = types.str;
         default = "1G";
