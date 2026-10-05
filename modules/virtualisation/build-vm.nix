@@ -37,9 +37,7 @@
         msize             = 16384;                    # 9p packet size
         graphics          = true;                     # false: serial console in the terminal
         resolution        = { x = 1024; y = 768; };   # only with grub
-        diskImage         = if cfg.persistent
-          then lib.mkIf (cfg.qcow2-dest != null) cfg.qcow2-dest   # default ./HOST.qcow2
-          else null;                                  # tmpfs root
+        diskImage         = if cfg.persistent then cfg.qcow2-dest else null;   # null: tmpfs root
         emptyDiskImages   = [];                       # [{ size = 1024; driveConfig = {}; }]
         # bootLoaderDevice = "/dev/disk/by-id/virtio-root";
         # bootPartition    = "/dev/disk/by-label/ESP";
