@@ -1,13 +1,10 @@
-# template of a complete linux vm: network + pool + volume + domain
-# https://github.com/AshleyYakeley/NixVirt/blob/master/README.md
 { inputs, ... }:{
   flake.aspects = { aspects, ... }:{
     nixvirt-vm-linux = {
       includes = with aspects; [
         nixvirt
       ];
-      nixos =
-      let
+      nixos = let
         nixvirt  = inputs.nixvirt.lib;
         vm-name  = "penguin";
         pool-dir = "/var/lib/libvirt/pools/${vm-name}";
@@ -15,6 +12,7 @@
       in {
         systemd.tmpfiles.rules = [ "d ${pool-dir} 0711 root root -" ];
 
+        # this part below is provided by nixvirt
         virtualisation.libvirt.connections."qemu:///system" = {
           # nat bridge 192.168.<subnet_byte>.0/24 with dhcp, keep libvirt's default virbr0 untouched
           networks = [{
