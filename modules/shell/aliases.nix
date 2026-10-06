@@ -24,7 +24,6 @@
       la    = "eza -lag --group-directories-first";
       ln    = "ln -s";
       py    = "python";
-      ss    = "sudo systemctl";
       fk    = "fuck";
       md    = "mkdir --parents --verbose";
       ra    = "ranger_no_subshell";
@@ -87,9 +86,9 @@
 
       mpv     = "mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)";
       sstatus = "sudo systemctl status";
-      sstart  = "ss start";
-      srestart = "ss restart";
-      sstop   = "ss stop";
+      sstart  = "sudo systemctl start";
+      srestart = "sudo systemctl restart";
+      sstop   = "sudo systemctl stop";
       chmod   = "chmod -v";
       chown   = "chown -v";
       "700"   = "chmod 700";
