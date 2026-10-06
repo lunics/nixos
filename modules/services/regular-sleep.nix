@@ -1,7 +1,7 @@
 {
-  flake.aspects.nightly_poweroff.homeManager = { config, ... }:{
+  flake.aspects.regular-sleep.homeManager = { config, ... }:{
     systemd.user = {
-      timers."nightly_poweroff" = {
+      timers."regular-sleep" = {
         Unit.Description = "poweroff laptop every night at 23:00 pm";
         Timer = {
           OnCalendar = "22:50";
@@ -10,8 +10,8 @@
         Install.WantedBy = [ "default.target" ];
       };
 
-      services."nightly_poweroff" = {
-        Unit.Description = "poweroff laptop once nightly_poweroff.timer is triggered";
+      services."regular-sleep" = {
+        Unit.Description = "poweroff laptop once regular-sleep.timer is triggered";
         Service = {
           Type      = "oneshot";
           ExecStart = [ 
