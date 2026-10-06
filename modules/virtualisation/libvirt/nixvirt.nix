@@ -1,44 +1,48 @@
 { inputs, ... }:{
   flake-file.inputs.nixvirt = {
     url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
-    inputs.nixpkgs.follows = "nixpkgs"; 
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  # https://github.com/AshleyYakeley/NixVirt/blob/master/modules.nix
   # https://github.com/AshleyYakeley/NixVirt/tree/master/checks
-  flake.aspects.libvirt.nixos = {
+  flake.aspects.nixvirt.nixos = {
     imports = [ inputs.nixvirt.nixosModules.default ];
 
     virtualisation.libvirt = {
-      enable       = true;
-      # package      = pkgs.libvirt;  # KO
-      verbose      = false;           # useful for figuring out why NixVirt thinks a domain definition has changed
-      swtpm.enable = false;           # software TPM emulator
+      enable       = true;                # default false, also enables virtualisation.libvirtd
+      # package      = pkgs.libvirt;      # KO, default nixvirt's libvirt, mkDefault into virtualisation.libvirtd.package
+      verbose      = false;               # useful for figuring out why NixVirt thinks a domain definition has changed
+      swtpm.enable = false;               # software TPM emulator, also sets virtualisation.libvirtd.qemu.swtpm
 
+      # keyed by connection URI, each object set is a list or null (null = left untouched)
+      connections = {};
       # connections."qemu:///system" = {
-      #   # Deleting a domain will not delete its volumes, NVRAM, or TPM state
-      #   domains = {
-      #     # definition = path;    # local path to an domain definition XML (virsh dumpxml)
-      #     # active = true;
-      #     # restart = true;
-      #   };
-
-      #   networks = {
-      #     # definition = path;    # local path to an domain definition XML (virsh net-dumpxml)
-      #     # active = true;
-      #     # restart = true;
-      #   };
-
-      #   # any libvirt pool not defined in the list will be deleted
-      #   pools = {
-      #     # definition = path;    # local path to an domain definition XML (virsh pool-dumpxml)
-      #     # active = true;
-      #     # restart = true; volumes = [   # Existing volumes not listed will be ignored and not deleted 
-      #                   # https://libvirt.org/formatstorage.html
-      #       name = "VOLUMENAME";
-      #       present = true;
-      #       # definition = path;    # local path to an domain definition XML (virsh pool-dumpxml)
-      #     };
-      #   };
+      #   # deleting a domain will not delete its volumes, NVRAM, or TPM state
+      #   domains = [{
+      #     definition = ./domain.xml;    # path to the domain definition XML (virsh dumpxml)
+      #     active     = null;            # null = ignore state, true = running, false = stopped
+      #     restart    = null;            # null = restart only when changed
+      #   }];
+      #
+      #   networks = [{
+      #     definition = ./network.xml;   # virsh net-dumpxml
+      #     active     = null;
+      #     restart    = null;
+      #   }];
+      #
+      #   # any pool not listed will be deleted
+      #   pools = [{
+      #     definition = ./pool.xml;      # virsh pool-dumpxml
+      #     active     = null;
+      #     restart    = null;
+      #     # volumes not listed are ignored, https://libvirt.org/formatstorage.html
+      #     volumes = [{
+      #       present    = true;          # whether the volume should exist
+      #       name       = null;          # volume name, needed for present = false
+      #       definition = null;          # path to the volume definition XML
+      #     }];
+      #   }];
       # };
     };
   };
