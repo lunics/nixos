@@ -9,7 +9,7 @@
   in {
     systemd.user = {
       timers."regular-sleep" = {
-        Unit.Description = "${_action} laptop every night at 23:00 pm";
+        Unit.Description = "${_action} machine every night at 23:00 pm";
         Timer = {
           OnCalendar = "22:50";
           Persistent = false;
@@ -18,7 +18,7 @@
       };
 
       services."regular-sleep" = {
-        Unit.Description = "${_action} laptop once regular-sleep.timer is triggered";
+        Unit.Description = "${_action} machine once regular-sleep.timer is triggered";
         Service = {
           Type      = "oneshot";
           ExecStart = [
