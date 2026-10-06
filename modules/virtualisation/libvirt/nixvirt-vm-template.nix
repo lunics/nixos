@@ -8,7 +8,7 @@
         nixvirt  = inputs.nixvirt.lib;
         vm-name  = "penguin";
         pool-dir = "/var/lib/libvirt/pools/${vm-name}";
-        iso      = "/var/lib/libvirt/isos/nixos-minimal.iso";    # set to null once installed
+        iso      = "/var/lib/libvirt/isos/nixos-minimal.iso";    # can stay attached, the disk boots first
       in {
         systemd.tmpfiles.rules = [ "d ${pool-dir} 0711 root root -" ];
 
@@ -48,19 +48,26 @@
           }];
 
           domains = [{
-            definition = nixvirt.domain.writeXML (nixvirt.domain.templates.linux {
-              name          = vm-name;
-              uuid          = "d31b12b3-5af3-40c2-9065-def1ea306ca4";
-              vcpu          = { count = 4; };
-              memory        = { count = 4; unit = "GiB"; };
-              storage_vol   = { pool = "${vm-name}-pool"; volume = "${vm-name}.qcow2"; };
-              backing_vol   = null;                     # qcow2 base image for a copy-on-write disk
-              install_vol   = iso;                      # cdrom, booted before the disk
-              bridge_name   = "virbr1";
-              net_iface_mac = "52:54:00:00:00:01";      # null = random mac
-              virtio_drive  = true;                     # vda on virtio, false = sda on sata
-              virtio_video  = true;                     # virtio-gpu with 3d accel, false = qxl
-            });
+            definition = nixvirt.domain.writeXML (
+              let
+                base = nixvirt.domain.templates.linux {
+                  name          = vm-name;
+                  uuid          = "d31b12b3-5af3-40c2-9065-def1ea306ca4";
+                  vcpu          = { count = 4; };
+                  memory        = { count = 4; unit = "GiB"; };
+                  storage_vol   = { pool = "${vm-name}-pool"; volume = "${vm-name}.qcow2"; };
+                  backing_vol   = null;                   # qcow2 base image for a copy-on-write disk, see build-qcow2.nix
+                  install_vol   = iso;                    # cdrom, booted only while the disk is empty
+                  bridge_name   = "virbr1";
+                  net_iface_mac = "52:54:00:00:00:01";    # null = random mac
+                  virtio_drive  = true;                   # vda on virtio, false = sda on sata
+                  virtio_video  = true;                   # virtio-gpu with 3d accel, false = qxl
+                };
+              in 
+                # disk first, the bios falls back to the iso while the disk is unbootable
+                base // { os = base.os // { boot = [ { dev = "hd"; } { dev = "cdrom"; } ]; };
+              }
+            );
             active  = true;                             # start the vm on activation
             restart = null;                             # restart only when the definition changes
           }];
