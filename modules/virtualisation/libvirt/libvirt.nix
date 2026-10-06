@@ -41,7 +41,6 @@
 
       # boot = {
       #   extraModprobeConfig = "options kvm_intel nested=1";           # nested virtualisation
-      #   kernelModules = [ "kvm-amd" "kvm-intel" ];                    # pick only amd if cpu is amd
       #   binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ]; # enable the emulation of different architectures
       # };
 
