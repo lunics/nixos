@@ -9,8 +9,6 @@
     }];
 
     boot = {
-      kernelModules = [ "kvm-intel" ];
-
       extraModulePackages = [];
 
       loader = {
