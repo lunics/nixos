@@ -24,6 +24,8 @@
       services
       virtualisation
       build-vm
+      kvm
+      nixvirt
       secrets
       tailscale
       mullvad
@@ -62,6 +64,7 @@
       librepods
       ableton
       pomodoro
+      regular-sleep-svc
       lutris
       zmk
       claude-code

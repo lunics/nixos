@@ -1,5 +1,5 @@
 {
-  flake.aspects.regular-sleep.homeManager = { config, pkgs, ... }:
+  flake.aspects.regular-sleep-svc.homeManager = { config, pkgs, ... }:
   let
     _bin    = "/run/current-system/sw/bin";
     _notify = "${config._.home}/.nix-profile/bin/notify-send";

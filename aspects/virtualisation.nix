@@ -4,7 +4,8 @@
       k3s
       k0s
       microvm
-      libvirt
+      libvirtd
+      nixvirt
       docker
       podman
       waydroid
