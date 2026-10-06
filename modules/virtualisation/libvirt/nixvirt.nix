@@ -16,7 +16,7 @@
 
         virtualisation.libvirt = {
           enable       = true;                # default false, also enables virtualisation.libvirtd
-          # package      = pkgs.libvirt;      # KO, default nixvirt's libvirt, mkDefault into virtualisation.libvirtd.package
+          package      = inputs.nixvirt.inputs.nixpkgs.legacyPackages.x86_64-linux.libvirt;    # pkgs.libvirt KO, mkDefault into virtualisation.libvirtd.package
           verbose      = false;               # useful for figuring out why NixVirt thinks a domain definition has changed
           swtpm.enable = false;               # software TPM emulator, also sets virtualisation.libvirtd.qemu.swtpm
 
