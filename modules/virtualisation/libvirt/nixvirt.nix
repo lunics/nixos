@@ -10,6 +10,7 @@
     nixvirt = {
       includes = with aspects; [
         kvm
+        libvirtd
       ];
       nixos = {
         imports = [ inputs.nixvirt.nixosModules.default ];
