@@ -1,3 +1,4 @@
+# TODO: guest modules wrongly set on the libvirt host, facter already adds them when report.virtualisation is qemu/kvm
 {
   flake.aspects.libvirt.nixos = {
     boot.initrd.availableKernelModules = [
