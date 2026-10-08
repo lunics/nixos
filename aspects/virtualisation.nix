@@ -6,6 +6,7 @@
       microvm
       libvirtd
       nixvirt
+      vagrant
       docker
       podman
       waydroid

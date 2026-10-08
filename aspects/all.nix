@@ -26,6 +26,7 @@
       build-vm
       kvm
       nixvirt
+      vagrant
       secrets
       tailscale
       mullvad
