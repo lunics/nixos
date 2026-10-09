@@ -1,5 +1,7 @@
 {
   flake.aspects.libvirtd.nixos = { config, lib, pkgs, ... }:{
+    key = "aspects/libvirtd";         # make the key static so the module system dedups this aspect when included by several others
+
     environment.systemPackages = with pkgs; [
       qemu
       quickemu
