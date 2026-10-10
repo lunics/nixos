@@ -20,6 +20,10 @@ bindkey '^P' _run_pass              # ctrl p = passage + fzf
 
 bindkey -s "^O" "lfcd\n"            # ctrl o = file explorer with lf
 
+stty -ixon                          # frees ctrl s from the terminal flow control
+zle -N _run_switch
+bindkey '^S' _run_switch            # ctrl s = switch + fzf
+
 zle -N _run_taskfile
 bindkey '^T' _run_taskfile          # ctrl t = taskfile + fzf
 
