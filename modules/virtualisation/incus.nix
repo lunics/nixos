@@ -1,5 +1,5 @@
 {
-  flake.aspects.incus.nixos = { config, pkgs, ... }:{
+  flake.aspects.incus.nixos = { config, lib, pkgs, ... }:{
     virtualisation.incus = {
       enable            = true;
       package           = pkgs.incus-lts;               # pkgs.incus for the feature release
@@ -18,7 +18,7 @@
       };
 
       # re-applied at each activation, creates or overwrites entities but never removes them
-      preseed = null;
+      preseed = lib.mkDefault null;                     # mkDefault so another aspect can set it
       # preseed = {
       #   networks = [{
       #     name   = "incusbr0";
