@@ -10,7 +10,8 @@
           name  = config._.git.user;
           email = config._.git.email;
         };
-        init.defaultBranch = "main"; 
+        init.defaultBranch = "main";
+        worktree.useRelativePaths = true;   # worktrees stay valid when the repo is mounted elsewhere
         # user.signingkey = lib.mkIf (builtins.hasAttr osConfig.networking.hostName signingKeys) (signingKeys.${osConfig.networking.hostName});
         # fetch.writeCommitGraph = true;
         # core.fsmonitor = true;
