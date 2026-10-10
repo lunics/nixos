@@ -10,11 +10,11 @@
       startTimeout      = 600;                          # seconds to wait for incusd to be ready
       useACMEHost       = null;                         # existing security.acme.certs host used for TLS
       storage.truenas.enable = false;                   # requires services.openiscsi.enable
-      agent.enable           = false;                   # only inside an incus guest vm
+      agent.enable           = false;                   # runs incus-agent when this system boots as an incus guest vm
 
       ui = {
-        enable  = false;
-        package = pkgs.incus-ui-canonical;
+        enable  = true;
+        package = pkgs.incus-ui-canonical;              # zabbly fork of canonical lxd-ui, gpl3
       };
 
       # re-applied at each activation, creates or overwrites entities but never removes them
