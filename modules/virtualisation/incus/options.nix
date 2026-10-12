@@ -25,8 +25,8 @@
             default = null;                             # e.g. 40GiB
           };
           secureboot = mkOption {
-            type    = types.nullOr types.bool;
-            default = null;                             # false for the nixos images, they are not signed
+            type    = types.bool;
+            default = false;                            # the nixos images are not signed
           };
           ip = mkOption {
             type    = types.nullOr types.str;
@@ -39,7 +39,7 @@
         };
       }));
       default = {};
-      # example = { penguin = { image = "images:nixos/unstable"; cpu = 4; memory = "4GiB"; disk = "40GiB"; secureboot = false; }; };
+      # example = { penguin = { image = "images:nixos/unstable"; cpu = 4; memory = "4GiB"; disk = "40GiB"; }; };
     };
   };
 }

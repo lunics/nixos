@@ -15,7 +15,7 @@
         assertions = lib.concatMap (vm: map (opt: {
           assertion = vm.${opt} != null;
           message   = "_.incus-vms.${vm.name}.${opt} must be set";
-        }) [ "image" "cpu" "memory" "disk" "secureboot" ]) vms;
+        }) [ "image" "cpu" "memory" "disk" ]) vms;
 
         # preseed has no instances, it declares the shared network and pool and one profile per vm
         virtualisation.incus.preseed = {
