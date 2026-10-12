@@ -5,15 +5,14 @@
         kvm
         incus
       ];
-      nixos = { config, ... }:
+      nixos = { config, lib, ... }:
       let
         incus   = config.virtualisation.incus.package;
-        vm-name = "penguin";
-        image   = "images:nixos/unstable";              # incus image list images: nixos
-        network = "${vm-name}-net";                     # also the bridge interface name, 15 chars max
-        pool    = "${vm-name}-pool";
-      in {
-        # preseed has no instances, it only declares the network, the pool and the profile
+        vms     = lib.attrValues config._.incus-vms;
+        network = "incus-vms";                          # also the bridge interface name, 15 chars max
+        pool    = "incus-vms";
+      in lib.mkIf (vms != []) {
+        # preseed has no instances, it declares the shared network and pool and one profile per vm
         virtualisation.incus.preseed = {
           networks = [{
             name   = network;
@@ -30,30 +29,26 @@
             driver = "dir";                             # btrfs, zfs, lvm for snapshots and copy-on-write
           }];
 
-          profiles = [{
-            name   = vm-name;
+          profiles = map (vm: {
+            name   = vm.name;
             config = {
-              "limits.cpu"          = "4";
-              "limits.memory"       = "4GiB";
-              "security.secureboot" = "false";          # the nixos images are not signed
+              "limits.cpu"          = toString vm.cpu;
+              "limits.memory"       = vm.memory;
+              "security.secureboot" = lib.boolToString vm.secureboot;
             };
             devices = {
-              root = { type = "disk"; path = "/"; pool = pool; size = "40GiB"; };
-              eth0 = {
-                type           = "nic";
-                name           = "eth0";
-                network        = network;
-                hwaddr         = "00:16:3e:00:00:01";
-                "ipv4.address" = "10.0.100.10";         # static dhcp lease
-              };
+              root = { type = "disk"; path = "/"; pool = pool; size = vm.disk; };
+              eth0 = { type = "nic"; name = "eth0"; network = network; }
+                // lib.optionalAttrs (vm.hwaddr != null) { hwaddr         = vm.hwaddr; }
+                // lib.optionalAttrs (vm.ip     != null) { "ipv4.address" = vm.ip; };
             };
-          }];
+          }) vms;
         };
 
         networking.firewall.trustedInterfaces = [ network ];    # dhcp and dns from incus on the bridge
 
-        # creates the vm once, then only starts it, deleting it is left to incus delete
-        systemd.services."incus-vm-${vm-name}" = {
+        # creates each vm once, then only starts it, deleting it is left to incus delete
+        systemd.services = lib.listToAttrs (map (vm: lib.nameValuePair "incus-vm-${vm.name}" {
           wantedBy = [ "multi-user.target" ];
           after    = [ "incus-preseed.service" "network-online.target" ];
           requires = [ "incus-preseed.service" ];
@@ -63,12 +58,12 @@
             RemainAfterExit = true;
           };
           script = ''
-            ${incus}/bin/incus info ${vm-name} >/dev/null 2>&1 \
-              || ${incus}/bin/incus init ${image} ${vm-name} --vm --profile ${vm-name}
-            ${incus}/bin/incus info ${vm-name} | grep -q '^Status: RUNNING' \
-              || ${incus}/bin/incus start ${vm-name}
+            ${incus}/bin/incus info ${vm.name} >/dev/null 2>&1 \
+              || ${incus}/bin/incus init ${vm.image} ${vm.name} --vm --profile ${vm.name}
+            ${incus}/bin/incus info ${vm.name} | grep -q '^Status: RUNNING' \
+              || ${incus}/bin/incus start ${vm.name}
           '';
-        };
+        }) vms);
       };
     };
   };
