@@ -16,8 +16,8 @@
           socketActivation  = false;            # start incus.service on demand instead of at boot
           startTimeout      = 600;              # seconds to wait for incusd to be ready
           useACMEHost       = null;             # existing security.acme.certs host used for TLS
+          agent.enable      = false;            # guest side only, lets the host drive the vm (incus exec, file push), useless on the host
           storage.truenas.enable = false;       # requires services.openiscsi.enable
-          agent.enable           = false;       # runs incus-agent when this system boots as an incus guest vm
 
           ui = {
             enable  = true;
