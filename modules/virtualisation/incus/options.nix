@@ -27,9 +27,18 @@
             type    = types.bool;
             default = false;                            # the nixos images are not signed
           };
+          ip = mkOption {
+            type    = types.nullOr types.str;
+            default = null;                             # static dhcp lease in the incus-vms subnet, null = dynamic
+          };
+          hwaddr = mkOption {
+            type    = types.nullOr types.str;
+            default = null;                             # null = random mac
+          };
         };
       }));
       default = {};
+      # example = { penguin = { cpu = 2; ip = "10.0.100.10"; }; puffin = { memory = "8GiB"; }; };
     };
   };
 }
