@@ -5,8 +5,6 @@
         nftables
       ];
       nixos = { config, lib, pkgs, ... }:{
-        key = "aspects/incus";
-
         virtualisation.incus = {
           enable            = true;
           package           = pkgs.incus-lts;   # pkgs.incus for the feature release

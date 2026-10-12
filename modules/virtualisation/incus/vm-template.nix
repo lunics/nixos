@@ -1,9 +1,8 @@
 {
   flake.aspects = { aspects, ... }:{
-    incus-vm-linux = {
+    incus = {
       includes = with aspects; [
         kvm
-        incus
       ];
       nixos = { config, lib, ... }:
       let
