@@ -29,7 +29,8 @@
                     system.stateVersion = lib.mkDefault config.system.nixos.release;
                   }
                 ]
-                ++ lib.optional (self.modules.nixos ? ${name}) self.modules.nixos.${name};
+                # resolve the aspect itself, modules.nixos skips aspects made only of includes
+                ++ lib.optional (self.aspects ? ${name}) (self.aspects.${name}.resolve { class = "nixos"; });
             };
           }
         ) config._.microvm.vms;
