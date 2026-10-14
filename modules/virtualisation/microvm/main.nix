@@ -19,7 +19,16 @@
           vm // {
             config = {
               imports = (vm.config.imports or [])
-                ++ [ (removeAttrs (vm.config or {}) [ "imports" ]) self.modules.generic.options ]
+                ++ [
+                  (removeAttrs (vm.config or {}) [ "imports" ])
+                  self.modules.generic.options
+                  {
+                    # guest defaults inherited from the host, each vm can still override them
+                    time.timeZone       = lib.mkDefault config.time.timeZone;
+                    networking.hostName = lib.mkDefault name;
+                    system.stateVersion = lib.mkDefault config.system.nixos.release;
+                  }
+                ]
                 ++ lib.optional (self.modules.nixos ? ${name}) self.modules.nixos.${name};
             };
           }
