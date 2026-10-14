@@ -14,6 +14,7 @@
   flake.aspects.nix.homeManager = { pkgs, ... }:{
     home.packages = [
       inputs.clan-core.packages.${pkgs.stdenv.hostPlatform.system}.clan-cli
+      pkgs.ssh-to-age
     ];
   };
 }
