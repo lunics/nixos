@@ -15,6 +15,11 @@
             ConfigureWithoutCarrier = true;  # keep 10.0.0.1/24 and the DHCP server up while no VM is attached
             IPv6SendRA = true;
           };
+          # every vm with a mac and an ip gets its static lease
+          dhcpServerStaticLeases = lib.mapAttrsToList (_: vm: {
+            MACAddress = vm.mac;
+            Address    = vm.ip;
+          }) (lib.filterAttrs (_: vm: vm.mac != "" && vm.ip != "") config._.microvm.vms);
           addresses = [{
             Address = "10.0.0.1/24";
           }] ++ lib.optional config._.net.ipv6 {
