@@ -62,7 +62,8 @@
       };
     };
 
-    # the aspect named after the vm, modules.nixos skips aspects made only of includes
+    # an aspect named like the vm has its includes loaded into the guest, not the host,
+    # resolved here because modules.nixos skips aspects made only of includes
     aspect = lib.optional (self.aspects ? ${name}) (self.aspects.${name}.resolve { class = "nixos"; });
   in
   entry // (removeAttrs vm ours) // {
