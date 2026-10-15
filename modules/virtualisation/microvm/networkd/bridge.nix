@@ -7,6 +7,14 @@
       assertions = [{
         assertion = !(config.systemd.network.netdevs ? "10-microvm");
         message   = "networkd-bridge and networkd-bridge-nat are mutually exclusive, keep only one.";
+      }{
+        # br0 takes the uplink address over, an empty value would hand networkd a bare /24
+        assertion = config._.net.addr.ipv4 != "";
+        message   = "networkd-bridge needs a static _.net.addr.ipv4, br0 carries the host address.";
+      }{
+        # an empty name leaves the uplink out of br0, which keeps the address but no carrier
+        assertion = config._.net.ext-interface != "";
+        message   = "networkd-bridge needs _.net.ext-interface, br0 bridges that uplink.";
       }];
 
       # networkd owns br0 and its uplink here, keep NetworkManager away from both

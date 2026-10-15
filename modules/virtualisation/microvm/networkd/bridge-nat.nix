@@ -3,6 +3,12 @@
 {
   flake.aspects.networkd-bridge-nat.nixos = { config, lib, ... }:{
     config = lib.mkIf config._.microvm.enable {
+      # the vms leave the host through that uplink, nat only resolves it from the default route
+      assertions = [{
+        assertion = config._.net.ext-interface != "";
+        message   = "networkd-bridge-nat needs _.net.ext-interface, the vms reach the lan through that uplink.";
+      }];
+
       systemd.network = {
         netdevs."10-microvm".netdevConfig = {
           Kind = "bridge";
