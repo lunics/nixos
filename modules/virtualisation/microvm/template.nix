@@ -21,6 +21,16 @@
 
       _.net.addr.ipv4 = lib.mkDefault vm.ip;
 
+      # match on the mac, guest interface names vary with the hypervisor, and
+      # identify by mac too so the static lease the host reserves for it applies
+      systemd.network.networks = lib.mkIf (vm.mac != "" && vm.ip != "") {
+        "10-eth" = {
+          matchConfig.MACAddress        = lib.mkDefault vm.mac;
+          networkConfig.DHCP            = lib.mkDefault "yes";
+          dhcpV4Config.ClientIdentifier = lib.mkDefault "mac";
+        };
+      };
+
       microvm = {
         mem     = lib.mkDefault vm.memory;
         vcpu    = lib.mkDefault vm.cpu;
