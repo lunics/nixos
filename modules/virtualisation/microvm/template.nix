@@ -21,6 +21,9 @@
 
       _.net.addr.ipv4 = lib.mkDefault vm.ip;
 
+      # precondition of the network below, upstream only sets it under optimize.enable
+      networking.useNetworkd = lib.mkDefault true;
+
       # match on the mac, guest interface names vary with the hypervisor, and
       # identify by mac too so the static lease the host reserves for it applies
       systemd.network.networks = lib.mkIf (vm.mac != "" && vm.ip != "") {
@@ -35,6 +38,11 @@
         mem     = lib.mkDefault vm.memory;
         vcpu    = lib.mkDefault vm.cpu;
         balloon = lib.mkDefault vm.balloon;
+
+        # already the upstream defaults, pinned here so the template owns them
+        optimize.enable = lib.mkDefault true;
+        # null is the off value, the overlay would land on the tmpfs root and eat guest ram
+        writableStoreOverlay = lib.mkDefault null;
 
         # id is the tap name on the host, which its networkd matches as mvm-*
         interfaces = lib.optional (vm.mac != "") {
