@@ -1,0 +1,56 @@
+# builds the microvm.nix entry of every microvm declared in _.microvm.vms
+{ inputs, lib, self, ... }:{
+  flake.lib.mvms-template = { name, vm, host }:
+  let
+    # our own sub-options, microvm.nix would reject them on its own vms option
+    ours = [ "name" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" ];
+
+    # microvm.nix entry keys, the vm's own value wins over these
+    entry = {
+      pkgs             = import inputs.nixpkgs { system = "x86_64-linux"; };
+      autostart        = true;
+      restartIfChanged = true;
+    };
+
+    # taken from the host or from our own sub-options, each vm can still override them
+    defaults = {
+      time.timeZone       = lib.mkDefault host.time.timeZone;
+      system.stateVersion = lib.mkDefault host.system.nixos.release;
+
+      networking.hostName = lib.mkDefault vm.name;
+
+      _.net.addr.ipv4 = lib.mkDefault vm.ip;
+
+      microvm = {
+        mem     = lib.mkDefault vm.memory;
+        vcpu    = lib.mkDefault vm.cpu;
+        balloon = lib.mkDefault vm.balloon;
+
+        # id is the tap name on the host, which its networkd matches as mvm-*
+        interfaces = lib.optional (vm.mac != "") {
+          type = "tap";
+          id   = name;
+          mac  = vm.mac;
+        };
+
+        # sharing the host store makes microvm.nix skip building a store disk
+        shares = lib.optional vm.nix-store-shared {
+          tag        = "ro-store";
+          source     = "/nix/store";
+          mountPoint = "/nix/.ro-store";
+          proto      = "virtiofs";
+        };
+      };
+    };
+
+    # the aspect named after the vm, modules.nixos skips aspects made only of includes
+    aspect = lib.optional (self.aspects ? ${name}) (self.aspects.${name}.resolve { class = "nixos"; });
+  in
+  entry // (removeAttrs vm ours) // {
+    config.imports = [
+      (vm.config or {})
+      self.modules.generic.options
+      defaults
+    ] ++ aspect;
+  };
+}
