@@ -3,7 +3,7 @@
   flake.lib.mvms-template = { name, vm, host }:
   let
     # our own sub-options, microvm.nix would reject them on its own vms option
-    ours = [ "name" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" ];
+    ours = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" ];
 
     # microvm.nix entry keys, the vm's own value wins over these
     entry = {
@@ -35,9 +35,10 @@
       };
 
       microvm = {
-        mem     = lib.mkDefault vm.memory;
-        vcpu    = lib.mkDefault vm.cpu;
-        balloon = lib.mkDefault vm.balloon;
+        hypervisor = lib.mkDefault vm.hypervisor;
+        mem        = lib.mkDefault vm.memory;
+        vcpu       = lib.mkDefault vm.cpu;
+        balloon    = lib.mkDefault vm.balloon;
 
         # already the upstream defaults, pinned here so the template owns them
         optimize.enable = lib.mkDefault true;

@@ -1,4 +1,4 @@
-{
+{ inputs, ... }:{
   flake.aspects.options.generic = { lib, ... }: with lib; {
     options._ = {
       microvm  = {
@@ -11,6 +11,10 @@
               name = mkOption {
                 type    = types.str;
                 default = name;             # hostname of the guest, the attribute name unless told otherwise
+              };
+              hypervisor = mkOption {
+                type    = types.enum inputs.microvm.lib.hypervisors;
+                default = "qemu";           # same default as microvm.hypervisor upstream
               };
               memory = mkOption {
                 type    = types.ints.positive;
