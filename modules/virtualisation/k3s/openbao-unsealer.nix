@@ -2,12 +2,8 @@
   # always unsealed instance providing transit auto-unseal to other vaults
   flake.aspects.openbao-unsealer.nixos = { config, pkgs, ... }:
   let
-    ip     = config._.net.addr.ipv4;
-    creds  = "/run/credentials/openbao.service";
-    policy = pkgs.writeText "autounseal.hcl" ''
-      path "transit/encrypt/autounseal" { capabilities = ["update"] }
-      path "transit/decrypt/autounseal" { capabilities = ["update"] }
-    '';
+    ip    = config._.net.addr.ipv4;
+    creds = "/run/credentials/openbao.service";
     # native hcl: the json settings sort keys and break the request order
     self-init = pkgs.writeText "self-init.hcl" ''
       initialize "unsealer" {
@@ -25,7 +21,10 @@
           operation = "update"
           path      = "sys/policies/acl/autounseal"
           data      = {
-            policy = { eval_type = "string", eval_source = "file", path = "${policy}" }
+            policy = <<-EOT
+              path "transit/encrypt/autounseal" { capabilities = ["update"] }
+              path "transit/decrypt/autounseal" { capabilities = ["update"] }
+            EOT
           }
         }
         request "autounseal-token" {
