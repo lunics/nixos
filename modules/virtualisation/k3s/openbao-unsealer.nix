@@ -53,6 +53,11 @@
       }
     '';
   in {
+    assertions = [{
+      assertion = ip != "";
+      message   = "openbao-unsealer needs a static _.net.addr.ipv4 for api_addr and cluster_addr";
+    }];
+
     services.openbao = {
       enable    = true;
       package   = pkgs.openbao;
