@@ -64,7 +64,7 @@
               data      = {
                 id           = { eval_type = "string", eval_source = "file", path = "${creds}/openbao-autounseal-token" }
                 policies     = ["autounseal"]
-                period       = "24h"
+                period       = "168h"
                 display_name = "autounseal"
               }
             }
