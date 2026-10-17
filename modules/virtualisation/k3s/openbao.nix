@@ -1,6 +1,6 @@
 {
   flake.aspects = { aspects, ... }:{
-    openbao.nixos = { config, pkgs, ... }:{
+    openbao.nixos = { config, lib, pkgs, ... }:{
       services.openbao = {
         enable    = true;
         package   = pkgs.openbao;
@@ -10,15 +10,15 @@
 
           listener.default = {
             type    = "tcp";
-            address = "127.0.0.1:8200";       # default for unix: /run/openbao/openbao.sock
+            address = lib.mkDefault "127.0.0.1:8200";  # default for unix: /run/openbao/openbao.sock
             tls_disable = true;
             # tls_acme_email   = config.security.acme.defaults.email;
             # tls_acme_domains = [ "example.com" ];
             # tls_acme_disable_http_challenge = true;
           };
 
-          cluster_addr = "http://127.0.0.1:8201";
-          api_addr     = "http://127.0.0.1:8200";
+          cluster_addr = lib.mkDefault "http://127.0.0.1:8201";
+          api_addr     = lib.mkDefault "http://127.0.0.1:8200";
 
           storage.raft.path = "/var/lib/openbao";
         };
