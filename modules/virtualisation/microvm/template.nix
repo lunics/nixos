@@ -3,7 +3,7 @@
   flake.lib.mvms-template = { name, vm, host }:
   let
     # our own sub-options, microvm.nix would reject them on its own vms option
-    sub-options = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" "secrets" "credentials" ];
+    sub-options = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" "secrets" ];
 
     # microvm.nix entry keys, the vm's own value wins over these
     entry = {
@@ -24,8 +24,8 @@
       # precondition of the network below, upstream only sets it under optimize.enable
       networking.useNetworkd = lib.mkDefault true;
 
-      # fw_cfg carries the credentials qemu reads from its host unit, the guest systemd imports them
-      boot.initrd.kernelModules = lib.optional (vm.credentials != {}) "qemu_fw_cfg";
+      # fw_cfg carries the secrets qemu reads from its host unit, the guest systemd imports them as credentials
+      boot.initrd.kernelModules = lib.optional (vm.secrets != []) "qemu_fw_cfg";
 
       # match on the mac, guest interface names vary with the hypervisor, and
       # identify by mac too so the static lease the host reserves for it applies
@@ -43,7 +43,7 @@
         vcpu       = lib.mkDefault vm.cpu;
         balloon    = lib.mkDefault vm.balloon;
 
-        credentialFiles = lib.mapAttrs (cred: _: "/run/credentials/microvm@${name}.service/${cred}") vm.credentials;
+        credentialFiles = lib.genAttrs vm.secrets (secret: "/run/credentials/microvm@${name}.service/${secret}");
 
         # already the upstream defaults, pinned here so the template owns them
         optimize.enable = lib.mkDefault true;
