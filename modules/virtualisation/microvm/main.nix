@@ -31,15 +31,15 @@
       };
 
       assertions = lib.mapAttrsToList (name: vm: {
-        assertion = vm.credentials == {} || vm.hypervisor == "qemu";
-        message   = "microvm ${name}: credentials need the qemu hypervisor, the only one supporting credentialFiles";
+        assertion = vm.secrets == [] || vm.hypervisor == "qemu";
+        message   = "microvm ${name}: secrets need the qemu hypervisor, the only one supporting credentialFiles";
       }) config._.microvm.vms;
 
-      # systemd loads them as root, so the host files can stay root only
+      # systemd loads the sops secrets as root, so the host files can stay root only
       systemd.services = lib.mapAttrs' (name: vm: lib.nameValuePair "microvm@${name}" {
         overrideStrategy             = "asDropin";
-        serviceConfig.LoadCredential = lib.mapAttrsToList (cred: path: "${cred}:${path}") vm.credentials;
-      }) (lib.filterAttrs (_: vm: vm.credentials != {}) config._.microvm.vms);
+        serviceConfig.LoadCredential = map (secret: "${secret}:/run/secrets/${secret}") vm.secrets;
+      }) (lib.filterAttrs (_: vm: vm.secrets != []) config._.microvm.vms);
     };
   };
 }
