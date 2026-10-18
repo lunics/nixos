@@ -3,7 +3,7 @@
   flake.lib.mvms-template = { name, vm, host }:
   let
     # our own sub-options, microvm.nix would reject them on its own vms option
-    ours = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" "secrets" "credentials" ];
+    sub-options = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" "secrets" "credentials" ];
 
     # microvm.nix entry keys, the vm's own value wins over these
     entry = {
@@ -71,7 +71,7 @@
     # resolved here because modules.nixos skips aspects made only of includes
     aspect = lib.optional (self.aspects ? ${name}) (self.aspects.${name}.resolve { class = "nixos"; });
   in
-  entry // (removeAttrs vm ours) // {
+  entry // (removeAttrs vm sub-options) // {
     config.imports = [
       (vm.config or {})
       self.modules.generic.options
