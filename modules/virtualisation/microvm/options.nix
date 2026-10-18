@@ -5,7 +5,7 @@
         enable = mkEnableOption "";
         sops   = mkEnableOption "";
         vms = mkOption {
-          type = types.attrsOf (types.submodule ({ name, config, ... }:{
+          type = types.attrsOf (types.submodule ({ name, ... }:{
             freeformType = types.attrs;     # freeform so the microvm.nix keys (config, autostart, ...) keep passing through
             options = {
               name = mkOption {
@@ -42,11 +42,7 @@
               };
               secrets = mkOption {
                 type    = types.listOf types.str;
-                default = [];               # host sops secret names, each one becomes a credential below
-              };
-              credentials = mkOption {
-                type    = types.attrsOf types.str;
-                default = genAttrs config.secrets (secret: "/run/secrets/${secret}");  # credential name -> host file, loaded as root by the vm host unit
+                default = [];               # host sops secret names, passed to the guest as systemd credentials
               };
             };
           }));
