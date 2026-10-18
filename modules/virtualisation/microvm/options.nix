@@ -5,7 +5,7 @@
         enable = mkEnableOption "";
         sops   = mkEnableOption "";
         vms = mkOption {
-          type = types.attrsOf (types.submodule ({ name, ... }:{
+          type = types.attrsOf (types.submodule ({ name, config, ... }:{
             freeformType = types.attrs;     # freeform so the microvm.nix keys (config, autostart, ...) keep passing through
             options = {
               name = mkOption {
@@ -40,9 +40,13 @@
                 type    = types.bool;
                 default = true;             # false makes microvm.nix build a dedicated store disk
               };
+              secrets = mkOption {
+                type    = types.listOf types.str;
+                default = [];               # host sops secret names, each one becomes a credential below
+              };
               credentials = mkOption {
                 type    = types.attrsOf types.str;
-                default = {};               # credential name -> host file, loaded as root by the vm host unit
+                default = genAttrs config.secrets (secret: "/run/secrets/${secret}");  # credential name -> host file, loaded as root by the vm host unit
               };
             };
           }));
