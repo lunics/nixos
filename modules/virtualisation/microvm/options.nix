@@ -40,6 +40,10 @@
                 type    = types.bool;
                 default = true;             # false makes microvm.nix build a dedicated store disk
               };
+              credentials = mkOption {
+                type    = types.attrsOf types.str;
+                default = {};               # credential name -> host file, loaded as root by the vm host unit
+              };
             };
           }));
           default = {};
