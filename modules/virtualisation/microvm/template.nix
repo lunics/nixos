@@ -3,7 +3,7 @@
   flake.lib.mvms-template = { name, vm, host }:
   let
     # our own sub-options, microvm.nix would reject them on its own vms option
-    ours = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" "credentials" ];
+    ours = [ "name" "hypervisor" "memory" "cpu" "balloon" "mac" "ip" "nix-store-shared" "secrets" "credentials" ];
 
     # microvm.nix entry keys, the vm's own value wins over these
     entry = {
