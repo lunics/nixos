@@ -29,6 +29,17 @@
 
         autostart = [];
       };
+
+      assertions = lib.mapAttrsToList (name: vm: {
+        assertion = vm.credentials == {} || vm.hypervisor == "qemu";
+        message   = "microvm ${name}: credentials need the qemu hypervisor, the only one supporting credentialFiles";
+      }) config._.microvm.vms;
+
+      # systemd loads them as root, so the host files can stay root only
+      systemd.services = lib.mapAttrs' (name: vm: lib.nameValuePair "microvm@${name}" {
+        overrideStrategy             = "asDropin";
+        serviceConfig.LoadCredential = lib.mapAttrsToList (cred: path: "${cred}:${path}") vm.credentials;
+      }) (lib.filterAttrs (_: vm: vm.credentials != {}) config._.microvm.vms);
     };
   };
 }
