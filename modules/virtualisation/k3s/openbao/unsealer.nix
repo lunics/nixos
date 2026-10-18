@@ -1,10 +1,9 @@
 {
   # always unsealed instance providing transit auto-unseal to other vaults
-  flake.aspects.openbao-unsealer.nixos = { config, lib, pkgs, ... }:
+  flake.aspects.openbao-unsealer.nixos = { config, pkgs, ... }:
   let
-    ip       = config._.net.addr.ipv4;
-    creds    = "/run/credentials/openbao.service";
-    snapshot = config._.openbao.snapshot;
+    ip    = config._.net.addr.ipv4;
+    creds = "/run/credentials/openbao.service";
     # native hcl: the json settings sort keys and break the request order
     self-init = pkgs.writeText "self-init.hcl" ''
       initialize "unsealer" {
@@ -95,37 +94,5 @@
 
     networking.firewall.allowedTCPPorts = [ 8200 ];                 # openbao api
     environment.variables.BAO_ADDR      = "http://127.0.0.1:8200";  # the cli defaults to https
-
-    # the transit key of the vaults it unseals only lives in this raft storage
-    systemd.tmpfiles.rules = lib.mkIf snapshot.enable [ "d ${snapshot.dir} 0700 root root -" ];
-
-    systemd.services.openbao-snapshot = lib.mkIf snapshot.enable {
-      description                  = "Snapshot the OpenBao raft storage";
-      after                        = [ "openbao.service" ];
-      requires                     = [ "openbao.service" ];
-      path                         = [ config.services.openbao.package ];
-      environment.BAO_ADDR         = config.environment.variables.BAO_ADDR;
-      unitConfig.RequiresMountsFor = snapshot.dir;      # orders it after a shared mount
-      serviceConfig = {
-        Type             = "oneshot";
-        UMask            = "0077";
-        ImportCredential = "openbao-admin-token";
-      };
-      script = ''
-        BAO_TOKEN=$(cat $CREDENTIALS_DIRECTORY/openbao-admin-token)
-        export BAO_TOKEN
-        bao operator raft snapshot save ${snapshot.dir}/unsealer-$(date +%F).snap
-        find ${snapshot.dir} -name 'unsealer-*.snap' -mtime +${toString snapshot.keep-days} -delete
-      '';
-    };
-
-    systemd.timers.openbao-snapshot = lib.mkIf snapshot.enable {
-      wantedBy    = [ "timers.target" ];
-      timerConfig = {
-        OnCalendar         = "daily";
-        Persistent         = true;                      # catches up a run missed while the machine was down
-        RandomizedDelaySec = "1h";
-      };
-    };
   };
 }
