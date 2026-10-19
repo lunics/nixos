@@ -30,7 +30,7 @@
       darkreader
       gesturefy
       # gopass-bridge
-      hover-zoom-plus
+      ## hover-zoom-plus    reinstall once the repo has updated the new name
       multi-account-containers
       open-url-in-container
       istilldontcareaboutcookies
