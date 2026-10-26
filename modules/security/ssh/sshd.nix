@@ -1,5 +1,5 @@
 {
-  flake.aspects.sshd.nixos = {
+  flake.aspects.sshd.nixos = { config, lib, ... }:{
     services.openssh = {
       enable   = true;
       ports    = [ 22 ];
@@ -51,5 +51,8 @@
         ];
       };
     };
+
+    # generated on the first boot, a new identity on every boot breaks the known_hosts of the clients
+    _.persistent-system.files = lib.concatMap (key: [ key.path "${key.path}.pub" ]) config.services.openssh.hostKeys;
   };
 }
