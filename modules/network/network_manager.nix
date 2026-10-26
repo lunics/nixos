@@ -23,5 +23,11 @@
         # networkmanager-sstp
       ];
     };
+
+    _.persistent-system.dirs = [
+      "/etc/NetworkManager/system-connections"   # connection profiles
+      "/var/lib/NetworkManager"                  # secret_key, timestamps, dhcp leases
+      "/var/lib/iwd"                             # wifi credentials, the backend set above
+    ];
   };
 }
