@@ -11,10 +11,12 @@
         dirs = mkOption {
           type    = types.listOf types.path;
           default = [];   # don't add paths here, they will be overwritten
+          apply   = unique;    # several aspects may claim the same path
         };
         files = mkOption {
           type    = types.listOf (types.either types.path types.attrs);    # attrs: preservation file submodule, eg. { file = ...; inInitrd = true; }
           default = [];
+          apply   = unique;
         };
       };
 
@@ -26,10 +28,12 @@
         dirs = mkOption {
           type    = types.listOf types.str;    # str: paths are relative to $HOME
           default = [];
+          apply   = unique;    # impermanence refuses duplicated paths
         };
         files = mkOption {
           type    = types.listOf types.str;
           default = [];
+          apply   = unique;
         };
       };
     };
