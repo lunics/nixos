@@ -52,7 +52,9 @@
       };
     };
 
-    # generated on the first boot, a new identity on every boot breaks the known_hosts of the clients
-    _.persistent-system.files = lib.concatMap (key: [ key.path "${key.path}.pub" ]) config.services.openssh.hostKeys;
+    # a new host identity on every boot breaks the known_hosts of the clients
+    # symlink, not bindmount: sshd-keygen writes the missing key through the link, it cannot rm a busy mount
+    _.persistent-system.files = map (file: { inherit file; how = "symlink"; configureParent = true; })
+      (lib.concatMap (key: [ key.path "${key.path}.pub" ]) config.services.openssh.hostKeys);
   };
 }
