@@ -18,5 +18,9 @@
         # "3.fr.pool.ntp.org"
       ];
     };
+
+    _.persistent-system.dirs = [
+      "/var/lib/chrony"    # drift file and NTS cookies
+    ];
   };
 }
