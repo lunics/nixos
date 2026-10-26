@@ -4,7 +4,7 @@
       "/persistent"
       "/var/log"
       "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
+      "/var/lib/systemd"    # machine credentials, random seed, persistent timers, backlight, rfkill
       "/snapshots"
     ];
 
