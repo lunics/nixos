@@ -9,7 +9,7 @@
           default = "/nix/persistent";
         };
         dirs = mkOption {
-          type    = types.listOf types.path;
+          type    = types.listOf (types.either types.path types.attrs);    # attrs: preservation directory submodule, eg. { directory = ...; mode = "0700"; }
           default = [];   # don't add paths here, they will be overwritten
           apply   = unique;    # several aspects may claim the same path
         };
