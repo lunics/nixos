@@ -51,7 +51,7 @@
       services.blueman.enable = true;   # GTK+ bluetooth manager
 
       _.persistent-system.dirs = [
-        "/var/lib/bluetooth"
+        { directory = "/var/lib/bluetooth"; mode = "0700"; }    # holds the link keys, bluez keeps it root only
       ];
     };
 
