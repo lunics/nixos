@@ -8,6 +8,10 @@
           type    = types.str;
           default = "/nix/persistent";
         };
+        rollback = mkOption {    # archive the root subvolume and recreate it empty at every boot
+          type    = types.bool;
+          default = true;
+        };
         dirs = mkOption {
           type    = types.listOf (types.either types.path types.attrs);    # attrs: preservation directory submodule, eg. { directory = ...; mode = "0700"; }
           default = [];   # don't add paths here, they will be overwritten
