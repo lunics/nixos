@@ -17,18 +17,15 @@
         enable      = false;
         packages    = inputs.k0s.packages.${pkgs.stdenv.hostPlatform.system}.k0s;
         role        = "single";    # controller, controller+worker, worker, single
-        dataDir     = "/var/lib/k0s";
-        tokenFile   = "/etc/k0s/k0stoken";
+        dataDir     = "${config._.kubernetes.btrfs-subvol}/k0s";
+        tokenFile   = "${config._.kubernetes.btrfs-subvol}/k0s-token";   # outside the data dir, a k0s reset must not take it
         clusterName = "k0s";
         spec        = {};
         configText  = "";      # the configuration file in yaml format
         extraArgs   = "";      # extra arguments to pass to systemd ExecStart
       };
 
-      _.persistent-system.dirs = lib.mkIf config.services.k0s.enable [
-        "/var/lib/k0s"    # dataDir: cluster state, certificates and etcd
-        "/etc/k0s"                     # holds the join token
-      ];
+      # nothing to declare for preservation, the data dir sits on the kubernetes btrfs subvolume
     };
   };
 }
