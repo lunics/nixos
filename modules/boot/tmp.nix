@@ -1,7 +1,7 @@
 {
   flake.aspects.boot.nixos = {
     boot.tmp = {
-      cleanOnBoot = false;              # delete all files in /tmp during boot
+      cleanOnBoot = true;               # delete all files in /tmp during boot
       useTmpfs    = false;              # mount a tmpfs on /tmp during boot
       tmpfsSize   = "50%";
       useZram     = false;              # mount a zram device on /tmp during boot
