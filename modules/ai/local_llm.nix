@@ -63,6 +63,12 @@
     # ]
     # hardware.opengl.enable = true;
     services.xserver.videoDrivers = ["nvidia"];
+
+    # DynamicUser units: their state lives behind the /var/lib/<name> symlinks
+    _.persistent-system.dirs = [
+      { directory = "/var/lib/private/ollama";     user = config.services.ollama.user; group = config.services.ollama.group; mode = "0700"; }
+      { directory = "/var/lib/private/open-webui"; mode = "0700"; }    # the sqlite db of the chats
+    ];
     # nixpkgs.config.cudaSupport = true;
     # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     #   "nvidia-x11"
