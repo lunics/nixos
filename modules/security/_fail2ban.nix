@@ -34,5 +34,9 @@
         };
       };
     };
+
+    _.persistent-system.dirs = [
+      { directory = "/var/lib/fail2ban"; mode = "0750"; }    # ban database, the mode matches StateDirectoryMode
+    ];
   };
 }
