@@ -94,5 +94,10 @@
 
     networking.firewall.allowedTCPPorts = [ 8200 ];                 # openbao api
     environment.variables.BAO_ADDR      = "http://127.0.0.1:8200";  # the cli defaults to https
+
+    # DynamicUser unit: the raft store lives behind the /var/lib/openbao symlink
+    _.persistent-system.dirs = [
+      { directory = "/var/lib/private/openbao"; mode = "0700"; }
+    ];
   };
 }

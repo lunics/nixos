@@ -65,6 +65,7 @@
       # '';
 
       _.persistent-system.dirs = [
+        "/var/lib/rancher/k3s"       # node token, server certs and the datastore
         config._.k3s.btrfs-subvol
       ];
 
