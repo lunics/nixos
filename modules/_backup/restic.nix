@@ -1,5 +1,5 @@
 {
-  flake.aspects.backup.nixos = {
+  flake.aspects.backup.nixos = { config, lib, ... }:{
     services.restic = {
       server = {
         enable        = false;
@@ -72,10 +72,14 @@
           timerConfig = {                   # backup scheduling
             OnCalendar = "daily";
             Persistent = true;
-          }
+          };
           user = "root";
         };
       };
     };
+
+    _.persistent-system.dirs = lib.mkIf config.services.restic.server.enable [
+      config.services.restic.server.dataDir    # repositories served by the rest server
+    ];
   };
 }
