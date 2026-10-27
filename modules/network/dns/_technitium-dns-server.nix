@@ -14,5 +14,10 @@
 
       # package = pkgs.technitium-dns-server;
     };
+
+    # DynamicUser unit, the config and the zones live behind the /var/lib symlink
+    _.persistent-system.dirs = [
+      "/var/lib/private/technitium-dns-server"
+    ];
   };
 }
