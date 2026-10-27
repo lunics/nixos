@@ -1,5 +1,5 @@
 {
-  flake.aspects.xen.nixos = { lib, pkgs, ... }:{
+  flake.aspects.xen.nixos = { config, lib, pkgs, ... }:{
     virtualisation.xen = {
       enable  = lib.mkDefault false;       # BUILD KO qemu-xen-9.2.0: WARNING: '--replace' is deprecated, use --replace-{fail,warn,quiet}
       package = pkgs.xen;
@@ -22,7 +22,7 @@
       };
 
       domains.extraConfig = ''
-        XENDOMAINS_SAVE=/persist/xen/save
+        XENDOMAINS_SAVE=/var/lib/xen/save
         XENDOMAINS_RESTORE=false
         XENDOMAINS_CREATE_USLEEP=10000000
       '';
@@ -40,5 +40,9 @@
       debug = false;        # debug features for Domain 0
       trace = false;        # debug tracing and logging for Domain 0.
     };
+
+    _.persistent-system.dirs = lib.mkIf config.virtualisation.xen.enable [
+      "/var/lib/xen"    # saved domains and crash dumps
+    ];
   };
 }
