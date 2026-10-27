@@ -24,6 +24,11 @@
         configText  = "";      # the configuration file in yaml format
         extraArgs   = "";      # extra arguments to pass to systemd ExecStart
       };
+
+      _.persistent-system.dirs = lib.mkIf config.services.k0s.enable [
+        "/var/lib/k0s"    # dataDir: cluster state, certificates and etcd
+        "/etc/k0s"                     # holds the join token
+      ];
     };
   };
 }
