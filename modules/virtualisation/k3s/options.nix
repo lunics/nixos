@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, pkgs, ... }: with lib; {
+  flake.aspects.options.generic = { config, lib, pkgs, ... }: with lib; {
     options._ = {
       k3s = {
         enable = mkEnableOption "";
@@ -15,9 +15,9 @@
           type    = types.str;
           default = "${pkgs.kubectl}/bin/kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml";
         };
-        btrfs-subvol = mkOption {
+        data-dir = mkOption {
           type    = types.str;
-          default = "/var/lib/kubernetes";
+          default = "${config._.kubernetes.btrfs-subvol}/k3s";
         };
       };
 
