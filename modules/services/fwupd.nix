@@ -1,5 +1,5 @@
 {
-  flake.aspects.fwupd.nixos = { config, pkgs, ... }:{
+  flake.aspects.fwupd.nixos = { config, lib, pkgs, ... }:{
     services.fwupd = {
       enable  = false;
       package = pkgs.fwupd;
@@ -12,5 +12,9 @@
       extraTrustedKeys    = [];
       uefiCapsuleSettings = {};
     };
+
+    _.persistent-system.dirs = lib.mkIf config.services.fwupd.enable [
+      "/var/lib/fwupd"    # device history and the enabled remotes
+    ];
   };
 }
