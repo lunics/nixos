@@ -8,7 +8,7 @@
         disableAgent = false;                 # false = the master node will also also schedules workloads (when rol = server); true = in worker node mode, needs role = agent too
         clusterInit  = false;                 # true = for HA cluster with an embedded etcd
         extraFlags   = toString ([
-          "--data-dir=/var/lib/rancher/k3s"
+          "--data-dir=${config._.k3s.data-dir}"
           "--write-kubeconfig-mode \"0600\""  # /etc/rancher/k3s/k3s.yaml
           "--tls-san ${config._.hostname}"    # required to use the API server by its hostname
           "--disable traefik"
@@ -64,10 +64,7 @@
       #   fi
       # '';
 
-      _.persistent-system.dirs = [
-        "/var/lib/rancher/k3s"       # node token, server certs and the datastore
-        config._.k3s.btrfs-subvol
-      ];
+      # nothing to declare for preservation, the data dir sits on the kubernetes btrfs subvolume
 
       # systemd.tmpfiles.rules = [
       #   "C /var/lib/rancher/k3s/server/manifests/argo-cd.yml 0644 root root - ${./argo-cd.yml}"

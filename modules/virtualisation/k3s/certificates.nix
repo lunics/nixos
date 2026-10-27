@@ -13,7 +13,7 @@
     ];
     has-secrets = (options ? sops) && (all (cert: config.sops.secrets ? "kube/${cert}") secrets);
 
-    tls-dir = "/var/lib/rancher/k3s/server/tls";
+    tls-dir = "${config._.k3s.data-dir}/server/tls";
 
     generate-ca-certs = pkgs.fetchurl {
       url    = "https://raw.githubusercontent.com/k3s-io/k3s/v1.31.0+k3s1/contrib/util/generate-custom-ca-certs.sh";
