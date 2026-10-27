@@ -47,5 +47,9 @@
       docker-compose
       lazydocker
     ];
+
+    _.persistent-system.dirs = [
+      "/var/lib/docker"    # images, volumes and container state
+    ];
   };
 }

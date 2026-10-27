@@ -49,6 +49,10 @@
         };
 
         users.extraGroups.incus-admin.members = [ "${config._.user}" ];
+
+        _.persistent-system.dirs = [
+          "/var/lib/incus"    # instances, storage pools, profiles and the server certificate
+        ];
       };
     };
   };

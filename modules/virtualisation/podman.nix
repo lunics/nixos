@@ -21,6 +21,10 @@
           # server      = "";         # TLS proxy server
         };
       };
+
+      _.persistent-system.dirs = [
+        "/var/lib/containers"    # rootful image and container storage
+      ];
     };
   };
 }

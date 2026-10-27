@@ -40,6 +40,10 @@
         overrideStrategy             = "asDropin";
         serviceConfig.LoadCredential = map (secret: "${secret}:/run/secrets/${secret}") vm.secrets;
       }) (lib.filterAttrs (_: vm: vm.secrets != []) config._.microvm.vms);
+
+      _.persistent-system.dirs = [
+        config.microvm.stateDir    # per vm volumes and the generated vm state
+      ];
     };
   };
 }
