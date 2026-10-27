@@ -16,5 +16,9 @@
       enableWattsUpPro       = false;
       allowRiskyCriticalPowerAction = false;    # risky critical power actions "Suspend" and "Ignore"
     };
+
+    _.persistent-system.dirs = [
+      "/var/lib/upower"    # battery history, feeds the remaining time estimates
+    ];
   };
 }
