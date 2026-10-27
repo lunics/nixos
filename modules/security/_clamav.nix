@@ -12,5 +12,9 @@
         interval = "Sat *-*-* 04:00:00";
       };
     };
+
+    _.persistent-system.dirs = [
+      "/var/lib/clamav"    # signature database and the fangfrisch sqlite, redownloaded on every boot otherwise
+    ];
   };
 }
