@@ -9,6 +9,7 @@
       };
 
       _.persistent-system.dirs = [
+        "/etc/mullvad-vpn"          # account token, device state and daemon settings
         "/var/cache/mullvad-vpn"
       ];
     };
