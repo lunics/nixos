@@ -1,11 +1,9 @@
 {
   flake.aspects.persistent.nixos = { config, lib, ... }:{
+    # /var/log and /snapshots are btrfs subvolumes of their own, they must not be bind mounted over
     _.persistent-system.dirs = [
-      "/persistent"
-      "/var/log"
-      "/var/lib/nixos"
+      "/var/lib/nixos"      # uid and gid maps, what keeps the users stable across a wipe
       "/var/lib/systemd"    # machine credentials, random seed, persistent timers, backlight, rfkill
-      "/snapshots"
     ];
 
     _.persistent-system.files = [
