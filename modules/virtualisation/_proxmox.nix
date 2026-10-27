@@ -11,9 +11,8 @@
     proxmox-nixos.overlays.x86_64-linux
   ];
 
-  # impermanence
-  environment.persistence."/persistent".directories = [
-    "/var/lib/pve-cluster"
+  _.persistent-system.dirs = [
+    "/var/lib/pve-cluster"    # the pve configuration database
   ];
 
 
