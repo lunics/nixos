@@ -1,5 +1,5 @@
 {
-  flake.aspects.disk.nixos = { config, lib, pkgs, ... }: with lib;
+  flake.aspects.swap.nixos = { config, lib, pkgs, ... }: with lib;
   let
     _zram  = config._.swapfile-zram;
     _hiber = config._.swapfile-hibernation;
