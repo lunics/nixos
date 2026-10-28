@@ -8,6 +8,11 @@
     imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
 
     config = {
+      assertions = [{
+        assertion = config._.disk.boot-mode == "uefi";
+        message   = "the lanzaboot aspect requires _.disk.boot-mode = \"uefi\"";
+      }];
+
       environment.systemPackages = [
         pkgs.sbctl    # for debugging and troubleshooting secure boot
       ];
