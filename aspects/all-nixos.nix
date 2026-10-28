@@ -3,6 +3,7 @@
     all-nixos.includes = with aspects; [
       options
       disk
+      swap
       boot
       nix
       hardware

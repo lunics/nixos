@@ -6,6 +6,7 @@
 
       # nixos
       disk
+      swap
       boot
       systemd-boot
       grub
