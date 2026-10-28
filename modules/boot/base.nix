@@ -4,8 +4,8 @@
     boot-mode = config._.disk.boot-mode;
   in {
     assertions = [{
-      assertion = boot-mode == "uefi" || config._.boot_loader == "grub";
-      message   = "_.disk.boot-mode = \"${boot-mode}\" requires _.boot_loader = \"grub\"";
+      assertion = boot-mode == "uefi" || config.boot.loader.grub.enable;
+      message   = "_.disk.boot-mode = \"${boot-mode}\" requires the grub aspect";
     }];
 
     boot = {
