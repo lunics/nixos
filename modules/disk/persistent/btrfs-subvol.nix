@@ -5,7 +5,7 @@
     # merged into the btrfs content declared by the disk aspect
     subvolumes."/persistent" = {
       mountpoint   = config._.persistent-system.dest;
-      mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
+      mountOptions = _.btrfs_opts;
     };
   in {
     config = mkMerge [
