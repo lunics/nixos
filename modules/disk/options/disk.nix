@@ -65,9 +65,6 @@
         });
         default = {};
       };
-      btrfs_vol = {
-        kube = mkEnableOption "";
-      };
       dual_boot = mkEnableOption "";
     };
   };
