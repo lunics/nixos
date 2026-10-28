@@ -41,6 +41,21 @@
                                                   # (pre-provisioned keys) to be retained so that features like
                                                   # vendor-provided firmware updates continue to function.
             };
+
+            configurationLimit = 4;     # systemd-pcrlock predicts at most 8 variants per pcr (2 loaders x 4 generations)
+
+            measuredBoot = {
+              enable                     = true;                              # needs a TPM 2.0, check with systemd-pcrlock is-supported
+              pcrs                       = [ 0 4 7 ];                         # firmware code, uki, secure boot state; 1, 2, 3 may be flaky
+              pcrlockDirectory           = "/var/lib/pcrlock.d";
+              pcrlockPolicy              = "/var/lib/systemd/pcrlock.json";
+              staticMeasurements         = {};
+              autoCryptenroll = {
+                enable     = false;                                           # re-enrolls an existing tpm2 slot only, fails on a fido2-only volume
+                device     = "/dev/disk/by-partlabel/LUKS";
+                autoReboot = false;
+              };
+            };
           };
 
           _.persistent-system.dirs = [
