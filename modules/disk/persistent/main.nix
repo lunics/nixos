@@ -1,7 +1,5 @@
 {
   flake.aspects.persistent.nixos = { config, ... }:{
-    _.persistent = true;    # including the aspect is what enables it, home-manager keeps its own value
-
     # merged into the btrfs layout by the disk aspect
     _.disk.subvolumes."/persistent".mountpoint = config._.persistent-system.dest;
 
