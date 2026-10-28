@@ -6,7 +6,7 @@
     device      = "/dev/disk/by-label/NIXOS";               # btrfs label, the same with or without luks
     device-unit = "dev-disk-by\\x2dlabel-NIXOS.device";
   in {
-    config = mkIf (config._.persistent && config._.persistent-system.ephemeral-btrfs) {
+    config = mkIf config._.persistent-system.ephemeral-btrfs {
       boot.initrd.supportedFilesystems.btrfs = true;
 
       # archive each subvolume and recreate it empty, before / is mounted
