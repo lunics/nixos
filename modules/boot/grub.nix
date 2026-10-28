@@ -1,9 +1,9 @@
 {
-  flake.aspects.boot.nixos = { config, lib, ... }:
+  flake.aspects.grub.nixos = { config, lib, ... }:
   let
     boot-mode = config._.disk.boot-mode;
   in {
-    config = lib.mkIf (config._.boot_loader == "grub") {
+    config = {
       boot.loader.grub = {
         enable                = true;
         efiSupport            = boot-mode != "bios";
