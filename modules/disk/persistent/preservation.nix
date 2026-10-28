@@ -1,22 +1,8 @@
 { inputs, ... }:{
   flake-file.inputs.preservation.url  = "github:nix-community/preservation";
 
-  flake.aspects.persistent.nixos = { config, lib, ... }: with lib; {
+  flake.aspects.persistent.nixos = { config, ... }:{
     imports = [ inputs.preservation.nixosModules.default ];
-
-    _.persistent = true;    # including the aspect is what enables it, home-manager keeps its own value
-
-    # /var/log and /snapshots are btrfs subvolumes of their own, they must not be bind mounted over
-    _.persistent-system = {
-      dirs = [
-        "/var/lib/nixos"      # uid and gid maps, what keeps the users stable across a wipe
-        "/var/lib/systemd"    # machine credentials, random seed, persistent timers, backlight, rfkill
-        # "/var/tmp"          # temporary files meant to survive a reboot, wiped with the root subvolume
-      ];
-      files = [
-        { file = "/etc/machine-id"; inInitrd = true; }
-      ];
-    };
 
     preservation = {
       enable = config._.persistent;
