@@ -32,7 +32,8 @@
 
       _.persistent-system.dirs = [
         "/var/lib/secure-boot"
-      ];
+      ] ++ lib.optional config.boot.lanzaboote.measuredBoot.autoCryptenroll.enable
+        "/var/lib/auto-cryptenroll";    # marker file, re-enrolls the tpm at every boot otherwise
     };
   };
 }
