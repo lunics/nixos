@@ -32,11 +32,14 @@
               # Keys are generated in a systemd service
               # so you will need to actually boot the system to generate the keys, not by running nixos-rebuild switch
             autoEnrollKeys = {
-              enable                  = true;     # to avoid manual sudo sbctl enroll-keys --microsoft
-              autoReboot              = true;     # because it relies on systemd-boot to apply enrollment
-              allowBrickingMyMachine  = true;
-              includeMicrosoftKeys    = false;
-              includeChecksumsFromTPM = false;    # experimental
+              enable                     = true;  # to avoid manual sudo sbctl enroll-keys --microsoft
+              autoReboot                 = true;  # because it relies on systemd-boot to apply enrollment
+              allowBrickingMyMachine     = true;  # potential to soft brick, but to not enroll Microsoft keys
+              includeMicrosoftKeys       = false;
+              includeChecksumsFromTPM    = false; # experimental
+              includeFirmwareBuiltinKeys = false; # Some machines like Frameworks, the firmware requires OEM certificates
+                                                  # (pre-provisioned keys) to be retained so that features like
+                                                  # vendor-provided firmware updates continue to function.
             };
           };
 
