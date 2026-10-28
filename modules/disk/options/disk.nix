@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.generic = { config, lib, ... }: with lib; {
     options._.disk = {
       device-by-id = mkOption {
         description = "/dev/disk/by-id/nvme-...";
@@ -48,6 +48,22 @@
       btrfs_opts = mkOption {
         type    = types.listOf types.str;
         default = ["compress=zstd" "noatime" "lazytime" "space_cache=v2" "ssd"];
+      };
+      subvolumes = mkOption {    # merged into the disko btrfs layout, each aspect declares its own
+        type = types.attrsOf (types.submodule {
+          freeformType = types.attrs;    # the other disko subvolume options stay reachable
+          options = {
+            mountpoint = mkOption {
+              type    = types.nullOr types.str;
+              default = null;
+            };
+            mountOptions = mkOption {
+              type    = types.listOf types.str;
+              default = config._.disk.btrfs_opts;
+            };
+          };
+        });
+        default = {};
       };
       btrfs_vol = {
         kube = mkEnableOption "";
