@@ -4,13 +4,15 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.boot.nixos = { config, lib, pkgs, ... }: with lib; {
+  flake.aspects.lanzaboot.nixos = { config, lib, pkgs, ... }: {
     imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
 
-    config = mkIf (config._.boot_loader == "lanzaboot") {
+    config = {
       environment.systemPackages = [
         pkgs.sbctl    # for debugging and troubleshooting secure boot
       ];
+
+      boot.loader.systemd-boot.enable = lib.mkForce false;
 
       boot.lanzaboote = {
         enable    = true;                     # replaces systemd-boot
