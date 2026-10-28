@@ -32,13 +32,6 @@
             mountOptions = _.btrfs_opts;
           };
         }
-        (mkIf (config._.swapfile-zram.enable || config._.swapfile-hibernation.enable) {
-          "/swap" = {
-            # no compression, the swapfiles stay nocow and must never be snapshotted
-            mountpoint   = config._.swap-dir;
-            mountOptions = ["rw" "nodev" "nosuid" "noexec" "noatime"];
-          };
-        })
         (mkIf _.btrfs_vol.kube {
           "/kubernetes" = {
             mountpoint   = config._.kubernetes.btrfs-subvol;

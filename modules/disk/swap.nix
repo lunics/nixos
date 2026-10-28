@@ -6,6 +6,12 @@
     _prio  = config._.zram-swap.priority;
     _dir   = config._.swap-dir;
   in {
+    # no compression, the swapfiles stay nocow and must never be snapshotted
+    _.disk.subvolumes."/swap" = mkIf (_zram.enable || _hiber.enable) {
+      mountpoint   = _dir;
+      mountOptions = ["rw" "nodev" "nosuid" "noexec" "noatime"];
+    };
+
     zramSwap = {
       enable        = config._.zram-swap.enable;
       memoryPercent = config._.zram-swap.memoryPercent;
