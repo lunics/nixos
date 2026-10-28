@@ -5,7 +5,7 @@
     imports = [ inputs.preservation.nixosModules.default ];
 
     preservation = {
-      enable = config._.persistent;
+      enable = true;
       preserveAt.${config._.persistent-system.dest} = {
         files       = config._.persistent-system.files;
         directories = config._.persistent-system.dirs;
