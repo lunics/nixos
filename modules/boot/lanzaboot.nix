@@ -16,7 +16,7 @@
 
       boot.lanzaboote = {
         enable    = true;                     # replaces systemd-boot
-        pkiBundle = "/var/lib/secure_boot";   # where are store the key from sbctl
+        pkiBundle = "/var/lib/secure-boot";   # where are store the key from sbctl
         autoGenerateKeys.enable = true;
           # to avoid manual sudo sbctl create-keys
           # Keys are generated in a systemd service
@@ -31,7 +31,7 @@
       };
 
       _.persistent-system.dirs = [
-        "/var/lib/secure_boot"
+        "/var/lib/secure-boot"
       ];
     };
   };
