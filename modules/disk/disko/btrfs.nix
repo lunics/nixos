@@ -9,40 +9,40 @@
         {
           "/root" = {
             mountpoint   = "/";
-            mountOptions = ["subvol=root"] ++ _.btrfs_opts;
+            mountOptions = _.btrfs_opts;
           };
           "/nix" = {
             mountpoint   = "/nix";
-            mountOptions = ["subvol=nix"] ++ _.btrfs_opts;
+            mountOptions = _.btrfs_opts;
           };
           "/home" = {
             mountpoint   = "/home";
-            mountOptions = ["subvol=home" "rw" "nodev" "nosuid"] ++ _.btrfs_opts;
+            mountOptions = ["rw" "nodev" "nosuid"] ++ _.btrfs_opts;
           };
           "/log" = {
             mountpoint   = "/var/log";
-            mountOptions = ["subvol=log" "rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
+            mountOptions = ["rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
           };
           "/tmp" = {
             mountpoint   = "/tmp";
-            mountOptions = ["subvol=tmp" "rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
+            mountOptions = ["rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
           };
           "/snapshots" = {
             mountpoint   = "/snapshots";
-            mountOptions = ["subvol=snapshots"] ++ _.btrfs_opts;
+            mountOptions = _.btrfs_opts;
           };
         }
         (mkIf (config._.swapfile-zram.enable || config._.swapfile-hibernation.enable) {
           "/swap" = {
             # no compression, the swapfiles stay nocow and must never be snapshotted
             mountpoint   = config._.swap-dir;
-            mountOptions = ["subvol=swap" "rw" "nodev" "nosuid" "noexec" "noatime"];
+            mountOptions = ["rw" "nodev" "nosuid" "noexec" "noatime"];
           };
         })
         (mkIf _.btrfs_vol.kube {
           "/kubernetes" = {
             mountpoint   = config._.kubernetes.btrfs-subvol;
-            mountOptions = ["subvol=kubernetes"] ++ _.btrfs_opts;
+            mountOptions = _.btrfs_opts;
           };
         })
       ];
