@@ -45,6 +45,7 @@
             mountOptions = _.btrfs_opts;
           };
         })
+        _.subvolumes
       ];
     };
   in {
