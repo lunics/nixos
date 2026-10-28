@@ -4,41 +4,48 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.lanzaboot.nixos = { config, lib, pkgs, ... }: {
-    imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
-
-    config = {
-      assertions = [{
-        assertion = config._.disk.boot-mode == "uefi";
-        message   = "the lanzaboot aspect requires _.disk.boot-mode = \"uefi\"";
-      }];
-
-      environment.systemPackages = [
-        pkgs.sbctl    # for debugging and troubleshooting secure boot
+  flake.aspects = { aspects, ... }:{
+    lanzaboot = {
+      includes = with aspects; [
+        fwupd
       ];
+      nixos = { config, lib, pkgs, ... }: {
+        imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
 
-      boot.loader.systemd-boot.enable = lib.mkForce false;
+        config = {
+          assertions = [{
+            assertion = config._.disk.boot-mode == "uefi";
+            message   = "the lanzaboot aspect requires _.disk.boot-mode = \"uefi\"";
+          }];
 
-      boot.lanzaboote = {
-        enable    = true;                     # replaces systemd-boot
-        pkiBundle = "/var/lib/secure-boot";   # where are store the key from sbctl
-        autoGenerateKeys.enable = true;
-          # to avoid manual sudo sbctl create-keys
-          # Keys are generated in a systemd service
-          # so you will need to actually boot the system to generate the keys, not by running nixos-rebuild switch
-        autoEnrollKeys = {
-          enable                  = true;     # to avoid manual sudo sbctl enroll-keys --microsoft
-          autoReboot              = true;     # because it relies on systemd-boot to apply enrollment
-          allowBrickingMyMachine  = true;
-          includeMicrosoftKeys    = false;
-          includeChecksumsFromTPM = false;    # experimental
+          environment.systemPackages = [
+            pkgs.sbctl    # for debugging and troubleshooting secure boot
+          ];
+
+          boot.loader.systemd-boot.enable = lib.mkForce false;
+
+          boot.lanzaboote = {
+            enable    = true;                     # replaces systemd-boot
+            pkiBundle = "/var/lib/secure-boot";   # where are store the key from sbctl
+            autoGenerateKeys.enable = true;
+              # to avoid manual sudo sbctl create-keys
+              # Keys are generated in a systemd service
+              # so you will need to actually boot the system to generate the keys, not by running nixos-rebuild switch
+            autoEnrollKeys = {
+              enable                  = true;     # to avoid manual sudo sbctl enroll-keys --microsoft
+              autoReboot              = true;     # because it relies on systemd-boot to apply enrollment
+              allowBrickingMyMachine  = true;
+              includeMicrosoftKeys    = false;
+              includeChecksumsFromTPM = false;    # experimental
+            };
+          };
+
+          _.persistent-system.dirs = [
+            "/var/lib/secure-boot"
+          ] ++ lib.optional config.boot.lanzaboote.measuredBoot.autoCryptenroll.enable
+            "/var/lib/auto-cryptenroll";    # marker file, re-enrolls the tpm at every boot otherwise
         };
       };
-
-      _.persistent-system.dirs = [
-        "/var/lib/secure-boot"
-      ] ++ lib.optional config.boot.lanzaboote.measuredBoot.autoCryptenroll.enable
-        "/var/lib/auto-cryptenroll";    # marker file, re-enrolls the tpm at every boot otherwise
     };
   };
 }
