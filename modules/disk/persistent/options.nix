@@ -8,7 +8,7 @@
           type    = types.str;
           default = "/nix/persistent";
         };
-        rollback = mkOption {    # archive the root subvolume and recreate it empty at every boot
+        ephemeral-btrfs = mkOption {    # archive the root subvolume and recreate it empty at every boot
           type    = types.bool;
           default = true;
         };
