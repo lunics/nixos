@@ -9,6 +9,7 @@
       dirs = [
         "/var/lib/nixos"      # uid and gid maps, what keeps the users stable across a wipe
         "/var/lib/systemd"    # machine credentials, random seed, persistent timers, backlight, rfkill
+        # "/var/tmp"          # temporary files meant to survive a reboot, wiped with the root subvolume
       ];
       files = [
         { file = "/etc/machine-id"; inInitrd = true; }
