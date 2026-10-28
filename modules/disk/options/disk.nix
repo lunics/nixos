@@ -50,8 +50,7 @@
         default = ["compress=zstd" "noatime" "lazytime" "space_cache=v2" "ssd"];
       };
       btrfs_vol = {
-        persistent = mkEnableOption "";
-        kube       = mkEnableOption "";
+        kube = mkEnableOption "";
       };
       dual_boot = mkEnableOption "";
     };
