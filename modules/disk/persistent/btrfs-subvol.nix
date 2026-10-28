@@ -8,13 +8,13 @@
       mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
     };
   in {
-    config = mkIf _.btrfs_vol.persistent (mkMerge [
+    config = mkMerge [
       (mkIf _.luks {
         disko.devices.disk.main.content.partitions.luks.content.content = { inherit subvolumes; };
       })
       (mkIf (! _.luks) {
         disko.devices.disk.main.content.partitions.btrfs.content = { inherit subvolumes; };
       })
-    ]);
+    ];
   };
 }
