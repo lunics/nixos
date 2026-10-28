@@ -25,6 +25,9 @@
         extraArgs   = "";      # extra arguments to pass to systemd ExecStart
       };
 
+      # merged into the btrfs layout by the disk aspect, the data dir lives there
+      _.disk.subvolumes."/kubernetes".mountpoint = config._.kubernetes.btrfs-subvol;
+
       # nothing to declare for preservation, the data dir sits on the kubernetes btrfs subvolume
     };
   };

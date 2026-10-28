@@ -57,6 +57,9 @@
         # serverAddr = "https://10.0.0.10:6443";
       };
 
+      # merged into the btrfs layout by the disk aspect, the data dir lives there
+      _.disk.subvolumes."/kubernetes".mountpoint = config._.kubernetes.btrfs-subvol;
+
       ## delete later if we can generate the k3s.yaml
       # systemd.services.k3s.postStart = ''
       #   if [ -f /etc/rancher/k3s/k3s.yaml ]; then

@@ -32,12 +32,6 @@
             mountOptions = _.btrfs_opts;
           };
         }
-        (mkIf _.btrfs_vol.kube {
-          "/kubernetes" = {
-            mountpoint   = config._.kubernetes.btrfs-subvol;
-            mountOptions = _.btrfs_opts;
-          };
-        })
         _.subvolumes
       ];
     };
