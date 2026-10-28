@@ -32,12 +32,6 @@
             mountOptions = ["subvol=snapshots"] ++ _.btrfs_opts;
           };
         }
-        (mkIf _.btrfs_vol.persistent {
-          "/persistent" = {
-            mountpoint   = config._.persistent-system.dest;
-            mountOptions = ["subvol=persistent"] ++ _.btrfs_opts;
-          };
-        })
         (mkIf (config._.swapfile-zram.enable || config._.swapfile-hibernation.enable) {
           "/swap" = {
             # no compression, the swapfiles stay nocow and must never be snapshotted
