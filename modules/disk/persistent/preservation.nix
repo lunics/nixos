@@ -23,6 +23,8 @@
       };
     };
 
+    boot.initrd.systemd.enable = true;    # preservation refuses the scripted initrd
+
     fileSystems."${config._.persistent-system.dest}".neededForBoot = true;
 
     systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
