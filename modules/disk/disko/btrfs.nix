@@ -28,7 +28,7 @@
             mountOptions = ["rw" "nodev" "nosuid" "noexec"] ++ _.btrfs_opts;
           };
           "/snapshots" = {    # every snapshot and the rollback archives, mounted on first access only
-            mountpoint   = "/.snapshots";
+            mountpoint   = "/mnt/snapshots";
             mountOptions = ["nodev" "nosuid" "noexec" "noauto" "x-systemd.automount" "x-systemd.idle-timeout=10min"] ++ _.btrfs_opts;
           };
         }
