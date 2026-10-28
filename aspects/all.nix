@@ -7,6 +7,9 @@
       # nixos
       disk
       boot
+      systemd-boot
+      grub
+      lanzaboot
       nix
       hardware
       facter
