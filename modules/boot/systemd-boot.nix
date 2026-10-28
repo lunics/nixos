@@ -1,6 +1,6 @@
 {
-  flake.aspects.boot.nixos = { config, lib, ... }: {
-    config = lib.mkIf (config._.boot_loader == "systemd-boot") {
+  flake.aspects.systemd-boot.nixos = {
+    config = {
       boot.loader.systemd-boot = {
         enable             = true;
         editor             = false;     # allow editing the kernel command-line before boot
