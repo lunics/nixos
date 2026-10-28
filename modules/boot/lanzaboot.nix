@@ -60,7 +60,9 @@
 
           _.persistent-system.dirs = [
             "/var/lib/secure-boot"
-          ] ++ lib.optional config.boot.lanzaboote.measuredBoot.autoCryptenroll.enable
+          ] ++ lib.optional config.boot.lanzaboote.measuredBoot.enable
+            "/var/lib/pcrlock.d"            # pcrlock.json already lives in the persisted /var/lib/systemd
+            ++ lib.optional config.boot.lanzaboote.measuredBoot.autoCryptenroll.enable
             "/var/lib/auto-cryptenroll";    # marker file, re-enrolls the tpm at every boot otherwise
         };
       };
