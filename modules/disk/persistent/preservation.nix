@@ -4,6 +4,8 @@
   flake.aspects.persistent.nixos = { config, lib, ... }: with lib; {
     imports = [ inputs.preservation.nixosModules.default ];
 
+    _.persistent = true;    # including the aspect is what enables it, home-manager keeps its own value
+
     # /var/log and /snapshots are btrfs subvolumes of their own, they must not be bind mounted over
     _.persistent-system = {
       dirs = [
