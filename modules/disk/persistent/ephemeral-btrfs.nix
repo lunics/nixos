@@ -28,12 +28,15 @@
             mkdir -p $archives
 
             if [ -e /btrfs/$subvol ]; then
-              mv /btrfs/$subvol $archives/$(date +%Y-%m-%dT%H:%M:%S)
+              archive=$archives/$(date +%Y-%m-%dT%H:%M:%S)
+              mv /btrfs/$subvol $archive
+              btrfs property set -ts $archive ro true    # frozen for the post-mortem, and btrfs send needs it
             fi
 
             for old in $archives/*; do
               [ -e "$old" ] || continue
               if [ "$(date -d "$(basename "$old")" +%s)" -lt "$cutoff" ]; then
+                btrfs property set -ts "$old" ro false    # a read-only parent refuses to drop its nested subvolumes
                 btrfs subvolume delete --recursive "$old"
               fi
             done
