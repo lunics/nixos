@@ -1,6 +1,6 @@
 {
-  flake.aspects.browser.homeManager = { config, lib, ... }:{
-    _.persistent-home.dirs = lib.mkIf config.programs.chromium.enable [ ".config/chromium" ];
+  flake.aspects.browser.homeManager = {
+    _.persistent-home.dirs = [ ".config/chromium" ];
 
     programs.chromium = {
       enable = false;
