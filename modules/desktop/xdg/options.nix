@@ -21,11 +21,7 @@
         type    = types.str;
         default = config.xdg.stateHome;
       };
-      local_share = mkOption {    # stay local
-        type    = types.str;
-        default = config.xdg.dataHome;
-      };
-      share = mkOption {          # made to be override for a network share
+      local_share = mkOption {
         type    = types.str;
         default = config.xdg.dataHome;
       };
