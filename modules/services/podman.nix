@@ -1,6 +1,8 @@
 {
   flake.aspects.podman.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.podman) {
+      _.persistent-home.dirs = [ ".local/share/containers" ];    # rootless images, containers, volumes
+
       services.podman = {         # daemonless container engine
         enable      = true;
         package     = pkgs.podman;
