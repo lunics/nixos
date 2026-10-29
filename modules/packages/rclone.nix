@@ -1,5 +1,7 @@
 {
-  flake.aspects.packages.homeManager = { pkgs, ... }:{ 
+  flake.aspects.packages.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [ ".config/rclone" ];    # remotes and their credentials
+
     home.packages = with pkgs; [ rclone ];
     # home.file.".config/rclone/rclone.conf".source = ../files/rclone.conf;
 
