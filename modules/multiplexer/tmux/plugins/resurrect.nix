@@ -1,5 +1,7 @@
 {
-  flake.aspects.tmux.homeManager = { config, pkgs, ... }:{
+  flake.aspects.tmux.homeManager = { config, lib, pkgs, ... }:{
+    _.persistent-home.dirs = [ (lib.removePrefix "${config._.home}/" config._.tmux.sessions-dir) ];    # resurrect saves
+
     programs.tmux.plugins = with pkgs.tmuxPlugins; [{
       plugin = resurrect;
       extraConfig = ''
