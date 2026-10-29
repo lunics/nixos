@@ -1,6 +1,11 @@
 {
   flake.aspects.pass_manager.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf (config._.pass_manager == "password-store") {
+      _.persistent-home.dirs = [
+        { directory = ".local/share/gnupg"; mode = "0700"; }    # gpg refuses a homedir readable by others
+        ".local/share/password-store"
+      ];
+
       programs.password-store = {
         enable   = true;
 
@@ -13,8 +18,8 @@
         ]);
 
         settings = {
-          PASSWORD_STORE_GPG_OPTS = "--homedir ${config._.share}/gnupg";
-          PASSWORD_STORE_DIR      = "${config._.share}/password-store";
+          PASSWORD_STORE_GPG_OPTS = "--homedir ${config._.local_share}/gnupg";
+          PASSWORD_STORE_DIR      = "${config._.local_share}/password-store";
           # PASSWORD_STORE_KEY       = "12345678";
           # PASSWORD_STORE_CLIP_TIME = "60";
         };
