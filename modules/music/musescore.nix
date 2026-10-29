@@ -2,12 +2,9 @@
   flake.aspects.musescore.homeManager = { config, pkgs, ... }: let
     version = "4";
   in {
-    home = {
-      packages = with pkgs; [ 
-        musescore
-        muse-sounds-manager
-      ];
-    };
+    home.packages = with pkgs; [ musescore ];
+
+    _.allow-unfree = with pkgs; [ muse-sounds-manager ];    # installed through the unfree list
 
     _.persistent-home.dirs = [
       ".local/share/MuseScore"     # scores, plugins, soundfonts, cloud login
