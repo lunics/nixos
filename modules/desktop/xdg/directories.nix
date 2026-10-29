@@ -8,8 +8,13 @@
 
     home.sessionVariables = rec {
       XDG_BIN_HOME          = "${config._.dot_dir}local/bin";
-      XDG_SCREENSHOTS_DIR   = "${config._.share}/screenshots";
+      XDG_SCREENSHOTS_DIR   = "${config._.local_share}/screenshots";
     };
+
+    _.persistent-home.dirs = [
+      ".local/share/screenshots"
+      (lib.removePrefix "${config._.home}/" config._.downloads)    # rtorrent keeps its session under it too
+    ];
 
     xdg = {
       configHome = "${config._.dot_dir}config";         # XDG_CONFIG_HOME
