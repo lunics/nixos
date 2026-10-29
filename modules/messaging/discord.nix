@@ -1,6 +1,8 @@
 {
   flake.aspects.messaging.homeManager = { config, pkgs, lib, ... }:{ 
     config = lib.mkIf config._.discord {
+      _.persistent-home.dirs = [ ".config/discord" ];
+
       _.allow-unfree = with pkgs; [
         (discord.override { useFHSEnv = false; })
       ];
