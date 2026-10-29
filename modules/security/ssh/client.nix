@@ -1,11 +1,16 @@
 {
   flake.aspects.ssh.homeManager = { config, ... }:{
+    _.persistent-home.dirs = [
+      ".local/share/ssh"                            # known_hosts
+      { directory = ".ssh"; mode = "0700"; }        # keys, ssh refuses them if others can read the directory
+    ];
+
     programs.ssh = {
       enable               = true;
       package              = null;
       extraConfig          = "";
       extraOptionOverrides = {
-        UserKnownHostsFile = "${config._.share}/ssh/known_hosts";
+        UserKnownHostsFile = "${config._.local_share}/ssh/known_hosts";
       };
       includes             = [];      # File globs of ssh config files
       settings             = config._.ssh_config;
