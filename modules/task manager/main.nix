@@ -17,9 +17,11 @@
 
       sessionVariables = rec {
         TASKRC        = "${config._.dot_config}/taskwarrior/taskw/taskrc";
-        TASKDATA      = "${config._.share}/taskwarrior";
-        TIMEWARRIORDB = "${config._.share}/taskwarrior/timewarrior";    # path for data + config
+        TASKDATA      = "${config._.local_share}/taskwarrior";
+        TIMEWARRIORDB = "${config._.local_share}/taskwarrior/timewarrior";    # path for data + config
       };
     };
+
+    _.persistent-home.dirs = [ ".local/share/taskwarrior" ];    # tasks and timewarrior database
   };
 }
