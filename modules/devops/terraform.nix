@@ -1,6 +1,11 @@
 {
   flake.aspects.devops.homeManager = { config, lib, pkgs, ... }:{ 
     config = lib.mkIf config._.terraform {
+      _.persistent-home = {
+        dirs  = [ ".terraform.d" ];    # tofu login credentials
+        files = [ ".vault-token" ];
+      };
+
       home = {
         packages = with pkgs; [
           opentofu
