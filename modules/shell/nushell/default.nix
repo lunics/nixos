@@ -1,5 +1,7 @@
 {
-  flake.aspects.nushell.homeManager = { config, pkgs, ... }:{ 
+  flake.aspects.nushell.homeManager = { config, pkgs, ... }:{
+    _.persistent-home.files = [ ".config/nushell/history.txt" ];
+
     programs.nushell = {
       enable               = true;
       package              = pkgs.nushell;
