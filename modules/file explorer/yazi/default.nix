@@ -1,5 +1,7 @@
 {
   flake.aspects.file_explorer.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [ ".local/state/yazi" ];    # cross-instance state, bookmarks
+
     programs.yazi = {
       enable  = true;
       package = pkgs.yazi;
