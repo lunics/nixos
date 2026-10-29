@@ -16,9 +16,9 @@
           # fi
 
           if command -v task &> /dev/null; then
-            export TASKDATA=${config._.share}/taskwarrior
+            export TASKDATA=${config._.local_share}/taskwarrior
             export TASKRC=${config._.dot_config}/taskwarrior/taskw/taskrc
-            export TIMEWARRIORDB=${config._.share}/taskwarrior/timewarrior    # the on-modify hook runs timew against it
+            export TIMEWARRIORDB=${config._.local_share}/taskwarrior/timewarrior    # the on-modify hook runs timew against it
 
             if task +ACTIVE &> /dev/null; then
               # hooks.location is expanded from $CONFIG, only exported to zsh, and bulk=0 drops the
