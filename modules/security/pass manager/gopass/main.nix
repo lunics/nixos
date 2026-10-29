@@ -5,7 +5,7 @@
 
       homeManager = { config, lib, ... }:{
         config = lib.mkIf (config._.pass_manager == "gopass") {
-          # sessionVariables.PASSWORD_STORE_DIR = "${config._.share}/gopass";   # for rofi-pass
+          # sessionVariables.PASSWORD_STORE_DIR = "${config._.local_share}/gopass";   # for rofi-pass
         };
       };
     };
