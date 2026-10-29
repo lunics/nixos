@@ -1,5 +1,7 @@
 {
   flake.aspects.reaper.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [ ".config/REAPER" ];    # settings, license, reapack packages
+
     home.packages = with pkgs; [
       reaper                      # best linux DAW not too expensive
         ## KO /nix/store/jrw7q6v8q74hhv43zgpq7i4jmxj9nwlj-stdenv-linux/setup: line 1758: ./install-reaper.sh: Permission denied
