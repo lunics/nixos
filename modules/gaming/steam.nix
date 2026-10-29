@@ -10,6 +10,11 @@
 
       home.sessionVariables."STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
 
+      _.persistent-home.dirs = [
+        ".local/share/Steam"    # client, library, saves
+        ".steam"                # links into the client, compatibility tools
+      ];
+
       _.allow-unfree = with pkgs; [ 
         steamcmd 
         steam-unwrapped
