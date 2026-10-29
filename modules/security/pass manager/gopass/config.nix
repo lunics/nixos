@@ -1,9 +1,11 @@
 {
   flake.aspects.pass_manager.homeManager = { config, lib, ... }:{
     config = lib.mkIf (config._.pass_manager == "gopass") {
+      _.persistent-home.dirs = [ ".local/share/gopass" ];    # password store
+
       home.file.".config/gopass/config".text = ''
         [mounts]
-        	path = ${config._.share}/gopass
+        	path = ${config._.local_share}/gopass
 
         [generate]
           autoclip  = true        # copy the password created
