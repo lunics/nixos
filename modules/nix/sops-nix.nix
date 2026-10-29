@@ -19,6 +19,10 @@
     homeManager = { pkgs, ... }:{
       imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
+      _.persistent-home.dirs = [
+        { directory = ".config/sops/age"; mode = "0700"; }    # age key of the sops cli
+      ];
+
       home.packages = with pkgs; [
         sops
       ];
