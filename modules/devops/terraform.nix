@@ -7,7 +7,7 @@
       home = {
         packages = with pkgs; [
           opentofu
-          vault
+          openbao       # free fork of vault, the cli is bao and still reads the VAULT_* variables
           # tofu-ls       # openTofu language server
           # tfmigrate     # terraform/opentofu state migration tool for GitOps
           # tenv          # openTofu, Terraform, Terragrunt and Atmos version manager written in Go
@@ -16,7 +16,10 @@
           # atmos         # universal Tool for DevOps and Cloud Automation (works with terraform, helm, helmfile, etc)
         ];
 
-        shellAliases.tf = "tofu";
+        shellAliases = {
+          tf    = "tofu";
+          vault = "bao";
+        };
       };
     };
   };
