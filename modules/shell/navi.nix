@@ -1,10 +1,12 @@
 {
   flake.aspects.navi.homeManager = { config, ... }:{
+    _.persistent-home.dirs = [ ".local/share/navi" ];    # cheat files
+
     programs.navi = {
       enable = true;
       enableZshIntegration = false;   # the widget is loaded by bindkeys.zsh, to rebind it afterwards
       settings = {
-        cheats.paths     = [ "${config._.share}/navi" ];  # list of dirs containing all *.cheat files
+        cheats.paths     = [ "${config._.local_share}/navi" ];  # list of dirs containing all *.cheat files
         client.tealdeer  = true;                          # use tldr pages as an extra cheatsheet source
         finder.command   = "fzf";
         shell.command    = "zsh";
