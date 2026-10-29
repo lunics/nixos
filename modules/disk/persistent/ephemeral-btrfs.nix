@@ -1,12 +1,13 @@
 {
   flake.aspects.persistent.nixos = { config, lib, ... }: with lib;
   let
-    subvolumes  = [ "root" ];
+    subvolumes  = optional config._.persistent-system.ephemeral-btrfs "root"
+               ++ optional config._.persistent-home.ephemeral-btrfs   "home";
     keep-days   = 30;                                       # archives older than this are deleted
     device      = "/dev/disk/by-label/NIXOS";               # btrfs label, the same with or without luks
     device-unit = "dev-disk-by\\x2dlabel-NIXOS.device";
   in {
-    config = mkIf config._.persistent-system.ephemeral-btrfs {
+    config = mkIf (subvolumes != []) {
       boot.initrd.supportedFilesystems.btrfs = true;
 
       # archive each subvolume and recreate it empty, before / is mounted
