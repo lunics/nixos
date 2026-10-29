@@ -1,5 +1,7 @@
 {
   flake.aspects.hyprland.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [ ".config/waypaper" ];    # settings and last wallpaper, written by the gui
+
     home.packages = with pkgs; [
       waypaper
       # hyprpaper  # KO
