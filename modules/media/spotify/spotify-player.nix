@@ -2,6 +2,8 @@
   flake.aspects.media.homeManager = { pkgs, ... }:{
     xdg.configFile."spotify-player/app.toml".force = true;
 
+    _.persistent-home.dirs = [ ".cache/spotify-player" ];    # login credentials live in the cache
+
     programs.spotify-player = {
       enable   = true;
       package = pkgs.spotify-player.override {
