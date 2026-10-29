@@ -26,7 +26,7 @@
         -- remove after task 69 done: bind  = $SUPER,     R, exec, pkill wofi || (export PATH="$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default/bin:$PATH" && echo $PATH > $HOME/test.log && wofi)
       hl.bind(SUPER  .. " + ${_hypr.suspend}", hl.dsp.exec_cmd("save_env && systemctl suspend"))
       hl.bind(SUPER  .. " + R",     hl.dsp.exec_cmd("pkill wofi || wofi"))
-        -- hl.bind(SUPER  .. " + S",     hl.dsp.exec_cmd("grimblast --notify copysave area ${config._.share}/screenshots/$(date +"%d-%m-%Y%H-%M-%S").png"))
+        -- hl.bind(SUPER  .. " + S",     hl.dsp.exec_cmd("grimblast --notify copysave area $XDG_SCREENSHOTS_DIR/$(date +"%d-%m-%Y%H-%M-%S").png"))
       hl.bind(SUPER  .. " + T",     hl.dsp.exec_cmd("alacritty"))
       hl.bind(SSHIFT .. " + T",     hl.dsp.exec_cmd("alacritty --title terminal_floats"))
       hl.bind(SUPER  .. " + V",     hl.dsp.exec_cmd("toggle_vpn"))
