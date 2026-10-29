@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.media.homeManager = { config, lib, pkgs, ... }:{ 
+  flake.aspects.media.homeManager = { config, pkgs, ... }:{
     home = {
       packages = with pkgs; [
         freetube
@@ -15,10 +15,12 @@
         kitty       # icat image preview
       ];
 
-      activation.link_to_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        ln ${config._.share}/yt-x/recent.json ${config._.dot_config}/yt-x/recent.json &> /dev/null || true
-      '';
     };
+
+    _.persistent-home.dirs = [
+      ".config/yt-x"    # recent.json and search history sit next to the managed config
+      "videos/yt-x"     # DOWNLOAD_DIRECTORY
+    ];
 
     # get logs: yt-x &> yt-x.log
 
@@ -35,7 +37,7 @@
       SEARCH_HISTORY: true              # whether to update the recent list kept locally [true/false]
       NO_OF_RECENT: 30                  # the number of recent videos to keep
       PLAYER: mpv                       # the player to use for streaming [mpv/vlc]
-      PREFERRED_BROWSER: firefox:${config._.share}/browser/${config._.browser}/${config._.user}   # browser's profile use to extract cookies from, used to by yt-dlp to access content that would require login
+      PREFERRED_BROWSER: firefox:${config._.firefox.path}/${config._.user}   # browser's profile use to extract cookies from, used to by yt-dlp to access content that would require login
       NO_OF_SEARCH_RESULTS: 30          # the number of results to get from yt-dlp
       NOTIFICATION_DURATION: 5          # the duration notifications stay on the screen
       DOWNLOAD_DIRECTORY: ${config._.home}/videos/yt-x
