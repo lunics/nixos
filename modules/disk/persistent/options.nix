@@ -25,19 +25,19 @@
       persistent-home = {
         dest = mkOption {
           type    = types.str;
-          default = "/nix/persistent";  # impermanence appends /home/<user> itself
+          default = "/nix/persistent";  # preservation appends /home/<user> itself
         };
         ephemeral-btrfs = mkOption {    # archive the home subvolume and recreate it empty at every boot
           type    = types.bool;
           default = true;
         };
         dirs = mkOption {
-          type    = types.listOf types.str;  # str: paths are relative to $HOME
+          type    = types.listOf (types.either types.str types.attrs); # relative to $HOME, attrs: preservation user directory submodule, eg. { directory = ".ssh"; mode = "0700"; }
           default = [];
-          apply   = unique;                  # impermanence refuses duplicated paths
+          apply   = unique;                  # several aspects may claim the same path
         };
         files = mkOption {
-          type    = types.listOf types.str;
+          type    = types.listOf (types.either types.str types.attrs); # attrs: preservation user file submodule, eg. { file = ".config/foo"; mode = "0600"; }
           default = [];
           apply   = unique;
         };
