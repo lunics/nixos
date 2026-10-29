@@ -9,6 +9,8 @@
 
     programs.zen-browser.enable = lib.mkDefault false;
 
+    _.persistent-home.dirs = [ ".config/zen" ];    # profiles
+
     # config = lib.mkIf (config._.browser == "zen") {
     #   programs.zen-browser = {
     #     enable = true;
@@ -38,8 +40,8 @@
     #     text = ''
     #       [Profile0]
     #       Name=${config._.user}
-    #       IsRelative=0
-    #       Path=${config._.share}/browser/zen/${config._.user}
+    #       IsRelative=1
+    #       Path=${config._.user}
     #       Default=1
         
     #       [General]
