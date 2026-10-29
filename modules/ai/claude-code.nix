@@ -95,6 +95,7 @@
       };
       settings = {};
       enableMcpIntegration = false;
+      configDir = "${config._.local_share}/claude-code";    # exported as CLAUDE_CONFIG_DIR, keeps .claude.json inside a persisted directory
     };
 
     home = {
@@ -111,8 +112,8 @@
         bubblewrap
         socat
       ];
-
-      sessionVariables."CLAUDE_CONFIG_DIR" = "${config._.share}/claude-code";
     };
+
+    _.persistent-home.dirs = [ ".local/share/claude-code" ];
   };
 }
