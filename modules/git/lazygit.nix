@@ -1,5 +1,7 @@
 {
   flake.aspects.git.homeManager = {
+    _.persistent-home.dirs = [ ".local/state/lazygit" ];    # recent repositories
+
     programs.lazygit = {
       enable  = true;
       settings = {
