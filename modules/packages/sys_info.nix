@@ -9,5 +9,10 @@
       duf           # df replacement
       dust          # du -sh replacement
     ];
+
+    _.allow-unfree = with pkgs; [
+      simpledbus    # zmkbatx dependencies: SimpleBLE wrappers of libdbus-1 and bluez
+      simplebluez
+    ];
   };
 }
