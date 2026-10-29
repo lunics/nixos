@@ -1,5 +1,5 @@
 {
-  flake.aspects.musescore.homeManager = { config, lib, pkgs, ... }: let
+  flake.aspects.musescore.homeManager = { config, pkgs, ... }: let
     version = "4";
   in {
     home = {
@@ -7,11 +7,12 @@
         musescore
         muse-sounds-manager
       ];
-
-      activation.link_musescore_share = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        ln -s ${config._.musescore.share} ${config._.local_share} &> /dev/null || true
-      '';
     };
+
+    _.persistent-home.dirs = [
+      ".local/share/MuseScore"     # scores, plugins, soundfonts, cloud login
+      ".local/share/MuseSampler"   # instruments installed by muse-sounds-manager
+    ];
 
     xdg.configFile."MuseScore/MuseScore4.ini".text = ''
       [application]
