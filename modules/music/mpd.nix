@@ -1,5 +1,7 @@
 {
-  flake.aspects.mpd.homeManager = { pkgs, config, ... }:{ 
+  flake.aspects.mpd.homeManager = { pkgs, config, ... }:{
+    _.persistent-home.dirs = [ ".local/share/mpd" ];    # database, playlists, playback state
+
     home.packages = with pkgs; [
       mpd
       mpd-notification
