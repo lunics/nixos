@@ -1,5 +1,5 @@
 {
-  flake.aspects.wallpaper.homeManager = { config, pkgs, ... }:
+  flake.aspects.wallpaper.homeManager = { pkgs, ... }:
   let
     scriptOverlay = self: super: {
       update-wallpaper = super.writeShellApplication {
@@ -20,7 +20,7 @@
           max_wallpapers=$(ls -1 $path_wallpapers | wc -l)
 
           # awww query 
-          #   ${config._.share}/wallpapers/summer-anime-girl-cat-4k-wallpaper-uhdpaper.com-414@5@d.jpg
+          #   $path_wallpapers/summer-anime-girl-cat-4k-wallpaper-uhdpaper.com-414@5@d.jpg
 
           selected_line=$(shuf -i 0-''\${max_wallpapers} -n 1)
 
