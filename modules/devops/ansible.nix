@@ -1,8 +1,10 @@
 {
   flake.aspects.devops.homeManager = { config, lib, pkgs, ... }:let
-    ansible_path = "${config._.share}/../ansible"; 
+    ansible_path = "${config._.dot_dir}local/ansible";
   in {
     config = lib.mkIf config._.ansible {
+      _.persistent-home.dirs = [ ".local/ansible" ];    # roles, inventory, vault password script
+
       home = {
         packages = with pkgs; [
           ansible
