@@ -7,6 +7,8 @@
   flake.aspects.caelestia.homeManager = { config, lib, pkgs, ... }:{
     imports = [ inputs.caelestia-shell.homeManagerModules.default ];
 
+    _.persistent-home.dirs = [ ".local/share/wallpapers" ];
+
     programs.caelestia = {
       enable  = true;
       systemd = {
@@ -18,7 +20,7 @@
         bar.status = {
           showBattery = true;
         };
-        paths.wallpaperDir = "${config._.share}/wallpapers";
+        paths.wallpaperDir = "${config._.local_share}/wallpapers";
       };
       cli = {
         enable = true;    # add caelestia-cli to path
