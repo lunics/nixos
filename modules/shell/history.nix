@@ -1,9 +1,11 @@
 {
   flake.aspects.history.homeManager = { config, ... }:{
+    _.persistent-home.dirs = [ ".local/share/atuin" ];    # history database, sync key
+
     programs.atuin = {
       enable   = true;
       settings = {
-        db_path        = "${config._.share}/atuin/history.db";
+        db_path        = "${config._.local_share}/atuin/history.db";
         inline_height  = 25;
         invert         = false;
         search_mode    = "fuzzy";     # fuzzy, skim, prefix, fulltext
