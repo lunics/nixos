@@ -27,6 +27,8 @@
       '';
     };
   in {
+    _.persistent-home.dirs = [ ".config/spotify" ];    # per user settings, local files sources
+
     _.allow-unfree = [
       (if cfg.token == null then pkgs.spotify else spotify)
     ];
