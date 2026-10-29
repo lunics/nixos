@@ -1,5 +1,7 @@
 {
-  flake.aspects.browser.homeManager = {
+  flake.aspects.browser.homeManager = { config, lib, ... }:{
+    _.persistent-home.dirs = lib.mkIf config.programs.chromium.enable [ ".config/chromium" ];
+
     programs.chromium = {
       enable = false;
       commandLineArgs = [
