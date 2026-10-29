@@ -1,10 +1,8 @@
 {
   flake.aspects.devops.homeManager = { config, lib, pkgs, ... }:{ 
     config = lib.mkIf config._.terraform {
-      _.persistent-home = {
-        dirs  = [ ".terraform.d" ];    # tofu login credentials
-        files = [ ".vault-token" ];
-      };
+      # ~/.vault-token stays ephemeral, bao login replaces it by rename and a bind mounted file refuses that
+      _.persistent-home.dirs = [ ".terraform.d" ];    # tofu login credentials
 
       home = {
         packages = with pkgs; [
