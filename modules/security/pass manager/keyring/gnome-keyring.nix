@@ -11,7 +11,7 @@
         components = [];              # "pkcs11", "secrets", "ssh"
       };
 
-      home.packages = [ pkgs.gcr ];   # Provides org.gnome.keyring.SystemPrompter
+      home.packages = [ pkgs.gcr_3 ];   # Provides org.gnome.keyring.SystemPrompter
     };
   };
 }
