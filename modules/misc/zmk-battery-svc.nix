@@ -32,11 +32,6 @@
   in mkIf (splitkb != null) {
     home.packages = [ pkgs.zmkbatx ];   # battery monitoring
 
-    _.allow-unfree = with pkgs; [
-      simpledbus    # zmkbatx dependencies: SimpleBLE wrappers of libdbus-1 and bluez
-      simplebluez
-    ];
-
     systemd.user.services = {
       "zmkbatx" = {
         Unit = {
