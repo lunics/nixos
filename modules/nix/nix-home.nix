@@ -5,6 +5,8 @@
   };
 
   flake.aspects.nix.homeManager = {
+    _.persistent-home.dirs = [ ".local/share/nix" ];    # trusted flake settings, repl history
+
     nix = {
       keepOldNixPath = true;    # keep the previously set values in NIX_PATH
       checkConfig    = true;    # parse nix files before building
