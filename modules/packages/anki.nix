@@ -1,6 +1,6 @@
 {
-  flake.aspects.packages.homeManager = { config, lib, ... }:{
-    _.persistent-home.dirs = lib.mkIf config.programs.anki.enable [ ".local/share/Anki2" ];    # decks, review history
+  flake.aspects.packages.homeManager = { config, ... }:{
+    _.persistent-home.dirs = [ ".local/share/Anki2" ];    # decks, review history
 
     programs.anki = {
       enable             = false;
