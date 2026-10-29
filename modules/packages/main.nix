@@ -1,5 +1,7 @@
 {
-  flake.aspects.packages.homeManager = { pkgs, inputs, ... }:{ 
+  flake.aspects.packages.homeManager = { pkgs, inputs, ... }:{
+    _.persistent-home.dirs = [ ".local/share/Trash" ];    # trash-cli, a wipe must not empty the trash
+
     home.packages = with pkgs; [
       systemd
       ueberzugpp
