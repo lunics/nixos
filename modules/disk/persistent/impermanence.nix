@@ -1,7 +1,8 @@
 { inputs, ... }:{
   flake-file.inputs.impermanence.url  = "github:nix-community/impermanence";
 
-  flake.aspects.persistent = {
+  # kept as a reference, persistent relies on preservation
+  flake.aspects.impermanence = {
     # the nixos module stays mandatory: it injects the home-manager one and owns the bind mounts
     nixos = { config, ... }:{
       imports = [ inputs.impermanence.nixosModules.impermanence ];
