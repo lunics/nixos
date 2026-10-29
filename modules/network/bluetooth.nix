@@ -54,12 +54,5 @@
         { directory = "/var/lib/bluetooth"; mode = "0700"; }    # holds the link keys, bluez keeps it root only
       ];
     };
-
-    homeManager = { pkgs, ... }:{
-      _.allow-unfree = with pkgs; [ 
-        simpledbus    # lib of SimpleBLE as a wrapper of libdbus-1
-        simplebluez
-      ];
-    };
   };
 }
