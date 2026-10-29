@@ -1,5 +1,7 @@
 {
-  flake.aspects.packages.homeManager = { pkgs, ... }:{ 
+  flake.aspects.packages.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [ ".config/tigervnc" ];    # known hosts, saved passwords
+
     home.packages = with pkgs; [
       tigervnc
     ];
