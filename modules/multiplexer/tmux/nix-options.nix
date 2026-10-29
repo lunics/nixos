@@ -18,7 +18,7 @@
 
       sessions-dir = mkOption {
         type    = types.str;
-        default = "${config._.share}/tmux";
+        default = "${config._.local_share}/tmux";
       };
     };
   };
