@@ -5,6 +5,8 @@
         docker
       ];
       homeManager = { config, lib, pkgs, ... }:{
+        _.persistent-home.dirs = [ ".winboat" ];    # config and windows vm storage
+
         home.packages = with pkgs; [
           winboat
           # (unstable.winboat.override {nodejs_24 = pkgs.nodejs_24;})
