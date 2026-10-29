@@ -1,6 +1,6 @@
 {
-  flake.aspects.browser.homeManager = { config, lib, ... }:{
-    _.persistent-home.dirs = lib.mkIf config.programs.librewolf.enable [ ".librewolf" ];
+  flake.aspects.browser.homeManager = {
+    _.persistent-home.dirs = [ ".librewolf" ];
 
     programs.librewolf = {
       enable  = false;
