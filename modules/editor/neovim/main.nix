@@ -6,6 +6,8 @@
   flake.aspects.neovim.homeManager = { config, pkgs, ... }:{
     imports = [ inputs.nixvim.homeModules.nixvim ];
 
+    _.persistent-home.dirs = [ ".local/state/nvim" ];    # undo history, shada
+
     programs.nixvim = {
       enable = true;
       defaultEditor = config._.editor == "nvim";  # true if editor = nvim
