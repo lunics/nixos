@@ -1,5 +1,10 @@
 {
   flake.aspects.gaming.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [
+      ".config/Ryujinx"    # ryubing keys, firmware, saves
+      ".PlayOnLinux"       # playonlinux prefixes
+    ];
+
     home.packages = with pkgs; [
       ryubing           # nintendo switch emulator
 
