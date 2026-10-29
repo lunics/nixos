@@ -1,5 +1,9 @@
 {
-  flake.aspects.editor.homeManager = { config, pkgs, ... }:{
+  flake.aspects.editor.homeManager = { config, lib, pkgs, ... }:{
+    _.persistent-home.dirs = [
+      ".config/joplin"    # joplin-cli notes database
+    ] ++ lib.optional config.programs.joplin-desktop.enable ".config/joplin-desktop";
+
     programs.joplin-desktop = {
       enable  = false;
       package = pkgs.joplin-desktop;
