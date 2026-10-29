@@ -1,6 +1,8 @@
 {
   flake.aspects.home-studio.homeManager = { config, lib, pkgs, ... }:{
     config = lib.mkIf config._.home_studio {
+      _.persistent-home.dirs = [ ".config/yabridgectl" ];    # plugin directories to sync
+
       home.packages = with pkgs; [
         yabridge            # to use Windows VST2, VST3 and CLAP plugins on Linux
         yabridgectl         # small, optional utility to help set up and update yabridge for several directories at once
