@@ -1,6 +1,6 @@
 {
-  flake.aspects.obs.homeManager = { config, lib, pkgs, ... }:{
-    _.persistent-home.dirs = lib.mkIf config.programs.obs-studio.enable [ ".config/obs-studio" ];
+  flake.aspects.obs.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [ ".config/obs-studio" ];
 
     programs.obs-studio = {
       enable  = false;
