@@ -1,9 +1,9 @@
 {
-  flake.aspects.file_explorer.homeManager = { config, pkgs, ... }:{ 
+  flake.aspects.file_explorer.homeManager = { pkgs, ... }:{
     home.packages = with pkgs; [
       zoxide
     ];
 
-    programs.zsh.sessionVariables._ZO_DATA_DIR = "${config._.share}/zoxide";
+    _.persistent-home.dirs = [ ".local/share/zoxide" ];    # default _ZO_DATA_DIR
   };
 }
