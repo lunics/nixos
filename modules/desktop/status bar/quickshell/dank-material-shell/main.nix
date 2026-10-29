@@ -12,6 +12,8 @@
 
     _.status_bar = "dms";
 
+    _.persistent-home.dirs = [ ".local/state/DankMaterialShell" ];    # session.json: weather location, night mode, runtime toggles
+
     programs.dank-material-shell = {
       enable = true;
       quickshell.package = pkgs.quickshell;
