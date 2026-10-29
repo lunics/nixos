@@ -1,7 +1,8 @@
 {
   flake.aspects.devops.homeManager = { config, lib, pkgs, ... }:
   let
-    token-dir = "${config._.local_share}/openbao";
+    token-dir   = "${config._.local_share}/openbao";
+    config-path = "${config._.dot_config}/openbao/config.hcl";
 
     # keeps the token in a persisted directory, the default ~/.vault-token is replaced by rename and can't be bind mounted
     token-helper = pkgs.writeShellScript "bao-token-helper" ''
@@ -17,6 +18,8 @@
         ".terraform.d"                                            # tofu login credentials
         { directory = ".local/share/openbao"; mode = "0700"; }    # bao token, through the token helper
       ];
+
+      systemd.user.sessionVariables.BAO_CONFIG_PATH = config-path;    # bao run by user services sees the token helper too
 
       xdg.configFile."openbao/config.hcl".text = ''
         token_helper = "${token-helper}"
@@ -34,7 +37,7 @@
           # atmos         # universal Tool for DevOps and Cloud Automation (works with terraform, helm, helmfile, etc)
         ];
 
-        sessionVariables.BAO_CONFIG_PATH = "${config._.dot_config}/openbao/config.hcl";
+        sessionVariables.BAO_CONFIG_PATH = config-path;
 
         shellAliases = {
           tf    = "tofu";
