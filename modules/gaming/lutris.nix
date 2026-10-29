@@ -1,5 +1,11 @@
 {
   flake.aspects.lutris.homeManager = { pkgs, ... }:{
+    _.persistent-home.dirs = [
+      ".config/lutris"         # game configurations
+      ".local/share/lutris"    # library database, runners, wine prefixes
+      "Games"                  # default install directory
+    ];
+
     programs.lutris = {
       enable  = true;
       package = pkgs.lutris;
