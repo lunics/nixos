@@ -1,6 +1,8 @@
 {
   flake.aspects.messaging.homeManager = { config, pkgs, lib, ... }:{ 
     config = lib.mkIf config._.whatsapp {
+      _.persistent-home.dirs = [ ".local/share/karere" ];    # webview session
+
       home.packages = with pkgs; [
         karere        # new wasistlos replacement
         # wasistlos   # removed because unmaintained and archived upstream
