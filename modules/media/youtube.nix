@@ -1,7 +1,10 @@
 { inputs, ... }:{
   flake-file.inputs.yt-x = {
     url = "github:Benexl/yt-x";
-    inputs.nixpkgs.follows = "nixpkgs";
+    inputs = {
+      nixpkgs.follows     = "nixpkgs";
+      flake-utils.follows = "flake-utils";
+    };
   };
 
   flake.aspects.media.homeManager = { config, pkgs, ... }:{
