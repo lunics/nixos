@@ -20,6 +20,11 @@
       daemonIOSchedClass    = "best-effort";    # best-effort, idle;  Nix daemon process I/O scheduling class
       daemonIOSchedPriority = 4;                # Nix daemon process I/O scheduling priority
       daemonCPUSchedPolicy  = "other";          # other, batch, idle; Nix daemon process CPU scheduling policy
+
+      # required to avoid Github API rate limit exceeded, path of the shared clan var github-token, ignored if absent
+      extraOptions = ''
+        !include /run/secrets/vars/shared/github-token/access-tokens
+      '';
     };
 
     environment.systemPackages = with pkgs; [
