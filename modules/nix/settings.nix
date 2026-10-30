@@ -6,22 +6,23 @@
     '';
 
     nix.settings = {
-      allowed-users = [ "*" ];          # users allowed to connect to the Nix daemon, @group to add new group
-      trusted-users = [ "root" ]        # users that have additional rights, required for deploy-rs
+      allowed-users = [ "*" ];        # users allowed to connect to the Nix daemon, @group to add new group
+      trusted-users = [ "root" ]      # users that have additional rights, required for deploy-rs
         ++config._.nix.trusted-users;
 
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      require-sigs = true;                  # will only download binaries cryptographically signed
-      substituters = [];
-      trusted-substituters = [];            # binary cache URLs that non-root users can use 
+      require-sigs = true;            # will only download binaries cryptographically signed
+      cores        = 0;               # 0 means use all available CPU cores
+      max-jobs     = "auto";          # will use all available logical cores
+      sandbox      = true;            # builds performed in a sandboxed environment, prevents impurities
+      auto-optimise-store = true;     # replaces identical files in the store with hard links
+      substituters         = [];
+      trusted-substituters = [];      # binary cache URLs that non-root users can use 
       trusted-public-keys  = [];
-      cores    = 0;                         # 0 means use all available CPU cores
-      max-jobs = "auto";                    # will use all available logical cores
-      auto-optimise-store = true;           # replaces identical files in the store with hard links
-      sandbox = true;                       # builds performed in a sandboxed environment, prevents impurities
+      access-tokens        = [];      # accept only clear token "github.com=ghp_xxx", prefer the !include /run/secrets/... from nix-nixos.nix
     };
   };
 }
