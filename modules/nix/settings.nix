@@ -1,13 +1,14 @@
 {
   flake.aspects.nix.nixos = { config, ... }:{
+    # required to avoid Github API rate limit exceeded, path of the shared clan var github-token, ignored when absent
+    nix.extraOptions = ''
+      !include /run/secrets/vars/shared/github-token/access-tokens
+    '';
+
     nix.settings = {
       allowed-users = [ "*" ];          # users allowed to connect to the Nix daemon, @group to add new group
       trusted-users = [ "root" ]        # users that have additional rights, required for deploy-rs
         ++config._.nix.trusted-users;
-
-      # access-tokens = [
-      #   "github.com=${config._.github_token}"     # required to avoid Github API rate limit exceeded
-      # ];
 
       experimental-features = [
         "nix-command"
