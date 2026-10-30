@@ -54,10 +54,6 @@
 
 #         inherit experimental-features;
 
-#         access-tokens = [
-#           "github.com=${config._.github_token}"     # required to avoid Github API rate limit exceeded
-#         ];
-
 #         inherit require-sigs;
 #         inherit substituters;
 #         trusted-substituters = substituters;    # binary cache URLs that non-root users can use
@@ -71,10 +67,6 @@
 #     homeManager = { config, ... }:{
 #       nix.settings = {
 #         inherit experimental-features;
-
-#         access-tokens = [
-#           "github.com=${config._.github_token}"
-#         ];
 
 #         inherit require-sigs;
 #         inherit substituters;
