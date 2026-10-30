@@ -23,7 +23,7 @@
 
       # required to avoid Github API rate limit exceeded, path of the shared clan var nixos-access-tokens, ignored if absent
       extraOptions = ''
-        !include /run/secrets/vars/shared/nixos-access-tokens/access-tokens
+        !include /run/secrets/vars/shared/nixos-access-tokens/token
       '';
     };
 
