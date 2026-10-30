@@ -21,9 +21,9 @@
       daemonIOSchedPriority = 4;                # Nix daemon process I/O scheduling priority
       daemonCPUSchedPolicy  = "other";          # other, batch, idle; Nix daemon process CPU scheduling policy
 
-      # required to avoid Github API rate limit exceeded, path of the shared clan var github-token, ignored if absent
+      # required to avoid Github API rate limit exceeded, path of the shared clan var nixos-access-tokens, ignored if absent
       extraOptions = ''
-        !include /run/secrets/vars/shared/github-token/access-tokens
+        !include /run/secrets/vars/shared/nixos-access-tokens/access-tokens
       '';
     };
 
