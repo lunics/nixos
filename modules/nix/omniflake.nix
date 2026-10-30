@@ -6,6 +6,7 @@
       systems.follows      = "systems";
       flake-parts.follows  = "flake-parts";
       flake-compat.follows = "flake-compat";
+      flake-utils.follows  = "flake-utils";
     };
   };
 }
