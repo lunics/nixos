@@ -9,6 +9,11 @@
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
       };
+      # no direct use: top-level input so omniflake and yt-x share a single flake-utils (auto-follow)
+      flake-utils = {
+        url = "github:numtide/flake-utils";
+        inputs.systems.follows = "systems";
+      };
     };
 
     outputs = ''
