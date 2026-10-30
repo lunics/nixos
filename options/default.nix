@@ -11,11 +11,6 @@
         default = "";
       };
 
-      github_token = mkOption {
-        type    = types.str;
-        default = "";
-      };
-
       splitkb   = mkEnableOption "";
 
       devbox    = mkEnableOption "";
