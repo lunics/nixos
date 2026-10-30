@@ -11,7 +11,7 @@
       inputs.nix-auto-follow.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
-    # nixos-raspberrypi pins nvmd forks (nixos-images#sdimage-installer), never dedup its subtree
-    home.shellAliases.auto-follow = "auto-follow --ignore nixos-raspberrypi";
+    # nixos-raspberrypi pins nvmd forks (nixos-images#sdimage-installer), determinate pins its own nixpkgs: rewriting it changes the nix drv
+    home.shellAliases.auto-follow = "auto-follow --ignore nixos-raspberrypi --ignore determinate";
   };
 }
