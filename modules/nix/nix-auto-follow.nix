@@ -8,6 +8,7 @@
 
   flake.aspects.nix.homeManager = { pkgs, ... }:{
     home.packages = [
+      ## restore once it builds without the overrideAttrs: inputs.nix-auto-follow.packages.${pkgs.stdenv.hostPlatform.system}.default
       (inputs.nix-auto-follow.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
         # structuredAttrs keeps upstream's top-level SETUPTOOLS_SCM_PRETEND_VERSION out of the env, and env can't redefine it
         env = (old.env or {}) // { SETUPTOOLS_SCM_PRETEND_VERSION_FOR_NIX_AUTO_FOLLOW = "0.0.0"; };
