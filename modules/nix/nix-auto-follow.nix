@@ -7,6 +7,7 @@
   };
 
   flake.aspects.nix.homeManager = { pkgs, ... }:{
+    ## pkg KO for now
     ## home.packages = [
     ##   inputs.nix-auto-follow.packages.${pkgs.stdenv.hostPlatform.system}.default
     ## ];
