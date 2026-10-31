@@ -147,7 +147,8 @@
       enableSystemMonitoring = true;  # System monitoring widgets (dgop)
       enableDynamicTheming   = true;  # Wallpaper-based theming (matugen)
       enableAudioWavelength  = true;  # Audio visualizer (cava)
-      enableCalendarEvents   = true;  # Calendar integration (khal)
+      ## re-enable once khal builds again, its man output fails with sphinx-hook and structuredAttrs
+      enableCalendarEvents   = false; # Calendar integration (khal)
       enableClipboardPaste   = false;
     };
   };
