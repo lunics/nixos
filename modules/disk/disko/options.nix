@@ -37,10 +37,6 @@
         type    = types.nullOr types.str;
         default = null;
       };
-      luks-key-file = mkOption {
-        type    = types.nullOr types.path;
-        default = null;
-      };
       btrfs-partuuid = mkOption {
         type    = types.nullOr types.str;
         default = null;

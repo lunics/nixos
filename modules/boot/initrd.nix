@@ -38,7 +38,7 @@
                                         # must be commented because not used by systemd stage 1
 
             header             = null;
-            keyFile            = config._.disk.luks-key-file;
+            keyFile            = null;
             keyFileTimeout     = null;
             keyFileSize        = null;
             keyFileOffset      = null;
