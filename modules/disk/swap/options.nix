@@ -11,7 +11,10 @@
       };
 
       zram-swap = {
-        enable = mkEnableOption "";
+        enable = mkOption {
+          type    = types.bool;
+          default = true;
+        };
 
         memoryPercent = mkOption {
           type    = types.int;
