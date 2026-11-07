@@ -20,8 +20,9 @@
   };
 
   # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
+  # build with: nix build .#iso-installer
   perSystem = { system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
-    packages.installer-iso = (inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
+    packages.iso-installer =(inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
       modules = [
         self.modules.generic.options
         self.modules.nixos.nixos-images
