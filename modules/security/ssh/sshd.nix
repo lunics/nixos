@@ -54,7 +54,9 @@
 
     # a new host identity on every boot breaks the known_hosts of the clients
     # symlink, not bindmount: sshd-keygen writes the missing key through the link, it cannot rm a busy mount
+    # keys under /run live on a tmpfs: clan deploys its own one as a var, stable already and without a .pub
     _.persistent-system.files = map (file: { inherit file; how = "symlink"; configureParent = true; })
-      (lib.concatMap (key: [ key.path "${key.path}.pub" ]) config.services.openssh.hostKeys);
+      (lib.concatMap (key: [ key.path "${key.path}.pub" ])
+        (lib.filter (key: !(lib.hasPrefix "/run/" key.path)) config.services.openssh.hostKeys));
   };
 }
