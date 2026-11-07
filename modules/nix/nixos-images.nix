@@ -12,10 +12,8 @@
       };
     };
 
-    nixos-images.nixos = { config, ... }:{
+    nixos-images.nixos = {
       imports = [ inputs.nixos-images.nixosModules.image-installer ];
-
-      users.users.root.openssh.authorizedKeys.keys = config._.installer-ssh-keys;
     };
   };
 
