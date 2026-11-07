@@ -1,8 +1,31 @@
 {
-  # kept out of the dns aspect, resolved answers <hostname>.local only where wanted
-  flake.aspects.mdns.nixos = {
-    services.resolved.settings.Resolve.MulticastDNS = "yes";
+  flake.aspects = {
+    options.generic = { lib, ... }: with lib; {
+      options._.mdns.backend = mkOption {
+        type    = types.enum [ "avahi" "systemd-resolved" ];
+        default = "avahi";
+      };
+    };
 
-    networking.firewall.allowedUDPPorts = [ 5353 ];
+    # kept out of the dns aspect, <hostname>.local answered only where wanted
+    mdns.nixos = { config, lib, ... }:
+    let
+      backend = config._.mdns.backend;
+    in {
+      services.avahi = lib.mkIf (backend == "avahi") {
+        enable       = true;
+        nssmdns4     = true;
+        openFirewall = true;    # udp 5353
+        publish      = {
+          enable    = true;
+          addresses = true;
+        };
+      };
+
+      # only one of them may own udp 5353
+      services.resolved.settings.Resolve.MulticastDNS = if backend == "systemd-resolved" then "yes" else "no";
+
+      networking.firewall.allowedUDPPorts = [ 5353 ];
+    };
   };
 }
