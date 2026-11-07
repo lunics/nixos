@@ -18,7 +18,8 @@
         self.modules.nixos.location
       ];
 
-      # charge thresholds only, no cpu capping during the install
+      boot.zfs.forceImportRoot = false;
+
       services.tlp = {
         enable   = true;
         settings = {
