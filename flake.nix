@@ -96,6 +96,10 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    nixos-images = {
+      url = "github:nix-community/nixos-images";
+      inputs.nixos-unstable.follows = "nixpkgs";
+    };
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
