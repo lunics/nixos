@@ -17,6 +17,17 @@
         inputs.nixos-images.nixosModules.image-installer
         self.modules.nixos.location
       ];
+
+      # charge thresholds only, no cpu capping during the install
+      services.tlp = {
+        enable   = true;
+        settings = {
+          START_CHARGE_THRESH_BAT0 = 41;
+          STOP_CHARGE_THRESH_BAT0  = 61;
+          START_CHARGE_THRESH_BAT1 = 41;
+          STOP_CHARGE_THRESH_BAT1  = 61;
+        };
+      };
     };
   };
 
