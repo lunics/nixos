@@ -1,4 +1,4 @@
-{ inputs, ... }:{
+{ inputs, lib, self, ... }:{
   flake-file.inputs.nixos-images = {
     url = "github:nix-community/nixos-images";
     inputs.nixos-unstable.follows = "nixpkgs";   # nixos-stable kept to match the official release
@@ -17,5 +17,17 @@
 
       users.users.root.openssh.authorizedKeys.keys = config._.installer-ssh-keys;
     };
+  };
+
+  # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
+  perSystem = { system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
+    packages.installer-iso = (inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
+      modules = [
+        self.modules.generic.options
+        self.modules.nixos.nixos-images
+        self.modules.nixos.location
+        { nixpkgs.hostPlatform = system; }
+      ];
+    }).config.system.build.isoImage;
   };
 }
