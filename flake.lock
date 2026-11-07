@@ -1219,6 +1219,27 @@
     },
     "nixos-images_2": {
       "inputs": {
+        "nixos-stable": "nixos-stable_2",
+        "nixos-unstable": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791456080,
+        "narHash": "sha256-VDnm81L/1YLrPklNacGCNwpPhHi5Tya1XbfdnCB/Zd0=",
+        "owner": "nix-community",
+        "repo": "nixos-images",
+        "rev": "50939ddf1a0339f289a9dbd810bdfd4e4fba6df4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-images",
+        "type": "github"
+      }
+    },
+    "nixos-images_3": {
+      "inputs": {
         "nixos-stable": [
           "nixos-raspberrypi",
           "nixpkgs"
@@ -1247,7 +1268,7 @@
       "inputs": {
         "argononed": "argononed",
         "flake-compat": "flake-compat_5",
-        "nixos-images": "nixos-images_2",
+        "nixos-images": "nixos-images_3",
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
@@ -1279,6 +1300,23 @@
         "ref": "nixos-26.05",
         "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "nixos-stable_2": {
+      "locked": {
+        "lastModified": 1791143449,
+        "narHash": "sha256-9+n3ReS2y9xS199LoJjKUWHwZrISGHWgkD/LUZTDZyA=",
+        "ref": "nixos-26.05",
+        "rev": "0d9e9b832d03ac387417e16ce1febf73b2e631e1",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      },
+      "original": {
+        "ref": "nixos-26.05",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
       }
     },
     "nixpkgs": {
@@ -1672,6 +1710,7 @@
         "musnix": "musnix",
         "nix-auto-follow": "nix-auto-follow",
         "nixos-anywhere": "nixos-anywhere",
+        "nixos-images": "nixos-images_2",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_9",
         "nixvim": "nixvim",
