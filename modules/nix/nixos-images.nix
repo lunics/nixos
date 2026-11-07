@@ -13,7 +13,10 @@
     };
 
     nixos-images.nixos = {
-      imports = [ inputs.nixos-images.nixosModules.image-installer ];
+      imports = [
+        inputs.nixos-images.nixosModules.image-installer
+        self.modules.nixos.location
+      ];
     };
   };
 
@@ -24,7 +27,6 @@
       modules = [
         self.modules.generic.options
         self.modules.nixos.nixos-images
-        self.modules.nixos.location
         { nixpkgs.hostPlatform = system; }
       ];
     }).config.system.build.isoImage;
