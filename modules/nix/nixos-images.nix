@@ -25,9 +25,9 @@
       boot.zfs.forceImportRoot = false;
 
       users.users.root = {
-        hashedPassword        = if builtins.pathExists clan-pwd-hash
-                                then lib.fileContents clan-pwd-hash
-                                else "$y$j9T$V3OR0uHvpa3VEUnuYcMDM.$ZcMsQr5izbIqOeYTtDTiRFtzVJWTI4DkDw6gms8xPnC";
+        hashedPassword = if builtins.pathExists clan-pwd-hash
+                         then lib.fileContents clan-pwd-hash
+                         else "$y$j9T$V3OR0uHvpa3VEUnuYcMDM.$ZcMsQr5izbIqOeYTtDTiRFtzVJWTI4DkDw6gms8xPnC";  # rescue password
         initialHashedPassword = lib.mkForce null;   # empty one from installation-device, avoids the multiple passwords warning
       };
       system.activationScripts.root-password = lib.mkForce "";   # drop the random xkcdpass password set at each boot
@@ -49,9 +49,13 @@
     };
   };
 
-  # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
-  # build with: nix build .#iso-installer
+  # build from the remote flake
+  #   nix build github:lunics/nixos#iso-installer       can only use the raw hash
+  #   nix build github:lunics/clan-hosts#iso-installer  can use both: raw hash and clan var installer-root-pwd
+  # build from the local flake
+  #   nix build .#iso-installer                         from a local clan flake (nixos or clan-hosts)
   perSystem = { system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
+    # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
     packages.iso-installer =(inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
       modules = [
         self.modules.generic.options
