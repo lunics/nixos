@@ -38,11 +38,9 @@
     };
   };
 
-  # build from the remote flake
-  #   nix build github:lunics/nixos#iso-installer       can only use the raw hash
-  #   nix build github:lunics/clan-hosts#iso-installer  can use both: raw hash and clan var installer-root-pwd
-  # build from the local flake
-  #   nix build .#iso-installer                         from a local clan flake (nixos or clan-hosts)
+  # root ssh access to the iso
+  #   from nixos-hosts: nix run .#build-iso-installer   iso-installer-ssh-key clan var + random password shown on the console
+  #   from nixos:       nix build .#iso-installer       random password shown on the console only
   perSystem = { system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
     # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
     packages.iso-installer =(inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
