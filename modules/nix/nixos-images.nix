@@ -12,25 +12,13 @@
       };
     };
 
-    nixos-images.nixos = { lib, ... }:
-    let
-      # public clan var of nixos-hosts, absent when built from this repo
-      clan-pwd-hash = self + "/vars/shared/installer-root-pwd/password-hash/value";
-    in {
+    nixos-images.nixos = {
       imports = [
         inputs.nixos-images.nixosModules.image-installer
         self.modules.nixos.location
       ];
 
       boot.zfs.forceImportRoot = false;
-
-      users.users.root = {
-        hashedPassword = if builtins.pathExists clan-pwd-hash
-                         then lib.fileContents clan-pwd-hash
-                         else "$y$j9T$V3OR0uHvpa3VEUnuYcMDM.$ZcMsQr5izbIqOeYTtDTiRFtzVJWTI4DkDw6gms8xPnC";  # rescue password
-        initialHashedPassword = lib.mkForce null;   # empty one from installation-device, avoids the multiple passwords warning
-      };
-      system.activationScripts.root-password = lib.mkForce "";   # drop the random xkcdpass password set at each boot
 
       services.openssh.settings = {
         PermitRootLogin        = "yes";
