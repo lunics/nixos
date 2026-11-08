@@ -5,13 +5,20 @@
   };
 
   flake.aspects = {
-    nixos-images.nixos = {
+    nixos-images.nixos =
+    let
+      # public clan var of nixos-hosts, absent when built from this repo
+      ssh-pub-key = self + "/vars/shared/iso-installer-ssh-key/id_ed25519.pub/value";
+    in {
       imports = [
         inputs.nixos-images.nixosModules.image-installer
         self.modules.nixos.location
       ];
 
       boot.zfs.forceImportRoot = false;
+
+      users.users.root.openssh.authorizedKeys.keys = 
+        lib.optional (builtins.pathExists ssh-pub-key) (lib.fileContents ssh-pub-key);
 
       services.openssh.settings = {
         PermitRootLogin        = "yes";
