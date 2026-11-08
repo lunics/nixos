@@ -41,6 +41,7 @@
   # root ssh access to the iso
   #   from nixos-hosts: nix run .#build-iso-installer   iso-installer-ssh-key clan var + random password shown on the console
   #   from nixos:       nix build .#iso-installer       random password shown on the console only
+  #                     nix build .#iso-installer -o ~/.cache/iso-installer/result   out link in the user cache instead of ./result
   perSystem = { system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
     # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
     packages.iso-installer =(inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
