@@ -26,6 +26,11 @@
       };
       system.activationScripts.root-password = lib.mkForce "";   # drop the random xkcdpass password set at each boot
 
+      services.openssh.settings = {
+        PermitRootLogin        = "yes";
+        PasswordAuthentication = true;
+      };
+
       services.tlp = {
         enable   = true;
         settings = {
