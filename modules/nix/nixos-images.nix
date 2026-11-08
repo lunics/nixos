@@ -23,6 +23,7 @@
       services.openssh.settings = {
         PermitRootLogin        = "yes";
         PasswordAuthentication = true;
+        PubkeyAuthentication   = true;
       };
 
       services.tlp = {
