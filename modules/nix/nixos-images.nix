@@ -12,13 +12,19 @@
       };
     };
 
-    nixos-images.nixos = {
+    nixos-images.nixos = { lib, ... }:{
       imports = [
         inputs.nixos-images.nixosModules.image-installer
         self.modules.nixos.location
       ];
 
       boot.zfs.forceImportRoot = false;
+
+      users.users.root = {
+        hashedPassword        = "$y$j9T$V3OR0uHvpa3VEUnuYcMDM.$ZcMsQr5izbIqOeYTtDTiRFtzVJWTI4DkDw6gms8xPnC";
+        initialHashedPassword = lib.mkForce null;   # empty one from installation-device, avoids the multiple passwords warning
+      };
+      system.activationScripts.root-password = lib.mkForce "";   # drop the random xkcdpass password set at each boot
 
       services.tlp = {
         enable   = true;
