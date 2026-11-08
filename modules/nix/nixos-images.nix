@@ -5,13 +5,6 @@
   };
 
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
-      options._.installer-ssh-keys = mkOption {
-        type    = types.listOf types.str;
-        default = [];
-      };
-    };
-
     nixos-images.nixos = {
       imports = [
         inputs.nixos-images.nixosModules.image-installer
