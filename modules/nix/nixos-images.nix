@@ -1,15 +1,21 @@
-{ inputs, lib, self, ... }:{
-  flake-file.inputs.nixos-images = {
+{ inputs, lib, self, config, ... }:
+let
+  iso-installer = config.iso-installer;
+in {
+  config.flake-file.inputs.nixos-images = {
     url = "github:nix-community/nixos-images";
     inputs.nixos-unstable.follows = "nixpkgs";   # nixos-stable kept to match the official release
   };
 
-  flake.aspects = {
-    nixos-images.nixos =
-    let
-      # public clan var of nixos-hosts, absent when built from this repo
-      ssh-pub-key = self + "/vars/shared/iso-installer-ssh-key/id_ed25519.pub/value";
-    in {
+  # root keys of the iso, set by the consuming flake (e.g. nixos-hosts from its clan vars)
+  # the names stay readable by its apps, e.g. to load the matching private keys
+  options.iso-installer.ssh-keys = lib.mkOption {
+    type    = lib.types.attrsOf lib.types.str;
+    default = {};
+  };
+
+  config.flake.aspects = {
+    nixos-images.nixos = {
       imports = [
         inputs.nixos-images.nixosModules.image-installer
         self.modules.nixos.location
@@ -17,8 +23,8 @@
 
       boot.zfs.forceImportRoot = false;
 
-      users.users.root.openssh.authorizedKeys.keys = 
-        lib.optional (builtins.pathExists ssh-pub-key) (lib.fileContents ssh-pub-key);
+      users.users.root.openssh.authorizedKeys.keys =
+        lib.filter (key: key != "") (lib.attrValues iso-installer.ssh-keys);
 
       services.openssh.settings = {
         PermitRootLogin        = "yes";
@@ -39,10 +45,10 @@
   };
 
   # root ssh access to the iso
-  #   from nixos-hosts: nix run .#build-iso-installer   iso-installer-ssh-key clan var + random password shown on the console
+  #   from nixos-hosts: nix run .#build-iso-installer   iso-installer.ssh-keys + random password shown on the console
   #   from nixos:       nix build .#iso-installer       random password shown on the console only
   #                     nix build .#iso-installer -o ~/.cache/iso-installer/result   out link in the user cache instead of ./result
-  perSystem = { system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
+  config.perSystem ={ system, ... }: lib.optionalAttrs (lib.hasSuffix "-linux" system) {
     # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
     packages.iso-installer =(inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
       modules = [
