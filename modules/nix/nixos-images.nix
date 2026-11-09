@@ -7,8 +7,9 @@ in {
     inputs.nixos-unstable.follows = "nixpkgs";   # nixos-stable kept to match the official release
   };
 
-  # root keys of the iso, set by the consuming flake (e.g. nixos-hosts from its clan vars)
-  # the names stay readable by its apps, e.g. to load the matching private keys
+  # Root keys of the iso, set by the consuming flake (e.g. nixos-hosts from its clan vars).
+  # Named so a clan app (e.g. install-machine) reads lib.attrNames config.iso-installer.ssh-keys
+  # at eval time to know which private keys to load.
   options.iso-installer.ssh-keys = lib.mkOption {
     type    = lib.types.attrsOf lib.types.str;
     default = {};
