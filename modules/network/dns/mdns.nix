@@ -26,6 +26,12 @@
       services.resolved.settings.Resolve.MulticastDNS = if backend == "systemd-resolved" then "yes" else "no";
 
       networking.firewall.allowedUDPPorts = [ 5353 ];
+
+      # mdns support *.local by default so we shorten ssh <machine>.local to ssh <machine> when using ssh + certificate
+      programs.ssh.extraConfig = ''
+        CanonicalizeHostname yes
+        CanonicalDomains     local
+      '';
     };
   };
 }
