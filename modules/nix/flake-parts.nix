@@ -25,7 +25,7 @@
       };
     };
 
-    make_clan_machines = system: names: lib.genAttrs names (name: {
+    make_clan_nixos = system: names: lib.genAttrs names (name: {
       imports = [
         self.modules.generic.options
         self.modules.nixos.${name}
