@@ -34,7 +34,7 @@
       })
       (mkIf _.dual_boot {
         disko.devices.nodev."/boot" = {
-          device     = "/dev/disk/by-uuid/${_.boot_uuid}";
+          device     = _.boot-by-partuuid;
           mountpoint = "/boot";
           fsType     = "vfat";
         };

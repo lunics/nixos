@@ -13,9 +13,10 @@
         type    = types.str;
         default = "1G";
       };
-      boot_uuid = mkOption {    # required in dual boot
+      boot-by-partuuid = mkOption {    # required in dual boot, gpt guid of the existing esp
         type    = types.nullOr types.str;
         default = null;
+        apply   = id: if id == null || hasPrefix "/" id then id else "/dev/disk/by-partuuid/${id}"; # concat path to partuuid
       };
       firmware-size = mkOption {    # holds every generation with the kernel bootloader
         type    = types.str;
