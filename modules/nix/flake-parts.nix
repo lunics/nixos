@@ -41,6 +41,29 @@
       );
     });
 
+    # clan machines + home-manager as submodule
+    make_clan_nixos-hm = system: names: lib.genAttrs names (name: {
+      imports = [
+        self.modules.generic.options
+        self.modules.nixos.${name}
+        inputs.home-manager.nixosModules.home-manager
+      ];
+
+      nixpkgs.hostPlatform = lib.mkDefault system;
+
+      clan.core.networking.targetHost = lib.mkDefault "root@${name}";
+
+      _.machine-index = lib.mkDefault (
+        let last = lib.substring (builtins.stringLength name - 1) 1 name;
+        in if builtins.match "[0-9]" last != null then lib.toInt last else 0
+      );
+
+      home-manager.sharedModules = [
+        self.modules.generic.options
+        inputs.sops-nix.homeManagerModules.sops
+      ];
+    });
+
     make_darwin = system: name: {
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
