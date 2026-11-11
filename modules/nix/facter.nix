@@ -8,6 +8,8 @@
     };
 
     facter.nixos = { config, lib, pkgs, ... }:{
+      key = "aspects/facter";    # make the key static so the module system dedups this aspect when included by several others
+
       hardware.facter = {
         enable = config.hardware.facter.report != {};   # auto-activation only if a report is set
 
