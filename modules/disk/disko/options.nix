@@ -2,8 +2,8 @@
   flake.aspects.options.generic = { config, lib, ... }: with lib; {
     options._.disk = {
       device-by-id = mkOption {
-        description = "/dev/disk/by-id/nvme-...";
-        type = types.str;
+        type  = types.str;
+        apply = id: if hasPrefix "/" id then id else "/dev/disk/by-id/${id}"; # concat path to disk-id
       };
       boot-mode = mkOption {    # hybrid boots the same disk from bios and uefi firmwares
         type    = types.enum [ "uefi" "bios" "hybrid" ];
