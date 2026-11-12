@@ -1,4 +1,4 @@
 _run_pass() {
-  $HOME/.nix-profile/bin/passfzf
+  command passfzf
   zle reset-prompt    # needed to avoid press enter to exit subshell
 }

@@ -4,7 +4,7 @@ _run_switch() {
 
   if [[ -n $target ]]; then
     [[ $target == home-manager ]] && target=hm
-    $HOME/.nix-profile/bin/switch $target
+    command switch $target
   fi
 
   zle reset-prompt    # needed to avoid press enter to exit subshell
