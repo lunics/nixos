@@ -74,7 +74,7 @@
       stop_pomodoro  = "systemctl --user stop  pomodoro.timer && systemctl --user stop  pomodoro.service && echo '0' > /tmp/pomodoro_cycle";
       start_pomodoro = "echo '0' > /tmp/pomodoro_cycle && systemctl --user start pomodoro.timer";
 
-      synth-helm = "${config._.home}/.nix-profile/bin/helm";
+      synth-helm = "${config._.profile}/bin/helm";
       l_mount = "df -aTh --total";
       l_date  = "eza -la --sort=mod";
       l_filesystems = "lsblk --fs; df -Th --total";
