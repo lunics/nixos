@@ -7,11 +7,15 @@
     default = { };
   };
 
-  config.flake.lib = {
+  config.flake.lib =
+  let
+    # generic options and host values, shared by the nixos and home-manager evals
+    generic = name: self.modules.generic.${name} or self.modules.generic.options;
+  in {
     make_nixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          self.modules.generic.options
+          (generic name)
           self.modules.nixos.${name}
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
