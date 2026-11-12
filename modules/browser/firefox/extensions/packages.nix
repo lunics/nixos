@@ -4,9 +4,9 @@
     inputs.nixpkgs.follows = "nixpkgs"; 
   };
 
-  flake.aspects.browser.homeManager = { config, pkgs, ... }:{
-    nixpkgs.overlays = [ inputs.nur.overlays.default ];
+  flake.overlays.nur = inputs.nur.overlays.default;    # applied by the builders, home-manager reuses the system pkgs
 
+  flake.aspects.browser.homeManager = { config, pkgs, ... }:{
     _.allow-unfree = with pkgs.nur.repos.rycee.firefox-addons; [ 
       enhancer-for-youtube 
       keepa
