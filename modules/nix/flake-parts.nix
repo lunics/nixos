@@ -62,6 +62,10 @@
         in if builtins.match "[0-9]" last != null then lib.toInt last else 0
       );
 
+      # home-manager reuses the system pkgs, the overlays of its aspects are applied here
+      nixpkgs.overlays = lib.attrValues self.overlays;
+
+      home-manager.useGlobalPkgs = true;
       home-manager.sharedModules = [
         (generic name)
         inputs.sops-nix.homeManagerModules.sops
@@ -90,6 +94,10 @@
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
 
+            # home-manager reuses the system pkgs, the overlays of its aspects are applied here
+            nixpkgs.overlays = lib.attrValues self.overlays;
+
+            home-manager.useGlobalPkgs = true;
             home-manager.sharedModules = [
               (generic name)
               inputs.sops-nix.homeManagerModules.sops
