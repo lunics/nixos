@@ -2,7 +2,7 @@
   flake.aspects.regular-sleep-svc.homeManager = { config, pkgs, ... }:
   let
     _bin    = "/run/current-system/sw/bin";
-    _notify = "${config._.home}/.nix-profile/bin/notify-send";
+    _notify = "${config._.profile}/bin/notify-send";
 
     # logind answers CanHibernate unprivileged: yes, no, na or challenge
     _script = pkgs.writeShellScript "regular-sleep" ''
