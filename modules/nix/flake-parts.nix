@@ -31,7 +31,7 @@
 
     make_clan_nixos = system: names: lib.genAttrs names (name: {
       imports = [
-        self.modules.generic.options
+        (generic name)
         self.modules.nixos.${name}
       ];
 
