@@ -7,7 +7,8 @@
       # comma             # to runs nix software without installing it
     ] ++ config._.allow-unfree;
 
-    nixpkgs = {
+    # standalone only, as a nixos submodule home-manager reuses the system pkgs and its config
+    nixpkgs = lib.mkIf (!config.submoduleSupport.enable) {
       config = {
         allowUnfreePredicate = p: let
           name = lib.getName p;
