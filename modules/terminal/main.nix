@@ -1,4 +1,11 @@
 {
+  flake.aspects.options.generic = { lib, ... }: with lib; {
+    options._.terminal = mkOption {
+      type    = types.str;
+      default = "ghostty";
+    };
+  };
+
   flake.aspects.terminal.homeManager = { config, pkgs, ... }:{
     home.sessionVariables.TERMINAL = "${config._.terminal}";
 
