@@ -74,7 +74,7 @@
   entry // (removeAttrs vm sub-options) // {
     config.imports = [
       (vm.config or {})
-      self.modules.generic.options
+      (self.lib.vars "options")
       defaults
     ] ++ aspect;
   };
