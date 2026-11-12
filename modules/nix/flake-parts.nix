@@ -65,11 +65,14 @@
       # home-manager reuses the system pkgs, the overlays of its aspects are applied here
       nixpkgs.overlays = lib.attrValues self.overlays;
 
-      home-manager.useGlobalPkgs = true;
-      home-manager.sharedModules = [
-        (generic name)
-        inputs.sops-nix.homeManagerModules.sops
-      ];
+      home-manager = {
+        useGlobalPkgs   = true;
+        useUserPackages = true;    # packages in /etc/profiles/per-user, outside the ephemeral home
+        sharedModules   = [
+          (generic name)
+          inputs.sops-nix.homeManagerModules.sops
+        ];
+      };
     });
 
     make_darwin = system: name: {
@@ -97,11 +100,14 @@
             # home-manager reuses the system pkgs, the overlays of its aspects are applied here
             nixpkgs.overlays = lib.attrValues self.overlays;
 
-            home-manager.useGlobalPkgs = true;
-            home-manager.sharedModules = [
-              (generic name)
-              inputs.sops-nix.homeManagerModules.sops
-            ];
+            home-manager = {
+              useGlobalPkgs   = true;
+              useUserPackages = true;    # packages in /etc/profiles/per-user, outside the ephemeral home
+              sharedModules   = [
+                (generic name)
+                inputs.sops-nix.homeManagerModules.sops
+              ];
+            };
           }
         ];
       };
