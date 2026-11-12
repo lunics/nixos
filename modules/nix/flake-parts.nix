@@ -84,14 +84,14 @@
     make_nixos-hm = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          self.modules.generic.options
+          (generic name)
           self.modules.nixos.${name}
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
 
-            home-manager.sharedModules = [ 
-              self.modules.generic.options 
+            home-manager.sharedModules = [
+              (generic name)
               inputs.sops-nix.homeManagerModules.sops
             ];
           }
