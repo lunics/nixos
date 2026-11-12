@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { config, lib, ... }: with lib; let
+  flake.aspects.options.vars = { config, lib, ... }: with lib; let
     # installed RAM in MiB, smbios reports each module size in KiB
     _ram = foldl' add 0 (filter isInt (map (_dev: _dev.size or 0)
       (config.hardware.facter.report.smbios.memory_device or []))) / 1024;

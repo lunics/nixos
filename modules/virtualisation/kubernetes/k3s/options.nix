@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { config, lib, pkgs, ... }: with lib; {
+  flake.aspects.options.vars = { config, lib, pkgs, ... }: with lib; {
     options._ = {
       k3s = {
         enable = mkEnableOption "";

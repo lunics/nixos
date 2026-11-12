@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { config, lib, ... }: with lib; {
+  flake.aspects.options.vars = { config, lib, ... }: with lib; {
     options._.disk = {
       device-by-id = mkOption {
         type  = types.str;

@@ -1,5 +1,5 @@
 { inputs, ... }:{
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.vars = { lib, ... }: with lib; {
     options._ = {
       microvm  = {
         enable = mkEnableOption "";

@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.vars = { lib, ... }: with lib; {
     options._ = {
       mouse-usb-id = {
         id_vendor = mkOption {

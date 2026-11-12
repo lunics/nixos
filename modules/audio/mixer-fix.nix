@@ -1,6 +1,6 @@
 {
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
+    _.vars = { lib, ... }: with lib; {
       options._.audio-mixer-fix = mkOption {
         type    = types.str;
         default = "";      # ignore-db, soft

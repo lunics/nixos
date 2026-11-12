@@ -1,7 +1,7 @@
 # options from nixos/modules/virtualisation/qemu-vm.nix, only applied by nixos-rebuild build-vm
 {
   flake.aspects = {
-    options.generic = { config, lib, ... }: with lib; {
+    options.vars = { config, lib, ... }: with lib; {
       options._.build-vm = {
         memory = mkOption {
           type    = types.ints.positive;

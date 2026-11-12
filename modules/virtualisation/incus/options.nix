@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { lib, ... }: with lib; {
+  flake.aspects.options.vars = { lib, ... }: with lib; {
     options._.incus-vms = mkOption {
       type = types.attrsOf (types.submodule ({ name, ... }:{
         options = {

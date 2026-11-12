@@ -1,6 +1,6 @@
 {
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
+    options.vars = { lib, ... }: with lib; {
       options._.cifs = {
         server = mkOption {
           type    = types.str;

@@ -1,6 +1,6 @@
 {
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
+    options.vars = { lib, ... }: with lib; {
       # exposes the whole incus api over https, the web ui included
       options._.incus-https = {
         enable  = mkEnableOption "";

@@ -1,6 +1,6 @@
 {
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
+    options.vars = { lib, ... }: with lib; {
       options._.facter-report = mkOption {
         type    = types.nullOr types.path;
         default = null;

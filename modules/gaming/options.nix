@@ -1,5 +1,5 @@
 {
-  flake.aspects.options.generic = { config, lib, ... }: with lib; {
+  flake.aspects.options.vars = { config, lib, ... }: with lib; {
     options._ = {
       steam = mkOption {
         type    = types.bool;

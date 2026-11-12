@@ -1,6 +1,6 @@
 {
   flake.aspects = {
-    options.generic = { lib, ... }: with lib; {
+    options.vars = { lib, ... }: with lib; {
       options._.mdns.backend = mkOption {
         type    = types.enum [ "avahi" "systemd-resolved" ];
         default = "avahi";
