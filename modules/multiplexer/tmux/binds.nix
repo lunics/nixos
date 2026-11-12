@@ -1,5 +1,5 @@
 {
-  flake.aspects.tmux.homeManager = { config, pkgs, custom-tmux-fzf, ... }:
+  flake.aspects.tmux.homeManager = { config, ... }:
   let
     _tmux = config._.tmux;
   in {
