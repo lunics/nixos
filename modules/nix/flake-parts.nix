@@ -1,4 +1,4 @@
-{ inputs, lib, self, ... }:{
+{ config, inputs, lib, self, ... }:{
   imports = [ inputs.flake-parts.flakeModules.modules ];
 
   # helper functions for creating system / home-manager configurations
@@ -9,13 +9,18 @@
 
   config.flake.lib =
   let
-    # generic options and host values, shared by the nixos and home-manager evals
-    generic = name: self.modules.generic.${name} or self.modules.generic.options;
+    # generic options and vars host values, shared by the nixos and home-manager evals;
+    # resolved from the aspect, flake.modules.vars would stamp a _class nixos and home-manager refuse
+    vars = name: {
+      imports = map (class: config.flake.aspects.${name}.resolve { inherit class; }) ["generic" "vars"];
+    };
   in {
+    inherit vars;
+
     make_nixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          (generic name)
+          (vars name)
           self.modules.nixos.${name}
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
@@ -31,7 +36,7 @@
 
     make_clan_nixos = system: names: lib.genAttrs names (name: {
       imports = [
-        (generic name)
+        (vars name)
         self.modules.nixos.${name}
       ];
 
@@ -48,7 +53,7 @@
     # clan machines + home-manager as submodule
     make_clan_nixos-hm = system: names: lib.genAttrs names (name: {
       imports = [
-        (generic name)
+        (vars name)
         self.modules.nixos.${name}
         inputs.home-manager.nixosModules.home-manager
       ];
@@ -69,7 +74,7 @@
         useGlobalPkgs   = true;
         useUserPackages = true;    # packages in /etc/profiles/per-user, outside the ephemeral home
         sharedModules   = [
-          (generic name)
+          (vars name)
           inputs.sops-nix.homeManagerModules.sops
         ];
       };
@@ -78,7 +83,7 @@
     make_darwin = system: name: {
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
-          self.modules.generic.options
+          (vars "options")
           self.modules.darwin.${name}
           { 
             nixpkgs.hostPlatform = lib.mkDefault system; 
@@ -91,7 +96,7 @@
     make_nixos-hm = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
-          (generic name)
+          (vars name)
           self.modules.nixos.${name}
           inputs.home-manager.nixosModules.home-manager
           {
@@ -104,7 +109,7 @@
               useGlobalPkgs   = true;
               useUserPackages = true;    # packages in /etc/profiles/per-user, outside the ephemeral home
               sharedModules   = [
-                (generic name)
+                (vars name)
                 inputs.sops-nix.homeManagerModules.sops
               ];
             };
@@ -122,7 +127,7 @@
       ${user-at-host} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
-          self.modules.generic.options
+          (vars "options")
           self.modules.homeManager.${user-at-host}
           {
             home.username = username;
@@ -137,7 +142,7 @@
       ${name} = inputs.nixos-raspberrypi.lib.nixosSystem {
         specialArgs = inputs;
         modules = [
-          (generic name)
+          (vars name)
           # flake-parts stamps _class on every other modules class, and nixosSystem rejects it
           self.modules.nixos.${name}
           { 
