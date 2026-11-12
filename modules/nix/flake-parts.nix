@@ -48,7 +48,7 @@
     # clan machines + home-manager as submodule
     make_clan_nixos-hm = system: names: lib.genAttrs names (name: {
       imports = [
-        self.modules.generic.options
+        (generic name)
         self.modules.nixos.${name}
         inputs.home-manager.nixosModules.home-manager
       ];
@@ -63,7 +63,7 @@
       );
 
       home-manager.sharedModules = [
-        self.modules.generic.options
+        (generic name)
         inputs.sops-nix.homeManagerModules.sops
       ];
     });
