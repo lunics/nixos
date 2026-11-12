@@ -122,7 +122,7 @@
       ${name} = inputs.nixos-raspberrypi.lib.nixosSystem {
         specialArgs = inputs;
         modules = [
-          self.modules.generic.options
+          (generic name)
           # flake-parts stamps _class on every other modules class, and nixosSystem rejects it
           self.modules.nixos.${name}
           { 
