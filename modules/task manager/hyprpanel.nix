@@ -6,7 +6,7 @@
         text       = ''
           #!/usr/bin/env bash
 
-          source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+          source ${config._.profile}/etc/profile.d/hm-session-vars.sh
 
           if task +ACTIVE >& /dev/null; then
             project=$(task +ACTIVE _project)
