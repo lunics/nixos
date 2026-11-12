@@ -53,7 +53,7 @@ in {
     # exposed as a package only, so nixos-hosts doesn't list the installer as a machine
     packages.iso-installer =(inputs.nixos-images.inputs.nixos-stable.lib.nixosSystem {
       modules = [
-        self.modules.generic.options
+        (self.lib.vars "options")
         self.modules.nixos.nixos-images
         { nixpkgs.hostPlatform = system; }
       ];
