@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-source /home/${1}/.nix-profile/etc/profile.d/hm-session-vars.sh       # needed to import $BROWSER
+# needed to import $BROWSER, per-user profile as a nixos submodule, ~/.nix-profile standalone
+for profile in /etc/profiles/per-user/${1} /home/${1}/.nix-profile; do
+  [ -f "${profile}/etc/profile.d/hm-session-vars.sh" ] && source "${profile}/etc/profile.d/hm-session-vars.sh" && break
+done
 
 browser_path="/home/${1}/usb_copy/homelab/share/browser/${BROWSER}"
 profile_name="$1"
