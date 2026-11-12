@@ -5,6 +5,10 @@
         type    = types.str;
         default = config.home.homeDirectory;
       };
+      profile = mkOption {        # ~/.nix-profile standalone, /etc/profiles/per-user/<user> with useUserPackages
+        type    = types.str;
+        default = config.home.profileDirectory;
+      };
       dot_dir = mkOption {
         type    = types.str;
         default = "${config.home.homeDirectory}/.";
