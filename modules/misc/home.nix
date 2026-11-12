@@ -1,8 +1,8 @@
 {
-  flake.aspects.home.homeManager = { config, ... }:{
+  flake.aspects.home.homeManager = { config, lib, ... }:{
     home = {
-      username                  = "${config._.user}";
-      homeDirectory             = "/home/${config._.user}";
+      username                  = lib.mkDefault config._.user;                 # the nixos module sets it from users.users
+      homeDirectory             = lib.mkDefault "/home/${config._.user}";
       stateVersion              = config._.state-version;
       enableDebugInfo           = false;
       preferXdgDirectories      = true;     # make programs use XDG directories whenever supported
