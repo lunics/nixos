@@ -113,6 +113,7 @@
           {
             home.username = username;
             home.homeDirectory = "/home/${username}";
+            nixpkgs.overlays = lib.attrValues self.overlays;
           }
         ];
       };
