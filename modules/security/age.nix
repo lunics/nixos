@@ -2,9 +2,10 @@
   # osConfig stays out of the formals: a declared module arg ignores its default and breaks HM standalone
   flake.aspects.age.homeManager = { config, lib, pkgs, ... }@args:
   let
+    # clan returns /no-such-path for a generator declared but not yet imported, sops then takes over
     clan-key   = args.osConfig.clan.core.vars.generators.age-identities.files.key.path or null;
     sops-key   = config.sops.secrets.age-identities.path or null;
-    identities = if clan-key != null then clan-key else sops-key;
+    identities = if clan-key != null && clan-key != "/no-such-path" then clan-key else sops-key;
   in {
     home = {
       packages = with pkgs; [
