@@ -1,6 +1,11 @@
 {
   flake.aspects.tailscale = {
-    nixos = { config, options, lib, pkgs, ... }:{
+    nixos = { config, lib, pkgs, ... }:
+    let
+      # /no-such-path is what clan returns for a generator declared but not yet imported
+      state  = config.clan.core.vars.generators.tailscaled-state.files.state.path or null;
+      seeded = state != null && state != "/no-such-path";
+    in {
       services.tailscale = {
         enable             = true;
         useRoutingFeatures = "client";
@@ -13,12 +18,11 @@
         # authKeyFile      = config.age.secrets.tailscaleAuthKey.path;
       };
       # seed the node identity on first boot only, tailscaled owns the file afterwards
-      systemd.services.tailscaled.preStart = lib.optionalString
-        ((options ? sops) && (config.sops.secrets ? "tailscaled-state")) ''
-          if [ ! -e /var/lib/tailscale/tailscaled.state ]; then
-            install -m 0600 -o root -g root ${config.sops.secrets."tailscaled-state".path} /var/lib/tailscale/tailscaled.state
-          fi
-        '';
+      systemd.services.tailscaled.preStart = lib.optionalString seeded ''
+        if [ ! -e /var/lib/tailscale/tailscaled.state ]; then
+          install -m 0600 -o root -g root ${state} /var/lib/tailscale/tailscaled.state
+        fi
+      '';
 
       environment.systemPackages = [ pkgs.tailscale ];
 
