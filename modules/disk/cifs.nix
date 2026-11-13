@@ -16,7 +16,7 @@
         };
         secret = mkOption {
           type    = types.str;
-          default = "";       # sops-nix secret name
+          default = "";       # sops-nix secret name, fallback when clan vars is unavailable
         };
       };
     };
@@ -24,47 +24,56 @@
     disk.nixos = { config, lib, pkgs, ... }: with lib;
     let
       cifs = config._.cifs;
-    in mkIf (cifs.server != "" && cifs.shares != []) {
-      environment.systemPackages = with pkgs; [
-        cifs-utils
-      ];
 
-      assertions = [{
-        assertion = config.sops.secrets ? "${cifs.secret}";
-        message   = "sops: missing ${cifs.secret} secret";
-      }];
+      # clan returns /no-such-path for a generator declared but not yet imported, sops then takes over
+      clan-creds  = config.clan.core.vars.generators.cifs.files.credentials.path or null;
+      sops-creds  = config.sops.secrets."${cifs.secret}".path or null;
+      credentials = if clan-creds != null && clan-creds != "/no-such-path" then clan-creds else sops-creds;
+    in mkIf (cifs.server != "" && cifs.shares != []) (mkMerge [
+      {
+        environment.systemPackages = with pkgs; [
+          cifs-utils
+        ];
 
-      fileSystems = listToAttrs (map (share:
-        nameValuePair "${cifs.mount_root}/${cifs.server}/${share}" {
-          device  = "//${cifs.server}/${share}";
-          fsType  = "cifs";
-          options = [
-            "credentials=${config.sops.secrets."${cifs.secret}".path}"
-            "uid=${toString config._.user_id}"
-            "gid=100"                       # users
-            "forceuid"                      # ignore the ownership sent by the server
-            "forcegid"                      # //
-            "nounix"                        # don't negotiate unix extensions, they override uid/gid/modes
-            "file_mode=0644"                # must change if its a group-writable share
-            "dir_mode=0755"                 # //
-            "vers=3.1.1"
-            "rsize=65536"                   # 65536 = 64KB, 32768 = 32KB, 1MB max SBM3 but without tailscale
-            "wsize=65536"
-            "iocharset=utf8"
-            "nofail"                        # never block boot when the share is unreachable
-            "_netdev"
-            "noauto"                        # mounted on first access, by the automount unit
-            "x-systemd.automount"
-            "x-systemd.idle-timeout=600"
-            "x-systemd.mount-timeout=10s"
-          ] ++ optionals config.sops.useSystemdActivation [
-            # only exists in systemd activation mode, otherwise secrets come from an activation script
-            "x-systemd.after=sops-install-secrets.service"
-            "x-systemd.requires=sops-install-secrets.service"
-          ] ++ optionals config.services.tailscale.enable [
-            "x-systemd.after=tailscaled.service"        # mount cifs after tailscale is ready
-          ];
-        }) cifs.shares);
-    };
+        assertions = [{
+          assertion = credentials != null;
+          message   = "cifs: no credentials, neither the clan vars generator cifs nor the sops secret ${cifs.secret}";
+        }];
+      }
+
+      (mkIf (credentials != null) {
+        fileSystems = listToAttrs (map (share:
+          nameValuePair "${cifs.mount_root}/${cifs.server}/${share}" {
+            device  = "//${cifs.server}/${share}";
+            fsType  = "cifs";
+            options = [
+              "credentials=${credentials}"
+              "uid=${toString config._.user_id}"
+              "gid=100"                       # users
+              "forceuid"                      # ignore the ownership sent by the server
+              "forcegid"                      # //
+              "nounix"                        # don't negotiate unix extensions, they override uid/gid/modes
+              "file_mode=0644"                # must change if its a group-writable share
+              "dir_mode=0755"                 # //
+              "vers=3.1.1"
+              "rsize=65536"                   # 65536 = 64KB, 32768 = 32KB, 1MB max SBM3 but without tailscale
+              "wsize=65536"
+              "iocharset=utf8"
+              "nofail"                        # never block boot when the share is unreachable
+              "_netdev"
+              "noauto"                        # mounted on first access, by the automount unit
+              "x-systemd.automount"
+              "x-systemd.idle-timeout=600"
+              "x-systemd.mount-timeout=10s"
+            ] ++ optionals (config.sops.useSystemdActivation or false) [
+              # clan vars also lands through sops-nix, so the same unit covers both sources
+              "x-systemd.after=sops-install-secrets.service"
+              "x-systemd.requires=sops-install-secrets.service"
+            ] ++ optionals config.services.tailscale.enable [
+              "x-systemd.after=tailscaled.service"        # mount cifs after tailscale is ready
+            ];
+          }) cifs.shares);
+      })
+    ]);
   };
 }
