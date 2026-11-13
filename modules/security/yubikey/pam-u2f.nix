@@ -28,6 +28,12 @@
       };
     };
 
+    # u2fAuth is redundant, security.pam.u2f.enable already applies to every service
+    # security.pam.services.login.u2fAuth    = true;
+    # security.pam.services.sudo.u2fAuth     = true;
+    # security.pam.services.swaylock.u2fAuth = true;
+    # security.pam.services.hyprlock.u2fAuth = true;
+
     assertions = optionals has-u2f-keys [{
       assertion = u2f-readable;
       message   = "u2f-keys is ${u2f-keys.group} ${u2f-keys.mode}, it must be group ${config._.sops-group} and group readable";
