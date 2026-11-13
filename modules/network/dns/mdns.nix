@@ -16,9 +16,9 @@
         enable       = true;
         nssmdns4     = true;
         openFirewall = true;    # udp 5353
-        publish      = {
-          enable    = true;
-          addresses = true;
+        settings.publish = {
+          disable-publishing = false;
+          publish-addresses  = true;
         };
       };
 
