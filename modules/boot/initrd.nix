@@ -13,8 +13,8 @@
         # must be commented because not used by systemd stage 1
         # fido2Support     = config._.yubikey; # add systemd‑cryptenroll's FIDO2 support into the initrd so the initramfs can unlock LUKS volumes using a FIDO2 device at boot
         # reusePassphrases = false;     # has no effect with systemd stage 1. useful for mounting a number of devices that use the same passphrase without retyping it several times
-        yubikeySupport     = false;     # OLD: to support the non‑FIDO2 YubiKey LUKS integration based on ykchalresp (challenge–response)
-        gpgSupport         = false;
+        # yubikeySupport   = false;     # OLD: to support the non‑FIDO2 YubiKey LUKS integration based on ykchalresp (challenge–response)
+        # gpgSupport       = false;     # both dropped from nixpkgs along with the scripted stage 1
 
         devices = lib.mkIf config._.disk.luks {
           "luks" = {
@@ -24,16 +24,19 @@
                                         # Use periodic TRIM instead: systemctl enable fstrim.timer
             bypassWorkqueues   = true;  # increase SSD performance
 
-            fido2 = {
-              passwordLess = true;      # Enable only when your device is PIN protected
-              gracePeriod  = 10;        # seconds to wait for the FIDO2 key
-              credentials  = [];        # multiple FIDO2 keys for the same luks device
-            };
+            # dropped from nixpkgs along with the scripted stage 1
+            # systemd stage 1 gets FIDO2 from boot.initrd.systemd.fido2.enable, defaulting to package.withFido2
+            # fido2 = {
+            #   passwordLess = true;    # Enable only when your device is PIN protected
+            #   gracePeriod  = 10;      # seconds to wait for the FIDO2 key
+            #   credentials  = [];      # multiple FIDO2 keys for the same luks device
+            # };
 
-            preOpenCommands    = "";    # commands that should be run right before we try to mount our LUKS device, useful, if the keys needed to open the drive is on another partition
-            postOpenCommands   = "";
+            # the three below are dropped from nixpkgs along with the scripted stage 1
+            # preOpenCommands  = "";    # commands that should be run right before we try to mount our LUKS device, useful, if the keys needed to open the drive is on another partition
+            # postOpenCommands = "";
+            # fallbackToPassword = false; # fallback to interactive passphrase prompt if the keyfile cannot be found, this prevent unattended boot should the keyfile go missing
             tryEmptyPassphrase = false; # if keyFile fails then try an empty passphrase first before prompting for password
-            fallbackToPassword = false; # fallback to interactive passphrase prompt if the keyfile cannot be found, this prevent unattended boot should the keyfile go missing
             # preLVM           = false; # luksOpen will be attempted before LVM scan, set this to false if you need to start a network service first
                                         # must be commented because not used by systemd stage 1
 
