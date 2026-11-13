@@ -76,7 +76,6 @@
       opencode
 
       # security
-      pam
       polkit
       ssh
       sshd
