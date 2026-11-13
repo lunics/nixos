@@ -2,9 +2,11 @@
   flake.aspects.tailscale = {
     nixos = { config, lib, pkgs, ... }:
     let
-      # /no-such-path is what clan returns for a generator declared but not yet imported
-      state  = config.clan.core.vars.generators.tailscaled-state.files.state.path or null;
-      seeded = state != null && state != "/no-such-path";
+      # clan returns /no-such-path for a generator declared but not yet imported, sops then takes over
+      clan-state = config.clan.core.vars.generators.tailscaled-state.files.state.path or null;
+      sops-state = config.sops.secrets."tailscaled-state".path or null;
+      state      = if clan-state != null && clan-state != "/no-such-path" then clan-state else sops-state;
+      seeded     = state != null;
     in {
       services.tailscale = {
         enable             = true;
