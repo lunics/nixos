@@ -1,11 +1,14 @@
 {
-  flake.aspects.pam.nixos = { config, lib, options, ... }: with lib;
+  flake.aspects.pam.nixos = { config, lib, ... }: with lib;
   let
-    has-u2f-keys = (options ? sops) && (config.sops.secrets ? "u2f-keys");
-    u2f-keys     = config.sops.secrets."u2f-keys";    # lazy, only forced when has-u2f-keys
+    # clan returns /no-such-path for a generator declared but not yet imported, sops then takes over
+    clan-keys    = config.clan.core.vars.generators.u2f-keys.files.keys or null;
+    sops-keys    = config.sops.secrets."u2f-keys" or null;
+    u2f-keys     = if clan-keys != null && clan-keys.path != "/no-such-path" then clan-keys else sops-keys;
+    has-u2f-keys = u2f-keys != null;
     u2f-authfile = if has-u2f-keys then u2f-keys.path else null;   # null makes pam_u2f fall back to $XDG_CONFIG_HOME/Yubico/u2f_keys
     # check if u2f-keys.mode = "0440"; or more. The lock screen reads the authfile unprivileged, a root only secret fails silently
-    u2f-readable = u2f-keys.group == config._.sops-group && elem (substring 2 1 u2f-keys.mode) [ "4" "5" "6" "7" ];
+    u2f-readable = has-u2f-keys && u2f-keys.group == config._.sops-group && elem (substring 2 1 u2f-keys.mode) [ "4" "5" "6" "7" ];
   in {
     security.pam = {
       u2f = {
@@ -39,7 +42,7 @@
 
     assertions = optionals has-u2f-keys [{
       assertion = u2f-readable;
-      message   = "sops: u2f-keys is ${u2f-keys.group} ${u2f-keys.mode}, it must be group ${config._.sops-group} and group readable";
+      message   = "u2f-keys is ${u2f-keys.group} ${u2f-keys.mode}, it must be group ${config._.sops-group} and group readable";
     }];
   };
 }
