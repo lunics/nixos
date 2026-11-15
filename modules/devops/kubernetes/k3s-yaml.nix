@@ -10,7 +10,7 @@
     # clan returns /no-such-path for a generator declared but not yet generated, sops then takes over
     cert-path = name:
       let
-        clan-path = args.osConfig.clan.core.vars.generators.kube-pki.files.${name}.path or null;
+        clan-path = args.osConfig.clan.core.vars.generators.kubernetes-pki.files.${name}.path or null;
         sops-path = config.sops.secrets."kube/${name}".path or null;
       in
         if clan-path != null && clan-path != "/no-such-path" then clan-path else sops-path;
