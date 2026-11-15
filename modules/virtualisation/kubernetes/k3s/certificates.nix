@@ -3,7 +3,6 @@
     ## installed before the first start, k3s then issues every leaf certificate from these cas
     certs = {
       "root-ca.crt"                 = "0644";
-      "intermediate-ca.key"         = "0600";
       "intermediate-ca.crt"         = "0644";
       "server-ca.key"               = "0600";
       "server-ca.crt"               = "0644";
