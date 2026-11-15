@@ -1,27 +1,30 @@
 {
-  flake.aspects.k3s.nixos = { config, options, lib, pkgs, ... }: with lib; let
-    kube-certs = [
-      "kube/tls.crt"
-      "kube/tls.key"
-    ];
-    has-kube-certs = (options ? sops) && (all (name: config.sops.secrets ? ${name}) kube-certs);
+  flake.aspects.k3s.nixos = { config, lib, pkgs, ... }: with lib; let
+    # clan returns /no-such-path for a generator declared but not yet generated, sops then takes over
+    resolve = gen: file: sops-name:
+      let
+        clan-path = config.clan.core.vars.generators.${gen}.files.${file}.path or null;
+        sops-path = config.sops.secrets.${sops-name}.path or null;
+      in
+        if clan-path != null && clan-path != "/no-such-path" then clan-path else sops-path;
 
-    # clan returns /no-such-path for a generator declared but not yet imported, sops then takes over
-    clan-admin     = config.clan.core.vars.generators.argo-cd-admin-password.files.password-hash.path or null;
-    sops-admin     = config.sops.secrets."argo-cd/admin-password".path or null;
-    admin-password = if clan-admin != null && clan-admin != "/no-such-path" then clan-admin else sops-admin;
+    admin-password = resolve "argo-cd-admin-password" "password-hash" "argo-cd/admin-password";
+    tls-key        = resolve "argo-cd-tls"            "tls.key"       "kube/tls.key";
+    tls-crt        = resolve "argo-cd-tls"            "tls.crt"       "kube/tls.crt";
 
-    ready = has-kube-certs && admin-password != null;
+    missing = optional (admin-password == null) "the admin password"
+           ++ optional (tls-key == null)        "tls.key"
+           ++ optional (tls-crt == null)        "tls.crt";
   in {
     config = mkIf (config._.k3s.enable) (mkMerge [
       {
         assertions = [{
-          assertion = ready;
-          message   = "argo-cd: missing secrets to complete Helm Chart installation";
+          assertion = missing == [];
+          message   = "argo-cd: missing ${concatStringsSep " " missing} to complete the Helm Chart installation";
         }];
       }
 
-      (mkIf ready {
+      (mkIf (missing == []) {
         systemd.services.argo-cd-secrets = {
           description = "Provision Argo CD certificate and admin password";
           wantedBy    = [ "multi-user.target" ];
@@ -48,8 +51,8 @@
               admin.password: "$(cat ${admin-password})"
               admin.passwordMtime: "2026-01-01T00:00:00Z"
             data:
-              tls.key: $(base64 -w0 ${config.sops.secrets."kube/tls.key".path})
-              tls.crt: $(base64 -w0 ${config.sops.secrets."kube/tls.crt".path})
+              tls.key: $(base64 -w0 ${tls-key})
+              tls.crt: $(base64 -w0 ${tls-crt})
             EOF
           '';
         };
