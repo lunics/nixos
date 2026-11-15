@@ -1,15 +1,23 @@
 {
   flake.aspects.k3s.nixos = { config, lib, pkgs, ... }: with lib; let
     ## installed before the first start, k3s then issues every leaf certificate from these cas
+    ## any ca left out would be regenerated self-signed by k3s, outside the chain of the kubernetes-pki generator
     certs = {
-      "root-ca.crt"                 = "0644";
-      "intermediate-ca.crt"         = "0644";
-      "server-ca.key"               = "0600";
-      "server-ca.crt"               = "0644";
-      "client-ca.key"               = "0600";
-      "client-ca.crt"               = "0644";
-      "client-admin-persistent.key" = "0600";
-      "client-admin-persistent.crt" = "0644";
+      "root-ca.crt"                 = { mode = "0644"; dest = "root-ca.crt"; };
+      "intermediate-ca.crt"         = { mode = "0644"; dest = "intermediate-ca.crt"; };
+      "server-ca.key"               = { mode = "0600"; dest = "server-ca.key"; };
+      "server-ca.crt"               = { mode = "0644"; dest = "server-ca.crt"; };
+      "client-ca.key"               = { mode = "0600"; dest = "client-ca.key"; };
+      "client-ca.crt"               = { mode = "0644"; dest = "client-ca.crt"; };
+      "request-header-ca.key"       = { mode = "0600"; dest = "request-header-ca.key"; };
+      "request-header-ca.crt"       = { mode = "0644"; dest = "request-header-ca.crt"; };
+      "etcd-server-ca.key"          = { mode = "0600"; dest = "etcd/server-ca.key"; };
+      "etcd-server-ca.crt"          = { mode = "0644"; dest = "etcd/server-ca.crt"; };
+      "etcd-peer-ca.key"            = { mode = "0600"; dest = "etcd/peer-ca.key"; };
+      "etcd-peer-ca.crt"            = { mode = "0644"; dest = "etcd/peer-ca.crt"; };
+      "service.key"                 = { mode = "0600"; dest = "service.key"; };
+      "client-admin-persistent.key" = { mode = "0600"; dest = "client-admin-persistent.key"; };
+      "client-admin-persistent.crt" = { mode = "0644"; dest = "client-admin-persistent.crt"; };
     };
 
     # clan returns /no-such-path for a generator declared but not yet generated, sops then takes over
@@ -36,10 +44,10 @@
         systemd.services.k3s = {
           path = with pkgs; [ openssl bash coreutils ];
           preStart = ''
-            mkdir -p ${tls-dir}
+            mkdir -p ${tls-dir}/etcd
 
             ${concatStringsSep "\n" (mapAttrsToList
-              (name: mode: "install -m ${mode} ${cert-path name} ${tls-dir}/${name}") certs)}
+              (name: cert: "install -m ${cert.mode} ${cert-path name} ${tls-dir}/${cert.dest}") certs)}
           '';
         };
       })
