@@ -1,7 +1,6 @@
 {
   flake.aspects.boot.nixos = { config, lib, ... }:{
     boot.initrd = {
-      systemd.enable = true;
       network.enable = false;
 
       availableKernelModules = ["xhci_pci" "thunderbolt" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
