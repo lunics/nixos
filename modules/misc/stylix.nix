@@ -4,14 +4,15 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.stylix.homeManager = { pkgs, ... }:{
+  flake.aspects.stylix.homeManager = { config, lib, pkgs, ... }:{
     imports = [ inputs.stylix.homeModules.stylix ];
 
     stylix = {
-      enable       = false;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-      # image      = ./wallpaper.png;
-      polarity     = "dark";    # light
+      enable          = false;
+      overlays.enable = lib.mkIf config.submoduleSupport.enable false;    # defaults to autoEnable, refused as a nixos submodule
+      base16Scheme    = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+      # image         = ./wallpaper.png;
+      polarity        = "dark";    # light
 
       fonts = {
         serif = {
