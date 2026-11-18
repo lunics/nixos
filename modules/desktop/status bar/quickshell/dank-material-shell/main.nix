@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.aspects.dms.homeManager = { config, pkgs, ... }:
+  flake.aspects.dms.homeManager = { config, ... }:
   let
     dms-is-locker = config._.lock-screen == "dms";
   in {
@@ -16,7 +16,6 @@
 
     programs.dank-material-shell = {
       enable = true;
-      quickshell.package = pkgs.quickshell;
 
       settings = {
         theme = "dynamic";       # purple (default), dynamic (based on wallpaper), blue, green, orange, red, cyan, pink, coral, amber
