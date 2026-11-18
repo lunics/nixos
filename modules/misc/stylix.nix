@@ -8,8 +8,9 @@
     imports = [ inputs.stylix.homeModules.stylix ];
 
     stylix = {
-      enable          = false;
-      overlays.enable = lib.mkIf config.submoduleSupport.enable false;    # defaults to autoEnable, refused as a nixos submodule
+      enable          = true;
+      # defaults to autoEnable, refused as a nixos submodule
+      overlays.enable = lib.mkIf config.submoduleSupport.enable false;
       base16Scheme    = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       # image         = ./wallpaper.png;
       polarity        = "dark";    # light
