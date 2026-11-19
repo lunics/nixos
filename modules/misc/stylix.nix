@@ -35,7 +35,11 @@
           name    = "Noto Color Emoji";
           package = pkgs.noto-fonts-emoji;
         };
+
+        sizes.terminal = 22;
       };
+
+      opacity.terminal = 0.7;
 
       cursor = {
         name    = "Bibata-Modern-Ice";
