@@ -4,7 +4,7 @@
       programs.alacritty = {
         enable       = true;
         package      = pkgs.alacritty;
-        settings     = builtins.fromTOML (builtins.readFile ./alacritty.toml);
+        settings     = lib.mapAttrsRecursive (_: lib.mkDefault) (builtins.fromTOML (builtins.readFile ./alacritty.toml));    # stylix keys win
         theme        = null;
         themePackage = pkgs.alacritty-theme;
 
