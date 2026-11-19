@@ -1,5 +1,5 @@
 {
-  flake.aspects.media.homeManager = { pkgs, ... }:{
+  flake.aspects.media.homeManager = { pkgs, lib, ... }:{
     xdg.configFile."spotify-player/app.toml".force = true;
 
     _.persistent-home.dirs = [ ".cache/spotify-player" ];    # login credentials live in the cache
@@ -16,7 +16,7 @@
         pause_icon = "▶";
         liked_icon = "♥";
         explicit_icon = "E";
-        theme = "dracula";
+        theme = lib.mkDefault "dracula";    # stylix overrides it when enabled
         client_id = "d420a117a32841c2b3474932e49fb54b";
         client_port = 8080;
         login_redirect_uri = "http://127.0.0.1:8989/login";
