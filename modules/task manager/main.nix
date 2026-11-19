@@ -5,7 +5,7 @@
         (lib.hiPrio taskwarrior3)     # hiPrio needed to avoid conflict with go-task/taskfile
         taskwarrior-tui
         timewarrior
-        taskopen          # script for taking notes and open urls with taskwarrior
+        # taskopen        ## marked broken in nixpkgs 2074cc6, re-enable once fixed    # script for taking notes and open urls with taskwarrior
         # syncall         ## KO    # bi-directional synchronization between services such as Taskwarrior, Google Calendar, Notion, etc...
         # taskquant py tool
       ];
