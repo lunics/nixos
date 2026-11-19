@@ -4,7 +4,7 @@
     inputs.nixpkgs.follows = "nixpkgs"; 
   };
 
-  flake.aspects.nix.homeManager = {
+  flake.aspects.nix.homeManager = { lib, ... }: {
     _.persistent-home.dirs = [ ".local/share/nix" ];    # trusted flake settings, repl history
 
     nix = {
@@ -39,7 +39,7 @@
       distributedBuilds = false;
       buildMachines = [];       # machines to be used if distributed builds
       registry = {};
-      package = null;
+      package = lib.mkDefault null;    # home-manager as a nixos submodule sets it to the system nix
     };
   };
 }
