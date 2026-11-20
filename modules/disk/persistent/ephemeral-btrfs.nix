@@ -11,6 +11,9 @@
       boot.initrd.supportedFilesystems.btrfs = true;
 
       # archive each subvolume and recreate it empty, before / is mounted
+      # journalctl -b -u ephemeral-btrfs        # current boot
+      # journalctl -b -1 -u ephemeral-btrfs     # previous boot
+      # journalctl -u ephemeral-btrfs           # all boots logs
       boot.initrd.systemd.services.ephemeral-btrfs = {
         description = "Archive the ephemeral subvolumes and recreate them empty";
         wantedBy    = [ "initrd.target" ];
