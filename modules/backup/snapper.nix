@@ -1,6 +1,7 @@
 {
-  flake.aspects.backup.nixos = {
+  flake.aspects.snapper.nixos = {
     services.snapper = {
+      enable = true;
       configs = {                                    # subvolume configuration
         # home = {
         #   SUBVOLUME               = "/home";       # subvolume or mount point, has to contain a subvolume named .snapshots

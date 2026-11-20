@@ -1,8 +1,8 @@
 {
-  flake.aspects.backup.nixos = { config, lib, ... }:{
+  flake.aspects.restic.nixos = { config, lib, ... }:{
     services.restic = {
       server = {
-        enable        = false;
+        enable        = true;
         listenAddress = "8000";
         # package     = pkgs.restic-rest-server;
         appendOnly    = false;       # allows creation of new backups but prevents deletion and modification of existing backups

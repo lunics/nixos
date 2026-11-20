@@ -1,7 +1,7 @@
 {
   flake.aspects.backup.nixos = {
     services.snapraid = {
-      enable = false;
+      enable = true;
       # dataDisks = {
       #   d1 = "/mnt/disk1/";
       #   d2 = "/mnt/disk2/";
