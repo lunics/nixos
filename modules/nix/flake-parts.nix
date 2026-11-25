@@ -9,10 +9,12 @@
 
   config.flake.lib =
   let
-    # generic options and vars host values, shared by the nixos and home-manager evals;
-    # resolved from the aspect, flake.modules.vars would stamp a _class nixos and home-manager refuse
+    # resolved from the aspect: flake.modules skips aspects made only of includes and stamps a _class
+    resolve = class: name: config.flake.aspects.${name}.resolve { inherit class; };
+
+    # generic options and vars host values, shared by the nixos and home-manager evals
     vars = name: {
-      imports = map (class: config.flake.aspects.${name}.resolve { inherit class; }) ["generic" "vars"];
+      imports = map (class: resolve class name) ["generic" "vars"];
     };
   in {
     inherit vars;
@@ -21,7 +23,7 @@
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           (vars name)
-          self.modules.nixos.${name}
+          (resolve "nixos" name)
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
 
@@ -37,7 +39,7 @@
     make_clan_nixos = system: names: lib.genAttrs names (name: {
       imports = [
         (vars name)
-        self.modules.nixos.${name}
+        (resolve "nixos" name)
       ];
 
       nixpkgs.hostPlatform = lib.mkDefault system;
@@ -54,7 +56,7 @@
     make_clan_nixos-hm = system: names: lib.genAttrs names (name: {
       imports = [
         (vars name)
-        self.modules.nixos.${name}
+        (resolve "nixos" name)
         inputs.home-manager.nixosModules.home-manager
       ];
 
@@ -84,7 +86,7 @@
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
           (vars "options")
-          self.modules.darwin.${name}
+          (resolve "darwin" name)
           { 
             nixpkgs.hostPlatform = lib.mkDefault system; 
           }
@@ -97,7 +99,7 @@
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           (vars name)
-          self.modules.nixos.${name}
+          (resolve "nixos" name)
           inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.hostPlatform = lib.mkDefault system;
@@ -128,7 +130,7 @@
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         modules = [
           (vars "options")
-          self.modules.homeManager.${user-at-host}
+          (resolve "homeManager" user-at-host)
           {
             home.username = username;
             home.homeDirectory = "/home/${username}";
@@ -144,7 +146,7 @@
         modules = [
           (vars name)
           # flake-parts stamps _class on every other modules class, and nixosSystem rejects it
-          self.modules.nixos.${name}
+          (resolve "nixos" name)
           { 
             nixpkgs.hostPlatform = lib.mkDefault system; 
           }
