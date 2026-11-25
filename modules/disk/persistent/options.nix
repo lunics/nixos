@@ -27,6 +27,10 @@
           type    = types.str;
           default = "/nix/persistent";  # preservation appends /home/<user> itself, one subvolume per user
         };
+        users = mkOption {              # users given a subvolume and a btrbk snapshot, null: every normal user
+          type    = types.nullOr (types.listOf types.str);
+          default = null;
+        };
         ephemeral-btrfs = mkOption {    # archive the home subvolume and recreate it empty at every boot
           type    = types.bool;
           default = true;
