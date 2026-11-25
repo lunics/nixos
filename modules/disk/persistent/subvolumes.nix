@@ -8,18 +8,14 @@
   in {
     # runs on every switch and boot, before the preservation mounts, so a new user needs no manual step
     system.activationScripts.persistent-subvolumes.text = ''
-      if ${pkgs.util-linux}/bin/mountpoint -q ${_.persistent-home.dest}; then
-        echo "persistent-subvolumes: ${_.persistent-home.dest} is still a mount, migrate it first" >&2
-      else
-        for path in ${concatStringsSep " " paths}; do
-          if [ ! -e $path ]; then
-            mkdir -p $(dirname $path)
-            ${btrfs} subvolume create $path
-          elif ! ${btrfs} subvolume show $path > /dev/null 2>&1; then
-            echo "persistent-subvolumes: $path is a plain directory, not a subvolume" >&2
-          fi
-        done
-      fi
+      for path in ${concatStringsSep " " paths}; do
+        if [ ! -e $path ]; then
+          mkdir -p $(dirname $path)
+          ${btrfs} subvolume create $path
+        elif ! ${btrfs} subvolume show $path > /dev/null 2>&1; then
+          echo "persistent-subvolumes: $path is a plain directory, not a subvolume" >&2
+        fi
+      done
     '';
   };
 }
