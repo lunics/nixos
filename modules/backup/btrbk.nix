@@ -35,7 +35,7 @@
       # };
       instances."persistent" = {              # service btrbk-persistent, /home is ephemeral and not worth a backup
         onCalendar   = null;                  # no timer, run with: systemctl start btrbk-persistent
-        snapshotOnly = true;                  # no backup target yet
+        snapshotOnly = config._.btrbk.target == null;
         settings = {
           backend               = "btrfs-progs";  # btrfs called directly, the sudo wrapper is wheel-only
           snapshot_preserve_min = "2d";
@@ -43,6 +43,8 @@
           volume."/" = {
             snapshot_dir = "mnt/snapshots/btrbk";   # relative to the volume, same btrfs filesystem as /nix
             subvolume    = lib.genAttrs subvolumes (name: {});   # system + one per user, snapshots named after the basename
+          } // lib.optionalAttrs (config._.btrbk.target != null) {
+            target       = config._.btrbk.target;              # every backup kept, btrbk's target_preserve_min defaults to all
           };
         };
       };
