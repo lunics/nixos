@@ -1,7 +1,28 @@
 {
-  flake.aspects.btrbk.nixos = { config, lib, ... }:
+  flake.aspects.btrbk.nixos = { config, lib, pkgs, ... }:
   let
     subvolumes = map (lib.removePrefix "/") config._.persistent-subvolumes;   # relative to the "/" volume
+    target     = config._.btrbk.target;
+
+    # an unmounted disk resolves to / or /nix: back up only to another mounted btrfs, else keep the local snapshots
+    run-or-snapshot = pkgs.writeShellApplication {
+      name          = "btrbk-persistent";
+      runtimeInputs = [ pkgs.btrbk pkgs.coreutils pkgs.util-linux ];
+      text = ''
+        target=${lib.escapeShellArg (toString target)}
+        existing=$target
+        while [ ! -e "$existing" ]; do existing=$(dirname "$existing"); done
+
+        if [ "$(findmnt -no FSTYPE -T "$existing")" = btrfs ] \
+           && [ "$(findmnt -no UUID -T "$existing")" != "$(findmnt -no UUID -T /nix)" ]; then
+          mkdir -p "$target"
+          exec btrbk -c /etc/btrbk/persistent.conf run
+        fi
+
+        echo "backup disk not mounted, $target resolves to $(findmnt -no TARGET -T "$existing"): local snapshots only" >&2
+        exec btrbk -c /etc/btrbk/persistent.conf snapshot --preserve-snapshots   # keeps the parent of the next incremental send
+      '';
+    };
   in {
     services.btrbk = {
       # sshAccess = { # SSH keys that should be able to make or push snapshots on this system remotely
@@ -53,6 +74,8 @@
     systemd.services.btrbk-persistent.serviceConfig = {   # root is required by the btrfs-progs backend
       User  = lib.mkForce "root";
       Group = lib.mkForce "root";
+    } // lib.optionalAttrs (target != null) {
+      ExecStart = lib.mkForce (lib.getExe run-or-snapshot);
     };
     systemd.tmpfiles.rules = ["d /mnt/snapshots/btrbk 0755 root root -"];  # snapshot_dir must exist before the first run
   };
