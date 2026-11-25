@@ -1,5 +1,5 @@
 {
-  flake.aspects.btrbk.nixos = {
+  flake.aspects.btrbk.nixos = { lib, ... }:{
     services.btrbk = {
       # sshAccess = { # SSH keys that should be able to make or push snapshots on this system remotely
       #   key
@@ -34,6 +34,7 @@
         onCalendar   = null;                  # no timer, run with: systemctl start btrbk-home
         snapshotOnly = true;                  # no backup target yet
         settings = {
+          backend               = "btrfs-progs";  # btrfs called directly, the sudo wrapper is wheel-only
           snapshot_preserve_min = "2d";
           snapshot_preserve     = "14d";
           volume."/" = {
@@ -43,6 +44,10 @@
         };
       };
       extraPackages = [];
+    };
+    systemd.services.btrbk-home.serviceConfig = {   # root is required by the btrfs-progs backend
+      User  = lib.mkForce "root";
+      Group = lib.mkForce "root";
     };
     systemd.tmpfiles.rules = ["d /mnt/snapshots/btrbk 0755 root root -"];  # snapshot_dir must exist before the first run
   };
