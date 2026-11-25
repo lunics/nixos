@@ -28,7 +28,7 @@
           cutoff=$(date -d "-${toString keep-days} days" +%s)
 
           for subvol in ${concatStringsSep " " subvolumes}; do
-            archives=/btrfs/snapshots/old-roots/$subvol
+            archives=/btrfs/snapshots/$subvol
             mkdir -p $archives
 
             # a read-only snapshot is frozen for the post-mortem and btrfs send, unlike mv it never falls back to a copy
