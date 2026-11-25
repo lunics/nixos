@@ -1,7 +1,7 @@
 {
   flake.aspects.persistent.nixos = { config, ... }:{
-    # merged into the btrfs layout by the disk aspect
-    _.disk.subvolumes."/persistent".mountpoint = config._.persistent-system.dest;
+    # nested in the /nix subvolume, reachable without a mount since /nix is mounted in the initrd
+    _.disk.subvolumes.${config._.persistent-system.dest} = {};
 
     # /var/log and /mnt/snapshots are btrfs subvolumes of their own, they must not be bind mounted over
     _.persistent-system = {
