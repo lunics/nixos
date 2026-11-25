@@ -2,7 +2,9 @@
   flake.aspects.btrbk.nixos = { config, lib, ... }:
   let
     _          = config._;
-    users      = lib.filter (user: user.isNormalUser) (lib.attrValues config.users.users);
+    users      = if _.persistent-home.users != null
+                 then map (name: config.users.users.${name}) _.persistent-home.users
+                 else lib.filter (user: user.isNormalUser) (lib.attrValues config.users.users);
     subvolumes = map (lib.removePrefix "/")                 # relative to the "/" volume
       ([ _.persistent-system.dest ] ++ map (user: "${_.persistent-home.dest}${user.home}") users);
   in {
