@@ -4,7 +4,7 @@
       persistent-system = {
         dest = mkOption {
           type    = types.str;
-          default = "/nix/persistent";
+          default = "/nix/persistent/system";   # a subvolume of its own, backed up apart from the users
         };
         ephemeral-btrfs = mkOption {  # archive the root subvolume and recreate it empty at every boot
           type    = types.bool;
@@ -25,7 +25,7 @@
       persistent-home = {
         dest = mkOption {
           type    = types.str;
-          default = "/nix/persistent";  # preservation appends /home/<user> itself
+          default = "/nix/persistent";  # preservation appends /home/<user> itself, one subvolume per user
         };
         ephemeral-btrfs = mkOption {    # archive the home subvolume and recreate it empty at every boot
           type    = types.bool;
