@@ -1,7 +1,6 @@
 {
   flake.aspects.btrbk.nixos = {
     services.btrbk = {
-      enable = true;
       # sshAccess = { # SSH keys that should be able to make or push snapshots on this system remotely
       #   key
       #   roles
