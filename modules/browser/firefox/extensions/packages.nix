@@ -25,7 +25,7 @@
       consent-o-matic
       skip-redirect
       adnauseam
-      auto-tab-discard
+      # auto-tab-discard            ## build KO
       behave
       darkreader
       gesturefy
