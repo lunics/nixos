@@ -46,6 +46,11 @@
           apply   = unique;
         };
       };
+
+      persistent-subvolumes = mkOption {   # system + covered users, absolute paths, set by the persistent aspect, read by btrbk and the restore
+        type     = types.listOf types.str;
+        readOnly = true;
+      };
     };
   };
 }
