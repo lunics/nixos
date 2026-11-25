@@ -3,7 +3,9 @@
   let
     _     = config._;
     btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
-    users = filter (user: user.isNormalUser) (attrValues config.users.users);
+    users = if _.persistent-home.users != null
+            then map (name: config.users.users.${name}) _.persistent-home.users
+            else filter (user: user.isNormalUser) (attrValues config.users.users);
     paths = [ _.persistent-system.dest ] ++ map (user: "${_.persistent-home.dest}${user.home}") users;
   in {
     # runs on every switch and boot, before the preservation mounts, so a new user needs no manual step
