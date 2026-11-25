@@ -4,10 +4,8 @@
   # kept as a reference, persistent relies on preservation
   flake.aspects.impermanence = {
     # the nixos module stays mandatory: it injects the home-manager one and owns the bind mounts
-    nixos = { config, ... }:{
+    nixos = {
       imports = [ inputs.impermanence.nixosModules.impermanence ];
-
-      fileSystems."${config._.persistent-system.dest}".neededForBoot = true;
     };
 
     homeManager = { config, ... }:{

@@ -12,8 +12,6 @@
       };
     };
 
-    fileSystems."${config._.persistent-system.dest}".neededForBoot = true;
-
     systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
   };
 }
