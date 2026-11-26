@@ -21,7 +21,7 @@
 
         for request in /btrfs/snapshots/restore/*; do
           [ -e "$request" ] || continue
-          read subvol snapshot < "$request"
+          read -r subvol snapshot < "$request" || true             # no trailing newline makes read fail, fatal under bash -e
           source=/btrfs/snapshots/btrbk/$snapshot
 
           if [ -d "$source" ] && [ -n "$subvol" ]; then
