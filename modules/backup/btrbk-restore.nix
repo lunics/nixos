@@ -72,7 +72,8 @@
           if ($target | is-empty) {
             say "_.btrbk.target is not set, only the local snapshots are used"
           } else if not $mounted {
-            say $"backup disk not mounted, ($target) skipped: only the local snapshots are used"
+            say $"Backup disk not mounted: ($target)"
+            say "Only the local snapshots are used"
           } else {
             mkdir $target                # btrbk never creates it
             sync $target $local $name    # snapshots already pruned locally
@@ -87,7 +88,9 @@
 
           mkdir $requests
           $"($subvolumes | get $name) ($chosen)" | save -f $"($requests)/($name)"
+          print ""
           say $"($subvolumes | get $name) will be replaced by ($chosen) at the next boot"
+          print ""
 
           if (input "reboot now? [y/N] " | str lowercase) != "y" { return }
 
