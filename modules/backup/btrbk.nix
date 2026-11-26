@@ -16,11 +16,11 @@
         if [ "$(findmnt -no FSTYPE -T "$existing")" = btrfs ] \
            && [ "$(findmnt -no UUID -T "$existing")" != "$(findmnt -no UUID -T /nix)" ]; then
           mkdir -p "$target"
-          exec btrbk -c /etc/btrbk/persistent.conf run
+          exec btrbk -v -c /etc/btrbk/persistent.conf run
         fi
 
         echo "backup disk not mounted, $target resolves to $(findmnt -no TARGET -T "$existing"): local snapshots only" >&2
-        exec btrbk -c /etc/btrbk/persistent.conf snapshot --preserve-snapshots   # keeps the parent of the next incremental send
+        exec btrbk -v -c /etc/btrbk/persistent.conf snapshot --preserve-snapshots   # keeps the parent of the next incremental send
       '';
     };
   in {
