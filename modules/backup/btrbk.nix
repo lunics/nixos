@@ -71,6 +71,7 @@
       };
       extraPackages = [];
     };
+    systemd.services.btrbk-persistent.description = lib.mkForce "Snapshot the persistent subvolumes and send them to the backup disk";
     systemd.services.btrbk-persistent.serviceConfig = {   # root is required by the btrfs-progs backend
       User  = lib.mkForce "root";
       Group = lib.mkForce "root";
