@@ -11,7 +11,7 @@
     environment.systemPackages = [
       (pkgs.writers.writeNuBin "persistent-restore" {
         makeWrapperArgs = [
-          "--prefix" "PATH" ":" "${lib.makeBinPath [ pkgs.btrfs-progs pkgs.systemd ]}"
+          "--prefix" "PATH" ":" "${lib.makeBinPath [ pkgs.btrfs-progs pkgs.systemd pkgs.util-linux pkgs.coreutils ]}"
         ];
       } ''
         const local    = "/mnt/snapshots/btrbk"     # btrbk snapshot_dir
@@ -72,7 +72,26 @@
           $"($subvolumes | get $name) ($chosen)" | save -f $"($requests)/($name)"
           print $"($subvolumes | get $name) will be replaced by ($chosen) at the next boot"
 
-          if (input "reboot now? [y/N] " | str lowercase) == "y" { systemctl reboot }
+          if (input "reboot now? [y/N] " | str lowercase) != "y" { return }
+
+          # the backup disk is unmounted cleanly, the system disk resolves to the same uuid as /nix
+          if not ($target | is-empty) and ($target | path exists) {
+            if (findmnt -no UUID -T $target) != (findmnt -no UUID -T /nix) {
+              let mount = (findmnt -no TARGET -T $target | str trim)
+              ^sync
+              ^umount $mount
+              print $"($mount) unmounted"
+            }
+          }
+
+          # like the reboot alias, the user saves its session first, a failure aborts the reboot
+          let user = ($env.SUDO_USER? | default "")
+          if not ($user | is-empty) {
+            let uid = (id -u $user | str trim)
+            runuser -l $user -c $"XDG_RUNTIME_DIR=/run/user/($uid) save_env"
+          }
+
+          systemctl reboot
         }
       '')
     ];
