@@ -23,6 +23,15 @@
           sleep 2sec
         }
 
+        # same check as btrbk-persistent: an unmounted disk resolves to / or /nix, a mounted one to another btrfs
+        def backup-mounted [target: string] {
+          if ($target | is-empty) { return false }
+          mut existing = $target
+          while not ($existing | path exists) { $existing = ($existing | path dirname) }
+          let fstype = (findmnt -no FSTYPE -T $existing | str trim)
+          $fstype == "btrfs" and (findmnt -no UUID -T $existing | str trim) != (findmnt -no UUID -T /nix | str trim)
+        }
+
         # sorted names of the snapshots of one subvolume, oldest first
         def snapshots [dir: string, name: string] {
           if not ($dir | path exists) { return [] }
@@ -59,11 +68,13 @@
             error make --unspanned { msg: $"unknown subvolume '($name)': expected one of ($subvolumes | columns | str join ', ')" }
           }
 
+          let mounted = (backup-mounted $target)
           if ($target | is-empty) {
             say "_.btrbk.target is not set, only the local snapshots are used"
-          } else if not ($target | path exists) {
-            error make --unspanned { msg: $"backup target ($target) not found, is the disk mounted?" }
+          } else if not $mounted {
+            say $"backup disk not mounted, ($target) skipped: only the local snapshots are used"
           } else {
+            mkdir $target                # btrbk never creates it
             sync $target $local $name    # snapshots already pruned locally
             sync $local $target $name    # snapshots not backed up yet
           }
@@ -80,14 +91,12 @@
 
           if (input "reboot now? [y/N] " | str lowercase) != "y" { return }
 
-          # the backup disk is unmounted cleanly, the system disk resolves to the same uuid as /nix
-          if not ($target | is-empty) and ($target | path exists) {
-            if (findmnt -no UUID -T $target) != (findmnt -no UUID -T /nix) {
-              let mount = (findmnt -no TARGET -T $target | str trim)
-              ^sync
-              ^umount $mount
-              say $"($mount) unmounted"
-            }
+          # the backup disk is unmounted cleanly before the reboot
+          if $mounted {
+            let mount = (findmnt -no TARGET -T $target | str trim)
+            ^sync
+            ^umount $mount
+            say $"($mount) unmounted"
           }
 
           # like the reboot alias, the user saves its session first, a failure aborts the reboot
