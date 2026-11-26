@@ -17,6 +17,12 @@
         const local    = "/mnt/snapshots/btrbk"     # btrbk snapshot_dir
         const requests = "/mnt/snapshots/restore"   # read by the persistent-restore initrd service
 
+        # leaves time to read each step before the next one, the last ones before the reboot
+        def say [message: string] {
+          print $message
+          sleep 2sec
+        }
+
         # sorted names of the snapshots of one subvolume, oldest first
         def snapshots [dir: string, name: string] {
           if not ($dir | path exists) { return [] }
@@ -31,7 +37,7 @@
             if $snap in $present { continue }
 
             let parents = ($present | where {|p| $p < $snap and ($"($from)/($p)" | path exists) })
-            print $"($from)/($snap) -> ($to)"
+            say $"($from)/($snap) -> ($to)"
             if ($parents | is-empty) {
               btrfs send $"($from)/($snap)" | btrfs receive $to
             } else {
@@ -54,7 +60,7 @@
           }
 
           if ($target | is-empty) {
-            print "_.btrbk.target is not set, only the local snapshots are used"
+            say "_.btrbk.target is not set, only the local snapshots are used"
           } else if not ($target | path exists) {
             error make --unspanned { msg: $"backup target ($target) not found, is the disk mounted?" }
           } else {
@@ -70,7 +76,7 @@
 
           mkdir $requests
           $"($subvolumes | get $name) ($chosen)" | save -f $"($requests)/($name)"
-          print $"($subvolumes | get $name) will be replaced by ($chosen) at the next boot"
+          say $"($subvolumes | get $name) will be replaced by ($chosen) at the next boot"
 
           if (input "reboot now? [y/N] " | str lowercase) != "y" { return }
 
@@ -80,7 +86,7 @@
               let mount = (findmnt -no TARGET -T $target | str trim)
               ^sync
               ^umount $mount
-              print $"($mount) unmounted"
+              say $"($mount) unmounted"
             }
           }
 
@@ -89,6 +95,7 @@
           if not ($user | is-empty) {
             let uid = (id -u $user | str trim)
             runuser -l $user -c $"XDG_RUNTIME_DIR=/run/user/($uid) save_env"
+            sleep 2sec                   # save_env prints its own messages
           }
 
           systemctl reboot
