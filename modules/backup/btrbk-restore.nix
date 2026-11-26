@@ -11,7 +11,7 @@
     environment.systemPackages = [
       (pkgs.writers.writeNuBin "persistent-restore" {
         makeWrapperArgs = [
-          "--prefix" "PATH" ":" "${lib.makeBinPath [ pkgs.btrfs-progs pkgs.systemd pkgs.util-linux pkgs.coreutils ]}"
+          "--prefix" "PATH" ":" "${lib.makeBinPath [ pkgs.btrfs-progs pkgs.systemd pkgs.util-linux pkgs.coreutils pkgs.getent ]}"
         ];
       } ''
         const local    = "/mnt/snapshots/btrbk"     # btrbk snapshot_dir
@@ -93,9 +93,21 @@
           # like the reboot alias, the user saves its session first, a failure aborts the reboot
           let user = ($env.SUDO_USER? | default "")
           if not ($user | is-empty) {
-            let uid = (id -u $user | str trim)
-            runuser -l $user -c $"XDG_RUNTIME_DIR=/run/user/($uid) save_env"
-            sleep 2sec                   # save_env prints its own messages
+            let uid  = (id -u $user | str trim)
+            let home = (getent passwd $user | str trim | split row ":" | get 5)
+            # a login bash misses the home-manager profiles, integrated or standalone
+            let found = ([
+              $"/etc/profiles/per-user/($user)/bin/save_env"
+              $"($home)/.local/state/nix/profiles/home-manager/home-path/bin/save_env"
+              $"($home)/.nix-profile/bin/save_env"
+            ] | where {|path| $path | path exists })
+
+            if ($found | is-empty) {
+              say $"save_env not found for ($user), its session is not saved"
+            } else {
+              runuser -l $user -c $"XDG_RUNTIME_DIR=/run/user/($uid) ($found | first)"
+              sleep 2sec                 # save_env prints its own messages
+            }
           }
 
           systemctl reboot
