@@ -19,6 +19,7 @@
         mkdir -p /btrfs
         mount -t btrfs -o subvolid=5 ${device} /btrfs
 
+        restored=0
         for request in /btrfs/snapshots/restore/*; do
           [ -e "$request" ] || continue
           read -r subvol snapshot < "$request" || true             # no trailing newline makes read fail, fatal under bash -e
@@ -26,16 +27,19 @@
 
           if [ -d "$source" ] && [ -n "$subvol" ]; then
             # the current state is kept next to it for a rollback, deleted by hand once the restore is checked
+            old="$subvol.old-$(date +%Y%m%dT%H%M%S)"
             if [ -e "/btrfs/$subvol" ]; then
-              mv "/btrfs/$subvol" "/btrfs/$subvol.old-$(date +%Y%m%dT%H%M%S)"
+              mv "/btrfs/$subvol" "/btrfs/$old"
             fi
             btrfs subvolume snapshot "$source" "/btrfs/$subvol"   # writable, the received snapshot stays a parent for btrbk
-            echo "restored /$subvol from $snapshot"
+            echo "restored /$subvol from $snapshot, previous state kept in /$old"
+            restored=$((restored + 1))
           else
             echo "skipped $request: no snapshot $source" >&2
           fi
           rm "$request"                                           # applied once, never again at the next boot
         done
+        [ "$restored" -gt 0 ] || echo "no snapshot restored"
 
         umount /btrfs
       '';
