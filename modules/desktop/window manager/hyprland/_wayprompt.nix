@@ -1,3 +1,4 @@
+# module removed from nixpkgs, upstream project unmaintained and failed to build
 {
   flake.aspects.hyprland.homeManager = { pkgs, ... }:{
     ## dynamc input & bind
