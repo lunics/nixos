@@ -29,6 +29,10 @@
         type    = types.str;
         default = config.xdg.dataHome;
       };
+      ext_share = mkOption {      # external share, eg. a network mount, empty when unused
+        type    = types.str;
+        default = "";
+      };
       downloads = mkOption {
         type    = types.str;
         default = "${config._.home}/downloads";
