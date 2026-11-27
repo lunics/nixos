@@ -20,8 +20,9 @@
         # authKeyFile      = config.age.secrets.tailscaleAuthKey.path;
       };
       # seed the node identity on first boot only, tailscaled owns the file afterwards
+      # a blank state (prompt left empty) means a fresh node, logged in with tailscale up
       systemd.services.tailscaled.preStart = lib.optionalString seeded ''
-        if [ ! -e /var/lib/tailscale/tailscaled.state ]; then
+        if [ ! -e /var/lib/tailscale/tailscaled.state ] && grep -q '[^[:space:]]' ${state}; then
           install -m 0600 -o root -g root ${state} /var/lib/tailscale/tailscaled.state
         fi
       '';
